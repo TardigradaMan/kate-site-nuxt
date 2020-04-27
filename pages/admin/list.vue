@@ -16,55 +16,48 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="app in applications" :key="app._id">
-            <td>{{ app.date | date }}</td>
-            <td>{{ app.name }}</td>
-            <td>{{ app.phone }}</td>
-            <td>{{ app.email }}</td>
-            <td>{{ app.method }}</td>
-            <td>
-              <a v-if="app.urlAdd" :href="app.urlAdd">Ссылка</a>
-              <p v-else>Ничего нет</p>
-            </td>
-            <td>
-              <a v-if="app.urlSocial" :href="app.urlSocial">Ссылка</a>
-              <p v-else>Ничего нет</p>
-            </td>
-            <td class="table__column--button">
-              <button
-                @click="showModal = true"
-                class="table__button table__button--mark"
-              >
-                О</button
-              ><button
-                @click="remove(app._id)"
-                class="table__button table__button--del"
-              >
-                У
-              </button>
-            </td>
-          </tr>
+          <app-item
+            v-for="app in applications"
+            :key="app._id"
+            :app="app"
+            @confirmDelete="confirmDelete(app)"
+            class="table__item"
+          ></app-item>
         </tbody>
       </table>
     </div>
     <div v-else>Заявок нет</div>
-    <app-modal v-if="showModal" @close="showModal = false">
-      <h1 slot="header">Заголовок модального окна</h1>
+    <app-modal
+      :app="selectedApp"
+      v-if="confirmModal"
+      @cancel="cancelDelete"
+      @confirm="deleteApp(selectedApp._id)"
+    >
+      <template v-slot:header>
+        <h3>Вы точно хотить удалить заявку?!</h3>
+      </template>
+      <template v-slot:body="appUser">
+        <p>Клиент: {{ appUser.app.name }}</p>
+      </template>
+      <template v-slot:footer></template>
     </app-modal>
   </div>
 </template>
 
 <script>
 import AppModal from '@/components/admin/modal'
+import AppItem from '@/components/admin/app-item'
 export default {
   layout: 'admin',
   components: {
-    AppModal
+    AppModal,
+    AppItem
   },
 
   data() {
     return {
-      showModal: false
+      confirmModal: false,
+      selectedApp: null
     }
   },
   middleware: ['auth-admin'],
@@ -75,8 +68,21 @@ export default {
     return { applications }
   },
   methods: {
-    async remove(id) {
+    confirmDelete(app) {
+      this.selectedApp = app
+      this.confirmModal = true
+    },
+    cancelDelete() {
+      this.confirmModal = false
+      this.selectedApp = null
+    },
+    async deleteApp(id) {
       try {
+        await console.log('Зашел в методы')
+
+        console.log('Из deleteApp значение id :', id)
+        this.confirmModal = false
+
         await this.$store.dispatch('applications/remove', id)
         this.applications = this.applications.filter(a => a._id !== id)
       } catch (e) {}
@@ -148,6 +154,10 @@ tbody td {
   text-align: center;
 }
 
+.table__item {
+  text-align: center;
+}
+
 thead {
   // background-color: $bg-color;
   color: white;
@@ -166,22 +176,9 @@ a {
   text-decoration: none;
   color: #4e59d3;
 }
-// .table__column--button {
-//   display: flex;
-//   flex-flow: column wrap;
-// }
 
-.table__button {
-  width: 24px;
-  height: 24px;
-  border-radius: 12px;
-  margin: 5px;
-  border: none;
-}
-.table__button--mark {
-  background-color: rgb(96, 241, 59);
-}
-.table__button--del {
-  background-color: rgb(245, 48, 48);
+.modal__header h3 {
+  margin: 0;
+  padding: 0;
 }
 </style>

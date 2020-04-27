@@ -1,22 +1,29 @@
 <template>
   <transition name="modal">
-    <div class="modal-mask">
-      <div class="modal-wrapper">
-        <div class="modal-container">
-          <div class="modal-header">
+    <div class="modal__mask">
+      <div class="modal__wrapper">
+        <div class="modal__container">
+          <div class="modal__header">
             <slot name="header"> </slot>
           </div>
 
-          <div class="modal-body">
-            <slot name="body">
-              <h1>Модал</h1>
-            </slot>
+          <div class="modal__body">
+            <slot :app="app" name="body"><h3></h3></slot>
           </div>
 
-          <div class="modal-footer">
+          <div class="modal__footer">
             <slot name="footer">
-              <button @click="$emit('close')" class="modal-default-button">
-                Закрыть
+              <button
+                @click="onConfirm"
+                class="modal__button modal__button--confirm"
+              >
+                ДА
+              </button>
+              <button
+                @click="onCancel"
+                class="modal__button modal__button--cancel"
+              >
+                НЕТ
               </button>
             </slot>
           </div>
@@ -28,25 +35,25 @@
 
 <script>
 export default {
-  props: { showModal: Boolean },
+  // eslint-disable-next-line vue/require-prop-types
+  props: ['app'],
   data() {
     return {}
   },
 
   methods: {
-    // async onSubmit() {
-    //   try {
-    //     this.$emit('close')
-    //   } catch (e) {
-    //     console.error(e)
-    //   }
-    // }
+    onConfirm() {
+      this.$emit('confirm')
+    },
+    onCancel() {
+      this.$emit('cancel')
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.modal-mask {
+.modal__mask {
   position: fixed;
   z-index: 9998;
   top: 0;
@@ -58,33 +65,42 @@ export default {
   transition: opacity 0.3s ease;
 }
 
-.modal-wrapper {
+.modal__wrapper {
   display: table-cell;
   vertical-align: middle;
 }
 
-.modal-container {
+.modal__container {
   width: 300px;
   margin: 0px auto;
-  padding: 20px 30px;
-  background-color: rgb(131, 129, 129);
+  padding: 20px 20px;
+  text-align: center;
+  background-color: rgb(66, 66, 66);
   border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.507);
   transition: all 0.3s ease;
-  font-family: Helvetica, Arial, sans-serif;
 }
 
-.modal-header h3 {
-  margin-top: 0;
-  color: #42b983;
-}
-
-.modal-body {
+.modal__body {
   margin: 20px 0;
 }
 
-.modal-default-button {
-  float: right;
+.modal__button {
+  width: 50px;
+  height: 20px;
+  border-radius: 10px;
+  border: none;
+  margin-left: 15px;
+  margin-right: 15px;
+
+  color: white;
+}
+
+.modal__button--confirm {
+  background-color: rgb(218, 60, 60);
+}
+.modal__button--cancel {
+  background-color: rgb(53, 219, 89);
 }
 
 /*
@@ -96,7 +112,7 @@ export default {
  * these styles.
  */
 
-.modal-enter {
+.modal__enter {
   opacity: 0;
 }
 

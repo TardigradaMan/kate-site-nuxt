@@ -12,7 +12,7 @@
       </label>
     </div>
 
-    <button type="primary" native-type="submit" round>
+    <button class="button" type="submit">
       Создать
     </button>
   </form>
@@ -50,7 +50,38 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-form {
-  width: 600px;
+.login {
+  width: 25em;
+  background-color: $bg-widget;
+  border-radius: 5px;
+  box-shadow: $shadow;
+
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 100px;
+  padding: 20px 15px 20px 15px;
+}
+.login__header > h2 {
+  margin: 0;
+  padding-bottom: 40px;
+}
+
+label > input {
+  min-width: 25em;
+  height: 50px;
+  padding-left: 8px;
+  margin-bottom: 40px;
+  border-radius: 5px;
+  border: 0;
+
+  font-size: 14px;
+  line-height: 22px;
+  &:focus,
+  :hover {
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 5px;
+    background-image: linear-gradient(180deg, #6fcf97 0%, #02fdb2 186.42%);
+  }
 }
 </style>

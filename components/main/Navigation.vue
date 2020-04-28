@@ -1,7 +1,5 @@
 <template>
   <nav class="main-nav">
-    <!-- <ul ref="nav" :class="showMenu ? 'open' : 'hidden'" class="main-nav__list"> -->
-    <!-- <ul ref="nav" class="main-nav__list"> -->
     <ul ref="nav" v-show="showMenu" class="main-nav__list">
       <li class="main-nav__item">
         <nuxt-link active-class="active" class="main-nav__link" to="/"
@@ -107,8 +105,6 @@ export default {
       const svg = this.$refs.svg.classList
       const svgClose = this.$refs.svgClose.classList
 
-      // this.showMenu = !this.showMenu
-
       nav.contains('open') ? nav.remove('open') : nav.add('open')
 
       svg.contains('main-nav__toggle--open')
@@ -126,7 +122,6 @@ export default {
 <style lang="scss" scoped>
 .main-nav {
   margin: 0 auto;
-  // position: relative;
 }
 
 .main-nav__list {
@@ -170,12 +165,6 @@ export default {
   background-size: 100% 2px;
   background-image: linear-gradient(90deg, #f27a54 0%, #a154f2 186.42%);
 }
-// .main-nav__item--active {
-//   background-repeat: no-repeat;
-//   background-position: center bottom 1px;
-//   background-size: 100% 2px;
-//   background-image: linear-gradient(90deg, #f27a54 0%, #a154f2 186.42%);
-// }
 
 .main-nav__toggle {
   display: none;

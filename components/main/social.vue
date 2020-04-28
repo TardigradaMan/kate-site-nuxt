@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="social">
-      <h1>Соц группы</h1>
+      <h1>Соц группы компонент</h1>
     </section>
   </div>
 </template>

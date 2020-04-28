@@ -1,29 +1,40 @@
 <template>
   <div class="wrapper__contact">
     <h2>Заполните поля и мы сразу начнем</h2>
+
     <form @submit.prevent="onSubmit" class="form">
       <div class="form__group contact">
         <input
-          id="name"
-          v-model="contactForm.name"
+          :class="{ 'form-group--error': $v.contactForm.name.$error }"
+          v-model.trim="$v.contactForm.name.$model"
           type="text"
           name="name"
           placeholder="Ваше имя"
         />
+        <p v-if="!$v.contactForm.name.required" class="error">
+          Обязательное поле
+        </p>
+
         <input
-          id="name"
-          v-model="contactForm.phone"
+          :class="{ 'form-group--error': $v.contactForm.phone.$error }"
+          v-model.trim="$v.contactForm.phone.$model"
           type="tel"
           name="phone"
           placeholder="Ваш номер для связи"
         />
+        <p v-if="!$v.contactForm.phone.required" class="error">
+          Обязательное поле
+        </p>
         <input
-          id="name"
-          v-model="contactForm.email"
+          :class="{ 'form-group--error': $v.contactForm.email.$error }"
+          v-model.trim="$v.contactForm.email.$model"
           type="email"
           name="email"
           placeholder="Ваш email для связи"
         />
+        <p v-if="!$v.contactForm.email.required" class="error">
+          Обязательное поле
+        </p>
       </div>
       <div class="form__group radio">
         <h3 class="form__title">Предпочитаемый способ связи <br /></h3>
@@ -105,10 +116,14 @@
         <h3 class="form__title">Ещё немного вводных данных</h3>
         <template v-if="getService('add')">
           <input
-            v-model="contactForm.urlAdd"
+            :class="{ 'form-group--error': $v.contactForm.urlAdd.$error }"
+            v-model="$v.contactForm.urlAdd.$model"
             type="text"
             placeholder="Ссылка на ваш товар/услугу"
           />
+          <p v-if="!$v.contactForm.urlAdd.url" class="error">
+            Введите корректный адрес (Например: https://site.ru/)
+          </p>
         </template>
         <template v-if="getService('social')">
           <input
@@ -126,21 +141,30 @@
         </template>
       </div>
       <div>
-        <input class="button" type="submit" value="Отправить" />
+        <input
+          :disabled="submitStatus === 'PENDING'"
+          class="button"
+          type="submit"
+          value="Отправить"
+        />
+
+        <p v-if="submitStatus === 'OK'" class="typo__p">
+          <!-- Thanks for your submission! -->
+          Спасибо за заявку!
+        </p>
+        <p v-if="submitStatus === 'ERROR'" class="typo__p">
+          Пожалуйста, заполните форму правильно
+        </p>
+        <p v-if="submitStatus === 'PENDING'" class="typo__p">Отправка...</p>
       </div>
     </form>
   </div>
 </template>
 <script>
+import { required, numeric, email, url } from 'vuelidate/lib/validators'
 export default {
   data() {
     return {
-      communicationMethod: {
-        phone: 'Связаться с помощью телефона',
-        email: 'Связаться с помощью электронной почты',
-        messagingApps: 'Через whatsapp или telegram',
-        all: 'Любым способом'
-      },
       contactForm: {
         name: '',
         phone: '',
@@ -150,7 +174,12 @@ export default {
         urlSocial: '',
         urlWeb: ''
       },
-
+      communicationMethod: {
+        phone: 'Связаться с помощью телефона',
+        email: 'Связаться с помощью электронной почты',
+        messagingApps: 'Через whatsapp или telegram',
+        all: 'Любым способом'
+      },
       typeOfService: {
         add: 'add',
         social: 'social',
@@ -158,7 +187,25 @@ export default {
       },
       service: [],
 
-      bgImgDefault: 'url(~assets/img/Кот.png)'
+      submitStatus: null
+    }
+  },
+  validations: {
+    contactForm: {
+      name: {
+        required
+      },
+      phone: {
+        required,
+        numeric
+      },
+      email: {
+        required,
+        email
+      },
+      urlAdd: {
+        url
+      }
     }
   },
   mounted() {
@@ -172,30 +219,37 @@ export default {
       return this.service.includes(view)
     },
     async onSubmit() {
-      try {
-        const formData = {
-          name: this.contactForm.name,
-          phone: this.contactForm.phone,
-          email: this.contactForm.email,
-          method: this.contactForm.method,
-          urlAdd: this.contactForm.urlAdd,
-          urlSocial: this.contactForm.urlSocial || '',
-          urlWeb: this.contactForm.urlWeb
+      this.$v.$touch()
+      if (this.$v.$invalid) {
+        this.submitStatus = 'ERROR'
+      } else {
+        this.submitStatus = 'PENDING'
+        try {
+          const formData = {
+            name: this.contactForm.name,
+            phone: this.contactForm.phone,
+            email: this.contactForm.email,
+            method: this.contactForm.method,
+            urlAdd: this.contactForm.urlAdd,
+            urlSocial: this.contactForm.urlSocial,
+            urlWeb: this.contactForm.urlWeb
+          }
+
+          await this.$store.dispatch('applications/create', formData)
+
+          this.submitStatus = 'OK'
+          this.$v.$reset()
+
+          this.contactForm.name = ''
+          this.contactForm.phone = ''
+          this.contactForm.email = ''
+          this.contactForm.method = 'Любым способом'
+          this.contactForm.urlAdd = ''
+          this.contactForm.urlSocial = ''
+          this.contactForm.urlWeb = ''
+        } catch (e) {
+          console.log(e)
         }
-
-        console.log(formData)
-
-        await this.$store.dispatch('applications/create', formData)
-
-        this.contactForm.name = ''
-        this.contactForm.phone = ''
-        this.contactForm.email = ''
-        this.contactForm.method = 'Любым способом'
-        this.contactForm.urlAdd = ''
-        this.contactForm.urlSocial = ''
-        this.contactForm.urlWeb = ''
-      } catch (e) {
-        console.log(e)
       }
     }
   }
@@ -358,6 +412,26 @@ h2 {
   grid-area: block;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.form-group__message,
+.error {
+  padding: 0;
+  font-size: 0.75rem;
+  line-height: 1;
+  display: none;
+
+  margin-top: -1.6875rem;
+  margin-bottom: 0.9375rem;
+}
+.form-group--error {
+  border: 2px solid #f57f6c !important;
+}
+
+.form-group--error + .form-group__message,
+.form-group--error + .error {
+  display: block;
+  color: #f57f6c;
 }
 
 @media screen and(max-width: 660px) {

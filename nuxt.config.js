@@ -27,7 +27,7 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/globals', '@/plugins/axios'],
+  plugins: ['@/plugins/globals', '@/plugins/axios', '@/plugins/vuelidate'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -59,6 +59,7 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
+
     extend(config, ctx) {}
   }
 }

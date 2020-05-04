@@ -1,15 +1,30 @@
 <template>
-  <app-ad></app-ad>
+  <div>
+    <app-home></app-home>
+  </div>
 </template>
 
 <script>
-// import AppHome from '@/components/main/Home'
-import AppAd from '@/components/main/advertising'
+import AppHome from '@/components/main/Home'
 
 export default {
   components: {
-    AppAd
+    AppHome
+  },
+  data() {
+    return {
+      currentView: 'AppAd'
+    }
+  },
+  methods: {
+    switchView(view) {
+      this.currentView = view
+    }
   }
 }
 </script>
-<style></style>
+<style lang="scss" scoped>
+.list {
+  margin-top: 50px;
+}
+</style>

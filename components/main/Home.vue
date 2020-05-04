@@ -1,11 +1,11 @@
 <template>
   <section class="home">
     <div class="wrapper">
-      <h1 class="home__title">Реклама в интернете</h1>
-      <p class="home__subtitle">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </p>
+      <div></div>
+      <h1 class="home__title">
+        Раскажи о себе <span class="home__title--bg">миру</span>
+      </h1>
+      <p class="home__subtitle"></p>
       <button @click="openForm" class="button home__button">Получить</button>
     </div>
   </section>
@@ -20,6 +20,10 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.text {
+  background: url(https://im0-tub-ru.yandex.net/i?id=eab0e1b995f2c8861ea50c27af8601bb-l&n=13);
+  background-size: cover;
+}
 .home {
   margin: 0 auto;
   text-align: center;
@@ -33,21 +37,29 @@ export default {
   // background-position: right;
   // background-size: 600px;
   // background-color: #30363d;
-}
+  &__title {
+    font-size: 50px;
+    line-height: 56px;
+    font-family: 'Russo One', sans-serif;
+    text-transform: uppercase;
 
-.home__title {
-  font-size: 44px;
-  line-height: 56px;
-  margin-bottom: 30px;
-  max-width: 600px;
-  margin: 0 auto;
-}
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin: 0 auto;
 
-.home__subtitle {
-  max-width: 600px;
-  margin: 0 auto;
-  font-size: 19px;
-  line-height: 30px;
-  margin-bottom: 30px;
+    &--bg {
+      background-image: url('https://i.stack.imgur.com/zN1F6.jpg');
+      background-size: cover;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+  &__subtitle {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 19px;
+    line-height: 30px;
+    margin-bottom: 30px;
+  }
 }
 </style>

@@ -40,11 +40,10 @@ export default {
   display: block;
   flex: 1;
   flex-basis: auto;
-
   overflow: auto;
-
   flex-shrink: 1;
-
   padding: 20px;
+
+  background-color: $bg-color;
 }
 </style>

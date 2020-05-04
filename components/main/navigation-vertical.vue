@@ -7,10 +7,12 @@
         >
       </li>
       <li class="main-nav__item">
-        <a class="main-nav__link" to="/social">Ведение соц групп</a>
+        <nuxt-link class="main-nav__link" to="/social"
+          >Ведение соц групп</nuxt-link
+        >
       </li>
       <li class="main-nav__item">
-        <a class="main-nav__link" to="/advertising">Реклама</a>
+        <nuxt-link class="main-nav__link" to="/ad">Реклама</nuxt-link>
       </li>
       <li class="main-nav__item">
         <nuxt-link class="main-nav__link" to="/contact"

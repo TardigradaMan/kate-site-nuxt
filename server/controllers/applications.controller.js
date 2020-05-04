@@ -33,8 +33,6 @@ module.exports.getAll = async (req, res) => {
 
 module.exports.remove = async (req, res) => {
   try {
-    console.log('Блок try контроллера')
-    console.log(req.params.id)
     await Applications.deleteOne({ _id: req.params.id })
     res.json({ message: 'Заявка удалена' })
   } catch (e) {

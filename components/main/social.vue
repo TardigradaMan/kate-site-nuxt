@@ -1,8 +1,6 @@
 <template>
   <div>
-    <section class="social">
-      <h1>Соц группы компонент</h1>
-    </section>
+    <img src="~/assets/img/тест1.png" alt="iphone11" />
   </div>
 </template>
 <script>
@@ -12,11 +10,4 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-h1 {
-  padding-top: 100px;
-}
-responsive-nav {
-  padding-top: 200px;
-}
-</style>
+<style lang="scss" scoped></style>

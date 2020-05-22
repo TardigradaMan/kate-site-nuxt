@@ -5,7 +5,7 @@
         <app-navigation></app-navigation>
       </div>
     </header> -->
-    <header :class="{ header__scroll: scrolled }" class="header">
+    <header v-if="showHeader" class="header">
       <div class="wrapper__nav">
         <nav-vertical></nav-vertical>
       </div>
@@ -31,7 +31,8 @@ export default {
 
   data() {
     return {
-      scrolled: false
+      scrolled: false,
+      showHeader: false
     }
   },
 

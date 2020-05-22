@@ -283,6 +283,8 @@ h2 {
   align-items: center;
   padding: 5px;
   padding-top: 40px;
+  box-shadow: 0 0 7px #000;
+  border-radius: 5px;
 }
 .form__title {
   text-align: center;

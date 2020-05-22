@@ -27,7 +27,12 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/globals', '@/plugins/axios', '@/plugins/vuelidate'],
+  plugins: [
+    '@/plugins/globals',
+    '@/plugins/axios',
+    '@/plugins/vuelidate',
+    '@/plugins/gsap'
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -59,7 +64,7 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-
+    transpile: ['gsap'],
     extend(config, ctx) {}
   }
 }

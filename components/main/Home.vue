@@ -1,11 +1,17 @@
 <template>
   <section class="home">
     <div class="wrapper">
-      <button @click="reverseAnim">Назад</button>
-      <button @click="playAnim">Вперед</button>
       <div class="link">
-        <div class="link__social">Соц сети</div>
-        <div class="link__ads">Реклама</div>
+        <div class="link__social">
+          <button @click="goInstaPage" class="button link__btn">
+            Подробнее
+          </button>
+        </div>
+        <div class="link__ads">
+          <button @click="goInstaPage" class="button link__btn">
+            Подробнее
+          </button>
+        </div>
       </div>
       <svg
         id="title__svg"
@@ -119,8 +125,6 @@
 </template>
 <script>
 import { gsap } from 'gsap'
-import { TextPlugin } from 'gsap/TextPlugin'
-gsap.registerPlugin(TextPlugin)
 
 export default {
   data() {
@@ -153,14 +157,14 @@ export default {
         })
     })
     this.animBlockLink = gsap
-      .timeline({ defaults: { duration: 3, ease: 'elastic.inOut(1, 1)' } })
+      .timeline({ defaults: { duration: 1, ease: 'elastic.inOut(1, 1)' } })
       .fromTo(
         linkSocial,
         { x: '-50vw' },
         {
           x: '0'
         },
-        3
+        1
       )
       .fromTo(
         linkAds,
@@ -169,13 +173,19 @@ export default {
           x: '0',
           display: 'block'
         },
-        3
+        1
       )
   },
 
   methods: {
-    openForm() {
-      this.$router.push('/contact')
+    killAnim() {
+      console.log('Убил анимацию?!')
+      this.animTitle.kill()
+    },
+
+    goInstaPage() {
+      this.killAnim()
+      this.$router.push('/social')
     },
     showTest(message) {
       console.log('Конец анимации через callBack:', message)
@@ -197,25 +207,22 @@ export default {
   margin: 0 auto;
 }
 
-button {
+.prev {
   position: absolute;
   left: 20px;
   top: 20px;
   padding: 1em;
+  z-index: 10;
 }
-button:nth-child(2) {
+.forward {
   position: absolute;
   left: 20px;
   top: 80px;
   padding: 1em;
+  z-index: 10;
 }
 
 .home {
-  margin: 0 auto;
-  text-align: center;
-
-  // padding-top: 270px;
-
   &__title {
     font-size: 50px;
     line-height: 56px;
@@ -243,21 +250,35 @@ button:nth-child(2) {
 .link {
   display: flex;
   justify-content: space-between;
-  z-index: 2;
+  // background: url('~assets/img/Home_ads-1x.png') 50% / cover no-repeat;
 
   &__social,
   &__ads {
     width: 45%;
     height: 100vh;
+    position: relative;
 
     background-color: $bg-color;
     box-shadow: 0 0 10px #000;
+
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    // background-attachment: fixed;
   }
   &__ads {
-    background-image: url('~assets/img/Laptop.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-image: url('~assets/img/Home_ads-1x.png');
+    background-position: 10% 10%;
+  }
+  &__social {
+    background-image: url('~assets/img/insta_home-1x.png');
+  }
+  &__btn {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 </style>

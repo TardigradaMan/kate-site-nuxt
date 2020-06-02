@@ -54,7 +54,7 @@ module.exports = {
    */
   axios: {},
   styleResources: {
-    scss: ['@/assets/style/_variables.scss']
+    scss: ['@/assets/style/lib.scss']
   },
   /*
   

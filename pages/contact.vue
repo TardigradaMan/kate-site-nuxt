@@ -329,7 +329,7 @@ h2 {
 
 .radio {
   grid-area: radio;
-  padding-top: 0;
+  // padding-top: 0;
 
   & input {
     appearance: none;
@@ -386,6 +386,7 @@ h2 {
   height: 20px;
   border-radius: 10px;
   background: #747d88;
+
   margin-left: -3em;
   transition: 0.3s ease-out;
   &::before {

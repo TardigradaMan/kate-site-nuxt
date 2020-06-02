@@ -21,7 +21,8 @@ body {
 
 .button {
   width: 250px;
-  height: 45px;
+  // height: 45px;
+  padding: 0.8em;
   border: none;
   background: $bg-button;
   border-radius: 20px;

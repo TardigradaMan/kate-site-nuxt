@@ -83,7 +83,7 @@ export default {
   width: 250px;
 
   height: 100vh;
-  background: rgba(29, 29, 29, 0.9);
+  background: rgba(0, 0, 0, 0.9);
   padding-top: 15px;
 }
 
@@ -91,6 +91,9 @@ export default {
   position: absolute;
   top: 10px;
   right: 10px;
+  svg {
+    fill: #ffffff;
+  }
 }
 
 .main-nav__list {

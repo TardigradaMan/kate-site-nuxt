@@ -114,7 +114,7 @@
       </div>
       <div class="form__group block">
         <h3 class="form__title">Ещё немного вводных данных</h3>
-        <template v-if="getService('add')">
+        <template v-if="add">
           <input
             :class="{ 'form-group--error': $v.contactForm.urlAdd.$error }"
             v-model="$v.contactForm.urlAdd.$model"
@@ -125,14 +125,14 @@
             Введите корректный адрес (Например: https://site.ru/)
           </p>
         </template>
-        <template v-if="getService('social')">
+        <template v-if="social">
           <input
             v-model="contactForm.urlSocial"
             type="text"
             placeholder="Ссылка на вашу группу(если имеется конечно)"
           />
         </template>
-        <template v-if="getService('web')">
+        <template v-if="web">
           <input
             v-model="contactForm.urlWeb"
             type="text"
@@ -208,6 +208,25 @@ export default {
       }
     }
   },
+  computed: {
+    add() {
+      console.log('Запустился add')
+
+      return this.service.includes('add')
+    },
+
+    social() {
+      console.log('Запустился social')
+
+      return this.service.includes('social')
+    },
+
+    web() {
+      console.log('Запустился web')
+
+      return this.service.includes('web')
+    }
+  },
   mounted() {
     this.$nextTick(() => {
       this.$nuxt.$loading.start()
@@ -215,9 +234,6 @@ export default {
     })
   },
   methods: {
-    getService(view) {
-      return this.service.includes(view)
-    },
     async onSubmit() {
       this.$v.$touch()
       if (this.$v.$invalid) {

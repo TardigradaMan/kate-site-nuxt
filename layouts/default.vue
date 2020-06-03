@@ -1,17 +1,12 @@
 <template>
   <div>
-    <!-- <header :class="{ header__scroll: scrolled }" class="header">
-      <div class="wrapper__nav">
-        <app-navigation></app-navigation>
-      </div>
-    </header> -->
-
     <header class="header">
-      <!-- <div class="header__test">ЛОГО</div> -->
-      <!-- <button v-if="!showNav" @click="showMenu" class="btn">
-        Меню
-      </button> -->
-      <span v-if="!showNav" @click="showMenu" class="btn header_icon">
+      <span
+        :class="{ header__scroll: scrolled }"
+        v-if="!showNav"
+        @click="showMenu"
+        class="btn header__icon"
+      >
         <svg
           id="test"
           version="1.1"
@@ -31,22 +26,29 @@
 		c4.4,0,8-3.6,8-8V107c0-4.4-3.6-8-8-8L100.2,99z"
             />
             <path
+              fill="#FFF"
               d="M411.8,249.2H305c-19.5,0-35.3-15.9-35.3-35.3V107c0-19.5,15.9-35.3,35.3-35.3h106.8c19.5,0,35.3,15.9,35.3,35.3v106.8
 		C447.1,233.3,431.3,249.2,411.8,249.2z M305,99c-4.4,0-8,3.6-8,8v106.8c0,4.4,3.6,8,8,8h106.8c4.4,0,8-3.6,8-8V107c0-4.4-3.6-8-8-8
 		L305,99z"
             />
             <path
+              fill="#FFF"
               d="M207,440.3H100.2c-19.5,0-35.3-15.9-35.3-35.3V298.2c0-19.5,15.9-35.3,35.3-35.3H207c19.5,0,35.3,15.9,35.3,35.3V405
 		C242.3,424.5,226.5,440.3,207,440.3z M100.2,290.1c-4.4,0-8,3.6-8,8V405c0,4.4,3.6,8,8,8H207c4.4,0,8-3.6,8-8V298.2
 		c0-4.4-3.6-8-8-8H100.2z"
             />
             <path
+              fill="#FFF"
               d="M411.8,440.3H305c-19.5,0-35.3-15.9-35.3-35.3V298.2c0-19.5,15.9-35.3,35.3-35.3h106.8c19.5,0,35.3,15.9,35.3,35.3V405
 		C447.1,424.5,431.3,440.3,411.8,440.3z M305,290.1c-4.4,0-8,3.6-8,8V405c0,4.4,3.6,8,8,8h106.8c4.4,0,8-3.6,8-8V298.2
 		c0-4.4-3.6-8-8-8H305z"
             />
           </g>
         </svg>
+        <img src="~/assets/img/menu.png" alt="" />
+      </span>
+      <span class="header__phone">
+        <a href="tel:+1234567890">8 999 999 99 99</a>
       </span>
 
       <transition name="fade">
@@ -62,26 +64,26 @@
 </template>
 //
 <script>
-// import AppNavigation from '@/components/main/Navigation'
 import AppFooter from '@/components/main/Footer'
 import NavVertical from '@/components/main/navigation-vertical'
 
 export default {
   components: {
-    // AppNavigation,
     AppFooter,
     NavVertical
   },
 
   data() {
     return {
-      scrolled: false,
-      showNav: false
+      showNav: false,
+      scrolled: false
     }
   },
   watch: {
     $route() {
-      this.showNav = !this.showNav
+      if (this.showNav) {
+        this.showNav = !this.showNav
+      }
     }
   },
 
@@ -110,17 +112,41 @@ export default {
   overflow: hidden;
   display: none;
 }
-.header_icon {
-  position: absolute;
-  cursor: pointer;
-  z-index: 1000;
-}
 
 .header {
   position: relative;
-
   height: 35px;
-  background-color: rgb(75, 73, 73);
+
+  background-color: rgba($bg-color, 0.95);
+
+  &__scroll {
+    width: 100vw;
+    background-color: #00000080;
+    transition: all 0.5s ease-in-out;
+  }
+
+  &__icon {
+    position: fixed;
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    img {
+      height: 35px;
+    }
+  }
+
+  &__phone {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+
+    font-size: 25px;
+    font-weight: bold;
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
 }
 
 .fade-enter-active {

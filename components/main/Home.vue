@@ -3,14 +3,10 @@
     <div class="wrapper">
       <div class="link">
         <div class="link__social">
-          <button @click="goInstaPage" class="button link__btn">
-            Подробнее
-          </button>
+          <button @click="goInstaPage" class="button link__btn"></button>
         </div>
         <div class="link__ads">
-          <button @click="goInstaPage" class="button link__btn">
-            Подробнее
-          </button>
+          <button @click="goInstaPage" class="button link__btn"></button>
         </div>
       </div>
       <svg
@@ -279,6 +275,11 @@ export default {
     bottom: 15px;
     left: 50%;
     transform: translateX(-50%);
+
+    background: url('~assets/img/button_v1.png') 50% 50% no-repeat;
+    background-size: contain;
+    min-width: 200px;
+    height: 50px;
   }
 }
 </style>

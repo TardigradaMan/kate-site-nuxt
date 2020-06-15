@@ -1,0 +1,40 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: inherit;
+  font-style: normal;
+  font-size: 16px;
+  font-weight: normal;
+
+  width: 100%;
+  // max-width: 100%;
+  // Убрать полосы прокрутки
+  overflow-x: hidden;
+  // overflow-y: hidden;
+}
+
+.wrapper__full {
+  width: 100%;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
+}
+
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}

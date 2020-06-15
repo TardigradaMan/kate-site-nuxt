@@ -211,19 +211,16 @@ export default {
   computed: {
     add() {
       console.log('Запустился add')
-
       return this.service.includes('add')
     },
 
     social() {
       console.log('Запустился social')
-
       return this.service.includes('social')
     },
 
     web() {
       console.log('Запустился web')
-
       return this.service.includes('web')
     }
   },
@@ -275,6 +272,8 @@ export default {
 .wrapper__contact {
   padding: 0;
   padding-top: 50px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 .form {
   display: grid;
@@ -322,16 +321,21 @@ h2 {
 
 .contact,
 .block {
-  input {
+  > input {
     min-width: 390px;
     height: 50px;
     padding-left: 8px;
+    padding-right: 8px;
     margin-bottom: 40px;
     border-radius: 5px;
     border: 0;
 
     font-size: 14px;
     line-height: 22px;
+    &:focus,
+    :active {
+      outline: 0;
+    }
   }
   &:focus,
   :hover,

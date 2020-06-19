@@ -9,7 +9,6 @@
           <p class="header__text subtitle">
             Делать деньги без рекламы может только монетный двор
           </p>
-
           <span class="scroll"> </span>
         </div>
       </div>
@@ -21,7 +20,7 @@
           <h2 class="description__title title-decor title-block">
             Как минимум вы получите
           </h2>
-          <p class="description__text subtitle">
+          <p class="description__subtitle subtitle">
             И не придумал
           </p>
         </div>
@@ -72,11 +71,10 @@
         <h2 class="skills__title title-decor title-block">
           Мы уже успели поработать в данных тематиках
         </h2>
-        <p class="description__text subtitle">
+        <p class="skills__subtitle subtitle">
           И это далеко не всё, с чем мы работали
         </p>
       </div>
-
       <app-swipe-slider :sliderData="skills"></app-swipe-slider>
     </section>
   </div>
@@ -102,34 +100,12 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.advertising {
-}
-
 .header {
-  height: 100vh;
   background: rgb(162, 224, 236);
-  background-image: url('~assets/img/bg_5.jpg');
-  background-size: cover;
-  background-position: center;
+  background: center/cover url('~assets/img/bg_5.jpg') no-repeat;
   background-attachment: fixed;
 
-  &__wrapper {
-    height: 100vh;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    & span {
-      position: absolute;
-      bottom: 15px;
-    }
-  }
   &__title {
-    padding: 0;
-    margin: 0;
-    font-size: 35px;
-    font-weight: 700;
     color: rgb(68, 69, 70);
     &::after {
       background-color: rgb(68, 69, 70);
@@ -141,10 +117,9 @@ export default {
   }
 }
 .description {
-  padding: 0px 10px 20px;
+  padding: 0px 10px 100px;
   // background: rgba(121, 223, 107, 0.329);
-  padding-top: 50px;
-  padding-bottom: 110px;
+  box-shadow: $shadow-out;
   position: relative;
   z-index: 2;
   // &::before {
@@ -194,7 +169,7 @@ export default {
   }
   &__item {
     // background: rgb(89, 169, 189);
-    box-shadow: $shadow;
+    box-shadow: $shadow-out;
     padding: 10px;
 
     &--left {

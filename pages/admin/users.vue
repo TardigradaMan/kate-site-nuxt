@@ -54,7 +54,7 @@ export default {
   width: 25em;
   background-color: $bg-widget;
   border-radius: 5px;
-  box-shadow: $shadow;
+  box-shadow: $shadow-out;
 
   text-align: center;
   margin: 0 auto;

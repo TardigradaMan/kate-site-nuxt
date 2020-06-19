@@ -283,7 +283,7 @@ export default {
 
   grid-template-rows: 1fr 370px;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 1vw;
+  gap: 30px;
 }
 
 h2 {
@@ -298,7 +298,7 @@ h2 {
   align-items: center;
   padding: 5px;
   padding-top: 40px;
-  box-shadow: 0 0 7px #000;
+  box-shadow: $shadow-out;
   border-radius: 5px;
 }
 .form__title {

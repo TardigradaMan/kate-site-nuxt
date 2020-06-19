@@ -98,7 +98,7 @@ export default {
   border-collapse: collapse;
   border-bottom: 1px solid rgb(82, 81, 82);
 
-  box-shadow: $shadow;
+  box-shadow: $shadow-out;
   background-color: $bg-color;
 
   font-size: 14px;

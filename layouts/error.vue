@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <h1>Моя ошибка 404</h1>
-    <h1>Такой страницы нееееееееееееет</h1>
-  </div>
+  <div class="page-error"></div>
 </template>
 
 <script>
@@ -10,7 +7,32 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
-div {
-  padding-top: 100px;
+.page-error {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $grey;
+  text-align: center;
+  padding-top: 200px;
+  font-size: 30px;
+  font-family: sans-serif;
+  z-index: 1000;
+  background: $bg-color;
+  background: center / cover no-repeat url('~assets/img/404.jpg');
+}
+img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+@media screen and(max-width: $mobile-width) {
+  .page-error {
+    background-position: 0 0;
+  }
 }
 </style>

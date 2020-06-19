@@ -4,7 +4,7 @@
       <swiper-slide v-for="item in sliderData" :key="item._id">
         {{ item.skill }}</swiper-slide
       >
-      <div slot="pagination" class="swiper-pagination"></div>
+      <!-- <div slot="pagination" class="swiper-pagination"></div> -->
     </swiper>
   </client-only>
 </template>
@@ -28,10 +28,10 @@ export default {
         autoplay: {
           delay: 3000
         },
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true
-        },
+        // pagination: {
+        //   el: '.swiper-pagination',
+        //   clickable: true
+        // },
         breakpoints: {
           320: {
             slidesPerView: 2,
@@ -67,7 +67,8 @@ export default {
 // }
 .swiper-container {
   width: 100%;
-  height: 200px;
+  height: 170px;
+  padding: 40px 0;
 }
 
 .swiper-slide {
@@ -80,11 +81,20 @@ export default {
   font-size: 1.3em;
   opacity: 0.5;
   transition: all 0.2s ease;
+  padding: 0 5px;
   &:hover {
     opacity: 1;
     cursor: grab;
     transform: scale(1.1);
+    box-shadow: $shadow-into;
     transition: all 0.2s ease;
   }
+}
+
+.swiper-pagination-bullets {
+  bottom: 0px;
+}
+.swiper-pagination-bullet-active {
+  background: #f00; // красный цвет для активного квадрата
 }
 </style>

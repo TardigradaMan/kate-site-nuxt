@@ -1,7 +1,6 @@
 <template>
   <div v-if="loading" class="page-loader">
-    <!-- <img src="~assets/img/llama.png" alt="llama" /> -->
-    <progress value="0" max="100"></progress>
+    <img src="~assets/img/llama.png" alt="llama" />
   </div>
 </template>
 
@@ -17,7 +16,7 @@ export default {
     finish() {
       setTimeout(() => {
         this.loading = false
-      }, 10000)
+      }, 2000)
     }
   }
 }

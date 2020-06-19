@@ -1,17 +1,15 @@
 <template>
-  <div class="test">
+  <div>
     <header class="header">
       <div
         @click="showMenu"
-        :class="{ toggle__open: showNav }"
+        :class="{ toggle__open: showNav, toggle__black: scrolled }"
         class="menu-toggle"
       >
         <span></span>
         <span></span>
         <span></span>
-        <!-- <img src="~/assets/img/menu.png" alt="" /> -->
       </div>
-
       <transition name="fade">
         <nav-vertical @close="showMenu" v-if="showNav"></nav-vertical>
       </transition>
@@ -48,20 +46,31 @@ export default {
   },
 
   mounted() {
-    window.addEventListener(
+    document.addEventListener(
       'scroll',
-      event => (this.scrolled = window.scrollY > 30)
+      this.changeColorToggle,
+      console.log(document.documentElement.clientHeight, 'scroll add')
     )
   },
-  destroyed() {
-    window.removeEventListener(
+
+  beforeDestroy() {
+    document.removeEventListener(
       'scroll',
-      event => (this.scrolled = window.scrollY > 30)
+      this.changeColorToggle,
+
+      console.log('beforeDestroy')
     )
   },
+
   methods: {
     showMenu() {
       this.showNav = !this.showNav
+    },
+    changeColorToggle() {
+      if (this.$route.path === '/social') {
+        this.scrolled = window.scrollY > document.documentElement.clientHeight
+        console.log('metod scroll')
+      }
     }
   }
 }
@@ -108,10 +117,6 @@ export default {
   z-index: 101;
   margin: 15px;
   cursor: pointer;
-  &:hover span {
-    transform: rotate3d(0, 1, 0.1, 180deg);
-    transition: all 0.5s ease 0s;
-  }
   span {
     display: block;
     width: 100%;
@@ -128,12 +133,22 @@ export default {
       transition: all 0.3s ease 0s;
     }
   }
+  &.toggle__black {
+    span {
+      background: $grey;
+    }
+  }
+  &:hover span {
+    transform: rotate3d(0, 1, 0.1, 180deg);
+    transition: all 0.5s ease 0s;
+  }
   &.toggle__open {
     span {
       position: absolute;
       top: 25%;
       left: 0;
       opacity: 0;
+      background: white;
       &:nth-child(1) {
         opacity: 1;
         transform: rotate3d(0, 0, 1, 45deg);

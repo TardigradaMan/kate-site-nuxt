@@ -12,5 +12,7 @@ $bg-img-default: url('~assets/img/bg_1.jpg');
 $bg-button: linear-gradient(90deg, #f27a54 -21.05%, #a154f2 121.05%);
 $color-button: #fff;
 $bg-widget: #393c3f;
-$shadow: 0 0 8px #0e0d0d;
+$shadow-out: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+$shadow-into: inset 2px 2px 5px rgba(0, 0, 0, 0.25),
+  1px 1px 3px rgb(105, 105, 105);
 $grey: rgb(53, 53, 53);

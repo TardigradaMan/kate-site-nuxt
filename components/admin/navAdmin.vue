@@ -13,6 +13,10 @@
         </li>
         <li class="nav__item">
           <span>Ик</span>
+          <nuxt-link class="nav__link" to="/admin/content">Контент</nuxt-link>
+        </li>
+        <li class="nav__item">
+          <span>Ик</span>
           <nuxt-link class="nav__link" to="/admin/users"
             >Создать пользователя</nuxt-link
           >

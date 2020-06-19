@@ -1,34 +1,43 @@
 <template>
-  <section class="advertising">
-    <div class="header">
+  <div class="advertising">
+    <section class="header">
       <div class="wrapper">
         <div class="header__wrapper">
-          <h1 class="header__title">Реклама моя реклама</h1>
-          <p class="header__text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
-            harum a vel laudantium, esse voluptas natus unde, molestias maiores
-            asperiores, deserunt consequatur eaque illum? Corporis ducimus est
-            ut voluptas similique?
+          <h1 class="header__title title-decor">
+            Доступная реклама в интернете
+          </h1>
+          <p class="header__text subtitle">
+            Делать деньги без рекламы может только монетный двор
           </p>
-          <button @click="openForm" class="button">Подробнее</button>
+
+          <span class="scroll"> </span>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="description">
+    <section class="description">
       <div class="wrapper">
+        <div class="header-block">
+          <h2 class="description__title title-decor title-block">
+            Как минимум вы получите
+          </h2>
+          <p class="description__text subtitle">
+            И не придумал
+          </p>
+        </div>
+
         <ul class="description__list">
           <li class="description__item description__item--left">
-            <h3>Заголовок 1</h3>
+            <h3>Полная прозрачность</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Excepturi, perferendis? Rem, odit minima deserunt deleniti totam
-              consequuntur fugiat esse quasi corrupti nihil temporibus quidem
-              perferendis quisquam accusamus molestiae quo sapiente?
+              Отчеты и бла бла бла. Excepturi, perferendis? Rem, odit minima
+              deserunt deleniti totam consequuntur fugiat esse quasi corrupti
+              nihil temporibus quidem perferendis quisquam accusamus molestiae
+              quo sapiente?
             </p>
           </li>
           <li class="description__item description__item--right">
-            <h3>Заголовок 2</h3>
+            <h3>Индивидуальный подход</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Excepturi, perferendis? Rem, odit minima deserunt deleniti totam
@@ -36,14 +45,9 @@
               perferendis quisquam accusamus molestiae quo sapiente?
             </p>
           </li>
-          <li class="description__item description__item--central">
-            <h3>Заголовок центр</h3>
-            <p>
-              тут будет изображение
-            </p>
-          </li>
+          <li class="description__item description__item--central"></li>
           <li class="description__item description__item--left">
-            <h3>Заголовок 4</h3>
+            <h3>Честная цена</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Excepturi, perferendis? Rem, odit minima deserunt deleniti totam
@@ -52,7 +56,7 @@
             </p>
           </li>
           <li class="description__item description__item--right">
-            <h3>Заголовок 5</h3>
+            <h3>Поддержка 24 часа</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Excepturi, perferendis? Rem, odit minima deserunt deleniti totam
@@ -62,27 +66,33 @@
           </li>
         </ul>
       </div>
-    </div>
-    <div class="skills">
-      <ul class="skills__list">
-        <li class="skills__item">Скилл</li>
-        <li class="skills__item">Скилл</li>
-        <li class="skills__item">Скилл</li>
-        <li class="skills__item">Скилл</li>
-        <li class="skills__item">Скилл</li>
-        <li class="skills__item">Скилл</li>
-        <li class="skills__item">Скилл</li>
-        <li class="skills__item">Скилл</li>
-        <li class="skills__item">Скилл</li>
-        <li class="skills__item">Скилл</li>
-      </ul>
-    </div>
-  </section>
+    </section>
+    <section class="skills">
+      <div class="header-block">
+        <h2 class="skills__title title-decor title-block">
+          Мы уже успели поработать в данных тематиках
+        </h2>
+        <p class="description__text subtitle">
+          И это далеко не всё, с чем мы работали
+        </p>
+      </div>
+
+      <app-swipe-slider :sliderData="skills"></app-swipe-slider>
+    </section>
+  </div>
 </template>
 <script>
+import appSwipeSlider from '../components/main/swipe-slider'
+
 export default {
-  data() {
-    return {}
+  components: {
+    appSwipeSlider
+  },
+
+  async asyncData({ store }) {
+    const skills = await store.dispatch('content/fetchSkill')
+
+    return { skills }
   },
   methods: {
     openForm() {
@@ -94,27 +104,80 @@ export default {
 <style lang="scss" scoped>
 .advertising {
 }
+
 .header {
   height: 100vh;
-  background: url('~assets/img/Home_ads-1x.png') right 50px center no-repeat,
-    rgba(109, 209, 235, 0.226);
-
-  background-size: 50%;
+  background: rgb(162, 224, 236);
+  background-image: url('~assets/img/bg_5.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 
   &__wrapper {
-    width: 40%;
-    padding: 30vh 10px;
+    height: 100vh;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    & span {
+      position: absolute;
+      bottom: 15px;
+    }
   }
   &__title {
     padding: 0;
-
+    margin: 0;
     font-size: 35px;
     font-weight: 700;
+    color: rgb(68, 69, 70);
+    &::after {
+      background-color: rgb(68, 69, 70);
+      transform: scale(1.2, 1);
+    }
+  }
+  &__text {
+    color: rgb(68, 69, 70);
   }
 }
 .description {
-  padding: 30px 10px;
-  background: rgba(121, 223, 107, 0.329);
+  padding: 0px 10px 20px;
+  // background: rgba(121, 223, 107, 0.329);
+  padding-top: 50px;
+  padding-bottom: 110px;
+  position: relative;
+  z-index: 2;
+  // &::before {
+  //   content: '';
+  //   position: absolute;
+  //   width: 0;
+  //   height: 0;
+  //   border-left: 100px solid transparent;
+  //   border-right: 100px solid transparent;
+  //   border-top: 100px solid rgb(53, 53, 53);
+
+  //   top: 0;
+  //   right: 100px;
+  //   // transform: rotate(45deg);
+  // }
+  &::after {
+    content: '';
+    position: absolute;
+
+    width: 300;
+    height: 150;
+
+    border-left: 500px solid $grey;
+    border-top: 200px solid transparent;
+    // box-shadow: 0 0 10px #000;
+
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  &__title {
+  }
   &__list {
     display: grid;
     /* grid-template-rows / grid-template-columns values */
@@ -124,14 +187,24 @@ export default {
     list-style: none;
     padding: 0;
     margin: 0 auto;
+    margin-top: 40px;
+
+    position: relative;
+    z-index: 3;
   }
   &__item {
-    background: rgb(89, 169, 189);
+    // background: rgb(89, 169, 189);
+    box-shadow: $shadow;
     padding: 10px;
+
     &--left {
       text-align: right;
       padding-right: 70px;
       position: relative;
+      background: rgba(53, 118, 192, 0.1);
+      & > p {
+        padding-left: 15px;
+      }
       &::after {
         content: '';
         background-image: url('~assets/img/icon_descript.png');
@@ -149,11 +222,21 @@ export default {
       text-align: center;
       grid-row: 1/3;
       grid-column: 2/3;
+      min-width: 415px;
+
+      background-image: url('~assets/img/Стул_мой_v1.png');
+      // background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
     }
     &--right {
       text-align: left;
       padding-left: 70px;
       position: relative;
+      background: rgba(53, 118, 192, 0.1);
+      & > p {
+        padding-right: 15px;
+      }
       &::before {
         content: '';
         background-image: url('~assets/img/icon_descript.png');
@@ -173,22 +256,7 @@ export default {
 }
 
 .skills {
-  background: rgb(230, 118, 202);
-  padding: 30px 30px;
-  &__list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-  }
-  &__item {
-    padding: 10px;
-    border: 2px solid rgb(180, 103, 103);
-    border-radius: 7px;
-    &:hover {
-      transform: scale(1.2);
-    }
-  }
+  background: $grey;
+  padding: 20px 0;
 }
 </style>

@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  background: rgb(29, 28, 28);
 }
 *,
 *::before,
@@ -14,10 +15,9 @@ body {
   font-weight: normal;
 
   width: 100%;
-  // max-width: 100%;
+  background: #141414;
   // Убрать полосы прокрутки
   overflow-x: hidden;
-  // overflow-y: hidden;
 }
 
 .wrapper__full {
@@ -37,4 +37,22 @@ body {
 a {
   text-decoration: none;
   color: #fff;
+}
+
+.header-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subtitle {
+  padding: 0;
+  margin: 0;
+
+  font-style: italic;
+}
+
+.title-block {
+  margin: 0;
+  padding: 0;
 }

@@ -1,0 +1,44 @@
+// Черта под заголовками
+
+.title-decor {
+  &::after {
+    content: '';
+    position: relative;
+    display: block;
+    margin: 6px auto;
+    height: 1px;
+    background: white;
+
+    // transform-origin: 50% 50%;
+    width: 100%;
+    margin: 20px auto;
+    transform: scale(1.2, 1);
+  }
+}
+
+// Иконка скролла
+.scroll {
+  // animation: name duration timing-function delay iteration-count direction fill-mode;
+  animation: scroll 1s ease-in-out infinite alternate both;
+  &::after {
+    content: '';
+    display: block;
+    border-right: solid rgb(68, 69, 70);
+    border-top: solid rgb(68, 69, 70);
+    border-radius: 2px;
+    width: 15px;
+    height: 15px;
+    transform: rotate(135deg);
+  }
+}
+@keyframes scroll {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0.5;
+    transform: translateY(5px);
+  }
+}

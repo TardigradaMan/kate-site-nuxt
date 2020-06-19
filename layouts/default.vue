@@ -75,7 +75,7 @@ export default {
 
 .header {
   position: fixed;
-  z-index: 1000;
+  z-index: 100;
   top: 10px;
   left: 10px;
   height: 35px;

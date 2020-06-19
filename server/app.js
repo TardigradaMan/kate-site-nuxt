@@ -1,6 +1,7 @@
 const authRoutes = require('./routes/auth.routes')
 const applicationsRoutes = require('./routes/applications.routes')
-// const commentRoutes = require('./routes/comment.routes')
+const contentRoutes = require('./routes/content.routes')
+
 const keys = require('./keys')
 // Для защиты routs и проверки токена:
 const passportStrategy = require('./middleware/passport-strategy')
@@ -36,5 +37,6 @@ app.use(bodyParser.json())
 // Регистрация Routes
 app.use('/api/auth', authRoutes)
 app.use('/api/applications', applicationsRoutes)
+app.use('/api/content', contentRoutes)
 
 module.exports = app

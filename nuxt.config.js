@@ -19,7 +19,7 @@ module.exports = {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: 'green' },
+  loading: 'components/main/pre-loader.vue',
   /*
    ** Global CSS
    */
@@ -31,7 +31,8 @@ module.exports = {
     '@/plugins/globals',
     '@/plugins/axios',
     '@/plugins/vuelidate',
-    '@/plugins/gsap'
+    '@/plugins/gsap',
+    { src: '@/plugins/vue-awesome-swiper', mode: 'client' }
   ],
   /*
    ** Nuxt.js dev-modules

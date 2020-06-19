@@ -18,13 +18,22 @@
           ></span>
           <span style="display: block">Ну или хотя-бы стране, курсивым</span>
         </div>
+        <div class="page-title__img image-container">
+          <img
+            class="page-title__img"
+            src="~assets/img/bg_4.jpg"
+            alt="Человек"
+          />
+        </div>
       </div>
 
       <div ref="link" class="link">
         <nuxt-link to="/social">
           <div ref="linkSocial" class="link__social">
             <div class="link__header">
-              <h1 class="link__title">Реклама в социальных сетях</h1>
+              <h1 class="link__title title-decor">
+                Реклама в социальных сетях
+              </h1>
               <strong class="link__header-subtitle"
                 >Поможем, расскажем, сделаем</strong
               >
@@ -35,7 +44,7 @@
         <nuxt-link to="/ad">
           <div ref="linkAds" class="link__ads">
             <div class="link__header">
-              <h1 class="link__title">Реклама в интернете</h1>
+              <h1 class="link__title title-decor">Реклама в интернете</h1>
               <strong class="link__header-subtitle">Яндекс, Гугол, Майл</strong>
             </div>
             <div class="image-container image-container__ads">
@@ -99,12 +108,13 @@ export default {
       })
       .to(
         this.$refs.pageTitlePosition,
-        { scale: '0.5', opacity: 0, duration: 1 },
+        // { scale: '0.5', opacity: 0, duration: 1 },
+        { opacity: 0, duration: 1.5 },
         1
       )
 
       .to(this.$refs.title, { width: '50%' }, 2)
-      .to(this.$refs.pageTitlePosition, { opacity: 1 }, 4)
+      .to(this.$refs.pageTitlePosition, { scale: '.7', opacity: 1 })
 
     // Анимация блока с ссылками
     this.animLinkPosition = gsap
@@ -169,13 +179,16 @@ export default {
 }
 
 .page-title {
-  background: rgba(221, 117, 47, 0.295);
+  // background-image: url(~assets/img/bg_4.jpg);
+  // background-repeat: no-repeat;
+  // background-size: cover;
 
   // display: flex;
   // justify-content: space-between;
   width: 100%;
   position: absolute;
   height: 100vh;
+
   // top: 50%;
   // left: 50%;
 
@@ -187,6 +200,10 @@ export default {
     left: 0;
     width: 100%;
     text-align: center;
+    z-index: 5;
+    & span {
+      margin-left: 15px;
+    }
   }
 
   &__01 {
@@ -200,9 +217,11 @@ export default {
   }
 }
 
-// #title__svg path {
-//   stroke-linecap: round;
-// }
+.page-title__img {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
 
 .link {
   background: rgba(97, 214, 235, 0.171);
@@ -263,22 +282,13 @@ export default {
 
     &-subtitle {
       display: block;
+      font-style: italic;
     }
   }
   &__title {
     display: inline-block;
     margin: 0;
     &::after {
-      content: '';
-      position: relative;
-      display: block;
-      margin: 6px auto;
-      height: 1px;
-      background: white;
-
-      // transform-origin: 50% 50%;
-      width: 100%;
-      margin: 20px auto;
       transition: all 0.5s ease-out;
       transform: scale(1.2, 1);
     }
@@ -296,10 +306,10 @@ export default {
   background-size: cover;
 
   &__ads {
-    background-image: url('~assets/img/ads_v2.jpg');
+    background-image: url('~assets/img/bg_3.jpg');
   }
   &__social {
-    background-image: url('~assets/img/social_test_v1.jpg');
+    background-image: url('~assets/img/bg_1.jpg');
   }
 }
 </style>

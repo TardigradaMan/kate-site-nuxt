@@ -24,6 +24,8 @@ async function start() {
   // Give nuxt middleware to express
   app.use(nuxt.render)
 
+  // Give bot middleware to express
+
   // Listen the server
   app.listen(port, host, () => {
     consola.ready({
@@ -31,5 +33,9 @@ async function start() {
       badge: true
     })
   })
+
+  // Ботт
+
+  // Конец бота
 }
 start()

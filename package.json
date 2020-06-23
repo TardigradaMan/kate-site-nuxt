@@ -32,6 +32,7 @@
     "jwt-decode": "^2.2.0",
     "mongodb": "^3.5.7",
     "mongoose": "^5.9.6",
+    "node-telegram-bot-api": "^0.50.0",
     "normalize.css": "^8.0.1",
     "nuxt": "^2.0.0",
     "passport": "^0.4.1",

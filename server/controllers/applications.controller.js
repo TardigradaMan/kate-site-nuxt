@@ -1,5 +1,6 @@
 // Экспортирует функции которые нужно применить в routes
 const Applications = require('../models/applications.model')
+
 // const keys = require('../keys')
 // Шифравание пароля:
 // const bcrypt = require('bcrypt-nodejs')

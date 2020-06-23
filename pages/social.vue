@@ -19,23 +19,75 @@
     </section>
     <section class="description">
       <div class="wrapper">
-        <div class="description-text">
-          <ul class="description-text__list">
-            <li class="description-text__item">1</li>
-            <li class="description-text__item">2</li>
-            <li class="description-text__item">3</li>
-            <li class="description-text__item">4</li>
-            <li class="description-text__item">5</li>
-            <li class="description-text__item">6</li>
-          </ul>
+        <div class="header-block">
+          <h2 class="description__title title-decor title-block">
+            Как минимум вы получите
+          </h2>
+          <p class="description__subtitle subtitle">
+            И не придумал
+          </p>
         </div>
-        <div class="description-img">
-          <ul class="description-img__list">
-            <li class="description-img__item phone">Phone</li>
-            <li class="description-img__item icon-in">icon-in</li>
-            <li class="description-img__item icon-fs">icon-fs</li>
-            <li class="description-img__item icon-vk">icon-vk</li>
-          </ul>
+        <div class="description__wrapper">
+          <div class="description-text">
+            <ul class="description-text__list">
+              <li class="description-text__item">
+                <h3 class="description__head">Заголовок</h3>
+                <span>Icon</span>
+                <p class="description__body">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Officia, doloremque?
+                </p>
+              </li>
+              <li class="description-text__item">
+                <h3 class="description__head">Заголовок</h3>
+                <span>Icon</span>
+                <p class="description__body">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Officia, doloremque?
+                </p>
+              </li>
+              <li class="description-text__item">
+                <h3 class="description__head">Заголовок</h3>
+                <span>Icon</span>
+                <p class="description__body">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Officia, doloremque?
+                </p>
+              </li>
+              <li class="description-text__item">
+                <h3 class="description__head">Заголовок</h3>
+                <span>Icon</span>
+                <p class="description__body">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Officia, doloremque?
+                </p>
+              </li>
+              <li class="description-text__item">
+                <h3 class="description__head">Заголовок</h3>
+                <span>Icon</span>
+                <p class="description__body">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Officia, doloremque?
+                </p>
+              </li>
+              <li class="description-text__item">
+                <h3 class="description__head">Заголовок</h3>
+                <span>Icon</span>
+                <p class="description__body">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Officia, doloremque?
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div class="description-img">
+            <ul class="description-img__list">
+              <li class="description-img__item phone"></li>
+              <li class="description-img__item icon-in"></li>
+              <li class="description-img__item icon-fs"></li>
+              <li class="description-img__item icon-vk"></li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -192,19 +244,25 @@ export default {
   }
 }
 
-.wrapper {
+.header-block {
+  color: $grey;
+  & .title-decor::after {
+    background: $grey;
+  }
+}
+
+.description__wrapper {
   display: flex;
   justify-content: space-around;
   height: 100%;
 }
 .description {
   height: 100vh;
-  background: rgb(160, 192, 204);
-  padding: 50px 0;
+  background: #fff;
+  padding-bottom: 50px;
   &-text {
     width: 47%;
     align-items: stretch;
-    background: rgb(255, 202, 159);
     &__list {
       list-style: none;
       margin: 0;
@@ -217,14 +275,27 @@ export default {
       gap: 10px;
     }
     &__item {
-      background: rgb(179, 255, 172);
+      padding: 10px;
+      background: #fff;
+      box-shadow: $shadow-out;
     }
+  }
+  &__head {
+    margin: 0;
+    color: $grey;
+  }
+
+  &__body {
+    color: $grey;
+  }
+  & span {
+    color: $grey;
   }
 
   &-img {
     width: 47%;
     align-items: stretch;
-    background: rgb(255, 202, 159);
+    // background: rgb(255, 202, 159);
 
     &__list {
       list-style: none;
@@ -245,23 +316,22 @@ export default {
       gap: 20px;
     }
     &__item {
-      background: rgb(179, 255, 172);
       &.phone {
         grid-area: phone;
         background: center/contain url('~assets/img/phone.png') no-repeat;
       }
       &.icon-in {
-        margin: 10px;
+        margin: 20px;
         grid-area: icon-in;
         background: center/contain url('~assets/img/in.png') no-repeat;
       }
       &.icon-fs {
-        margin: 10px;
+        margin: 20px;
         grid-area: icon-fs;
         background: center/contain url('~assets/img/fs.png') no-repeat;
       }
       &.icon-vk {
-        margin: 10px;
+        margin: 20px;
         grid-area: icon-vk;
         background: center/contain url('~assets/img/vk.png') no-repeat;
       }

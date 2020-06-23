@@ -14,9 +14,10 @@ export default {
       this.loading = true
     },
     finish() {
-      setTimeout(() => {
-        this.loading = false
-      }, 2000)
+      // setTimeout(() => {
+      //   this.loading = false
+      // }, 2000)
+      this.loading = false
     }
   }
 }

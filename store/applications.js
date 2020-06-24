@@ -21,7 +21,7 @@ export const actions = {
       if (formData.page === 'home') {
         text = `<b><i><u>Новая заявка с главной формы:</u></i></b>%0A<strong>Имя: </strong><i>${formData.name}</i>%0A<strong>Телефон: </strong><i>${formData.phone}</i>%0A👉<a href="tg://user?id=1009703975">Открыть бота</a>`
       }
-      if (formData.page === 'modal') {
+      if (formData.page === 'small') {
         text = `<b><i><u>Новая заявка с модального:</u></i></b>%0A<strong>Имя: ${formData.name}</strong>%0A<strong>Телефон: ${formData.phone}</strong>%0A<a href="tg://user?id=1009703975">Открыть бота</a>`
       }
 

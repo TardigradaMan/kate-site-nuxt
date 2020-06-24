@@ -7,6 +7,7 @@
         <input
           :class="{ 'form-group--error': $v.contactForm.name.$error }"
           v-model.trim="$v.contactForm.name.$model"
+          class="input"
           type="text"
           name="name"
           placeholder="Ваше имя"
@@ -18,6 +19,7 @@
         <input
           :class="{ 'form-group--error': $v.contactForm.phone.$error }"
           v-model.trim="$v.contactForm.phone.$model"
+          class="input"
           type="tel"
           name="phone"
           placeholder="Ваш номер для связи"
@@ -28,6 +30,7 @@
         <input
           :class="{ 'form-group--error': $v.contactForm.email.$error }"
           v-model.trim="$v.contactForm.email.$model"
+          class="input"
           type="email"
           name="email"
           placeholder="Ваш email для связи"
@@ -118,6 +121,7 @@
           <input
             :class="{ 'form-group--error': $v.contactForm.urlAdd.$error }"
             v-model="$v.contactForm.urlAdd.$model"
+            class="input"
             type="text"
             placeholder="Ссылка на ваш товар/услугу"
           />
@@ -128,6 +132,7 @@
         <template v-if="social">
           <input
             v-model="contactForm.urlSocial"
+            class="input"
             type="text"
             placeholder="Ссылка на вашу группу(если имеется конечно)"
           />
@@ -135,6 +140,7 @@
         <template v-if="web">
           <input
             v-model="contactForm.urlWeb"
+            class="input"
             type="text"
             placeholder="Возможно у вас есть ссылка на пример"
           />
@@ -313,42 +319,6 @@ h2 {
 
 .contact {
   grid-area: input;
-
-  &:focus,
-  :hover {
-    background-repeat: no-repeat;
-    background-position: left;
-    background-size: 5px;
-    background-image: linear-gradient(180deg, #6fcf97 0%, #02fdb2 186.42%);
-  }
-}
-
-.contact,
-.block {
-  > input {
-    min-width: 390px;
-    height: 50px;
-    padding-left: 8px;
-    padding-right: 8px;
-    margin-bottom: 40px;
-    border-radius: 5px;
-    border: 0;
-
-    font-size: 14px;
-    line-height: 22px;
-    &:focus,
-    :active {
-      outline: 0;
-    }
-  }
-  &:focus,
-  :hover,
-  :active {
-    background-repeat: no-repeat;
-    background-position: left;
-    background-size: 5px;
-    background-image: linear-gradient(180deg, #6fcf97 0%, #02fdb2 186.42%);
-  }
 }
 
 .radio {
@@ -439,26 +409,6 @@ h2 {
   grid-area: block;
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-.form-group__message,
-.error {
-  padding: 0;
-  font-size: 0.75rem;
-  line-height: 1;
-  display: none;
-
-  margin-top: -1.6875rem;
-  margin-bottom: 0.9375rem;
-}
-.form-group--error {
-  border: 2px solid #f57f6c !important;
-}
-
-.form-group--error + .form-group__message,
-.form-group--error + .error {
-  display: block;
-  color: #f57f6c;
 }
 
 @media screen and(max-width: 660px) {

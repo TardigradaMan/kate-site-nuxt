@@ -31,7 +31,7 @@
           <div class="description-text">
             <ul class="description-text__list">
               <li class="description-text__item">
-                <h3 class="description__head">Заголовок</h3>
+                <h3 class="description__head">Цена</h3>
                 <span>Icon</span>
                 <p class="description__body">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -39,7 +39,7 @@
                 </p>
               </li>
               <li class="description-text__item">
-                <h3 class="description__head">Заголовок</h3>
+                <h3 class="description__head">Анимация</h3>
                 <span>Icon</span>
                 <p class="description__body">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -47,7 +47,7 @@
                 </p>
               </li>
               <li class="description-text__item">
-                <h3 class="description__head">Заголовок</h3>
+                <h3 class="description__head">Введение</h3>
                 <span>Icon</span>
                 <p class="description__body">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -55,7 +55,7 @@
                 </p>
               </li>
               <li class="description-text__item">
-                <h3 class="description__head">Заголовок</h3>
+                <h3 class="description__head">Аудитория</h3>
                 <span>Icon</span>
                 <p class="description__body">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -63,7 +63,7 @@
                 </p>
               </li>
               <li class="description-text__item">
-                <h3 class="description__head">Заголовок</h3>
+                <h3 class="description__head">Сроки</h3>
                 <span>Icon</span>
                 <p class="description__body">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -82,7 +82,9 @@
           </div>
           <div class="description-img">
             <ul class="description-img__list">
-              <li class="description-img__item phone"></li>
+              <li class="description-img__item phone">
+                <img src="~assets/img/phone.png" alt="phone" />
+              </li>
               <li class="description-img__item icon-in"></li>
               <li class="description-img__item icon-fs"></li>
               <li class="description-img__item icon-vk"></li>
@@ -91,7 +93,7 @@
         </div>
       </div>
     </section>
-    <section class="social">
+    <!-- <section class="social">
       <div class="wrapper">
         <div class="header-block">
           <h2 class="social__title title-decor title-block">
@@ -129,11 +131,66 @@
           </div>
         </div>
       </div>
+    </section> -->
+    <section class="stages">
+      <div class="wrapper">
+        <ul class="stages__list stage">
+          <li class="stages__item stage-1">
+            <h3>Стадия 1</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
+              optio?
+            </p>
+          </li>
+          <li class="stages__item stage-2">
+            <h3>Стадия 1</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
+              optio?
+            </p>
+          </li>
+          <li class="stages__item stage-3">
+            <h3>Стадия 1</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
+              optio?
+            </p>
+          </li>
+          <li class="stages__item stage-4">
+            <h3>Стадия 1</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
+              optio?
+            </p>
+          </li>
+          <li class="stages__item stage-5">
+            <h3>Стадия 1</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
+              optio?
+            </p>
+          </li>
+          <li class="stages__item stage-6">
+            <h3>Стадия 1</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
+              optio?
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="form-block">
+      <app-form></app-form>
     </section>
   </div>
 </template>
 <script>
+import appForm from '../components/main/form'
 export default {
+  components: {
+    appForm
+  },
   data() {
     return {
       social: {
@@ -257,7 +314,6 @@ export default {
   height: 100%;
 }
 .description {
-  height: 100vh;
   background: #fff;
   padding-bottom: 50px;
   &-text {
@@ -275,7 +331,7 @@ export default {
       gap: 10px;
     }
     &__item {
-      padding: 10px;
+      padding: 15px;
       background: #fff;
       box-shadow: $shadow-out;
     }
@@ -318,7 +374,11 @@ export default {
     &__item {
       &.phone {
         grid-area: phone;
-        background: center/contain url('~assets/img/phone.png') no-repeat;
+        // background: center/contain url('~assets/img/phone.png') no-repeat;
+        & img {
+          width: 100%;
+          height: auto;
+        }
       }
       &.icon-in {
         margin: 20px;
@@ -336,6 +396,65 @@ export default {
         background: center/contain url('~assets/img/vk.png') no-repeat;
       }
     }
+  }
+}
+
+%arrow {
+  content: '';
+  position: absolute;
+  // top: 50%;
+  transform: translateY(-50%);
+  // align-items: center;
+  right: -90px;
+  width: 80px;
+  height: 50px;
+  background: center/ 100% url('~assets/img/arrow.png') no-repeat;
+}
+.stages {
+  background: rgb(120, 228, 219);
+  padding: 50px 0;
+  &__list {
+    margin: 0;
+    padding: 0;
+    // background: rgb(56, 118, 122);
+    list-style: none;
+
+    display: grid;
+    grid-template: 1fr 1fr/ 1fr 1fr 1fr;
+    gap: 100px;
+  }
+  &__item {
+    // background: rgb(243, 229, 151);
+    padding: 15px;
+    position: relative;
+    box-shadow: $shadow-out;
+    color: $grey;
+  }
+  & .stage-1::after {
+    @extend %arrow;
+    top: 50%;
+  }
+  & .stage-2::after {
+    @extend %arrow;
+    top: 50%;
+  }
+  & .stage-3::after {
+    @extend %arrow;
+
+    bottom: -80px;
+
+    left: calc(50% - 60px);
+    transform: rotate(90deg) translateY(-50%);
+  }
+  & .stage-4::after {
+    @extend %arrow;
+    transform: scale(-1, 1) translateY(-50%);
+    top: 50%;
+  }
+  & .stage-5::after {
+    @extend %arrow;
+    transform: scale(-1, 1) translateY(-50%);
+    top: 50%;
   }
 }
 

@@ -1,7 +1,7 @@
-const keys = require('./keys')
-const helper = require('./helper')
-const Applications = require('./models/applications.model')
+const keys = require('../keys')
+const Applications = require('../models/applications.model')
 const kb = require('./keyboards-buttons')
+const helper = require('./helper')
 const keyboard = require('./keyboard')
 
 const TelegramBot = require('node-telegram-bot-api')
@@ -34,18 +34,10 @@ bot.on('message', msg => {
       break
   }
 })
-// Вывод главной клавиатуры по команде тесты
-// bot.on('message', msg => {
-//   console.log(msg.from.id)
-//   bot.sendMessage(msg.from.id, 'Новая заявка')
-// })
 
-// ================ \\
 // Вывод главной клавиатуры по команде /start
 bot.onText(/\/start/, msg => {
   const text = `Привет, ${msg.from.first_name}.\nЧем я могу помочь?!`
-
-  console.log(msg)
 
   bot.sendMessage(helper.gerChatId(msg), text, {
     reply_markup: {

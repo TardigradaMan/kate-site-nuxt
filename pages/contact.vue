@@ -172,7 +172,8 @@ export default {
         method: 'Любым способом',
         urlAdd: '',
         urlSocial: '',
-        urlWeb: ''
+        urlWeb: '',
+        page: 'home'
       },
       communicationMethod: {
         phone: 'Связаться с помощью телефона',
@@ -245,10 +246,12 @@ export default {
             method: this.contactForm.method,
             urlAdd: this.contactForm.urlAdd,
             urlSocial: this.contactForm.urlSocial,
-            urlWeb: this.contactForm.urlWeb
+            urlWeb: this.contactForm.urlWeb,
+            page: this.contactForm.page
           }
 
           await this.$store.dispatch('applications/create', formData)
+          await this.$store.dispatch('applications/sendBotTelegram', formData)
 
           this.submitStatus = 'OK'
           this.$v.$reset()
@@ -260,6 +263,7 @@ export default {
           this.contactForm.urlAdd = ''
           this.contactForm.urlSocial = ''
           this.contactForm.urlWeb = ''
+          this.contactForm.page = ''
         } catch (e) {
           console.log(e)
         }

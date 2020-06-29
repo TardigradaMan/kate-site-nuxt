@@ -1,3 +1,4 @@
+require('./bot/telega')
 const config = require('../nuxt.config.js')
 const app = require('./app')
 

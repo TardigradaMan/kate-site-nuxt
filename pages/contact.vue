@@ -117,58 +117,80 @@
       </div>
       <div class="form__group block">
         <h3 class="form__title">Ещё немного вводных данных</h3>
-        <template v-if="add">
-          <input
-            :class="{ 'form-group--error': $v.contactForm.urlAdd.$error }"
-            v-model="$v.contactForm.urlAdd.$model"
-            class="input"
-            type="text"
-            placeholder="Ссылка на ваш товар/услугу"
-          />
-          <p v-if="!$v.contactForm.urlAdd.url" class="error">
-            Введите корректный адрес (Например: https://site.ru/)
-          </p>
-        </template>
-        <template v-if="social">
-          <input
-            v-model="contactForm.urlSocial"
-            class="input"
-            type="text"
-            placeholder="Ссылка на вашу группу(если имеется конечно)"
-          />
-        </template>
-        <template v-if="web">
-          <input
-            v-model="contactForm.urlWeb"
-            class="input"
-            type="text"
-            placeholder="Возможно у вас есть ссылка на пример"
-          />
-        </template>
+        <transition name="additional">
+          <template v-if="add">
+            <input
+              :class="{ 'form-group--error': $v.contactForm.urlAdd.$error }"
+              v-model="$v.contactForm.urlAdd.$model"
+              class="input"
+              type="text"
+              placeholder="Ссылка на ваш товар/услугу"
+            />
+            <p v-if="!$v.contactForm.urlAdd.url" class="error">
+              Введите корректный адрес (Например: https://site.ru/)
+            </p>
+          </template>
+        </transition>
+        <transition name="additional">
+          <template v-if="social">
+            <input
+              v-model="contactForm.urlSocial"
+              class="input"
+              type="text"
+              placeholder="Ссылка на вашу группу(если имеется конечно)"
+            />
+          </template>
+        </transition>
+        <transition name="additional">
+          <template v-if="web">
+            <input
+              v-model="contactForm.urlWeb"
+              class="input"
+              type="text"
+              placeholder="Возможно у вас есть ссылка на пример"
+            />
+          </template>
+        </transition>
       </div>
-      <div>
+      <div class="form__group form__button">
         <input
           :disabled="submitStatus === 'PENDING'"
           class="button"
           type="submit"
           value="Отправить"
         />
-
-        <p v-if="submitStatus === 'OK'" class="typo__p">
-          <!-- Thanks for your submission! -->
-          Спасибо за заявку!
-        </p>
-        <p v-if="submitStatus === 'ERROR'" class="typo__p">
-          Пожалуйста, заполните форму правильно
-        </p>
-        <p v-if="submitStatus === 'PENDING'" class="typo__p">Отправка...</p>
+      </div>
+      <div class="form__group form__status">
+        <transition name="status">
+          <div v-if="submitStatus === 'OK'" class="status status__ok--home">
+            <div class="ok_title">
+              <h3>Спасибо за заявку!</h3>
+              <p>Мы свяжемся с вами в течении 20 минут</p>
+            </div>
+          </div>
+        </transition>
+        <transition name="status">
+          <div v-if="submitStatus === 'PENDING'" class="status status__pending">
+            <app-horizontal />
+          </div>
+        </transition>
+        <transition name="status">
+          <p v-if="submitStatus === 'ERROR'" class="status status__error">
+            Пожалуйста, заполните обязательные поля
+          </p>
+        </transition>
       </div>
     </form>
   </div>
 </template>
 <script>
+import AppHorizontal from '../components/main/LoadingHorizontal'
 import { required, numeric, email, url } from 'vuelidate/lib/validators'
+
 export default {
+  components: {
+    AppHorizontal
+  },
   data() {
     return {
       contactForm: {
@@ -256,10 +278,19 @@ export default {
             page: this.contactForm.page
           }
 
-          await this.$store.dispatch('applications/create', formData)
-          await this.$store.dispatch('applications/sendBotTelegram', formData)
+          await console.log(formData.name)
 
+          // await this.$store.dispatch('applications/create', formData)
+          // await this.$store.dispatch('applications/sendBotTelegram', formData)
+
+          this.submitStatus = 'PENDING'
           this.submitStatus = 'OK'
+          setTimeout(
+            function() {
+              this.submitStatus = null
+            }.bind(this),
+            4000
+          )
           this.$v.$reset()
 
           this.contactForm.name = ''
@@ -280,8 +311,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .wrapper__contact {
-  padding: 0;
-  padding-top: 50px;
+  padding: 50px 0;
   max-width: 1100px;
   margin: 0 auto;
 }
@@ -308,7 +338,8 @@ h2 {
   align-items: center;
   padding: 5px;
   padding-top: 40px;
-  box-shadow: $shadow-out;
+  // box-shadow: $shadow-out;
+  box-shadow: $shadow-nm1;
   border-radius: 5px;
 }
 .form__title {
@@ -409,6 +440,53 @@ h2 {
   grid-area: block;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.additional-enter-active {
+  transition: all 0.2s ease;
+}
+.additional-leave-active {
+  transition: all 0.2s ease;
+}
+.additional-enter,
+.additional-leave-to {
+  opacity: 0;
+}
+
+.form__button,
+.form__status {
+  padding-bottom: 40px;
+  //   justify-content: center;
+  //   align-items: center;
+  //   align-content: center;
+}
+
+.status {
+  padding: 0;
+  position: relative;
+  text-align: center;
+  &__error {
+    text-align: center;
+    color: #f57f6c;
+    font-size: 18px;
+  }
+
+  &__ok {
+    &--home {
+    }
+  }
+}
+
+.ok_title {
+  h3 {
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10px;
+  }
+  p {
+    margin: 0;
+  }
 }
 
 @media screen and(max-width: 660px) {

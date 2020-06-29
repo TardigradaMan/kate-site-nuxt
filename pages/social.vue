@@ -1,3 +1,4 @@
+// fddsfs
 <template>
   <div>
     <section class="header">
@@ -18,6 +19,19 @@
       </div>
     </section>
     <section class="description">
+      <div class="wrapper">
+        <div class="header-block">
+          <h2 class="description__title title-decor title-block">
+            Как минимум вы получите
+          </h2>
+          <p class="description__subtitle subtitle">
+            И не придумал
+          </p>
+        </div>
+        <app-info></app-info>
+      </div>
+    </section>
+    <!-- <section class="description">
       <div class="wrapper">
         <div class="header-block">
           <h2 class="description__title title-decor title-block">
@@ -92,7 +106,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!-- <section class="social">
       <div class="wrapper">
         <div class="header-block">
@@ -183,43 +197,28 @@
     <section class="form-block">
       <app-form></app-form>
     </section>
+    <section class="test">
+      <div class="test-bgs"><div class="test-s"></div></div>
+      <div class="test-bgc">
+        <div class="test-c">
+          <div class="test-c-c">
+            <p>R</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 <script>
 import appForm from '../components/main/form'
+import appInfo from '../components/main/infographics'
 export default {
   components: {
-    appForm
+    appForm,
+    appInfo
   },
   data() {
-    return {
-      social: {
-        stories: {
-          title: 'Реклама в историях',
-          description:
-            'Добавьте рекламу в истории в Instagram в свои материалы. Охватите более 500 млн человек, использующих истории в Instagram каждый день. Узнайте больше о рекламе в историях и ее характеристиках.',
-          src: 'Описание_истории.png',
-          imgClass: 'grid_1',
-          textClass: 'grid_2'
-        },
-        photo: {
-          title: 'Реклама с фото',
-          description:
-            'Этот простой формат рекламы поможет вам показать свою компанию или товары во всей красе. Можно использовать фото формата пейзажа или квадрата.',
-          src: 'Описание_лента.png',
-          imgClass: 'grid_4',
-          textClass: 'grid_3'
-        },
-        video: {
-          title: 'Видеореклама',
-          description:
-            'Этот формат дарит все преимущества рекламы с фото плюс движение и звук. Кроме того, теперь вы можете делиться видео длиной до 120 секунд в формате пейзажа или квадрата.',
-          src: 'Описание_видео.png',
-          imgClass: 'grid_5',
-          textClass: 'grid_6'
-        }
-      }
-    }
+    return {}
   },
   methods: {
     openForm() {
@@ -314,7 +313,7 @@ export default {
   height: 100%;
 }
 .description {
-  background: #fff;
+  background: #eeeeee;
   padding-bottom: 50px;
   &-text {
     width: 47%;
@@ -455,6 +454,65 @@ export default {
     @extend %arrow;
     transform: scale(-1, 1) translateY(-50%);
     top: 50%;
+  }
+}
+
+.test {
+  height: 500px;
+  padding: 20px 0;
+  &-bgs {
+    background: #eeeeee;
+    padding: 20px;
+  }
+  &-s {
+    width: 200px;
+    height: 200px;
+    padding: 0;
+    margin: 0 auto;
+
+    background: #eeeeee;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    box-shadow: -6px -6px 26px rgba(255, 255, 255, 0.83),
+      6px 6px 16px rgba(217, 210, 200, 0.51);
+  }
+
+  &-bgc {
+    background: #eeeeee;
+    padding: 20px;
+  }
+  &-c {
+    width: 200px;
+    height: 240px;
+    margin: 0 auto;
+    position: relative;
+
+    background: linear-gradient(
+      93.84deg,
+      #2f3439 -72.68%,
+      #26292e 26.94%,
+      #17191c 185.78%
+    );
+    box-shadow: 22px 22px 60px rgba(0, 0, 0, 0.5),
+      -5px -6px 16px rgba(195, 200, 205, 0.04);
+    border-radius: 16px;
+
+    &-c {
+      position: absolute;
+      width: 96px;
+      height: 96px;
+      left: 52px;
+      top: 95px;
+
+      background: linear-gradient(324.43deg, #32383e -114.89%, #17191c 124.22%);
+      box-shadow: 12px 12px 58px rgba(0, 0, 0, 0.74),
+        -12px -10px 32px rgba(195, 200, 205, 0.12);
+      filter: blur(8px);
+      border-radius: 93px;
+      & > p {
+        filter: blur(0);
+      }
+    }
   }
 }
 

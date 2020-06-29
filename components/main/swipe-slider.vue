@@ -2,8 +2,8 @@
   <client-only>
     <swiper :options="swiperOption" class="swiper">
       <swiper-slide v-for="item in sliderData" :key="item._id">
-        {{ item.skill }}</swiper-slide
-      >
+        <p class="swiper__text">{{ item.skill }}</p>
+      </swiper-slide>
       <!-- <div slot="pagination" class="swiper-pagination"></div> -->
     </swiper>
   </client-only>
@@ -79,16 +79,39 @@ export default {
   box-sizing: border-box;
 
   font-size: 1.3em;
-  opacity: 0.5;
+  opacity: 1;
   transition: all 0.2s ease;
   padding: 0 5px;
+
+  // Неоморфизм
+  background: $bg-lin1;
+  border: 1px solid rgba(95, 95, 95, 0.178);
+  border-radius: 12px;
+  box-shadow: $shadow-nm1;
   &:hover {
-    opacity: 1;
     cursor: grab;
-    transform: scale(1.1);
-    box-shadow: $shadow-into;
-    transition: all 0.2s ease;
   }
+  &:hover .swiper__text {
+    opacity: 1;
+    transition: all ease 0.2s;
+  }
+}
+
+.swiper__text {
+  margin: 0;
+  padding: 0;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  text-shadow: 0px 0px 2px rgb(255, 255, 255);
+  opacity: 0.5;
+  transition: all ease 0.2s;
+  // Неоморфизм
+  // background: linear-gradient(324.43deg, #32383e -114.89%, #17191c 124.22%);
+  // box-shadow: 12px 12px 58px rgba(0, 0, 0, 0.74),
+  //   -12px -10px 32px rgba(195, 200, 205, 0.12);
+  // filter: blur(8px);
+  // border-radius: 93px;
 }
 
 .swiper-pagination-bullets {

@@ -4,7 +4,7 @@
       <form @submit.prevent="onSubmit" class="form-small__group">
         <input
           :class="{ 'form-group--error': $v.contactForm.name.$error }"
-          v-model.trim="$v.contactForm.name.$model"
+          v-model.trim.lazy="$v.contactForm.name.$model"
           class="input"
           type="text"
           name="name"
@@ -16,7 +16,7 @@
 
         <input
           :class="{ 'form-group--error': $v.contactForm.phone.$error }"
-          v-model.trim="$v.contactForm.phone.$model"
+          v-model.trim.lazy="$v.contactForm.phone.$model"
           class="input"
           type="tel"
           name="phone"
@@ -26,37 +26,59 @@
           Обязательное поле
         </p>
         <textarea
-          v-model.trim="contactForm.text"
+          v-model.trim.lazy="contactForm.text"
           class="textarea"
           type="text"
           name="phone"
           placeholder="Если у вас есть вопрос, впишите его сюда"
         />
-        <div>
-          <input
-            :disabled="submitStatus === 'PENDING'"
-            class="button"
-            type="submit"
-            value="Отправить"
-          />
+        <input
+          id="check"
+          v-model="checked"
+          class="agreement__check"
+          type="checkbox"
+        />
+        <label for="check" class="agreement">
+          Нажимая кнопку вы соглашаетесь с нашей&nbsp;
+          <a class="link-text" href="/docs/agreement">политикой</a>
+        </label>
 
-          <p v-if="submitStatus === 'OK'" class="typo__p">
-            <!-- Thanks for your submission! -->
-            Спасибо за заявку!
-          </p>
-          <p v-if="submitStatus === 'ERROR'" class="typo__p">
-            Пожалуйста, заполните форму правильно
-          </p>
-          <p v-if="submitStatus === 'PENDING'" class="typo__p">Отправка...</p>
-        </div>
+        <input
+          :disabled="submitStatus === 'PENDING' || !checked"
+          class="button"
+          type="submit"
+          value="Отправить"
+        />
+        <transition name="status">
+          <div v-if="submitStatus === 'OK'" class="status ok">
+            <div class="ok_title">
+              <h3>Спасибо за заявку!</h3>
+              <p>Мы свяжемся с вами в течении 20 минут</p>
+            </div>
+          </div>
+        </transition>
+        <transition name="status"
+          ><div v-if="submitStatus === 'PENDING'" class="status pending">
+            <app-loading />
+          </div>
+        </transition>
+
+        <p v-if="submitStatus === 'ERROR'" class="status-error">
+          Пожалуйста, заполните обязательные поля
+        </p>
       </form>
     </div>
   </div>
 </template>
 
 <script>
+import appLoading from './loading'
 import { required, numeric } from 'vuelidate/lib/validators'
+
 export default {
+  components: {
+    appLoading
+  },
   data() {
     return {
       contactForm: {
@@ -68,7 +90,8 @@ export default {
         page: 'small'
       },
 
-      submitStatus: null
+      submitStatus: null,
+      checked: true
     }
   },
   validations: {
@@ -82,6 +105,11 @@ export default {
       }
     }
   },
+  computed: {
+    disable() {
+      return this.checked
+    }
+  },
 
   // mounted() {
   //   this.$nextTick(() => {
@@ -89,6 +117,7 @@ export default {
 
   //     setTimeout(() => this.$nuxt.$loading.finish(), 500)
   //   })
+
   // },
   methods: {
     async onSubmit() {
@@ -110,7 +139,14 @@ export default {
           await this.$store.dispatch('applications/create', formData)
           await this.$store.dispatch('applications/sendBotTelegram', formData)
 
+          this.submitStatus = 'PENDING'
           this.submitStatus = 'OK'
+          setTimeout(
+            function() {
+              this.submitStatus = null
+            }.bind(this),
+            4000
+          )
           this.$v.$reset()
 
           this.contactForm.name = ''
@@ -124,6 +160,11 @@ export default {
         }
       }
     }
+  },
+  sendClass() {
+    console.log('Зупастил sendClass')
+
+    this.submitStatus = null
   }
 }
 </script>

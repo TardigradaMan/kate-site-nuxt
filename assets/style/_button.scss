@@ -1,0 +1,32 @@
+.button {
+  width: 250px;
+  // height: 45px;
+  padding: 0.8em;
+  border: none;
+  background: $bg-color;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
+  line-height: 17px;
+  letter-spacing: 0.05rem;
+  color: $color-button;
+  // color: #df4b07;
+  box-sizing: border-box;
+
+  // Неоморфизм
+  background: linear-gradient(145deg, #ff8504, #e37004);
+  box-shadow: inset 4px 4px 7px #ff9b05, inset -4px -4px 7px #bd5d03;
+  border-radius: 15px;
+  transition: all ease-in-out 0.2s;
+
+  &:hover,
+  :focus,
+  :active {
+    cursor: pointer;
+  }
+  &:active {
+    box-shadow: inset 4px 4px 7px #bd5d03, inset -4px -4px 7px #ff9b05;
+    transition: all ease-in-out 0.2s;
+  }
+}

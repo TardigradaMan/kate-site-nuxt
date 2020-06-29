@@ -7,12 +7,32 @@ $retina-dppx: 1.5dppx;
 
 //Color
 $color-text: #fff;
-$bg-color: #30363d;
+// $bg-color: #6387c0;
+// $bg-color: #363e4b;
+$bg-color: #3c3f42;
+// $bg-color: #3b3d40;
 $bg-img-default: url('~assets/img/bg_1.jpg');
-$bg-button: linear-gradient(90deg, #f27a54 -21.05%, #a154f2 121.05%);
+$bg-button: #0176fc;
+// $bg-button: linear-gradient(90deg, #f27a54 -21.05%, #a154f2 121.05%);
 $color-button: #fff;
 $bg-widget: #393c3f;
 $shadow-out: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 $shadow-into: inset 2px 2px 5px rgba(0, 0, 0, 0.25),
   1px 1px 3px rgb(105, 105, 105);
 $grey: rgb(53, 53, 53);
+$dark-grey: #050607;
+$blue: #78e4db;
+
+/// // Неоморфизм
+$color1: #21272c;
+$shadow-drop1: -8px -8px 30px #393e44, 8px 8px 30px #101316,
+  -1px -1px 60px rgba(33, 39, 44, 0.01);
+//#//
+$color1: #24292d;
+$shadow-inner1: -6px -6px rgba(22, 22, 22, 0.5), 6px 6px 12px #24292d,
+  -1px -1px 60px rgba(36, 41, 45, 0.01);
+//###############///
+// bg #3c3f42
+$bg-lin1: linear-gradient(145deg, #36393b, #404347);
+$shadow-nm1: 5px 5px 20px 0 #1e1e1f, -5px -5px 20px 0 #565758fb;
+$shadow-nm2: 5px 5px 20px 0 #1e1e1f, -5px -5px 20px 0 #565758fb;

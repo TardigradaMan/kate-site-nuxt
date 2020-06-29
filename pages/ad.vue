@@ -77,14 +77,19 @@
       </div>
       <app-swipe-slider :sliderData="skills"></app-swipe-slider>
     </section>
+    <section class="form-block">
+      <app-form></app-form>
+    </section>
   </div>
 </template>
 <script>
 import appSwipeSlider from '../components/main/swipe-slider'
+import appForm from '../components/main/form'
 
 export default {
   components: {
-    appSwipeSlider
+    appSwipeSlider,
+    appForm
   },
 
   async asyncData({ store }) {
@@ -233,5 +238,8 @@ export default {
 .skills {
   background: $grey;
   padding: 20px 0;
+}
+.form-block {
+  box-shadow: 0 -14px 28px rgba(0, 0, 0, 0.25), 0 -10px 10px rgba(0, 0, 0, 0.22);
 }
 </style>

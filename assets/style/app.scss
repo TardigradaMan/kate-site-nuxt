@@ -4,6 +4,7 @@
 // font-family: 'Russo One', sans-serif;
 body {
   color: $color-text;
+  background: coral;
   // position: relative;
 }
 
@@ -13,26 +14,4 @@ body {
   padding: 0 10px;
 
   // height: 100vh;
-}
-
-.button {
-  width: 250px;
-  // height: 45px;
-  padding: 0.8em;
-  border: none;
-  background: $bg-button;
-  border-radius: 20px;
-  font-weight: bold;
-  font-size: 16px;
-  text-transform: uppercase;
-  line-height: 17px;
-  letter-spacing: 0.05rem;
-  color: $color-button;
-
-  &:hover,
-  :focus,
-  :active {
-    background: transparent;
-    border: solid 1px;
-  }
 }

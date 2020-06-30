@@ -146,57 +146,73 @@
         </div>
       </div>
     </section> -->
-    <section class="stages">
+    <section class="stages-social">
       <div class="wrapper">
-        <ul class="stages__list stage">
-          <li class="stages__item stage-1">
-            <h3>Стадия 1</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
-              optio?
-            </p>
-          </li>
-          <li class="stages__item stage-2">
-            <h3>Стадия 1</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
-              optio?
-            </p>
-          </li>
-          <li class="stages__item stage-3">
-            <h3>Стадия 1</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
-              optio?
-            </p>
-          </li>
-          <li class="stages__item stage-4">
-            <h3>Стадия 1</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
-              optio?
-            </p>
-          </li>
-          <li class="stages__item stage-5">
-            <h3>Стадия 1</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
-              optio?
-            </p>
-          </li>
-          <li class="stages__item stage-6">
-            <h3>Стадия 1</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
-              optio?
-            </p>
-          </li>
-        </ul>
+        <div class="header-block">
+          <h2 class="description__title title-decor title-block">
+            Как будет проходить работа
+          </h2>
+          <p class="description__subtitle subtitle">
+            И не придумал
+          </p>
+        </div>
+        <app-stages>
+          <template v-slot:title1>
+            Мой заголовок
+          </template>
+          <template v-slot:text1>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, in!
+          </template>
+          <template v-slot:title2>
+            Мой заголовок2
+          </template>
+          <template v-slot:text2>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, in!
+          </template>
+          <template v-slot:title3>
+            Мой заголовок3
+          </template>
+          <template v-slot:text3>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, in!
+          </template>
+          <template v-slot:title4>
+            Мой заголовок4
+          </template>
+          <template v-slot:text4>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, in!
+          </template>
+          <template v-slot:title5>
+            Мой заголовок5
+          </template>
+          <template v-slot:text5>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, in!
+          </template>
+          <template v-slot:title6>
+            Мой заголовок6
+          </template>
+          <template v-slot:text6>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, in!
+          </template>
+        </app-stages>
       </div>
     </section>
     <section class="form-block">
       <app-form></app-form>
     </section>
+    <section class="price">
+      <div class="wrapper">
+        <div class="header-block">
+          <h2 class="description__title title-decor title-block">
+            Ловешечка за дельца наши
+          </h2>
+          <p class="description__subtitle subtitle">
+            И не придумал
+          </p>
+        </div>
+        <app-price></app-price>
+      </div>
+    </section>
+
     <section class="test">
       <div class="test-bgs"><div class="test-s"></div></div>
       <div class="test-bgc">
@@ -212,10 +228,14 @@
 <script>
 import appForm from '../components/main/form'
 import appInfo from '../components/main/infographics'
+import appStages from '../components/main/stages'
+import appPrice from '../components/main/price'
 export default {
   components: {
     appForm,
-    appInfo
+    appInfo,
+    appStages,
+    appPrice
   },
   data() {
     return {}
@@ -397,64 +417,9 @@ export default {
     }
   }
 }
-
-%arrow {
-  content: '';
-  position: absolute;
-  // top: 50%;
-  transform: translateY(-50%);
-  // align-items: center;
-  right: -90px;
-  width: 80px;
-  height: 50px;
-  background: center/ 100% url('~assets/img/arrow.png') no-repeat;
-}
-.stages {
+.stages-social {
   background: rgb(120, 228, 219);
-  padding: 50px 0;
-  &__list {
-    margin: 0;
-    padding: 0;
-    // background: rgb(56, 118, 122);
-    list-style: none;
-
-    display: grid;
-    grid-template: 1fr 1fr/ 1fr 1fr 1fr;
-    gap: 100px;
-  }
-  &__item {
-    // background: rgb(243, 229, 151);
-    padding: 15px;
-    position: relative;
-    box-shadow: $shadow-out;
-    color: $grey;
-  }
-  & .stage-1::after {
-    @extend %arrow;
-    top: 50%;
-  }
-  & .stage-2::after {
-    @extend %arrow;
-    top: 50%;
-  }
-  & .stage-3::after {
-    @extend %arrow;
-
-    bottom: -80px;
-
-    left: calc(50% - 60px);
-    transform: rotate(90deg) translateY(-50%);
-  }
-  & .stage-4::after {
-    @extend %arrow;
-    transform: scale(-1, 1) translateY(-50%);
-    top: 50%;
-  }
-  & .stage-5::after {
-    @extend %arrow;
-    transform: scale(-1, 1) translateY(-50%);
-    top: 50%;
-  }
+  padding-bottom: 50px;
 }
 
 .test {
@@ -514,6 +479,11 @@ export default {
       }
     }
   }
+}
+
+.price {
+  background: #eeeeee;
+  padding-bottom: 50px;
 }
 
 @media screen and(max-width: $mobile-width) {

@@ -4,7 +4,7 @@
       <div class="info-item color-1">
         <div class="info-content">
           <div class="info-bg bg-1"></div>
-          <div class="info-icon"></div>
+          <div class="info-icon left"></div>
           <div class="info-title">
             <span>A</span>
           </div>
@@ -22,7 +22,7 @@
       <div class="info-item color-2">
         <div class="info-content">
           <div class="info-bg bg-2"></div>
-          <div class="info-icon"></div>
+          <div class="info-icon left"></div>
           <div class="info-title">
             <span>B</span>
           </div>
@@ -40,7 +40,7 @@
       <div class="info-item color-3">
         <div class="info-content">
           <div class="info-bg bg-3"></div>
-          <div class="info-icon"></div>
+          <div class="info-icon right"></div>
           <div class="info-title">
             <span>C</span>
           </div>
@@ -58,7 +58,7 @@
       <div class="info-item color-4">
         <div class="info-content ">
           <div class="info-bg bg-4"></div>
-          <div class="info-icon"></div>
+          <div class="info-icon right"></div>
           <div class="info-title">
             <span class="color-title">D</span>
           </div>
@@ -82,33 +82,33 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
+// color
 .bg-1 {
-  background: rgb(54, 247, 128);
+  background: $green;
 }
 .bg-2 {
-  background: rgb(247, 141, 54);
+  background: $orange;
 }
 .bg-3 {
-  background: rgb(54, 131, 247);
+  background: $blue;
 }
 .bg-4 {
-  background: rgb(247, 54, 96);
+  background: $red;
 }
 .color-1 {
-  color: rgb(54, 247, 128);
+  color: $green;
   grid-template-areas: 'content text';
 }
 .color-2 {
-  color: rgb(247, 141, 54);
+  color: $orange;
   grid-template-areas: 'content text';
 }
 .color-3 {
-  color: rgb(54, 131, 247);
+  color: $blue;
   grid-template-areas: 'text content';
 }
-
 .color-4 {
-  color: rgb(247, 54, 96);
+  color: $red;
   grid-template-areas: 'text content';
 }
 .info {
@@ -129,7 +129,7 @@ export default {}
     height: 200px;
   }
   &-bg {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     z-index: 1;
@@ -138,16 +138,21 @@ export default {}
     width: 100%;
     height: 100%;
 
-    // background-clip: border-box;
+    box-shadow: inset 4px 4px 10px rgb(0, 0, 0),
+      inset 4px 4px 15px 3px rgba(0, 0, 0, 0.678),
+      inset -1px -1px 2px rgba(255, 255, 255, 0.5),
+      inset -1px -1px 5px rgb(255, 255, 255),
+      inset -1px -1px 1px rgba(0, 0, 0, 0.274);
 
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.459),
-      inset 2px 2px 5px 2px rgba(0, 0, 0, 0.678),
-      inset -3px -3px 5px rgba(172, 172, 172, 0.377);
+    border: 1px solid rgba(255, 255, 255, 0.897);
+
+    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
   }
   &-icon {
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 25px;
+    left: 25px;
     z-index: 2;
 
     width: 100%;
@@ -155,13 +160,13 @@ export default {}
     border-radius: 20px;
     background: linear-gradient(145deg, #e6e6e6, #ffffff);
 
-    box-shadow: 15px 15px 30px 0 rgb(109, 109, 109), inset 2px 2px 10px #ffffff,
-      inset -2px -2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 15px 15px 30px 0 rgba(0, 0, 0, 0.801),
+      inset 2px 2px 10px #ffffff, inset -2px -2px 5px rgba(0, 0, 0, 0.1);
   }
   &-title {
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 15px;
+    left: 15px;
     z-index: 3;
 
     background-clip: border-box;
@@ -176,7 +181,7 @@ export default {}
       -1px -1px 1px #ffffff;
     & span {
       display: inline-block;
-      position: relative;
+      position: absolute;
       padding: 0;
       margin: 0;
       top: 50%;
@@ -184,9 +189,7 @@ export default {}
       left: 50%;
       top: 50%;
       transform: translateX(-50%) translateY(-50%);
-      width: 60px;
-      height: 60px;
-      text-align: center;
+      // text-align: center;
       font-size: 54px;
       font-weight: 900;
       text-shadow: -2px -2px 3px rgba(255, 255, 255, 0.1),
@@ -202,6 +205,13 @@ export default {}
   grid-area: text;
   & p {
     color: $grey;
+  }
+}
+
+.right {
+  left: -20px;
+  & + .info-title {
+    left: -35px;
   }
 }
 </style>

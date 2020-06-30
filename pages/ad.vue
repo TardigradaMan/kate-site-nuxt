@@ -66,6 +66,7 @@
         </ul>
       </div>
     </section>
+
     <section class="skills">
       <div class="header-block">
         <h2 class="skills__title title-decor title-block">
@@ -77,6 +78,56 @@
       </div>
       <app-swipe-slider :sliderData="skills"></app-swipe-slider>
     </section>
+    <section class="stages-ads">
+      <div class="wrapper">
+        <div class="header-block">
+          <h2 class="description__title title-decor title-block">
+            Как будет проходить работа
+          </h2>
+          <p class="description__subtitle subtitle">
+            И не придумал
+          </p>
+        </div>
+        <app-stages>
+          <template v-slot:title1>
+            Мой заголовок
+          </template>
+          <template v-slot:text1>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, in!
+          </template>
+          <template v-slot:title2>
+            Мой заголовок2
+          </template>
+          <template v-slot:text2>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, in!
+          </template>
+          <template v-slot:title3>
+            Мой заголовок3
+          </template>
+          <template v-slot:text3>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, in!
+          </template>
+          <template v-slot:title4>
+            Мой заголовок4
+          </template>
+          <template v-slot:text4>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, in!
+          </template>
+          <template v-slot:title5>
+            Мой заголовок5
+          </template>
+          <template v-slot:text5>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, in!
+          </template>
+          <template v-slot:title6>
+            Мой заголовок6
+          </template>
+          <template v-slot:text6>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, in!
+          </template>
+        </app-stages>
+      </div>
+    </section>
     <section class="form-block">
       <app-form></app-form>
     </section>
@@ -85,11 +136,13 @@
 <script>
 import appSwipeSlider from '../components/main/swipe-slider'
 import appForm from '../components/main/form'
+import appStages from '../components/main/stages'
 
 export default {
   components: {
     appSwipeSlider,
-    appForm
+    appForm,
+    appStages
   },
 
   async asyncData({ store }) {
@@ -241,5 +294,9 @@ export default {
 }
 .form-block {
   box-shadow: 0 -14px 28px rgba(0, 0, 0, 0.25), 0 -10px 10px rgba(0, 0, 0, 0.22);
+}
+.stages-ads {
+  background: rgb(162, 255, 109);
+  padding-bottom: 50px;
 }
 </style>

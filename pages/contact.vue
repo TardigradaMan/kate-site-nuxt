@@ -280,8 +280,8 @@ export default {
 
           await console.log(formData.name)
 
-          // await this.$store.dispatch('applications/create', formData)
-          // await this.$store.dispatch('applications/sendBotTelegram', formData)
+          await this.$store.dispatch('applications/create', formData)
+          await this.$store.dispatch('applications/sendBotTelegram', formData)
 
           this.submitStatus = 'PENDING'
           this.submitStatus = 'OK'

@@ -196,10 +196,7 @@
         </app-stages>
       </div>
     </section>
-    <section class="form-block">
-      <app-form></app-form>
-    </section>
-    <section class="price">
+    <section class="price-block">
       <div class="wrapper">
         <div class="header-block">
           <h2 class="description__title title-decor title-block">
@@ -211,6 +208,9 @@
         </div>
         <app-price></app-price>
       </div>
+    </section>
+    <section class="form-block">
+      <app-form></app-form>
     </section>
 
     <section class="test">
@@ -481,7 +481,7 @@ export default {
   }
 }
 
-.price {
+.price-block {
   background: #eeeeee;
   padding-bottom: 50px;
 }

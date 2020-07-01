@@ -22,7 +22,29 @@ export const actions = {
         text = `<b><i><u>Новая заявка с главной формы:</u></i></b>%0A<strong>Имя: </strong><i>${formData.name}</i>%0A<strong>Телефон: </strong><i>${formData.phone}</i>%0A👉<a href="tg://user?id=1009703975">Открыть бота</a>`
       }
       if (formData.page === 'small') {
-        text = `<b><i><u>Новая заявка с малой формы:</u></i></b>%0A<strong>Имя: ${formData.name}</strong>%0A<strong>Телефон: ${formData.phone}</strong>%0A<a href="tg://user?id=1009703975">Открыть бота</a>`
+        text = `<b><i><u>Новая заявка с малой формы:</u></i></b>%0A<strong>Имя: </strong><i>${formData.name}</i>%0A<strong>Телефон: </strong><i>${formData.phone}</i>%0A<strong>Сообщение: </strong><i>${formData.text}</i>%0A👉<a href="tg://user?id=1009703975">Открыть бота</a>`
+      }
+
+      return await this.$axios.$post(
+        `https://api.telegram.org/bot${keys.TOKEN}/sendMessage?chat_id=${chatId}&parse_mode=html&text=${text}`
+      )
+    } catch (error) {
+      console.error(error)
+    }
+  },
+
+  // Чат через бота
+
+  async chatBotTelegram({ commit }, formData) {
+    try {
+      const keys = require('../server/keys')
+      const chatId = '-1001306557723'
+      let text
+      if (formData.page === 'home') {
+        text = `<b><i><u>Новая заявка с главной формы:</u></i></b>%0A<strong>Имя: </strong><i>${formData.name}</i>%0A<strong>Телефон: </strong><i>${formData.phone}</i>%0A👉<a href="tg://user?id=1009703975">Открыть бота</a>`
+      }
+      if (formData.page === 'small') {
+        text = `<b><i><u>Новая заявка с малой формы:</u></i></b>%0A<strong>Имя: </strong><i>${formData.name}</i>%0A<strong>Телефон: </strong><i>${formData.phone}</i>%0A<strong>Сообщение: </strong><i>${formData.text}</i>%0A👉<a href="tg://user?id=1009703975">Открыть бота</a>`
       }
 
       return await this.$axios.$post(

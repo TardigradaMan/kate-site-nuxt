@@ -168,5 +168,30 @@ export default {
   }
 }
 </script>
-
-<style></style>
+<style lang="scss" scoped>
+.status {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: $bg-color;
+  opacity: 0;
+  transition: all ease 1s;
+  & {
+    opacity: 1;
+    transition: all ease 1s;
+  }
+  &-error {
+    display: block;
+    color: #f57f6c;
+    padding: 0;
+    padding-top: 15px;
+    margin: 0 auto;
+  }
+}
+</style>

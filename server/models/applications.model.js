@@ -33,6 +33,9 @@ const applicationsSchema = new Schema({
   performed: {
     type: Boolean,
     default: false
+  },
+  text: {
+    type: String
   }
 })
 

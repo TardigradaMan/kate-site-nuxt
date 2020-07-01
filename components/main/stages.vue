@@ -83,6 +83,7 @@ export default {}
     padding: 15px;
     position: relative;
     box-shadow: $shadow-out;
+    // box-shadow: -3px -3px 20px rgba(255, 255, 255, 0.87), 5px 5px 15px #000;
     color: $grey;
     border-radius: 10px;
     &::after {

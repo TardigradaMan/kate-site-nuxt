@@ -8,6 +8,11 @@ const TelegramBot = require('node-telegram-bot-api')
 
 const bot = new TelegramBot(keys.TOKEN, { polling: true })
 
+// Тест Webhook
+// const bot = new TelegramBot(keys.TOKEN)
+
+// Тест Webhook
+
 helper.logStart()
 
 // Вывод разной клавиатуры в зависимости от страницы

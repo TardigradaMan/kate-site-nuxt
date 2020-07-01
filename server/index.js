@@ -1,5 +1,5 @@
-require('./bot/telega')
 const config = require('../nuxt.config.js')
+require('./bot/telega')
 const app = require('./app')
 
 const consola = require('consola')
@@ -24,6 +24,16 @@ async function start() {
 
   // Give nuxt middleware to express
   app.use(nuxt.render)
+
+  // Webhook Telegram
+
+  // bot.setWebHook(`${host}/bot${keys.TOKEN}`)
+  // // We are receiving updates at the route below!
+  // app.post(`/bot${keys.TOKEN}`, (req, res) => {
+  //   bot.processUpdate(req.body)
+  //   res.sendStatus(200)
+  // })
+  // Webhook
 
   // Give bot middleware to express
 

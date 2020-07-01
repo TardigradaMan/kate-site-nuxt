@@ -67,17 +67,6 @@
       </div>
     </section>
 
-    <section class="skills">
-      <div class="header-block">
-        <h2 class="skills__title title-decor title-block">
-          Мы уже успели поработать в данных тематиках
-        </h2>
-        <p class="skills__subtitle subtitle">
-          И это далеко не всё, с чем мы работали
-        </p>
-      </div>
-      <app-swipe-slider :sliderData="skills"></app-swipe-slider>
-    </section>
     <section class="stages-ads">
       <div class="wrapper">
         <div class="header-block">
@@ -128,6 +117,30 @@
         </app-stages>
       </div>
     </section>
+    <section class="price-block">
+      <div class="wrapper">
+        <div class="header-block">
+          <h2 class="description__title title-decor title-block">
+            Ловешечка за дельца наши
+          </h2>
+          <p class="description__subtitle subtitle">
+            И не придумал
+          </p>
+        </div>
+        <app-price></app-price>
+      </div>
+    </section>
+    <section class="skills">
+      <div class="header-block">
+        <h2 class="skills__title title-decor title-block">
+          Мы уже успели поработать в данных тематиках
+        </h2>
+        <p class="skills__subtitle subtitle">
+          И это далеко не всё, с чем мы работали
+        </p>
+      </div>
+      <app-swipe-slider :sliderData="skills"></app-swipe-slider>
+    </section>
     <section class="form-block">
       <app-form></app-form>
     </section>
@@ -137,12 +150,14 @@
 import appSwipeSlider from '../components/main/swipe-slider'
 import appForm from '../components/main/form'
 import appStages from '../components/main/stages'
+import appPrice from '../components/main/price'
 
 export default {
   components: {
     appSwipeSlider,
     appForm,
-    appStages
+    appStages,
+    appPrice
   },
 
   async asyncData({ store }) {

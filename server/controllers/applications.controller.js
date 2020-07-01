@@ -13,7 +13,8 @@ module.exports.create = async (req, res) => {
     email: req.body.email,
     method: req.body.method,
     urlAdd: req.body.urlAdd,
-    urlSocial: req.body.urlSocial
+    urlSocial: req.body.urlSocial,
+    text: req.body.text
   })
 
   try {

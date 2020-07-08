@@ -31,6 +31,7 @@
         <app-info></app-info>
       </div>
     </section>
+    <div class="separator"></div>
     <!-- <section class="description">
       <div class="wrapper">
         <div class="header-block">
@@ -196,6 +197,7 @@
         </app-stages>
       </div>
     </section>
+    <div class="separator"></div>
     <section class="price-block">
       <div class="wrapper">
         <div class="header-block">
@@ -209,11 +211,12 @@
         <app-price></app-price>
       </div>
     </section>
-    <section class="form-block">
+    <div class="separator"></div>
+    <section class="form-block form-social ">
       <app-form></app-form>
     </section>
 
-    <section class="test">
+    <!-- <section class="test">
       <div class="test-bgs"><div class="test-s"></div></div>
       <div class="test-bgc">
         <div class="test-c">
@@ -222,7 +225,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
   </div>
 </template>
 <script>
@@ -258,67 +261,67 @@ export default {
   line-height: 40px;
   text-align: center;
 }
-.social {
-  width: 100%;
-  background: #fff;
-  padding-bottom: 100px;
-  &__wrapper {
-    display: grid;
+// .social {
+//   width: 100%;
+//   background: #fff;
+//   padding-bottom: 100px;
+//   &__wrapper {
+//     display: grid;
 
-    grid-template-areas:
-      'grid_1 grid_2'
-      'grid_3 grid_4'
-      'grid_5 grid_6';
+//     grid-template-areas:
+//       'grid_1 grid_2'
+//       'grid_3 grid_4'
+//       'grid_5 grid_6';
 
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(3, 500px);
-    gap: 30px;
-  }
+//     grid-template-columns: 1fr 1fr;
+//     grid-template-rows: repeat(3, 500px);
+//     gap: 30px;
+//   }
 
-  &__title {
-    color: $grey;
-    &::after {
-      background: $grey;
-    }
-  }
+//   &__title {
+//     color: $grey;
+//     &::after {
+//       background: $grey;
+//     }
+//   }
 
-  &__subtitle {
-    color: $grey;
-  }
+//   &__subtitle {
+//     color: $grey;
+//   }
 
-  &__item {
-    box-shadow: $shadow-out;
-    position: relative;
-    min-width: 250px;
-    border-radius: 5px;
-    background-color: #ffffff;
-    color: $grey;
-    & > img {
-      display: block;
-      margin: 0 auto;
+//   &__item {
+//     box-shadow: $shadow-out;
+//     position: relative;
+//     min-width: 250px;
+//     border-radius: 5px;
+//     background-color: #ffffff;
+//     color: $grey;
+//     & > img {
+//       display: block;
+//       margin: 0 auto;
 
-      height: 100%;
-      width: auto;
-    }
-    &--description {
-      text-align: center;
-      & > h3 {
-        font-size: 1.5em;
-        padding: 10px;
-      }
-      & > p {
-        font-size: 1.2em;
-        padding: 10px;
-      }
-    }
-  }
-  &__btn {
-    position: absolute;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
+//       height: 100%;
+//       width: auto;
+//     }
+//     &--description {
+//       text-align: center;
+//       & > h3 {
+//         font-size: 1.5em;
+//         padding: 10px;
+//       }
+//       & > p {
+//         font-size: 1.2em;
+//         padding: 10px;
+//       }
+//     }
+//   }
+//   &__btn {
+//     position: absolute;
+//     bottom: 15px;
+//     left: 50%;
+//     transform: translateX(-50%);
+//   }
+// }
 
 .header-block {
   color: $grey;
@@ -327,99 +330,28 @@ export default {
   }
 }
 
-.description__wrapper {
-  display: flex;
-  justify-content: space-around;
-  height: 100%;
-}
 .description {
   background: #eeeeee;
   padding-bottom: 50px;
-  &-text {
-    width: 47%;
-    align-items: stretch;
-    &__list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      height: 100%;
-
-      display: grid;
-      /* grid-template-rows / grid-template-columns values */
-      grid-template: 1fr 1fr 1fr/ 1fr 1fr;
-      gap: 10px;
-    }
-    &__item {
-      padding: 15px;
-      background: #fff;
-      box-shadow: $shadow-out;
-    }
-  }
-  &__head {
-    margin: 0;
-    color: $grey;
-  }
-
-  &__body {
-    color: $grey;
-  }
-  & span {
-    color: $grey;
-  }
-
-  &-img {
-    width: 47%;
-    align-items: stretch;
-    // background: rgb(255, 202, 159);
-
-    &__list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      height: 100%;
-
-      display: grid;
-      /* grid-template-rows / grid-template-columns values */
-      grid-template: repeat(6, 1fr) / 1fr 1fr;
-      grid-template-areas:
-        '. icon-in'
-        'phone icon-in'
-        'phone icon-fs'
-        'phone icon-fs'
-        'phone icon-vk'
-        '. icon-vk';
-      gap: 20px;
-    }
-    &__item {
-      &.phone {
-        grid-area: phone;
-        // background: center/contain url('~assets/img/phone.png') no-repeat;
-        & img {
-          width: 100%;
-          height: auto;
-        }
-      }
-      &.icon-in {
-        margin: 20px;
-        grid-area: icon-in;
-        background: center/contain url('~assets/img/in.png') no-repeat;
-      }
-      &.icon-fs {
-        margin: 20px;
-        grid-area: icon-fs;
-        background: center/contain url('~assets/img/fs.png') no-repeat;
-      }
-      &.icon-vk {
-        margin: 20px;
-        grid-area: icon-vk;
-        background: center/contain url('~assets/img/vk.png') no-repeat;
-      }
-    }
-  }
+  // box-shadow: $shadow-block;
 }
+
 .stages-social {
-  background: rgb(120, 228, 219);
+  background: #eee;
   padding-bottom: 50px;
+  color: $grey;
+}
+.form-social {
+  background: #eee;
+}
+.separator {
+  width: 100%;
+  height: 3vh;
+
+  background: #eee;
+
+  box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.5),
+    inset -3px -3px 5px rgb(255, 255, 255);
 }
 
 .test {
@@ -472,7 +404,7 @@ export default {
       background: linear-gradient(324.43deg, #32383e -114.89%, #17191c 124.22%);
       box-shadow: 12px 12px 58px rgba(0, 0, 0, 0.74),
         -12px -10px 32px rgba(195, 200, 205, 0.12);
-      filter: blur(8px);
+      // filter: blur(8px);
       border-radius: 93px;
       & > p {
         filter: blur(0);
@@ -484,6 +416,7 @@ export default {
 .price-block {
   background: #eeeeee;
   padding-bottom: 50px;
+  // box-shadow: $shadow-block;
 }
 
 @media screen and(max-width: $mobile-width) {

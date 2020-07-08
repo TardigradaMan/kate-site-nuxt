@@ -24,6 +24,7 @@ $count: 10;
 $time: 2; //in seconds
 $size: 100;
 $color: #ffffff;
+$colorDark: $grey;
 
 .preloader {
   /* size */
@@ -59,6 +60,9 @@ $color: #ffffff;
   background-color: $color;
   transform: translateX(-50%);
   border-radius: 50%;
+}
+.form-social .preloader div:before {
+  background-color: $colorDark;
 }
 
 @for $i from 1 through $count {

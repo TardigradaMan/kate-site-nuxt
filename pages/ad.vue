@@ -141,7 +141,7 @@
       </div>
       <app-swipe-slider :sliderData="skills"></app-swipe-slider>
     </section>
-    <section class="form-block">
+    <section class="form-block form-ads">
       <app-form></app-form>
     </section>
   </div>
@@ -158,6 +158,11 @@ export default {
     appForm,
     appStages,
     appPrice
+  },
+  data() {
+    return {
+      border: '2px solid #fff'
+    }
   },
 
   async asyncData({ store }) {
@@ -230,7 +235,7 @@ export default {
     display: grid;
     /* grid-template-rows / grid-template-columns values */
     grid-template: 1fr 1fr/ 1fr 1fr 1fr;
-    gap: 10px;
+    gap: 20px;
 
     list-style: none;
     padding: 0;
@@ -244,6 +249,7 @@ export default {
     // background: rgb(89, 169, 189);
     box-shadow: $shadow-out;
     padding: 10px;
+    border-radius: 10px;
 
     &--left {
       text-align: right;
@@ -303,15 +309,20 @@ export default {
   }
 }
 
+.price-block {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
 .skills {
-  background: $grey;
+  // background: $grey;
   padding: 20px 0;
 }
 .form-block {
-  box-shadow: 0 -14px 28px rgba(0, 0, 0, 0.25), 0 -10px 10px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
 .stages-ads {
-  background: rgb(162, 255, 109);
+  // background: rgb(162, 255, 109);
   padding-bottom: 50px;
+  color: #eee;
 }
 </style>

@@ -489,6 +489,23 @@ h2 {
   }
 }
 
+.button {
+  width: 290px;
+  border-radius: 8px;
+  box-shadow: -1px -8px 20px #494c52, 8px 8px 30px #101316,
+    -1px -1px 60px rgba(33, 39, 44, 0.01);
+  transition: all ease-in-out 0.2s;
+  &:hover,
+  :focus {
+    color: $green;
+  }
+  &:active {
+    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.35),
+      inset -5px -5px 10px rgb(100, 100, 100);
+    transition: box-shadow ease-in-out 0.2s;
+  }
+}
+
 @media screen and(max-width: 660px) {
   h2 {
     font-size: 28px;

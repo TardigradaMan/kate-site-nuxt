@@ -34,7 +34,7 @@
       </div>
       <div class="price-item color-2">
         <div class="price-content">
-          <div class="price-bg bg-2"></div>
+          <div :style="{ border: borderBg }" class="price-bg bg-2"></div>
           <div class="price-card card middle">
             <div class="card__header bg-2">
               <p class="card__description">Необходимый минимум</p>
@@ -103,7 +103,14 @@
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    borderBg: {
+      type: String,
+      default: ''
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -169,10 +176,15 @@ export default {}
       inset -1px -1px 5px rgb(255, 255, 255),
       inset -1px -1px 1px rgba(0, 0, 0, 0.274);
 
-    border: 1px solid rgba(255, 255, 255, 0.897);
+    // border: 1px solid rgb(255, 255, 255);
 
-    border-bottom: 2px solid #fff;
-    border-right: 2px solid #fff;
+    // border-bottom: 2px solid rgb(255, 255, 255);
+    // border-right: 2px solid rgb(255, 255, 255);
+
+    border: 1px solid rgb(75, 75, 75);
+
+    // border-bottom: 2px solid rgba(0, 0, 0, 0.705);
+    // border-right: 2px solid rgba(0, 0, 0, 0.5);
   }
   &-card {
     position: absolute;
@@ -241,6 +253,8 @@ export default {}
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
+
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
   }
   &__description {
     padding: 0;
@@ -266,17 +280,26 @@ export default {}
 
     margin: 0 auto;
     margin-top: -30px;
-    padding: 5px;
+    padding: 7px 15px;
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: 12px;
 
-    border-radius: 2px;
+    border-radius: 5px;
     border: none;
     outline: none;
     background: $bg-color;
-    color: #ffffff;
+    color: #c0c0c0;
+    opacity: 0.8;
 
     cursor: pointer;
+    &:hover,
+    :focus {
+      color: #fff;
+      opacity: 1;
+    }
+    // &:active {
+    //   color: $green;
+    // }
   }
   &__list {
     display: flex;
@@ -314,13 +337,35 @@ export default {}
     background-image: url('~assets/img/off.png');
   }
 }
-.color-1 .card::after {
-  background: $green;
+.color-1 {
+  & .card::after {
+    background: $green;
+  }
+  & .card__button {
+    &:active {
+      color: $green;
+    }
+  }
 }
-.color-2 .card::after {
-  background: $orange;
+
+.color-2 {
+  & .card::after {
+    background: $orange;
+  }
+  & .card__button {
+    &:active {
+      color: $orange;
+    }
+  }
 }
-.color-3 .card::after {
-  background: $blue;
+.color-3 {
+  & .card::after {
+    background: $blue;
+  }
+  & .card__button {
+    &:active {
+      color: $blue;
+    }
+  }
 }
 </style>

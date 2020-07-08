@@ -17,39 +17,74 @@
     <main class="main">
       <nuxt />
     </main>
+    <transition v-if="!showInfo" name="toggle">
+      <div :class="{ hidden: !showToggleInfo }" class="info__toggle">
+        <button @click="openInfo" class="info__button contact">
+          Только спросить
+        </button>
+        <!-- <button @click="openInfo" class="info__button form-modal">
+          Контакты
+        </button> -->
+      </div>
+    </transition>
+    <transition name="info">
+      <modal-info :closeInfo="openInfo" v-if="showInfo"></modal-info>
+    </transition>
+
     <!-- <app-footer></app-footer> -->
   </div>
 </template>
-//
+
 <script>
 // import AppFooter from '@/components/main/Footer'
 import NavVertical from '@/components/main/navigation-vertical'
+import ModalInfo from '@/components/main/modal-info'
 
 export default {
   components: {
     // AppFooter,
-    NavVertical
+    NavVertical,
+    ModalInfo
   },
 
   data() {
     return {
       showNav: false,
-      scrolled: false
+      scrolled: false,
+      showInfo: false,
+      showToggleInfo: true
     }
   },
+  // computed: {
+  //   hidden() {
+  //     if (this.$route.path === '/') {
+  //       return (this.showToggleInfo = false)
+  //     }
+  //   }
+  // },
   watch: {
     $route() {
       if (this.showNav) {
         this.showNav = !this.showNav
       }
+      if (this.$route.path === '/') {
+        this.showToggleInfo = false
+      } else {
+        this.showToggleInfo = true
+      }
+    }
+  },
+  beforeMount() {
+    if (this.$route.path === '/') {
+      this.showToggleInfo = false
     }
   },
 
   mounted() {
     document.addEventListener(
       'scroll',
-      this.changeColorToggle,
-      console.log(document.documentElement.clientHeight, 'scroll add')
+      this.changeColorToggle
+      // console.log(document.documentElement.clientHeight, 'scroll add')
     )
   },
 
@@ -71,6 +106,9 @@ export default {
         this.scrolled = window.scrollY > document.documentElement.clientHeight
         console.log('metod scroll')
       }
+    },
+    openInfo() {
+      this.showInfo = !this.showInfo
     }
   }
 }
@@ -188,4 +226,112 @@ main {
   width: 100%;
   background-color: $bg-color;
 }
+
+.info__toggle {
+  position: fixed;
+  top: 50%;
+  right: 30px;
+  transform-origin: top right;
+  transform: rotate(270deg) translateX(50%);
+  z-index: 105;
+
+  & .info__button {
+    border: 0px solid #000000;
+    width: 150px;
+    padding: 8px 8px;
+    display: inline-block;
+    margin: 0;
+    color: #eee;
+    text-transform: uppercase;
+    font-size: 0.8em;
+
+    outline: none;
+    outline-offset: 0;
+
+    &.contact {
+      border: 1px solid #48494b;
+      border-radius: 10px 10px 0px 0px;
+      background: #3c3f42;
+      transition: all ease-in-out 0.2s;
+    }
+    // &.form-modal {
+    //   border-radius: 0px 8px 0px 0px;
+    //   background: #3c3f42;
+    // }
+    &:hover,
+    :focus {
+      cursor: pointer;
+      color: $blue;
+    }
+    & :active {
+      cursor: pointer;
+    }
+  }
+}
+
+// Анимация появления блока info
+
+.info-enter-active {
+  // продолжительность появления
+  transition: all 0.3s ease;
+}
+.info-leave-active {
+  // продолжительность исчезновения
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.info-enter,
+.info-leave-to {
+  transform: translateX(100vw);
+}
+.info-enter-to {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+
+  z-index: 1000;
+  // transform: translateX(0vw);
+}
+.info-leave-to {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+}
+
+// Анимация появления блока кнопок вызова инфо
+
+// .toggle-enter-active {
+//   // продолжительность появления
+//   transition: all 0.3s ease;
+// }
+// .toggle-leave-active {
+//   // продолжительность исчезновения
+//   transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+// }
+// .toggle-enter,
+// .toggle-leave-to {
+//   transform: translateX(100vw);
+// }
+// .toggle-enter-to {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100vh;
+
+//   z-index: 1000;
+//   // transform: translateX(0vw);
+// }
+// .toggle-leave-to {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100vh;
+//   z-index: 1000;
+// }
 </style>

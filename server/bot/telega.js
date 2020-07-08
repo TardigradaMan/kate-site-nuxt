@@ -44,6 +44,12 @@ bot.on('message', msg => {
 bot.onText(/\/start/, msg => {
   const text = `Привет, ${msg.from.first_name}.\nЧем я могу помочь?!`
 
+  // Мои тесты //
+  bot.getChatMember('1009703975').then(response => {
+    console.log(response)
+  })
+  // ************ //
+
   bot.sendMessage(helper.gerChatId(msg), text, {
     reply_markup: {
       keyboard: keyboard.home,
@@ -145,5 +151,17 @@ function sendHTML(chatId, html, kbName = null) {
   }
   bot.sendMessage(chatId, html, options)
 }
+
+// Тесты
+
+bot.onText(/\/t/, msg => {
+  // const text = `Привет, ${msg.from.first_name}.\nЧем я могу помочь?!`
+
+  // Мои тесты //
+  bot.getUpdates().then(response => {
+    console.log(response[0].message)
+  })
+  // ************ //
+})
 
 module.exports = bot

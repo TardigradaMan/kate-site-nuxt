@@ -5,20 +5,20 @@
       <div ref="title" class="page-title">
         <div ref="pageTitlePosition" class="page-title__wrapper">
           <span
-            ><svg class="page-title__01">
+            ><svg class="page-title__01 svg-title">
               <use xlink:href="#title__svg--01" /></svg
           ></span>
           <span
-            ><svg class="page-title__02">
+            ><svg class="page-title__02 svg-title">
               <use xlink:href="#title__svg--02" /></svg
           ></span>
           <span
-            ><svg class="page-title__03">
+            ><svg class="page-title__03 svg-title">
               <use xlink:href="#title__svg--03" /></svg
           ></span>
           <span style="display: block">Ну или хотя-бы стране, курсивым</span>
         </div>
-        <div class="page-title__img image-container">
+        <div ref="imgTitle" class="page-title__container">
           <img
             class="page-title__img"
             src="~assets/img/bg_4.jpg"
@@ -47,14 +47,7 @@
               <h1 class="link__title title-decor">Реклама в интернете</h1>
               <strong class="link__header-subtitle">Яндекс, Гугол, Майл</strong>
             </div>
-            <div class="image-container image-container__ads">
-              <!-- <img
-                class="three_images"
-                data-image="/asset/images/wines/header.jpg"
-                src="~assets/img/link_ads_v1.jpg"
-                alt=""
-              /> -->
-            </div>
+            <div class="image-container image-container__ads"></div>
           </div>
         </nuxt-link>
       </div>
@@ -81,13 +74,19 @@ export default {
   },
   mounted() {
     // Анимация svg элементов заголовка
+
     const svgObject = document.querySelectorAll('.svg')
+
     svgObject.forEach((item, i) => {
       const path = item.querySelectorAll('path')
+      console.log(path)
+
       path.forEach((item, i) => {
         const pathLength = item.getTotalLength()
+        console.log(pathLength)
+
         this.animTitle = gsap
-          .timeline({ defaults: { ease: 'none', duration: 1 } })
+          .timeline({ defaults: { ease: 'none', duration: 2 } })
           .set(path[i], { strokeDasharray: pathLength, autoAlpha: 1 })
           .fromTo(
             path[i],
@@ -115,6 +114,13 @@ export default {
 
       .to(this.$refs.title, { width: '50%' }, 2)
       .to(this.$refs.pageTitlePosition, { scale: '.7', opacity: 1 })
+
+    // Анимация изображения на заголовке
+    this.animTitlePosition = gsap
+      .timeline({
+        defaults: { ease: 'none', duration: 1 }
+      })
+      .fromTo(this.$refs.imgTitle, { x: '0%' }, { x: '-45% ' }, 2)
 
     // Анимация блока с ссылками
     this.animLinkPosition = gsap
@@ -216,11 +222,25 @@ export default {
     width: 246px;
   }
 }
+.page-title__container {
+  width: 100vw;
+  height: 100vh;
 
+  position: relative;
+  z-index: 1;
+  // top: 0;
+  // left: 0;
+  // right: 0;
+  // bottom: 0;
+  // overflow: hidden;
+}
 .page-title__img {
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 1;
   width: 100%;
-  height: 100%;
+  // height: 100%;
 }
 
 .link {
@@ -230,6 +250,7 @@ export default {
 
   position: absolute;
   right: 0;
+  z-index: 2;
   // background: url('~assets/img/Home_ads-1x.png') 50% / cover no-repeat;
 
   &__social,
@@ -301,6 +322,8 @@ export default {
   right: 0;
   bottom: 0;
   overflow: hidden;
+
+  z-index: 2;
 
   background-repeat: no-repeat;
   background-size: cover;

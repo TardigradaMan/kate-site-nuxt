@@ -16,6 +16,11 @@
           <nuxt-link class="main-nav__link" to="/ad">Реклама</nuxt-link>
         </li>
         <li class="main-nav__item">
+          <nuxt-link class="main-nav__link" to="/webdevelopment"
+            >Разработка сайтов</nuxt-link
+          >
+        </li>
+        <li class="main-nav__item">
           <nuxt-link class="main-nav__link" to="/contact"
             >Форма обратной связи</nuxt-link
           >

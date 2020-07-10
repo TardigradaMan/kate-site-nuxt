@@ -1,7 +1,21 @@
 //adaptiv width
-$mobile-width: 660px;
-$tablet-mobile-width: 1000px;
+$xs-width-min: 320px;
+$xs-width-max: 575px;
+
+$sm-width-min: 768px;
+$sm-width-max: 768px;
+
+$md-width-min: 768px;
+$md-width-max: 991px;
+
+$lg-width-min: 768px;
+$lg-width-max: 1199px;
+
+$xl-width-min: 1200px;
+$xl-width-max: 1279px;
+
 $desktop-width: 1280px;
+
 $retina-dpi: 144dpi;
 $retina-dppx: 1.5dppx;
 

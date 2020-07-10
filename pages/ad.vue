@@ -148,9 +148,9 @@
 </template>
 <script>
 import appSwipeSlider from '../components/main/swipe-slider'
-import appForm from '../components/main/form'
-import appStages from '../components/main/stages'
-import appPrice from '../components/main/price'
+import appForm from '../components/main/Form'
+import appStages from '../components/main/Stages'
+import appPrice from '../components/main/Price'
 
 export default {
   components: {

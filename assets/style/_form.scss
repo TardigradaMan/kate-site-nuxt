@@ -13,11 +13,24 @@ input {
     display: flex;
     flex-flow: column wrap;
     align-items: center;
-    // width: 600px;
+    width: 600px;
     padding: 40px 5px;
-    // box-shadow: $shadow-out;
-
+    margin: 0 auto;
     border-radius: 15px;
+    @media (max-width: $lg-width-max) {
+      // CSS для ширины от 992px до 1199px */
+    }
+    @media (max-width: $md-width-max) {
+      // CSS для ширины от 768px до 991px */
+    }
+    @media (max-width: $sm-width-max) {
+      // CSS для ширины от 576px до 767px */
+      width: 80vmin;
+    }
+    @media (max-width: $xs-width-max) {
+      // CSS для ширины до 575px (включительно) */
+      width: 85vmin;
+    }
   }
 }
 
@@ -29,7 +42,7 @@ input {
       -20px -20px 30px rgb(255, 255, 255), 6px 6px 20px rgba(0, 0, 0, 0.705);
   }
   & .form-small {
-    width: 600px;
+    // width: 600px;
     margin: 0 auto;
   }
 }
@@ -57,7 +70,7 @@ input {
 
 .input,
 .textarea {
-  min-width: 390px;
+  min-width: 75%;
   height: 50px;
   padding-left: 8px;
   padding-right: 8px;
@@ -72,6 +85,20 @@ input {
   // Неоморфизм
   box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.35),
     inset -6px -6px 10px 0 rgb(255, 255, 255);
+  @media (max-width: $lg-width-max) {
+    // CSS для ширины от 992px до 1199px */
+  }
+  @media (max-width: $md-width-max) {
+    // CSS для ширины от 768px до 991px */
+  }
+  @media (max-width: $sm-width-max) {
+    // CSS для ширины от 576px до 767px */
+    min-width: 80%;
+  }
+  @media (max-width: $xs-width-max) {
+    // CSS для ширины до 575px (включительно) */
+    min-width: 90%;
+  }
 
   &:focus,
   :active {
@@ -120,8 +147,19 @@ input {
   }
 }
 .agreement {
-  margin-bottom: 15px;
+  & > a {
+    display: inline-block;
+  }
   cursor: pointer;
+  text-align: left;
+  &__wrapper {
+    margin-bottom: 15px;
+    align-self: center;
+  }
+  @media (max-width: $xs-width-max) {
+    // CSS для ширины до 575px (включительно) */
+    font-size: 0.8em;
+  }
 }
 .agreement__check {
   position: absolute;
@@ -172,6 +210,7 @@ input {
 .link-text {
   color: $blue;
   font-weight: bold;
+  margin-left: 5px;
 }
 
 // .status {

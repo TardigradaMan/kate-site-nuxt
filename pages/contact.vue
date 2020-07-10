@@ -2,11 +2,11 @@
   <div class="wrapper__contact">
     <h2>Заполните поля и мы сразу начнем</h2>
 
-    <form @submit.prevent="onSubmit" class="form">
+    <form @submit.prevent="onSubmit" novalidate class="form">
       <div class="form__group contact">
         <input
           :class="{ 'form-group--error': $v.contactForm.name.$error }"
-          v-model.trim="$v.contactForm.name.$model"
+          v-model.trim.lazy="$v.contactForm.name.$model"
           class="input"
           type="text"
           name="name"
@@ -16,9 +16,10 @@
           Обязательное поле
         </p>
 
-        <input
+        <the-mask
           :class="{ 'form-group--error': $v.contactForm.phone.$error }"
-          v-model.trim="$v.contactForm.phone.$model"
+          v-model.trim.lazy="$v.contactForm.phone.$model"
+          :mask="['#(###) ###-####']"
           class="input"
           type="tel"
           name="phone"
@@ -29,7 +30,7 @@
         </p>
         <input
           :class="{ 'form-group--error': $v.contactForm.email.$error }"
-          v-model.trim="$v.contactForm.email.$model"
+          v-model.trim.lazy="$v.contactForm.email.$model"
           class="input"
           type="email"
           name="email"
@@ -37,6 +38,9 @@
         />
         <p v-if="!$v.contactForm.email.required" class="error">
           Обязательное поле
+        </p>
+        <p v-if="!$v.contactForm.email.email" class="error">
+          Введите корректный адрес почты (Например доступная@реклама.всем)
         </p>
       </div>
       <div class="form__group radio">
@@ -117,20 +121,22 @@
       </div>
       <div class="form__group block">
         <h3 class="form__title">Ещё немного вводных данных</h3>
-        <transition name="additional">
-          <template v-if="add">
+
+        <template v-if="add">
+          <transition name="additional">
             <input
               :class="{ 'form-group--error': $v.contactForm.urlAdd.$error }"
-              v-model="$v.contactForm.urlAdd.$model"
+              v-model.trim.lazy="$v.contactForm.urlAdd.$model"
               class="input"
               type="text"
               placeholder="Ссылка на ваш товар/услугу"
             />
-            <p v-if="!$v.contactForm.urlAdd.url" class="error">
-              Введите корректный адрес (Например: https://site.ru/)
-            </p>
-          </template>
-        </transition>
+          </transition>
+          <p v-if="!$v.contactForm.urlAdd.url" class="error">
+            Введите корректный адрес (Например: https://доступная-реклама.всем/)
+          </p>
+        </template>
+
         <transition name="additional">
           <template v-if="social">
             <input
@@ -152,14 +158,6 @@
           </template>
         </transition>
       </div>
-      <div class="form__group form__button">
-        <input
-          :disabled="submitStatus === 'PENDING'"
-          class="button"
-          type="submit"
-          value="Отправить"
-        />
-      </div>
       <div class="form__group form__status">
         <transition name="status">
           <div v-if="submitStatus === 'OK'" class="status status__ok--home">
@@ -180,12 +178,20 @@
           </p>
         </transition>
       </div>
+      <div class="form__group form__button">
+        <input
+          :disabled="submitStatus === 'PENDING'"
+          class="button"
+          type="submit"
+          value="Отправить"
+        />
+      </div>
     </form>
   </div>
 </template>
 <script>
 import AppHorizontal from '../components/main/LoadingHorizontal'
-import { required, numeric, email, url } from 'vuelidate/lib/validators'
+import { required, email, url } from 'vuelidate/lib/validators'
 
 export default {
   components: {
@@ -225,8 +231,7 @@ export default {
         required
       },
       phone: {
-        required,
-        numeric
+        required
       },
       email: {
         required,

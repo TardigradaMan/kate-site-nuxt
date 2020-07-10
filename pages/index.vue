@@ -50,6 +50,15 @@
             <div class="image-container image-container__ads"></div>
           </div>
         </nuxt-link>
+        <nuxt-link to="/webdevelopment">
+          <div ref="linkWeb" class="link__web">
+            <div class="link__header">
+              <h1 class="link__title title-decor">Web разработка</h1>
+              <strong class="link__header-subtitle">Vue, JS и все дела</strong>
+            </div>
+            <div class="image-container image-container__web"></div>
+          </div>
+        </nuxt-link>
       </div>
 
       <!-- <button @click="openForm" class="button home__button">Получить</button> -->
@@ -79,19 +88,17 @@ export default {
 
     svgObject.forEach((item, i) => {
       const path = item.querySelectorAll('path')
-      console.log(path)
 
       path.forEach((item, i) => {
         const pathLength = item.getTotalLength()
-        console.log(pathLength)
 
         this.animTitle = gsap
           .timeline({ defaults: { ease: 'none', duration: 2 } })
           .set(path[i], { strokeDasharray: pathLength, autoAlpha: 1 })
           .fromTo(
             path[i],
-            { 'stroke-dashoffset': pathLength },
-            { 'stroke-dashoffset': 0 }
+            { strokeDashoffset: pathLength },
+            { strokeDashoffset: 0 }
           )
           .to(svgObject, { duration: 1, fill: '#fff' })
           .to(svgObject, {
@@ -127,17 +134,26 @@ export default {
       .timeline({ defaults: { ease: 'none', duration: 1 } })
       .to(this.$refs.link, { width: '50%' }, 2)
 
-    // Анимация блоков
+    // Анимация блоков ссылок
     this.animBlockLink = gsap
       .timeline({ defaults: { duration: 1.5, ease: 'none' } })
       .to(this.$refs.linkSocial, { height: '100vh' }, 0)
       .to(this.$refs.linkSocial, { height: '50vh' }, 3)
+      .to(this.$refs.linkSocial, { height: '33.33vh' }, 5)
       .fromTo(
         this.$refs.linkAds,
         { height: '50vh', y: '200%' },
         { height: '50vh', y: '100%' },
         3
       )
+      .to(this.$refs.linkAds, { height: '33.33vh', y: '100%' }, 5)
+      .fromTo(
+        this.$refs.linkWeb,
+        { height: '50vh', y: '300%' },
+        { height: '50vh', y: '200%' },
+        3
+      )
+      .to(this.$refs.linkWeb, { height: '33.33vh', y: '200%' }, 5)
   },
 
   methods: {
@@ -254,7 +270,8 @@ export default {
   // background: url('~assets/img/Home_ads-1x.png') 50% / cover no-repeat;
 
   &__social,
-  &__ads {
+  &__ads,
+  &__web {
     width: 100%;
     position: absolute;
     box-shadow: 0 0 10px #000;
@@ -329,10 +346,13 @@ export default {
   background-size: cover;
 
   &__ads {
-    background-image: url('~assets/img/bg_3.jpg');
+    background-image: url('~assets/img/link-ads.jpg');
   }
   &__social {
-    background-image: url('~assets/img/bg_1.jpg');
+    background-image: url('~assets/img/link-social.jpg');
+  }
+  &__web {
+    background-image: url('~assets/img/link-web.jpg');
   }
 }
 </style>

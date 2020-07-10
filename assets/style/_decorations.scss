@@ -18,7 +18,7 @@
 
 // Иконка скролла
 .scroll {
-  // animation: name duration timing-function delay iteration-count direction fill-mode;
+  /*  animation: name duration timing-function delay iteration-count direction fill-mode; */
   animation: scroll 1s ease-in-out infinite alternate both;
   &::after {
     content: '';

@@ -67,6 +67,11 @@ export default {
       if (this.showNav) {
         this.showNav = !this.showNav
       }
+
+      if (this.scrolled) {
+        this.scrolled = !this.scrolled
+      }
+
       if (this.$route.path === '/') {
         this.showToggleInfo = false
       } else {

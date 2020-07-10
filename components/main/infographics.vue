@@ -97,36 +97,77 @@ export default {}
 }
 .color-1 {
   color: $green;
-  grid-template-areas: 'content text';
 }
 .color-2 {
   color: $orange;
-  grid-template-areas: 'content text';
 }
 .color-3 {
   color: $blue;
-  grid-template-areas: 'text content';
 }
 .color-4 {
   color: $red;
-  grid-template-areas: 'text content';
 }
 .info {
   &-list {
-    padding: 10px;
+    padding: 20px;
     display: grid;
     grid-template: 1fr 1fr/1fr 1fr;
     gap: 40px;
+    @media (max-width: $lg-width-max) {
+      /* CSS для ширины от 992px до 1199px */
+    }
+    @media (max-width: $md-width-max) {
+      /* CSS для ширины от 768px до 991px */
+      grid-template: 1fr 1fr 1fr 1fr/1fr;
+      gap: 50px;
+      padding: 10px 60px;
+    }
+    @media (max-width: $sm-width-max) {
+      /* CSS для ширины от 576px до 767px */
+      padding: 10px 40px;
+    }
+    @media (max-width: $xs-width-max) {
+      /* CSS для ширины до 575px (включительно) */
+    }
   }
   &-item {
     display: grid;
     gap: 40px;
+    justify-items: center;
+    &.color-1 {
+      grid-template-areas: 'content text';
+    }
+    &.color-2 {
+      grid-template-areas: 'content text';
+    }
+    &.color-3 {
+      grid-template-areas: 'text content';
+    }
+    &.color-4 {
+      grid-template-areas: 'text content';
+    }
+    @media (max-width: $xs-width-max) {
+      /* CSS для ширины до 575px (включительно) */
+      &.color-1,
+      &.color-2,
+      &.color-3,
+      &.color-4 {
+        grid-template-areas:
+          'content'
+          'text';
+      }
+    }
   }
   &-content {
     grid-area: content;
     position: relative;
     width: 200px;
     height: 200px;
+    @media (max-width: $xs-width-max) {
+      /* CSS для ширины до 575px (включительно) */
+      width: 150px;
+      height: 150px;
+    }
   }
   &-bg {
     position: relative;
@@ -213,5 +254,18 @@ export default {}
   & + .info-title {
     left: -35px;
   }
+}
+
+@media (max-width: $lg-width-max) {
+  // CSS для ширины от 992px до 1199px */
+}
+@media (max-width: $md-width-max) {
+  // CSS для ширины от 768px до 991px */
+}
+@media (max-width: $sm-width-max) {
+  // CSS для ширины от 576px до 767px */
+}
+@media (max-width: $xs-width-max) {
+  // CSS для ширины до 575px (включительно) */
 }
 </style>

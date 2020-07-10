@@ -1,4 +1,3 @@
-// fddsfs
 <template>
   <div>
     <section class="header">
@@ -215,24 +214,13 @@
     <section class="form-block form-social ">
       <app-form></app-form>
     </section>
-
-    <!-- <section class="test">
-      <div class="test-bgs"><div class="test-s"></div></div>
-      <div class="test-bgc">
-        <div class="test-c">
-          <div class="test-c-c">
-            <p>R</p>
-          </div>
-        </div>
-      </div>
-    </section> -->
   </div>
 </template>
 <script>
-import appForm from '../components/main/form'
-import appInfo from '../components/main/infographics'
-import appStages from '../components/main/stages'
-import appPrice from '../components/main/price'
+import appForm from '../components/main/Form'
+import appInfo from '../components/main/Infographics'
+import appStages from '../components/main/Stages'
+import appPrice from '../components/main/Price'
 export default {
   components: {
     appForm,
@@ -257,71 +245,27 @@ export default {
   background-attachment: fixed;
 }
 .header__title {
-  font-size: 24px;
+  font-size: 2em;
   line-height: 40px;
   text-align: center;
+  @media (max-width: $lg-width-max) {
+    /* CSS для ширины от 992px до 1199px */
+    font-size: 1.5em;
+  }
+  @media (max-width: $md-width-max) {
+    /* CSS для ширины от 768px до 991px */
+    font-size: 1.2em;
+  }
+  @media (max-width: $sm-width-max) {
+    /* CSS для ширины от 576px до 767px */
+    font-size: 1em;
+  }
+  @media (max-width: $xs-width-max) {
+    /* CSS для ширины до 575px (включительно) */
+    font-size: 0.8em;
+    display: none;
+  }
 }
-// .social {
-//   width: 100%;
-//   background: #fff;
-//   padding-bottom: 100px;
-//   &__wrapper {
-//     display: grid;
-
-//     grid-template-areas:
-//       'grid_1 grid_2'
-//       'grid_3 grid_4'
-//       'grid_5 grid_6';
-
-//     grid-template-columns: 1fr 1fr;
-//     grid-template-rows: repeat(3, 500px);
-//     gap: 30px;
-//   }
-
-//   &__title {
-//     color: $grey;
-//     &::after {
-//       background: $grey;
-//     }
-//   }
-
-//   &__subtitle {
-//     color: $grey;
-//   }
-
-//   &__item {
-//     box-shadow: $shadow-out;
-//     position: relative;
-//     min-width: 250px;
-//     border-radius: 5px;
-//     background-color: #ffffff;
-//     color: $grey;
-//     & > img {
-//       display: block;
-//       margin: 0 auto;
-
-//       height: 100%;
-//       width: auto;
-//     }
-//     &--description {
-//       text-align: center;
-//       & > h3 {
-//         font-size: 1.5em;
-//         padding: 10px;
-//       }
-//       & > p {
-//         font-size: 1.2em;
-//         padding: 10px;
-//       }
-//     }
-//   }
-//   &__btn {
-//     position: absolute;
-//     bottom: 15px;
-//     left: 50%;
-//     transform: translateX(-50%);
-//   }
-// }
 
 .header-block {
   color: $grey;
@@ -340,9 +284,32 @@ export default {
   background: #eee;
   padding-bottom: 50px;
   color: $grey;
+  @media (max-width: $lg-width-max) {
+    /* CSS для ширины от 992px до 1199px */
+  }
+  @media (max-width: $md-width-max) {
+  }
+  @media (max-width: $sm-width-max) {
+    /* CSS для ширины от 576px до 767px */
+  }
+  @media (max-width: $xs-width-max) {
+    /* CSS для ширины до 575px (включительно) */
+  }
 }
+
 .form-social {
   background: #eee;
+  @media (max-width: $lg-width-max) {
+    /* CSS для ширины от 992px до 1199px */
+  }
+  @media (max-width: $md-width-max) {
+  }
+  @media (max-width: $sm-width-max) {
+    /* CSS для ширины от 576px до 767px */
+  }
+  @media (max-width: $xs-width-max) {
+    /* CSS для ширины до 575px (включительно) */
+  }
 }
 .separator {
   width: 100%;
@@ -354,89 +321,22 @@ export default {
     inset -3px -3px 5px rgb(255, 255, 255);
 }
 
-.test {
-  height: 500px;
-  padding: 20px 0;
-  &-bgs {
-    background: #eeeeee;
-    padding: 20px;
-  }
-  &-s {
-    width: 200px;
-    height: 200px;
-    padding: 0;
-    margin: 0 auto;
-
-    background: #eeeeee;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    box-shadow: -6px -6px 26px rgba(255, 255, 255, 0.83),
-      6px 6px 16px rgba(217, 210, 200, 0.51);
-  }
-
-  &-bgc {
-    background: #eeeeee;
-    padding: 20px;
-  }
-  &-c {
-    width: 200px;
-    height: 240px;
-    margin: 0 auto;
-    position: relative;
-
-    background: linear-gradient(
-      93.84deg,
-      #2f3439 -72.68%,
-      #26292e 26.94%,
-      #17191c 185.78%
-    );
-    box-shadow: 22px 22px 60px rgba(0, 0, 0, 0.5),
-      -5px -6px 16px rgba(195, 200, 205, 0.04);
-    border-radius: 16px;
-
-    &-c {
-      position: absolute;
-      width: 96px;
-      height: 96px;
-      left: 52px;
-      top: 95px;
-
-      background: linear-gradient(324.43deg, #32383e -114.89%, #17191c 124.22%);
-      box-shadow: 12px 12px 58px rgba(0, 0, 0, 0.74),
-        -12px -10px 32px rgba(195, 200, 205, 0.12);
-      // filter: blur(8px);
-      border-radius: 93px;
-      & > p {
-        filter: blur(0);
-      }
-    }
-  }
-}
-
 .price-block {
   background: #eeeeee;
   padding-bottom: 50px;
   // box-shadow: $shadow-block;
 }
 
-@media screen and(max-width: $mobile-width) {
-  .social {
-    grid-template-areas:
-      'grid_1'
-      'grid_2'
-      'grid_4'
-      'grid_3'
-      'grid_5'
-      'grid_6';
-
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(6, 300px);
-    &__item {
-      min-width: 320px;
-    }
-    & > img {
-      max-width: 450px;
-    }
-  }
+@media (max-width: $lg-width-max) {
+  // CSS для ширины от 992px до 1199px */
+}
+@media (max-width: $md-width-max) {
+  // CSS для ширины от 768px до 991px */
+}
+@media (max-width: $sm-width-max) {
+  // CSS для ширины от 576px до 767px */
+}
+@media (max-width: $xs-width-max) {
+  // CSS для ширины до 575px (включительно) */
 }
 </style>

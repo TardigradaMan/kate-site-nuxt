@@ -8,8 +8,7 @@
         <slot name="text1"></slot>
       </p>
       <span class="arrow-bg dark light"></span>
-      <span class="arrow-top"></span>
-      <span class="arrow-bottom"></span>
+
       <span class="arrow dark light"></span>
     </li>
     <li class="stages__item stage-2">
@@ -20,8 +19,7 @@
         <slot name="text2"></slot>
       </p>
       <span class="arrow-bg dark light"></span>
-      <span class="arrow-top"></span>
-      <span class="arrow-bottom"></span>
+
       <span class="arrow dark light"></span>
     </li>
     <li class="stages__item stage-3">
@@ -32,8 +30,6 @@
         <slot name="text3"></slot>
       </p>
       <span class="arrow-bg dark light"></span>
-      <span class="arrow-top"></span>
-      <span class="arrow-bottom"></span>
       <span class="arrow dark light"></span>
     </li>
     <li class="stages__item stage-4">
@@ -44,8 +40,6 @@
         <slot name="text4"></slot>
       </p>
       <span class="arrow-bg dark light"></span>
-      <span class="arrow-top"></span>
-      <span class="arrow-bottom"></span>
       <span class="arrow dark light"></span>
     </li>
     <li class="stages__item stage-5">
@@ -56,8 +50,6 @@
         <slot name="text5"></slot>
       </p>
       <span class="arrow-bg dark light"></span>
-      <span class="arrow-top"></span>
-      <span class="arrow-bottom"></span>
       <span class="arrow dark light"></span>
     </li>
     <li class="stages__item stage-6">
@@ -68,8 +60,6 @@
         <slot name="text6"></slot>
       </p>
       <span class="arrow-bg dark light"></span>
-      <span class="arrow-top"></span>
-      <span class="arrow-bottom"></span>
     </li>
   </ul>
 </template>
@@ -79,25 +69,31 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
-%arrow {
-  content: '';
-  position: absolute;
-  // top: 50%;
-  transform: translateY(-50%);
-  // align-items: center;
-  right: -90px;
-  width: 40px;
-  height: 100%;
-  background: center/ 100% url('~assets/img/arrow.png') no-repeat;
-}
+// %arrow {
+//   content: '';
+//   position: absolute;
+//   // top: 50%;
+//   transform: translateY(-50%);
+//   // align-items: center;
+//   right: -90px;
+//   width: 40px;
+//   height: 100%;
+//   background: center/ 100% url('~assets/img/arrow.png') no-repeat;
+// }
 .stages-ads {
   & .arrow.dark {
     background: center/cover url('~assets/img/arrow-dark.png');
   }
+  .stage-3 {
+    & > .arrow {
+      &.dark {
+        background: center/cover url('~assets/img/arrow-dark-down.png');
+      }
+    }
+  }
   .stage-4,
   .stage-5 {
     & > .arrow {
-      top: 50%;
       &.dark {
         background: center/cover url('~assets/img/arrow-dark-left.png');
       }
@@ -115,10 +111,16 @@ export default {}
   & .arrow.light {
     background: center/cover url('~assets/img/arrow-light.png');
   }
+  .stage-3 {
+    & > .arrow {
+      &.light {
+        background: center/cover url('~assets/img/arrow-light-down.png');
+      }
+    }
+  }
   .stage-4,
   .stage-5 {
     & > .arrow {
-      top: 50%;
       &.light {
         background: center/cover url('~assets/img/arrow-light-left.png');
       }
@@ -142,13 +144,28 @@ export default {}
     display: grid;
     grid-template: 1fr 1fr/ 1fr 1fr 1fr;
     gap: 100px;
+    @media (max-width: $lg-width-max) {
+      // CSS для ширины от 992px до 1199px */
+      padding: 0 20px;
+    }
+    @media (max-width: $md-width-max) {
+      // CSS для ширины от 768px до 991px */
+      grid-template: 1fr 1fr 1fr/ 1fr 1fr;
+    }
+    @media (max-width: $sm-width-max) {
+      // CSS для ширины от 576px до 767px */
+    }
+    @media (max-width: $xs-width-max) {
+      // CSS для ширины до 575px (включительно) */
+      grid-template: repeat(6, 1fr) / 1fr;
+    }
   }
   &__item {
     padding: 15px;
     position: relative;
     box-shadow: $shadow-out;
-
     border-radius: 10px;
+    z-index: 2;
     .arrow-bg {
       content: '';
       display: block;
@@ -192,15 +209,11 @@ export default {}
 .stage-3 {
   & > .arrow-bg {
     bottom: -115px;
-
     left: calc(50% - 30px);
   }
   & > .arrow {
-    bottom: -80px;
-
+    bottom: -105px;
     left: calc(50% - 25px);
-    transform-origin: center;
-    transform: rotate(90deg);
   }
 }
 .stage-4 {
@@ -221,5 +234,134 @@ export default {}
 }
 .stage-6 > .arrow-bg {
   display: none;
+}
+
+@media (max-width: $lg-width-max) {
+  // CSS для ширины от 992px до 1199px */
+}
+@media (max-width: $md-width-max) {
+  // CSS для ширины от 768px до 991px */
+  .stages-social {
+    .stage-2 {
+      & > .arrow {
+        &.light {
+          background: center/cover url('~assets/img/arrow-light-down.png');
+        }
+      }
+    }
+  }
+  .stages-ads {
+    .stage-2 {
+      & > .arrow {
+        &.light {
+          background: center/cover url('~assets/img/arrow-dark-down.png');
+        }
+      }
+    }
+  }
+  .stage-2 {
+    & > .arrow-bg {
+      top: calc(100% + 50px);
+      bottom: -115px;
+      left: calc(50% - 30px);
+    }
+    & > .arrow {
+      top: calc(100% + 50px);
+      left: calc(50% - 25px);
+    }
+  }
+
+  .stage-4 {
+    & > .arrow-bg {
+      top: 50%;
+      left: -80px;
+    }
+    & > .arrow {
+      top: 50%;
+      left: -72px;
+    }
+  }
+
+  .stages-social {
+    .stage-5 {
+      & > .arrow {
+        &.light {
+          background: center/cover url('~assets/img/arrow-light.png');
+        }
+      }
+    }
+  }
+  .stages-ads {
+    .stage-5 {
+      & > .arrow {
+        &.dark {
+          background: center/cover url('~assets/img/arrow-dark.png');
+        }
+      }
+    }
+  }
+
+  .stage-5 {
+    & > .arrow-bg {
+      top: 50%;
+    }
+    & > .arrow {
+      top: 50%;
+    }
+  }
+  .stage-6 > .arrow-bg {
+    display: none;
+  }
+}
+@media (max-width: $sm-width-max) {
+  // CSS для ширины от 576px до 767px */
+}
+@media (max-width: $xs-width-max) {
+  // CSS для ширины до 575px (включительно) */
+  .stages-social {
+    .stage-1,
+    .stage-4,
+    .stage-5 {
+      & > .arrow {
+        &.light {
+          background: center/cover url('~assets/img/arrow-light-down.png');
+        }
+      }
+    }
+  }
+  .stages-ads {
+    .stage-1,
+    .stage-4,
+    .stage-5 {
+      & > .arrow {
+        &.dark {
+          background: center/cover url('~assets/img/arrow-dark-down.png');
+        }
+      }
+    }
+  }
+
+  .stage-1 {
+    & > .arrow-bg {
+      top: calc(100% + 50px);
+      bottom: -115px;
+      left: calc(50% - 30px);
+    }
+    & > .arrow {
+      top: calc(100% + 50px);
+      left: calc(50% - 25px);
+    }
+  }
+  .stage-4,
+  .stage-5 {
+    & > .arrow-bg {
+      top: calc(100% + 50px);
+      left: calc(50% - 30px);
+    }
+    & > .arrow {
+      top: calc(100% + 50px);
+      left: calc(50% - 25px);
+    }
+  }
 }
 </style>

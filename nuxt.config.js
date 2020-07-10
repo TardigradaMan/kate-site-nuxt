@@ -32,7 +32,8 @@ module.exports = {
     '@/plugins/axios',
     '@/plugins/vuelidate',
     '@/plugins/gsap',
-    { src: '@/plugins/vue-awesome-swiper', mode: 'client' }
+    { src: '@/plugins/vue-awesome-swiper', mode: 'client' },
+    '@/plugins/mask'
   ],
   /*
    ** Nuxt.js dev-modules

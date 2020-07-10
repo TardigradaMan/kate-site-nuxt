@@ -64,40 +64,56 @@ export default {
 </script>
 <style lang="scss" scoped>
 .main-nav {
-  z-index: 100;
-  position: fixed;
-  top: 0;
-  left: 0;
-  text-align: center;
-  width: 100%;
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  // height: 100vh;
 
-  height: 100vh;
-  padding-top: 50px;
-  box-shadow: 5px 0px 10px #000;
+  // background: rgba(25, 25, 25, 0.9);
+  // z-index: 100;
+  // top: 0;
+  // left: 0;
+  // text-align: center;
+  // width: 100%;
+  position: relative;
+  width: 100%;
+  height: 100%;
+
   &__wrapper {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(25, 25, 25, 0.9);
     z-index: 100;
+
+    background: rgba(25, 25, 25, 0.9);
+    transition: background 0.4s ease 0s;
+
+    text-align: center;
   }
 }
 
 .main-nav__list {
-  display: flex;
-  flex-flow: column wrap;
+  // display: flex;
+  // flex-flow: column wrap;
 
+  // padding: 0;
+  // margin: 0;
+  // list-style: none;
+  // justify-content: center;
+  // align-items: left;
+  transform: translate(0, -50%);
+  position: absolute;
+  top: calc(50% - 0px);
+  left: 0;
+  right: 0;
+  margin: auto;
   padding: 0;
-  margin: 0;
-  list-style: none;
-  justify-content: center;
-  align-items: left;
 }
 
 .main-nav__item {
-  margin-bottom: 30px;
+  padding: 20px;
   animation: 0.3s ease 0s both link;
 }
 

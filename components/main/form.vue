@@ -13,14 +13,17 @@
         <p v-if="!$v.contactForm.name.required" class="error">
           Обязательное поле
         </p>
-        <input
+
+        <the-mask
           :class="{ 'form-group--error': $v.contactForm.phone.$error }"
           v-model.trim.lazy="$v.contactForm.phone.$model"
+          :mask="['#(###) ###-####']"
           class="input"
           type="tel"
           name="phone"
           placeholder="Ваш номер для связи"
         />
+
         <p v-if="!$v.contactForm.phone.required" class="error">
           Обязательное поле
         </p>
@@ -31,16 +34,19 @@
           name="phone"
           placeholder="Если у вас есть вопрос, впишите его сюда"
         />
-        <input
-          id="check"
-          v-model="checked"
-          class="agreement__check"
-          type="checkbox"
-        />
-        <label for="check" class="agreement">
-          Нажимая кнопку вы соглашаетесь с нашей&nbsp;
-          <a class="link-text" href="/docs/agreement">политикой</a>
-        </label>
+
+        <div class="agreement__wrapper">
+          <input
+            id="check"
+            v-model="checked"
+            class="agreement__check"
+            type="checkbox"
+          />
+          <label for="check" class="agreement">
+            Нажимая кнопку вы соглашаетесь с нашей
+            <a class="link-text" href="/docs/agreement">политикой</a>
+          </label>
+        </div>
         <div class="button__wrapper">
           <input
             :disabled="submitStatus === 'PENDING' || !checked"
@@ -54,7 +60,6 @@
             Полная форма
           </button>
         </div>
-
         <transition name="status">
           <div v-if="submitStatus === 'OK'" class="status ok">
             <div class="ok_title">
@@ -79,14 +84,19 @@
 
 <script>
 import appLoading from './loading'
-import { required, numeric } from 'vuelidate/lib/validators'
+import { required } from 'vuelidate/lib/validators'
+
+// import { TheMask } from 'vue-the-mask'
 
 export default {
   components: {
     appLoading
+
+    // TheMask
   },
   data() {
     return {
+      test: '',
       contactForm: {
         name: '',
         phone: '',
@@ -106,14 +116,16 @@ export default {
         required
       },
       phone: {
-        required,
-        numeric
+        required
       }
     }
   },
   computed: {
     disable() {
       return this.checked
+    },
+    value() {
+      return this.contactForm.phone
     }
   },
 
@@ -133,14 +145,18 @@ export default {
       } else {
         this.submitStatus = 'PENDING'
         try {
+          this.contactForm.phone = this.contactForm.phone.replace(/[^+\d]/g, '')
           const formData = {
             name: this.contactForm.name,
             phone: this.contactForm.phone,
+            phone1: this.contactForm.phone1,
             email: this.contactForm.email,
             method: this.contactForm.method,
             text: this.contactForm.text,
             page: this.contactForm.page
           }
+
+          // await console.log(formData.phone)
 
           await this.$store.dispatch('applications/create', formData)
           await this.$store.dispatch('applications/sendBotTelegram', formData)
@@ -197,22 +213,16 @@ export default {
 }
 
 .button {
-  // width: 195px;
-  // // height: 45px;
-  // padding: 0.8em;
-  // border: none;
-  // outline: none;
-  // // background: $bg-color;
+  &__wrapper {
+    @media (max-width: $xs-width-max) {
+      // CSS для ширины до 575px (включительно) */
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+    }
+  }
 
-  // font-weight: bold;
-  // font-size: 16px;
-  // text-transform: uppercase;
-  // line-height: 17px;
-  // letter-spacing: 0.05rem;
-  // box-sizing: border-box;
-  // background: #3c3f42;
-  // border: 1px solid #48494b;
-  // color: #a1a1a1;
   &__left {
     border-radius: 8px 0 0 8px;
     border-right: none;
@@ -227,6 +237,12 @@ export default {
       box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.35),
         inset -5px -5px 10px rgb(100, 100, 100);
       transition: box-shadow ease-in-out 0.2s;
+    }
+    @media (max-width: $xs-width-max) {
+      // CSS для ширины до 575px (включительно) */
+      border-radius: 8px 8px 8px 8px;
+      margin-bottom: 18px;
+      width: 80%;
     }
   }
 
@@ -243,6 +259,11 @@ export default {
       box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.35),
         inset -5px -5px 10px rgb(100, 100, 100);
       transition: box-shadow ease-in-out 0.2s;
+    }
+    @media (max-width: $xs-width-max) {
+      // CSS для ширины до 575px (включительно) */
+      border-radius: 8px 8px 8px 8px;
+      width: 80%;
     }
   }
 }

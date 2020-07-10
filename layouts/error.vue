@@ -30,7 +30,7 @@ img {
   height: auto;
 }
 
-@media screen and(max-width: $mobile-width) {
+@media screen and (max-width: 777px) {
   .page-error {
     background-position: 0 0;
   }

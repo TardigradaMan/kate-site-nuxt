@@ -6,6 +6,9 @@
           <h1 class="header__title title-decor">
             Доступная реклама в интернете
           </h1>
+          <h1 class="header__title header__title--mobile title-decor">
+            Доступная реклама в интернете
+          </h1>
           <p class="header__text subtitle">
             Делать деньги без рекламы может только монетный двор
           </p>
@@ -133,7 +136,8 @@
     <section class="skills">
       <div class="header-block">
         <h2 class="skills__title title-decor title-block">
-          Мы уже успели поработать в данных тематиках
+          Мы уже успели поработать <br />
+          в данных тематиках
         </h2>
         <p class="skills__subtitle subtitle">
           И это далеко не всё, с чем мы работали
@@ -200,37 +204,37 @@ export default {
   box-shadow: $shadow-out;
   position: relative;
   z-index: 2;
-  // &::before {
-  //   content: '';
-  //   position: absolute;
-  //   width: 0;
-  //   height: 0;
-  //   border-left: 100px solid transparent;
-  //   border-right: 100px solid transparent;
-  //   border-top: 100px solid rgb(53, 53, 53);
 
-  //   top: 0;
-  //   right: 100px;
-  //   // transform: rotate(45deg);
-  // }
   &::after {
     content: '';
     position: absolute;
 
-    width: 300;
-    height: 150;
-
     border-left: 500px solid $grey;
     border-top: 200px solid transparent;
-    // box-shadow: 0 0 10px #000;
+    // filter: drop-shadow(0 -3px 8px #000);
+    // box-shadow: ;
 
     bottom: 0;
     left: 0;
     z-index: 1;
+    @media (max-width: $lg-width-max) {
+      // CSS для ширины от 992px до 1199px */
+    }
+    @media (max-width: $md-width-max) {
+      // CSS для ширины от 768px до 991px */
+    }
+    @media (max-width: $sm-width-max) {
+      // CSS для ширины от 576px до 767px */
+      border-left: 300px solid $grey;
+      border-top: 180px solid transparent;
+    }
+    @media (max-width: $xs-width-max) {
+      // CSS для ширины до 575px (включительно) */
+      // border-left: 150px solid $grey;
+      // border-top: 50px solid transparent;
+    }
   }
 
-  &__title {
-  }
   &__list {
     display: grid;
     /* grid-template-rows / grid-template-columns values */
@@ -244,6 +248,20 @@ export default {
 
     position: relative;
     z-index: 3;
+    @media (max-width: $lg-width-max) {
+      // CSS для ширины от 992px до 1199px */
+    }
+    @media (max-width: $md-width-max) {
+      // CSS для ширины от 768px до 991px */
+      grid-template: 1fr 1fr 1fr 1fr / 1fr 1fr;
+    }
+    @media (max-width: $sm-width-max) {
+      // CSS для ширины от 576px до 767px */
+    }
+    @media (max-width: $xs-width-max) {
+      // CSS для ширины до 575px (включительно) */
+      grid-template: 1fr 1fr 1fr 1fr 1fr 1fr/ 1fr;
+    }
   }
   &__item {
     // background: rgb(89, 169, 189);
@@ -279,9 +297,31 @@ export default {
       min-width: 415px;
 
       background-image: url('~assets/img/Стул_мой_v1.png');
-      // background-size: contain;
+      background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
+
+      @media (max-width: $lg-width-max) {
+        // CSS для ширины от 992px до 1199px */
+        // grid-row: 2/3;
+        // grid-column: 1/3;
+        // min-width: 400px;
+      }
+      @media (max-width: $md-width-max) {
+        // CSS для ширины от 768px до 991px */
+        // min-width: 768px;
+        grid-row: 2/4;
+        grid-column: 1/3;
+      }
+      @media (max-width: $sm-width-max) {
+        // CSS для ширины от 576px до 767px */
+      }
+      @media (max-width: $xs-width-max) {
+        // CSS для ширины до 575px (включительно) */
+        grid-row: 3/5;
+        grid-column: 1/2;
+        min-width: 300px;
+      }
     }
     &--right {
       text-align: left;
@@ -324,5 +364,18 @@ export default {
   // background: rgb(162, 255, 109);
   padding-bottom: 50px;
   color: #eee;
+}
+
+@media (max-width: $lg-width-max) {
+  // CSS для ширины от 992px до 1199px */
+}
+@media (max-width: $md-width-max) {
+  // CSS для ширины от 768px до 991px */
+}
+@media (max-width: $sm-width-max) {
+  // CSS для ширины от 576px до 767px */
+}
+@media (max-width: $xs-width-max) {
+  // CSS для ширины до 575px (включительно) */
 }
 </style>

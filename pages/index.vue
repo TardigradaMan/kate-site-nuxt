@@ -83,77 +83,78 @@ export default {
   },
   mounted() {
     // Анимация svg элементов заголовка
+    const mediaQueryList = window.matchMedia('(max-width: 991px)').matches
+    if (!mediaQueryList) {
+      const svgObject = document.querySelectorAll('.svg')
+      svgObject.forEach((item, i) => {
+        const path = item.querySelectorAll('path')
 
-    const svgObject = document.querySelectorAll('.svg')
+        path.forEach((item, i) => {
+          const pathLength = item.getTotalLength()
 
-    svgObject.forEach((item, i) => {
-      const path = item.querySelectorAll('path')
-
-      path.forEach((item, i) => {
-        const pathLength = item.getTotalLength()
-
-        this.animTitle = gsap
-          .timeline({ defaults: { ease: 'none', duration: 2 } })
-          .set(path[i], { strokeDasharray: pathLength, autoAlpha: 1 })
-          .fromTo(
-            path[i],
-            { strokeDashoffset: pathLength },
-            { strokeDashoffset: 0 }
-          )
-          .to(svgObject, { duration: 1, fill: '#fff' })
-          .to(svgObject, {
-            ease: 'none'
-          })
+          this.animTitle = gsap
+            .timeline({ defaults: { ease: 'none', duration: 2 } })
+            .set(path[i], { strokeDasharray: pathLength, autoAlpha: 1 })
+            .fromTo(
+              path[i],
+              { strokeDashoffset: pathLength },
+              { strokeDashoffset: 0 }
+            )
+            .to(svgObject, { duration: 1, fill: '#fff' })
+            .to(svgObject, {
+              ease: 'none'
+            })
+        })
       })
-    })
 
-    // Анимация блока с заголовком
-    this.animTitlePosition = gsap
-      .timeline({
-        defaults: { ease: 'none', duration: 1 }
-      })
-      .to(
-        this.$refs.pageTitlePosition,
-        // { scale: '0.5', opacity: 0, duration: 1 },
-        { opacity: 0, duration: 1.5 },
-        1
-      )
+      // Анимация блока с заголовком
+      this.animTitlePosition = gsap
+        .timeline({
+          defaults: { ease: 'none', duration: 1 }
+        })
+        .to(
+          this.$refs.pageTitlePosition,
+          // { scale: '0.5', opacity: 0, duration: 1 },
+          { opacity: 0, duration: 1.5 },
+          1
+        )
 
-      .to(this.$refs.title, { width: '50%' }, 2)
-      .to(this.$refs.pageTitlePosition, { scale: '.7', opacity: 1 })
+        .to(this.$refs.title, { width: '50%' }, 2)
+        .to(this.$refs.pageTitlePosition, { scale: '.7', opacity: 1 })
 
-    // Анимация изображения на заголовке
-    this.animTitlePosition = gsap
-      .timeline({
-        defaults: { ease: 'none', duration: 1 }
-      })
-      .fromTo(this.$refs.imgTitle, { x: '0%' }, { x: '-45% ' }, 2)
+      // Анимация изображения на заголовке
+      this.animTitlePosition = gsap
+        .timeline({
+          defaults: { ease: 'none', duration: 1 }
+        })
+        .fromTo(this.$refs.imgTitle, { x: '0%' }, { x: '-45% ' }, 2)
 
-    // Анимация блока с ссылками
-    this.animLinkPosition = gsap
-      .timeline({ defaults: { ease: 'none', duration: 1 } })
-      .to(this.$refs.link, { width: '50%' }, 2)
+      // Анимация блока с ссылками
+      this.animLinkPosition = gsap
+        .timeline({ defaults: { ease: 'none', duration: 1 } })
+        .to(this.$refs.link, { width: '50%' }, 2)
 
-    // Анимация блоков ссылок
-    this.animBlockLink = gsap
-      .timeline({ defaults: { duration: 1.5, ease: 'none' } })
-      .to(this.$refs.linkSocial, { height: '100vh' }, 0)
-      .to(this.$refs.linkSocial, { height: '50vh' }, 3)
-      .to(this.$refs.linkSocial, { height: '33.33vh' }, 5)
-      .fromTo(
-        this.$refs.linkAds,
-        { height: '50vh', y: '200%' },
-        { height: '50vh', y: '100%' },
-        3
-      )
-      .to(this.$refs.linkAds, { height: '33.33vh', y: '100%' }, 5)
-      .fromTo(
-        this.$refs.linkWeb,
-        { height: '50vh', y: '300%' },
-        { height: '50vh', y: '200%' },
-        3
-      )
-      .to(this.$refs.linkWeb, { height: '33.33vh', y: '200%' }, 5)
+      // Анимация блоков ссылок
+      this.animBlockLink = gsap
+        .timeline({ defaults: { duration: 1.5, ease: 'none' } })
+        .to(this.$refs.linkSocial, { height: '100vh' }, 0)
+        .to(this.$refs.linkSocial, { height: '50vh' }, 3)
+        .to(this.$refs.linkSocial, { height: '33.33vh' }, 5)
+        .fromTo(
+          this.$refs.linkAds,
+          { height: '50vh', y: '200%' },
+          { height: '50vh', y: '100%' },
+          3
+        )
+        .to(this.$refs.linkAds, { height: '33.33vh', y: '100%' }, 5)
+        .fromTo(
+          this.$refs.linkWeb,
+          { height: '50vh', y: '300%' },
+          { height: '50vh', y: '200%' },
+          3
+        )
+        .to(this.$refs.linkWeb, { height: '33.33vh', y: '200%' }, 5)
+    }
   },
 
   methods: {
@@ -201,18 +202,15 @@ export default {
 }
 
 .page-title {
-  // background-image: url(~assets/img/bg_4.jpg);
-  // background-repeat: no-repeat;
-  // background-size: cover;
-
-  // display: flex;
-  // justify-content: space-between;
   width: 100%;
   position: absolute;
   height: 100vh;
-
-  // top: 50%;
-  // left: 50%;
+  @media (max-width: $lg-width-max) {
+    // CSS для ширины от 992px до 1199px */
+  }
+  @media (max-width: $md-width-max) {
+    display: none;
+  }
 
   &__wrapper {
     position: absolute;
@@ -266,8 +264,22 @@ export default {
 
   position: absolute;
   right: 0;
+  // left: 100%;
   z-index: 2;
   // background: url('~assets/img/Home_ads-1x.png') 50% / cover no-repeat;
+  @media (max-width: $lg-width-max) {
+    // CSS для ширины от 992px до 1199px */
+  }
+  @media (max-width: $md-width-max) {
+    // CSS для ширины от 768px до 991px */
+    width: 100%;
+  }
+  @media (max-width: $sm-width-max) {
+    // CSS для ширины от 576px до 767px */
+  }
+  @media (max-width: $xs-width-max) {
+    // CSS для ширины до 575px (включительно) */
+  }
 
   &__social,
   &__ads,
@@ -301,10 +313,28 @@ export default {
     background: rgba(158, 152, 98, 0.199);
     // background-image: url('~assets/img/Home_ads-1x.png');
     // background-position: 10% 10%;
+    @media (max-width: $md-width-max) {
+      // CSS для ширины от 768px до 991px */
+      height: 33.3vh;
+      top: 33.3vh;
+    }
   }
   &__social {
     background: rgba(223, 88, 205, 0.274);
     // background-image: url('~assets/img/insta_home-1x.png');
+    @media (max-width: $md-width-max) {
+      // CSS для ширины от 768px до 991px */
+      height: 33.3vh;
+    }
+  }
+  &__web {
+    background: rgba(223, 88, 205, 0.274);
+    // background-image: url('~assets/img/insta_home-1x.png');
+    @media (max-width: $md-width-max) {
+      // CSS для ширины от 768px до 991px */
+      height: 33.3vh;
+      top: 66.6vh;
+    }
   }
   &__header {
     transform: translate(0, -50%);
@@ -317,6 +347,23 @@ export default {
     text-align: center;
     color: white;
     z-index: 5;
+    @media (max-width: $lg-width-max) {
+      // CSS для ширины от 992px до 1199px */
+      // font-size: 1.8em;
+    }
+    @media (max-width: $md-width-max) {
+      // CSS для ширины от 768px до 991px */
+      // font-size: 1.5em;
+    }
+    @media (max-width: $sm-width-max) {
+      // CSS для ширины от 576px до 767px */
+      // font-size: 1.5em;
+    }
+    @media (max-width: $xs-width-max) {
+      // CSS для ширины до 575px (включительно) */
+      // font-size: 1.2em;
+      min-width: 300px;
+    }
 
     &-subtitle {
       display: block;
@@ -326,6 +373,22 @@ export default {
   &__title {
     display: inline-block;
     margin: 0;
+    @media (max-width: $lg-width-max) {
+      // CSS для ширины от 992px до 1199px */
+      font-size: 1.8em;
+    }
+    @media (max-width: $md-width-max) {
+      // CSS для ширины от 768px до 991px */
+      font-size: 1.5em;
+    }
+    @media (max-width: $sm-width-max) {
+      // CSS для ширины от 576px до 767px */
+      font-size: 1.3em;
+    }
+    @media (max-width: $xs-width-max) {
+      // CSS для ширины до 575px (включительно) */
+      font-size: 1.2em;
+    }
     &::after {
       transition: all 0.5s ease-out;
       transform: scale(1.2, 1);
@@ -354,5 +417,18 @@ export default {
   &__web {
     background-image: url('~assets/img/link-web.jpg');
   }
+}
+
+@media (max-width: $lg-width-max) {
+  // CSS для ширины от 992px до 1199px */
+}
+@media (max-width: $md-width-max) {
+  // CSS для ширины от 768px до 991px */
+}
+@media (max-width: $sm-width-max) {
+  // CSS для ширины от 576px до 767px */
+}
+@media (max-width: $xs-width-max) {
+  // CSS для ширины до 575px (включительно) */
 }
 </style>

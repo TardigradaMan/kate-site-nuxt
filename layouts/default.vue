@@ -159,6 +159,20 @@ export default {
   height: 45px;
   z-index: 101;
   margin: 15px;
+  @media (max-width: $lg-width-max) {
+    // CSS для ширины от 992px до 1199px */
+  }
+  @media (max-width: $md-width-max) {
+    // CSS для ширины от 768px до 991px */
+  }
+  @media (max-width: $sm-width-max) {
+    // CSS для ширины от 576px до 767px */
+  }
+  @media (max-width: $xs-width-max) {
+    // CSS для ширины до 575px (включительно) */
+    margin-top: 1px;
+    margin-left: 5px;
+  }
   cursor: pointer;
   span {
     display: block;

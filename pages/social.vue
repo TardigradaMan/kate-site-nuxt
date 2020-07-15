@@ -10,6 +10,14 @@
             Этого никогда не случится. Фейсбук как мода, он никогда не
             закончится. -->
           </h1>
+          <h1 class="header__title title-decor header__title--mobile">
+            А что делать, когда это закончится? <br />Этого никогда не
+            случится.<br />
+            Фейсбук как мода, он никогда не закончится
+            <!-- А что делать, когда это закончится? <br />
+            Этого никогда не случится. Фейсбук как мода, он никогда не
+            закончится. -->
+          </h1>
           <p class="header__text subtitle">
             &laquo;The Social Network&raquo; Марк Цукерберг
           </p>
@@ -243,28 +251,6 @@ export default {
   background: $grey;
   background: center/cover url('~assets/img/bg_6.jpg') no-repeat;
   background-attachment: fixed;
-}
-.header__title {
-  font-size: 2em;
-  line-height: 40px;
-  text-align: center;
-  @media (max-width: $lg-width-max) {
-    /* CSS для ширины от 992px до 1199px */
-    font-size: 1.5em;
-  }
-  @media (max-width: $md-width-max) {
-    /* CSS для ширины от 768px до 991px */
-    font-size: 1.2em;
-  }
-  @media (max-width: $sm-width-max) {
-    /* CSS для ширины от 576px до 767px */
-    font-size: 1em;
-  }
-  @media (max-width: $xs-width-max) {
-    /* CSS для ширины до 575px (включительно) */
-    font-size: 0.8em;
-    display: none;
-  }
 }
 
 .header-block {

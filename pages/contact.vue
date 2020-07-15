@@ -1,6 +1,6 @@
 <template>
-  <div class="wrapper__contact">
-    <h2>Заполните поля и мы сразу начнем</h2>
+  <div class="wrapper">
+    <h2 class="form-title">Заполните поля и мы сразу начнем</h2>
 
     <form @submit.prevent="onSubmit" novalidate class="form">
       <div class="form__group contact">
@@ -43,6 +43,47 @@
           Введите корректный адрес почты (Например доступная@реклама.всем)
         </p>
       </div>
+
+      <!-- <div class="form__group contact">
+        <input
+          :class="{ 'form-group--error': $v.contactForm.name.$error }"
+          v-model.trim.lazy="$v.contactForm.name.$model"
+          class="input"
+          type="text"
+          name="name"
+          placeholder="Ваше имя"
+        />
+        <p v-if="!$v.contactForm.name.required" class="error">
+          Обязательное поле
+        </p>
+
+        <the-mask
+          :class="{ 'form-group--error': $v.contactForm.phone.$error }"
+          v-model.trim.lazy="$v.contactForm.phone.$model"
+          :mask="['#(###) ###-####']"
+          class="input"
+          type="tel"
+          name="phone"
+          placeholder="Ваш номер для связи"
+        />
+        <p v-if="!$v.contactForm.phone.required" class="error">
+          Обязательное поле
+        </p>
+        <input
+          :class="{ 'form-group--error': $v.contactForm.email.$error }"
+          v-model.trim.lazy="$v.contactForm.email.$model"
+          class="input"
+          type="email"
+          name="email"
+          placeholder="Ваш email для связи"
+        />
+        <p v-if="!$v.contactForm.email.required" class="error">
+          Обязательное поле
+        </p>
+        <p v-if="!$v.contactForm.email.email" class="error">
+          Введите корректный адрес почты (Например доступная@реклама.всем)
+        </p>
+      </div> -->
       <div class="form__group radio">
         <h3 class="form__title">Предпочитаемый способ связи <br /></h3>
         <div class="radio__wrapper">
@@ -315,28 +356,75 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.wrapper__contact {
-  padding: 50px 0;
-  max-width: 1100px;
-  margin: 0 auto;
+.form-title {
+  font-weight: bold;
+  font-size: 2em;
+  line-height: 22px;
+  text-align: center;
+  margin: 0;
+  padding-top: 40px;
+  @media (max-width: $md-width-max) {
+    // CSS для ширины от 768px до 991px */
+    font-size: 2em;
+  }
+  @media (max-width: $sm-width-max) {
+    // CSS для ширины от 576px до 767px */
+    font-size: 1.8em;
+  }
+  @media (max-width: $xs-width-max) {
+    // CSS для ширины до 575px (включительно) */
+    width: 250px;
+    margin: 0 auto;
+    font-size: 1.5em;
+  }
 }
 .form {
   display: grid;
+  grid-template: 1fr 370px / 1fr 1fr;
   grid-template-areas:
     'input radio'
-    'check block';
+    'check block'
+    'status button';
 
-  grid-template-rows: 1fr 370px;
-  grid-template-columns: 1fr 1fr;
+  // grid-template-rows: 1fr 370px;
+  // grid-template-columns: 1fr 1fr;
   gap: 30px;
+  padding: 50px 0;
+  @media (max-width: $lg-width-max) {
+    // CSS для ширины от 992px до 1199px */
+  }
+  @media (max-width: $md-width-max) {
+    // CSS для ширины от 768px до 991px */
+  }
+  @media (max-width: $sm-width-max) {
+    // CSS для ширины от 576px до 767px */
+    grid-template: 1fr 370px / 1fr;
+    grid-template-areas:
+      'input'
+      'radio'
+      'check'
+      'block'
+      'status'
+      'button';
+
+    //   grid-template-rows: 1fr;
+    //   grid-template-columns: 1fr;
+    //   grid-gap: 1vw;
+  }
+  @media (max-width: $xs-width-max) {
+    // CSS для ширины до 575px (включительно) */
+    // grid-template-areas:
+    //   'input'
+    //   'radio'
+    //   'check'
+    //   'block';
+
+    // grid-template-rows: 1fr;
+    // grid-template-columns: 1fr;
+    // grid-gap: 1vw;
+  }
 }
 
-h2 {
-  font-weight: bold;
-  font-size: 48px;
-  line-height: 22px;
-  text-align: center;
-}
 .form__group {
   display: flex;
   flex-flow: column wrap;
@@ -458,12 +546,13 @@ h2 {
   opacity: 0;
 }
 
-.form__button,
-.form__status {
+.form__button {
+  grid-area: button;
   padding-bottom: 40px;
-  //   justify-content: center;
-  //   align-items: center;
-  //   align-content: center;
+}
+.form__status {
+  grid-area: status;
+  padding-bottom: 40px;
 }
 
 .status {
@@ -474,12 +563,14 @@ h2 {
     text-align: center;
     color: #f57f6c;
     font-size: 18px;
+    margin: 0;
+    // vertical-align: center;
   }
 
-  &__ok {
-    &--home {
-    }
-  }
+  // &__ok {
+  //   &--home {
+  //   }
+  // }
 }
 
 .ok_title {
@@ -511,28 +602,28 @@ h2 {
   }
 }
 
-@media screen and(max-width: 660px) {
-  h2 {
-    font-size: 28px;
-    line-height: 22px;
-  }
-  .form {
-    display: grid;
-    grid-template-areas:
-      'input'
-      'radio'
-      'check'
-      'block';
+// @media screen and(max-width: 660px) {
+//   h2 {
+//     font-size: 28px;
+//     line-height: 22px;
+//   }
+//   // .form {
+//   //   display: grid;
+//   //   grid-template-areas:
+//   //     'input'
+//   //     'radio'
+//   //     'check'
+//   //     'block';
 
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr;
-    grid-gap: 1vw;
-  }
-  .contact,
-  .block {
-    input {
-      min-width: 100%;
-    }
-  }
-}
+//   //   grid-template-rows: 1fr;
+//   //   grid-template-columns: 1fr;
+//   //   grid-gap: 1vw;
+//   // }
+//   .contact,
+//   .block {
+//     input {
+//       min-width: 100%;
+//     }
+//   }
+// }
 </style>

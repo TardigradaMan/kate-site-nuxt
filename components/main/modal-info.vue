@@ -125,6 +125,21 @@ export default {
 
     box-shadow: 0 0 15px #000;
     z-index: 101;
+    @media (max-width: $lg-width-max) {
+      // CSS для ширины от 992px до 1199px */
+      margin-left: 60%;
+    }
+    @media (max-width: $md-width-max) {
+      // CSS для ширины от 768px до 991px */
+    }
+    @media (max-width: $sm-width-max) {
+      // CSS для ширины от 576px до 767px */
+      margin-left: 40%;
+    }
+    @media (max-width: $xs-width-max) {
+      // CSS для ширины до 575px (включительно) */
+      margin-left: 20%;
+    }
   }
   &-title {
     position: absolute;
@@ -135,6 +150,21 @@ export default {
     z-index: 103;
     transform-origin: 0 0 0;
     transform: rotate(270deg) translateX(-50%);
+    @media (max-width: $lg-width-max) {
+      // CSS для ширины от 992px до 1199px */
+      left: calc(60% + 10px);
+    }
+    @media (max-width: $md-width-max) {
+      // CSS для ширины от 768px до 991px */
+    }
+    @media (max-width: $sm-width-max) {
+      // CSS для ширины от 576px до 767px */
+      left: calc(40% + 10px);
+    }
+    @media (max-width: $xs-width-max) {
+      // CSS для ширины до 575px (включительно) */
+      left: calc(20% + 10px);
+    }
 
     & > span {
       display: inline-block;
@@ -180,6 +210,21 @@ export default {
 
   outline: none;
   outline-offset: 0;
+  @media (max-width: $lg-width-max) {
+    // CSS для ширины от 992px до 1199px */
+    left: calc(60% - 25px);
+  }
+  @media (max-width: $md-width-max) {
+    // CSS для ширины от 768px до 991px */
+  }
+  @media (max-width: $sm-width-max) {
+    // CSS для ширины от 576px до 767px */
+    left: calc(40% - 25px);
+  }
+  @media (max-width: $xs-width-max) {
+    // CSS для ширины до 575px (включительно) */
+    left: calc(20% - 25px);
+  }
   &:hover,
   :active {
     cursor: pointer;

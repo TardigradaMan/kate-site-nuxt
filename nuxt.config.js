@@ -1,4 +1,5 @@
 module.exports = {
+  // target: 'static', // default: 'server'
   mode: 'universal',
   /*
    ** Headers of the page

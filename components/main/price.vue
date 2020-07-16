@@ -336,7 +336,6 @@ export default {
 
     & > span {
       display: inline-block;
-      color: #fff;
       font-size: 30px;
       text-transform: uppercase;
       font-family: 'Rubik Mono One', sans-serif;

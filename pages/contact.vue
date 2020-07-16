@@ -384,7 +384,7 @@ export default {
 
 .form {
   display: grid;
-  grid-template: 1fr 370px / 1fr 1fr;
+  grid-template: 1fr 1fr / 1fr 1fr;
   grid-template-areas:
     'input radio'
     'check block'

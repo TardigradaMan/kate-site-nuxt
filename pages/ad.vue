@@ -368,6 +368,7 @@ export default {
 
 .price-block {
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  padding-bottom: 30px;
 }
 
 .skills {

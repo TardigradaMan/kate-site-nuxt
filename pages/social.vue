@@ -311,23 +311,7 @@ export default {
 
 .price-block {
   background: #eee;
-  padding-bottom: 50px;
+  padding-bottom: 30px;
   // box-shadow: $shadow-block;
-}
-
-@media (max-width: $lg-width-max) {
-  // CSS для ширины от 992px до 1199px */
-}
-
-@media (max-width: $md-width-max) {
-  // CSS для ширины от 768px до 991px */
-}
-
-@media (max-width: $sm-width-max) {
-  // CSS для ширины от 576px до 767px */
-}
-
-@media (max-width: $xs-width-max) {
-  // CSS для ширины до 575px (включительно) */
 }
 </style>

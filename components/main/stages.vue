@@ -190,7 +190,7 @@ export default {}
       //#3c3f42
     }
 
-    &.arrow {
+    .arrow {
       display: block;
       position: absolute;
       width: 50px;

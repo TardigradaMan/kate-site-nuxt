@@ -64,8 +64,8 @@ export default {
 }
 
 .owner {
-  background: #ffffff;
-  color: #000000;
+  background: #fff;
+  color: #000;
   align-self: flex-end;
 }
 </style>

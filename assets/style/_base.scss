@@ -2,7 +2,7 @@ html {
   box-sizing: border-box;
   background: rgb(29, 28, 28);
 }
-*,
+
 *::before,
 *::after {
   box-sizing: inherit;
@@ -13,11 +13,30 @@ body {
   font-style: normal;
   font-size: 16px;
   font-weight: normal;
-
   width: 100%;
   // background: $bg-color;
   // Убрать полосы прокрутки
   overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #3d3b3b;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: rgb(102, 102, 102);
+    border-radius: 3px;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgb(167, 166, 166);
+  }
 }
 
 .wrapper__full {
@@ -50,23 +69,3 @@ ul {
 // Кастомный скролл
 
 /* width */
-body {
-  &::-webkit-scrollbar {
-    width: 10px;
-  }
-  /* Track */
-  &::-webkit-scrollbar-track {
-    background: #3d3b3b;
-  }
-
-  /* Handle */
-  &::-webkit-scrollbar-thumb {
-    background: rgb(102, 102, 102);
-    border-radius: 3px;
-  }
-
-  /* Handle on hover */
-  &::-webkit-scrollbar-thumb:hover {
-    background: rgb(167, 166, 166);
-  }
-}

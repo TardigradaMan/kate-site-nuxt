@@ -71,39 +71,13 @@ export default {
   padding: 40px 0;
 }
 
-.swiper-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  box-sizing: border-box;
-
-  font-size: 1.3em;
-  opacity: 1;
-  transition: all 0.2s ease;
-  padding: 0 5px;
-
-  // Неоморфизм
-  background: $bg-lin1;
-  border: 1px solid rgba(95, 95, 95, 0.178);
-  border-radius: 12px;
-  box-shadow: $shadow-nm1;
-  &:hover {
-    cursor: grab;
-  }
-  &:hover .swiper__text {
-    opacity: 1;
-    transition: all ease 0.2s;
-  }
-}
-
 .swiper__text {
   margin: 0;
   padding: 0;
   -webkit-background-clip: text;
   -moz-background-clip: text;
   background-clip: text;
-  text-shadow: 0px 0px 2px rgb(255, 255, 255);
+  text-shadow: 0 0 2px rgb(255, 255, 255);
   opacity: 0.5;
   transition: all ease 0.2s;
   // Неоморфизм
@@ -114,9 +88,37 @@ export default {
   // border-radius: 93px;
 }
 
-.swiper-pagination-bullets {
-  bottom: 0px;
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  font-size: 1.3em;
+  opacity: 1;
+  transition: all 0.2s ease;
+  padding: 0 5px;
+
+  // Неоморфизм
+  background: $bg-lin1;
+  border: 1px solid rgba(95, 95, 95, 0.178);
+  border-radius: 12px;
+  box-shadow: $shadow-nm1;
+
+  &:hover {
+    cursor: grab;
+  }
+
+  &:hover .swiper__text {
+    opacity: 1;
+    transition: all ease 0.2s;
+  }
 }
+
+.swiper-pagination-bullets {
+  bottom: 0;
+}
+
 .swiper-pagination-bullet-active {
   background: #f00; // красный цвет для активного квадрата
 }

@@ -155,27 +155,65 @@ export default {
 .bg-1 {
   background: $green;
 }
+
 .bg-2 {
   background: $orange;
 }
+
 .bg-3 {
   background: $blue;
 }
+
 .bg-4 {
   background: $red;
 }
+
 .color-1 {
   color: $green;
+
+  & .card::after {
+    background: $green;
+  }
+
+  &.card__button {
+    &:active {
+      color: $green;
+    }
+  }
 }
+
 .color-2 {
   color: $orange;
+
+  & .card::after {
+    background: $orange;
+  }
+
+  &.card__button {
+    &:active {
+      color: $orange;
+    }
+  }
 }
+
 .color-3 {
   color: $blue;
+
+  & .card::after {
+    background: $blue;
+  }
+
+  &.card__button {
+    &:active {
+      color: $blue;
+    }
+  }
 }
+
 .color-4 {
   color: $red;
 }
+
 .price {
   &-list {
     margin: 20px 0;
@@ -184,63 +222,72 @@ export default {
     justify-content: space-around;
     // align-content: center;
     align-items: center;
+
     @media (max-width: $lg-width-max) {
       // CSS для ширины от 992px до 1199px
       justify-content: space-around;
     }
+
     @media (max-width: $md-width-max) {
       // CSS для ширины от 768px до 991px */
     }
+
     @media (max-width: $sm-width-max) {
       // CSS для ширины от 576px до 767px */
       flex-direction: column;
     }
+
     @media (max-width: $xs-width-max) {
       // CSS для ширины до 575px (включительно) */
     }
   }
+
   &-item {
     @media (max-width: $sm-width-max) {
       // CSS для ширины от 576px до 767px */
       padding: 30px;
     }
   }
+
   &-content {
     grid-area: content;
     position: relative;
     width: 250px;
     height: 400px;
+
     @media (max-width: $lg-width-max) {
       // CSS для ширины от 992px до 1199px
       width: 200px;
       height: 350px;
     }
+
     @media (max-width: $md-width-max) {
       // CSS для ширины от 768px до 991px */
       width: 170px;
       height: 310px;
     }
+
     @media (max-width: $sm-width-max) {
       // CSS для ширины от 576px до 767px */
       width: 200px;
       height: 350px;
     }
+
     @media (max-width: $xs-width-max) {
       // CSS для ширины до 575px (включительно) */
       //   width: 200px;
       //   height: 350px;
     }
   }
+
   &-bg {
     position: absolute;
     top: 0;
     left: 0;
     z-index: 1;
-
     border-radius: 20px;
     width: 100%;
     height: 100%;
-
     box-shadow: inset 4px 4px 10px rgb(0, 0, 0),
       inset 4px 4px 15px 3px rgba(0, 0, 0, 0.678),
       inset -1px -1px 2px rgba(255, 255, 255, 0.5),
@@ -257,25 +304,26 @@ export default {
     // border-bottom: 2px solid rgba(0, 0, 0, 0.705);
     // border-right: 2px solid rgba(0, 0, 0, 0.5);
   }
+
   &-card {
     position: absolute;
     // top: -3px;
     // left: 6px;
     z-index: 2;
-
     width: 100%;
     height: 100%;
     border-radius: 20px;
-    background: linear-gradient(145deg, #dfdfdf 30%, #ffffff);
+    background: linear-gradient(145deg, #dfdfdf 30%, #fff);
+    box-shadow: 15px 15px 30px 0 rgba(0, 0, 0, 0.801), inset 2px 2px 10px #fff,
+      inset -2px -2px 5px rgba(0, 0, 0, 0.1);
 
-    box-shadow: 15px 15px 30px 0 rgba(0, 0, 0, 0.801),
-      inset 2px 2px 10px #ffffff, inset -2px -2px 5px rgba(0, 0, 0, 0.1);
     @media (max-width: $md-width-max) {
       // CSS для ширины до 575px (включительно) */
       top: -25px;
       left: 50px;
     }
   }
+
   &-title {
     position: absolute;
     top: 50%;
@@ -292,11 +340,10 @@ export default {
       font-size: 30px;
       text-transform: uppercase;
       font-family: 'Rubik Mono One', sans-serif;
-
-      color: inherit;
+      // color: inherit;
 
       // тень
-      text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.5), 0px 1px 1px #444;
+      text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.5), 0 1px 1px #444;
     }
   }
 }
@@ -304,70 +351,57 @@ export default {
 .card {
   overflow: hidden;
   position: relative;
-
   border: 1px inset rgba(0, 0, 0, 0.096);
   transition: all ease-in-out 0.2s;
-  &:hover,
-  :focus {
-    transform: scale(1.1);
-    // top: -25px;
-    // left: 50px;
-    transition: all ease-in-out 0.2s;
-    // animation: card 0.3s ease-in-out forwards;
-  }
-  // @keyframes card {
-  //   0% {
-  //     top: 0px;
-  //     left: 0px;
-  //   }
-  //   100% {
-  //     top: -25px;
-  //     left: 50px;
-  //   }
-  // }
 
-  &::after {
+  & ::after {
     content: '';
     position: absolute;
     left: 0;
     bottom: 0;
-
     height: 50px;
     width: 100%;
-
     clip-path: polygon(10% 20%, 50% 100%, 0 100%, 0 50%);
   }
+
+  &:hover,
+  :focus {
+    transform: scale(1.1);
+    transition: all ease-in-out 0.2s;
+  }
+
   &__header {
     clip-path: polygon(100% 0, 100% 85%, 75% 100%, 0 64%, 0 0);
-
     height: 200px;
     color: #fff;
-
     padding-top: 20px;
-
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-
     filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+
     @media (max-width: $md-width-max) {
       // CSS для ширины от 768px до 991px */
       height: 150px;
     }
   }
+
   &__description {
     padding: 0;
     margin: 0;
     font-size: 1em;
+
     @media (max-width: $lg-width-max) {
       // CSS для ширины от 992px до 1199px */
       font-size: 0.9em;
     }
+
     @media (max-width: $md-width-max) {
       // CSS для ширины от 768px до 991px */
       font-size: 0.8em;
     }
   }
+
   &__title {
     margin: 0;
     margin-top: 20px;
@@ -375,62 +409,66 @@ export default {
     color: $bg-color;
     font-size: 1.4em;
     text-transform: uppercase;
+
     @media (max-width: $lg-width-max) {
       // CSS для ширины от 992px до 1199px */
       font-size: 1.2em;
     }
+
     @media (max-width: $md-width-max) {
       // CSS для ширины от 768px до 991px */
       font-size: 1em;
     }
+
     @media (max-width: $sm-width-max) {
       // CSS для ширины от 576px до 767px */
       font-size: 1.2em;
     }
   }
+
   &__price {
     font-size: 3em;
+
     @media (max-width: $lg-width-max) {
       // CSS для ширины от 992px до 1199px */
       font-size: 2.5em;
     }
+
     @media (max-width: $md-width-max) {
       // CSS для ширины от 768px до 991px */
       font-size: 2.2em;
     }
+
     @media (max-width: $sm-width-max) {
       // CSS для ширины от 576px до 767px */
       font-size: 2.2em;
     }
   }
+
   &__button {
     display: block;
     position: relative;
     z-index: 10;
-
     margin: 0 auto;
     margin-top: -30px;
     padding: 7px 15px;
     text-transform: uppercase;
     font-size: 12px;
-
     border-radius: 5px;
     border: none;
     outline: none;
     background: $bg-color;
     color: #c0c0c0;
     opacity: 0.8;
-
     cursor: pointer;
-    &:hover,
+
+    & :hover,
     :focus {
       color: #fff;
       opacity: 1;
     }
-    // &:active {
-    //   color: $green;
-    // }
   }
+
   &__list {
     display: flex;
     flex-flow: column wrap;
@@ -441,25 +479,30 @@ export default {
     align-content: center;
     color: $bg-color;
     list-style: none;
+
     @media (max-width: $lg-width-max) {
       // CSS для ширины от 992px до 1199px */
       font-size: 0.9em;
       margin-top: 8px;
     }
+
     @media (max-width: $md-width-max) {
       // CSS для ширины от 768px до 991px */
       font-size: 0.8em;
       margin-top: 12px;
     }
+
     @media (max-width: $sm-width-max) {
       // CSS для ширины от 576px до 767px */
       margin-top: 20px;
       font-size: 1em;
     }
+
     @media (max-width: $xs-width-max) {
       // CSS для ширины до 575px (включительно) */
     }
   }
+
   &__item {
     &::before {
       content: '';
@@ -472,68 +515,45 @@ export default {
       margin-right: 10px;
       background-position: center center;
       vertical-align: middle;
+
       @media (max-width: $lg-width-max) {
         // CSS для ширины от 992px до 1199px */
         font-size: 2.5em;
       }
+
       @media (max-width: $md-width-max) {
         // CSS для ширины от 768px до 991px */
         font-size: 2.2em;
       }
+
       @media (max-width: $sm-width-max) {
         // CSS для ширины от 576px до 767px */
         font-size: 2.2em;
       }
     }
   }
+
   .ok::before {
     background-image: url('~assets/img/ok.png');
   }
+
   .off::before {
     background-image: url('~assets/img/off.png');
-  }
-}
-.color-1 {
-  & .card::after {
-    background: $green;
-  }
-  & .card__button {
-    &:active {
-      color: $green;
-    }
-  }
-}
-
-.color-2 {
-  & .card::after {
-    background: $orange;
-  }
-  & .card__button {
-    &:active {
-      color: $orange;
-    }
-  }
-}
-.color-3 {
-  & .card::after {
-    background: $blue;
-  }
-  & .card__button {
-    &:active {
-      color: $blue;
-    }
   }
 }
 
 @media (max-width: $lg-width-max) {
   // CSS для ширины от 992px до 1199px */
 }
+
 @media (max-width: $md-width-max) {
   // CSS для ширины от 768px до 991px */
 }
+
 @media (max-width: $sm-width-max) {
   // CSS для ширины от 576px до 767px */
 }
+
 @media (max-width: $xs-width-max) {
   // CSS для ширины до 575px (включительно) */
 }

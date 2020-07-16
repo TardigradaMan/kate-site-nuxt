@@ -29,7 +29,7 @@
         </p>
         <textarea
           v-model.trim.lazy="contactForm.text"
-          class="textarea"
+          class="textarea textarea-active"
           type="text"
           name="phone"
           placeholder="Если у вас есть вопрос, впишите его сюда"
@@ -190,19 +190,16 @@ export default {
   margin: 0;
   padding: 0;
   position: absolute;
-  left: 0px;
-  top: 0px;
-  bottom: 0px;
-  right: 0px;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
   width: 100%;
   height: 100%;
   background-color: $bg-color;
-  opacity: 0;
+  opacity: 1;
   transition: all ease 1s;
-  & {
-    opacity: 1;
-    transition: all ease 1s;
-  }
+
   &-error {
     display: block;
     color: #f57f6c;
@@ -229,15 +226,18 @@ export default {
     box-shadow: -8px -8px 20px #494c52, 1px 8px 30px #101316,
       -1px -1px 60px rgba(33, 39, 44, 0.01);
     transition: all ease-in-out 0.2s;
+
     &:hover,
     :focus {
       color: $green;
     }
+
     &:active {
       box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.35),
         inset -5px -5px 10px rgb(100, 100, 100);
       transition: box-shadow ease-in-out 0.2s;
     }
+
     @media (max-width: $xs-width-max) {
       // CSS для ширины до 575px (включительно) */
       border-radius: 8px 8px 8px 8px;
@@ -251,15 +251,18 @@ export default {
     box-shadow: -1px -8px 20px #494c52, 8px 8px 30px #101316,
       -1px -1px 60px rgba(33, 39, 44, 0.01);
     transition: all ease-in-out 0.2s;
+
     &:hover,
     :focus {
       color: $blue;
     }
+
     &:active {
       box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.35),
         inset -5px -5px 10px rgb(100, 100, 100);
       transition: box-shadow ease-in-out 0.2s;
     }
+
     @media (max-width: $xs-width-max) {
       // CSS для ширины до 575px (включительно) */
       border-radius: 8px 8px 8px 8px;
@@ -267,41 +270,50 @@ export default {
     }
   }
 }
+
 .form-social {
   & .status {
     background-color: #eee;
   }
+
   & .ok_title {
     color: $grey;
   }
+
   & .button {
     background: rgb(219, 219, 219);
     border: 1px solid white;
+
     &__left {
       // background: linear-gradient(90deg, #d6d6d6 -50%, rgb(255, 255, 255) 120%);
 
       border-right: none;
       box-shadow: -12px -12px 20px white, 1px 5px 30px rgba(0, 0, 0, 0.274);
       transition: all ease-in-out 0.2s;
+
       &:hover,
       :focus {
         color: $green;
       }
+
       &:active {
         box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.35),
           inset -6px -6px 10px #fff;
         transition: box-shadow ease-in-out 0.2s;
       }
     }
+
     &__right {
       // background: linear-gradient(90deg, rgb(255, 255, 255) -20%, #d6d6d6 150%);
 
       box-shadow: -1px -12px 20px white, 5px 5px 30px rgba(0, 0, 0, 0.274);
       transition: all ease-in-out 0.2s;
+
       &:hover,
       :focus {
         color: $blue;
       }
+
       &:active {
         box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.35),
           inset -6px -6px 10px #fff;

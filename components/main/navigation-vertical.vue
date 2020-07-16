@@ -86,10 +86,8 @@ export default {
     width: 100%;
     height: 100%;
     z-index: 100;
-
     background: rgba(25, 25, 25, 0.9);
     transition: background 0.4s ease 0s;
-
     text-align: center;
   }
 }
@@ -122,8 +120,9 @@ export default {
     transform: translateY(20px);
     opacity: 0;
   }
+
   100% {
-    transform: translateY(0px);
+    transform: translateY(0);
     opacity: 1;
   }
 }
@@ -139,7 +138,7 @@ export default {
 }
 
 .main-nav__item:last-child {
-  margin-right: 0px;
+  margin-right: 0;
 }
 
 .main-nav__link {
@@ -148,21 +147,9 @@ export default {
   // text-transform: uppercase;
   font-weight: 400;
   letter-spacing: 0.1em;
-  color: #ffffff;
+  color: #fff;
   position: relative;
 
-  &:hover {
-    &::before {
-      transform: translate(-40px, 0px);
-      opacity: 1;
-      transition: all 0.4s ease 0s;
-    }
-    &::after {
-      transform: translate(10px, 0px);
-      opacity: 1;
-      transition: all 0.4s ease 0s;
-    }
-  }
   &::before,
   &::after {
     content: '';
@@ -175,24 +162,42 @@ export default {
     opacity: 0;
     transition: all 0.4s ease 0s;
   }
+
   &::before {
     transform: translate(-60px, 0);
   }
+
   &::after {
     transform: translate(30px, 0);
+  }
+
+  &:hover {
+    &::before {
+      transform: translate(-40px, 0);
+      opacity: 1;
+      transition: all 0.4s ease 0s;
+    }
+
+    &::after {
+      transform: translate(10px, 0);
+      opacity: 1;
+      transition: all 0.4s ease 0s;
+    }
   }
 }
 
 .nuxt-link-exact-active {
   &::before {
-    transform: translate(-40px, 0px);
+    transform: translate(-40px, 0);
     opacity: 1;
   }
+
   &::after {
-    transform: translate(10px, 0px);
+    transform: translate(10px, 0);
     opacity: 1;
   }
 }
+
 .main-nav__toggle {
   display: none;
 }

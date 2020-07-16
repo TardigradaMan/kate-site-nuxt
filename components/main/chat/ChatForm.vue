@@ -39,7 +39,7 @@ export default {
   margin-bottom: 40px;
   border-radius: 8px;
   border: 0;
-  background: #eeeeee;
+  background: #eee;
   font-size: 14px;
   line-height: 22px;
   box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.35),

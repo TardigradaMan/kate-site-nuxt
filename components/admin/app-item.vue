@@ -43,9 +43,11 @@ export default {
   margin: 5px;
   border: none;
 }
+
 .table__button--mark {
   background-color: rgb(96, 241, 59);
 }
+
 .table__button--del {
   background-color: rgb(245, 48, 48);
 }

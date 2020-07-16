@@ -16,7 +16,7 @@
             ><svg class="page-title__03 svg-title">
               <use xlink:href="#title__svg--03" /></svg
           ></span>
-          <span style="display: block">Ну или хотя-бы стране, курсивым</span>
+          <span style="display: block;">Ну или хотя-бы стране, курсивым</span>
         </div>
         <div ref="imgTitle" class="page-title__container">
           <img
@@ -189,15 +189,15 @@ export default {
   height: 100vh;
   position: relative;
   overflow: hidden;
+
   &__title {
     font-size: 50px;
     line-height: 56px;
     font-family: 'Russo One', sans-serif;
     text-transform: uppercase;
-
-    margin-bottom: 30px;
     max-width: 700px;
     margin: 0 auto;
+    margin-bottom: 30px;
   }
 }
 
@@ -205,9 +205,11 @@ export default {
   width: 100%;
   position: absolute;
   height: 100vh;
+
   @media (max-width: $lg-width-max) {
     // CSS для ширины от 992px до 1199px */
   }
+
   @media (max-width: $md-width-max) {
     display: none;
   }
@@ -215,12 +217,12 @@ export default {
   &__wrapper {
     position: absolute;
     transform: translate(0, -50%);
-    position: absolute;
     top: 50%;
     left: 0;
     width: 100%;
     text-align: center;
     z-index: 5;
+
     & span {
       margin-left: 15px;
     }
@@ -229,17 +231,19 @@ export default {
   &__01 {
     width: 445px;
   }
+
   &__02 {
     width: 290px;
   }
+
   &__03 {
     width: 246px;
   }
 }
+
 .page-title__container {
   width: 100vw;
   height: 100vh;
-
   position: relative;
   z-index: 1;
   // top: 0;
@@ -248,6 +252,7 @@ export default {
   // bottom: 0;
   // overflow: hidden;
 }
+
 .page-title__img {
   position: absolute;
   top: 0;
@@ -261,7 +266,6 @@ export default {
   background: rgba(97, 214, 235, 0.171);
   width: 0;
   height: 100%;
-
   position: absolute;
   right: 0;
   // left: 100%;
@@ -270,15 +274,48 @@ export default {
   @media (max-width: $lg-width-max) {
     // CSS для ширины от 992px до 1199px */
   }
+
   @media (max-width: $md-width-max) {
     // CSS для ширины от 768px до 991px */
     width: 100%;
   }
+
   @media (max-width: $sm-width-max) {
     // CSS для ширины от 576px до 767px */
   }
+
   @media (max-width: $xs-width-max) {
     // CSS для ширины до 575px (включительно) */
+  }
+
+  &__social {
+    background: rgba(223, 88, 205, 0.274);
+    // background-image: url('~assets/img/insta_home-1x.png');
+    @media (max-width: $md-width-max) {
+      // CSS для ширины от 768px до 991px */
+      height: 33.3vh;
+    }
+  }
+
+  &__ads {
+    background: rgba(158, 152, 98, 0.199);
+    // background-image: url('~assets/img/Home_ads-1x.png');
+    // background-position: 10% 10%;
+    @media (max-width: $md-width-max) {
+      // CSS для ширины от 768px до 991px */
+      height: 33.3vh;
+      top: 33.3vh;
+    }
+  }
+
+  &__web {
+    background: rgba(223, 88, 205, 0.274);
+    // background-image: url('~assets/img/insta_home-1x.png');
+    @media (max-width: $md-width-max) {
+      // CSS для ширины от 768px до 991px */
+      height: 33.3vh;
+      top: 66.6vh;
+    }
   }
 
   &__social,
@@ -287,6 +324,7 @@ export default {
     width: 100%;
     position: absolute;
     box-shadow: 0 0 10px #000;
+
     ::after & {
       content: '';
       display: block;
@@ -303,39 +341,55 @@ export default {
       &::after {
         opacity: 0.5;
       }
+
       .link__title::after {
         transform: scale(1, 1);
         transition: all 0.5s ease-out;
       }
     }
   }
-  &__ads {
-    background: rgba(158, 152, 98, 0.199);
-    // background-image: url('~assets/img/Home_ads-1x.png');
-    // background-position: 10% 10%;
+
+  &__title {
+    display: inline-block;
+    margin: 0;
+
+    & ::after {
+      transition: all 0.5s ease-out;
+      transform: scale(1.2, 1);
+    }
+
+    @media (max-width: $lg-width-max) {
+      // CSS для ширины от 992px до 1199px */
+      font-size: 1.8em;
+    }
+
     @media (max-width: $md-width-max) {
       // CSS для ширины от 768px до 991px */
-      height: 33.3vh;
-      top: 33.3vh;
+      font-size: 1.5em;
+    }
+
+    @media (max-width: $sm-width-max) {
+      // CSS для ширины от 576px до 767px */
+      font-size: 1.3em;
+    }
+
+    @media (max-width: $xs-width-max) {
+      // CSS для ширины до 575px (включительно) */
+      font-size: 1.2em;
     }
   }
-  &__social {
-    background: rgba(223, 88, 205, 0.274);
-    // background-image: url('~assets/img/insta_home-1x.png');
-    @media (max-width: $md-width-max) {
-      // CSS для ширины от 768px до 991px */
-      height: 33.3vh;
-    }
-  }
-  &__web {
-    background: rgba(223, 88, 205, 0.274);
-    // background-image: url('~assets/img/insta_home-1x.png');
-    @media (max-width: $md-width-max) {
-      // CSS для ширины от 768px до 991px */
-      height: 33.3vh;
-      top: 66.6vh;
-    }
-  }
+
+  // &__ads {
+  //   background: rgba(158, 152, 98, 0.199);
+  //   // background-image: url('~assets/img/Home_ads-1x.png');
+  //   // background-position: 10% 10%;
+  //   @media (max-width: $md-width-max) {
+  //     // CSS для ширины от 768px до 991px */
+  //     height: 33.3vh;
+  //     top: 33.3vh;
+  //   }
+  // }
+
   &__header {
     transform: translate(0, -50%);
     position: absolute;
@@ -347,18 +401,22 @@ export default {
     text-align: center;
     color: white;
     z-index: 5;
+
     @media (max-width: $lg-width-max) {
       // CSS для ширины от 992px до 1199px */
       // font-size: 1.8em;
     }
+
     @media (max-width: $md-width-max) {
       // CSS для ширины от 768px до 991px */
       // font-size: 1.5em;
     }
+
     @media (max-width: $sm-width-max) {
       // CSS для ширины от 576px до 767px */
       // font-size: 1.5em;
     }
+
     @media (max-width: $xs-width-max) {
       // CSS для ширины до 575px (включительно) */
       // font-size: 1.2em;
@@ -370,31 +428,38 @@ export default {
       font-style: italic;
     }
   }
-  &__title {
-    display: inline-block;
-    margin: 0;
-    @media (max-width: $lg-width-max) {
-      // CSS для ширины от 992px до 1199px */
-      font-size: 1.8em;
-    }
-    @media (max-width: $md-width-max) {
-      // CSS для ширины от 768px до 991px */
-      font-size: 1.5em;
-    }
-    @media (max-width: $sm-width-max) {
-      // CSS для ширины от 576px до 767px */
-      font-size: 1.3em;
-    }
-    @media (max-width: $xs-width-max) {
-      // CSS для ширины до 575px (включительно) */
-      font-size: 1.2em;
-    }
-    &::after {
-      transition: all 0.5s ease-out;
-      transform: scale(1.2, 1);
-    }
-  }
+
+  // &__title {
+  //   display: inline-block;
+  //   margin: 0;
+
+  //   &::after {
+  //     transition: all 0.5s ease-out;
+  //     transform: scale(1.2, 1);
+  //   }
+
+  //   @media (max-width: $lg-width-max) {
+  //     // CSS для ширины от 992px до 1199px */
+  //     font-size: 1.8em;
+  //   }
+
+  //   @media (max-width: $md-width-max) {
+  //     // CSS для ширины от 768px до 991px */
+  //     font-size: 1.5em;
+  //   }
+
+  //   @media (max-width: $sm-width-max) {
+  //     // CSS для ширины от 576px до 767px */
+  //     font-size: 1.3em;
+  //   }
+
+  //   @media (max-width: $xs-width-max) {
+  //     // CSS для ширины до 575px (включительно) */
+  //     font-size: 1.2em;
+  //   }
+  // }
 }
+
 .image-container {
   position: absolute;
   top: 0;
@@ -402,18 +467,18 @@ export default {
   right: 0;
   bottom: 0;
   overflow: hidden;
-
   z-index: 2;
-
   background-repeat: no-repeat;
   background-size: cover;
 
   &__ads {
     background-image: url('~assets/img/link-ads.jpg');
   }
+
   &__social {
     background-image: url('~assets/img/link-social.jpg');
   }
+
   &__web {
     background-image: url('~assets/img/link-web.jpg');
   }
@@ -422,12 +487,15 @@ export default {
 @media (max-width: $lg-width-max) {
   // CSS для ширины от 992px до 1199px */
 }
+
 @media (max-width: $md-width-max) {
   // CSS для ширины от 768px до 991px */
 }
+
 @media (max-width: $sm-width-max) {
   // CSS для ширины от 576px до 767px */
 }
+
 @media (max-width: $xs-width-max) {
   // CSS для ширины до 575px (включительно) */
 }

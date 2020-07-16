@@ -97,12 +97,25 @@ export default {
   width: 100%;
   border-collapse: collapse;
   border-bottom: 1px solid rgb(82, 81, 82);
-
   box-shadow: $shadow-out;
   background-color: $bg-color;
-
   font-size: 14px;
 }
+
+th,
+td {
+  padding: 2px;
+}
+
+th {
+  letter-spacing: 2px;
+}
+
+thead th,
+tfoot th {
+  font-size: 15px;
+}
+
 thead th:nth-child(1) {
   width: 10%;
 }
@@ -118,32 +131,21 @@ thead th:nth-child(3) {
 thead th:nth-child(4) {
   width: 15%;
 }
+
 thead th:nth-child(5) {
   width: 15%;
 }
+
 thead th:nth-child(6) {
   width: 15%;
 }
+
 thead th:nth-child(7) {
   width: 12%;
 }
 
 thead th:nth-child(8) {
   width: 8%;
-}
-
-th,
-td {
-  padding: 2px;
-}
-
-thead th,
-tfoot th {
-  font-size: 15px;
-}
-
-th {
-  letter-spacing: 2px;
 }
 
 td {

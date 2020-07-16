@@ -22,7 +22,6 @@ export default {
 <style lang="scss" scoped>
 .admin {
   display: flex;
-
   width: 100%;
   height: 100vh;
 }
@@ -30,9 +29,7 @@ export default {
 .nav {
   background-color: rgb(51, 50, 54);
   width: 260px;
-
   flex-shrink: 0;
-
   border-right: solid 1px #e6e6e6;
 }
 
@@ -43,7 +40,6 @@ export default {
   overflow: auto;
   flex-shrink: 1;
   padding: 20px;
-
   background-color: $bg-color;
 }
 </style>

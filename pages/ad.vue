@@ -157,6 +157,9 @@ import appStages from '../components/main/Stages'
 import appPrice from '../components/main/Price'
 
 export default {
+  head: {
+    title: 'Реклама в сетях Яндекс, Google и других'
+  },
   components: {
     appSwipeSlider,
     appForm,
@@ -189,17 +192,20 @@ export default {
 
   &__title {
     color: rgb(68, 69, 70);
+
     &::after {
       background-color: rgb(68, 69, 70);
       transform: scale(1.2, 1);
     }
   }
+
   &__text {
     color: rgb(68, 69, 70);
   }
 }
+
 .description {
-  padding: 0px 10px 100px;
+  padding: 0 10px 100px;
   // background: rgba(121, 223, 107, 0.329);
   box-shadow: $shadow-out;
   position: relative;
@@ -208,7 +214,6 @@ export default {
   &::after {
     content: '';
     position: absolute;
-
     border-left: 500px solid $grey;
     border-top: 200px solid transparent;
     // filter: drop-shadow(0 -3px 8px #000);
@@ -217,17 +222,21 @@ export default {
     bottom: 0;
     left: 0;
     z-index: 1;
+
     @media (max-width: $lg-width-max) {
       // CSS для ширины от 992px до 1199px */
     }
+
     @media (max-width: $md-width-max) {
       // CSS для ширины от 768px до 991px */
     }
+
     @media (max-width: $sm-width-max) {
       // CSS для ширины от 576px до 767px */
       border-left: 300px solid $grey;
       border-top: 180px solid transparent;
     }
+
     @media (max-width: $xs-width-max) {
       // CSS для ширины до 575px (включительно) */
       // border-left: 150px solid $grey;
@@ -237,32 +246,36 @@ export default {
 
   &__list {
     display: grid;
+
     /* grid-template-rows / grid-template-columns values */
     grid-template: 1fr 1fr/ 1fr 1fr 1fr;
     gap: 20px;
-
     list-style: none;
     padding: 0;
     margin: 0 auto;
     margin-top: 40px;
-
     position: relative;
     z-index: 3;
+
     @media (max-width: $lg-width-max) {
       // CSS для ширины от 992px до 1199px */
     }
+
     @media (max-width: $md-width-max) {
       // CSS для ширины от 768px до 991px */
       grid-template: 1fr 1fr 1fr 1fr / 1fr 1fr;
     }
+
     @media (max-width: $sm-width-max) {
       // CSS для ширины от 576px до 767px */
     }
+
     @media (max-width: $xs-width-max) {
       // CSS для ширины до 575px (включительно) */
       grid-template: 1fr 1fr 1fr 1fr 1fr 1fr/ 1fr;
     }
   }
+
   &__item {
     // background: rgb(89, 169, 189);
     box-shadow: $shadow-out;
@@ -274,9 +287,11 @@ export default {
       padding-right: 70px;
       position: relative;
       background: rgba(53, 118, 192, 0.1);
+
       & > p {
         padding-left: 15px;
       }
+
       &::after {
         content: '';
         background-image: url('~assets/img/icon_descript.png');
@@ -285,17 +300,16 @@ export default {
         transform: translateY(-50%);
         top: 50%;
         right: 0;
-
         width: 65px;
         height: 65px;
       }
     }
+
     &--central {
       text-align: center;
       grid-row: 1/3;
       grid-column: 2/3;
       min-width: 415px;
-
       background-image: url('~assets/img/Стул_мой_v1.png');
       background-size: contain;
       background-repeat: no-repeat;
@@ -307,15 +321,18 @@ export default {
         // grid-column: 1/3;
         // min-width: 400px;
       }
+
       @media (max-width: $md-width-max) {
         // CSS для ширины от 768px до 991px */
         // min-width: 768px;
         grid-row: 2/4;
         grid-column: 1/3;
       }
+
       @media (max-width: $sm-width-max) {
         // CSS для ширины от 576px до 767px */
       }
+
       @media (max-width: $xs-width-max) {
         // CSS для ширины до 575px (включительно) */
         grid-row: 3/5;
@@ -323,25 +340,25 @@ export default {
         min-width: 300px;
       }
     }
+
     &--right {
       text-align: left;
       padding-left: 70px;
       position: relative;
       background: rgba(53, 118, 192, 0.1);
+
       & > p {
         padding-right: 15px;
       }
+
       &::before {
         content: '';
         background-image: url('~assets/img/icon_descript.png');
         background-size: cover;
         position: absolute;
-        transform: translateY(-50%);
+        transform: translateY(-50%) scale(-1, 1);
         top: 50%;
         left: 0;
-
-        transform: scale(-1, 1);
-
         width: 65px;
         height: 65px;
       }
@@ -357,9 +374,11 @@ export default {
   // background: $grey;
   padding: 20px 0;
 }
+
 .form-block {
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
+
 .stages-ads {
   // background: rgb(162, 255, 109);
   padding-bottom: 50px;
@@ -369,12 +388,15 @@ export default {
 @media (max-width: $lg-width-max) {
   // CSS для ширины от 992px до 1199px */
 }
+
 @media (max-width: $md-width-max) {
   // CSS для ширины от 768px до 991px */
 }
+
 @media (max-width: $sm-width-max) {
   // CSS для ширины от 576px до 767px */
 }
+
 @media (max-width: $xs-width-max) {
   // CSS для ширины до 575px (включительно) */
 }

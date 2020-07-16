@@ -44,7 +44,6 @@ export default {}
 <style lang="scss" scoped>
 .horizontal {
   max-width: 600px;
-
   margin: 0 auto;
   padding: 0;
   text-align: center;
@@ -59,7 +58,7 @@ export default {}
 
 .bubble {
   display: inline-block;
-  padding: 0px 5px;
+  padding: 0 5px;
   vertical-align: middle;
 
   @for $i from 1 to 11 {
@@ -73,19 +72,21 @@ export default {}
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background: #ffffff;
+  background: #fff;
   animation: pulse 1.5s infinite;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 }
 
 @keyframes pulse {
   0% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(0.2);
     opacity: 0.75;
   }
+
   100% {
     transform: scale(1);
   }

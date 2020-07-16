@@ -145,6 +145,7 @@ export default {
     cursor: pointer;
     z-index: 1000;
     display: flex;
+
     img {
       height: 35px;
     }
@@ -159,46 +160,58 @@ export default {
   height: 45px;
   z-index: 101;
   margin: 15px;
+
   @media (max-width: $lg-width-max) {
     // CSS для ширины от 992px до 1199px */
   }
+
   @media (max-width: $md-width-max) {
     // CSS для ширины от 768px до 991px */
   }
+
   @media (max-width: $sm-width-max) {
     // CSS для ширины от 576px до 767px */
   }
+
   @media (max-width: $xs-width-max) {
     // CSS для ширины до 575px (включительно) */
     margin-top: 1px;
     margin-left: 5px;
   }
+
   cursor: pointer;
+
   span {
     display: block;
     width: 100%;
     height: 2px;
     margin: 10px 0;
     background: white;
+
     &:nth-child(1) {
       transition: all 0.5s ease 0s;
     }
+
     &:nth-child(2) {
       transition: all 0.4s ease 0s;
     }
+
     &:nth-child(3) {
       transition: all 0.3s ease 0s;
     }
   }
+
   &.toggle__black {
     span {
       background: $grey;
     }
   }
+
   &:hover span {
     transform: rotate3d(0, 1, 0.1, 180deg);
     transition: all 0.5s ease 0s;
   }
+
   &.toggle__open {
     span {
       position: absolute;
@@ -206,21 +219,26 @@ export default {
       left: 0;
       opacity: 0;
       background: white;
+
       &:nth-child(1) {
         opacity: 1;
         transform: rotate3d(0, 0, 1, 45deg);
       }
+
       &:nth-child(3) {
         opacity: 1;
         transform: rotate3d(0, 0, 1, 135deg);
       }
     }
+
     &:hover {
       span {
         transition: all 0.3s ease 0s;
+
         &:nth-child(1) {
           transform: rotate3d(0, 0, 1, 25deg);
         }
+
         &:nth-child(3) {
           transform: rotate3d(0, 0, 1, 155deg);
         }
@@ -233,10 +251,13 @@ export default {
   opacity: 1;
   transition: all 0.3s ease;
 }
+
 .fade-leave-active {
   transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
 }
-.fade-enter, .fade-leave-to
+
+.fade-enter,
+.fade-leave-to
 /* .slide-fade-leave-active до версии 2.1.8 */ {
   opacity: 0;
 }
@@ -255,7 +276,7 @@ main {
   z-index: 105;
 
   & .info__button {
-    border: 0px solid #000000;
+    border: 0 solid #000;
     width: 150px;
     padding: 8px 8px;
     display: inline-block;
@@ -263,13 +284,12 @@ main {
     color: #eee;
     text-transform: uppercase;
     font-size: 0.8em;
-
     outline: none;
     outline-offset: 0;
 
     &.contact {
       border: 1px solid #48494b;
-      border-radius: 10px 10px 0px 0px;
+      border-radius: 10px 10px 0 0;
       background: #3c3f42;
       transition: all ease-in-out 0.2s;
     }
@@ -282,6 +302,7 @@ main {
       cursor: pointer;
       color: $blue;
     }
+
     & :active {
       cursor: pointer;
     }
@@ -294,24 +315,27 @@ main {
   // продолжительность появления
   transition: all 0.3s ease;
 }
+
 .info-leave-active {
   // продолжительность исчезновения
   transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
 }
+
 .info-enter,
 .info-leave-to {
   transform: translateX(100vw);
 }
+
 .info-enter-to {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-
   z-index: 1000;
   // transform: translateX(0vw);
 }
+
 .info-leave-to {
   position: fixed;
   top: 0;

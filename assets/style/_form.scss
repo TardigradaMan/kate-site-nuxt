@@ -3,7 +3,8 @@
   position: relative;
 }
 
-input {
+input,
+textarea {
   outline: none;
   outline-offset: 0;
 }
@@ -17,20 +18,87 @@ input {
     padding: 40px 5px;
     margin: 0 auto;
     border-radius: 15px;
+
     @media (max-width: $lg-width-max) {
       // CSS для ширины от 992px до 1199px */
     }
+
     @media (max-width: $md-width-max) {
       // CSS для ширины от 768px до 991px */
     }
+
     @media (max-width: $sm-width-max) {
       // CSS для ширины от 576px до 767px */
       width: 80vmin;
     }
+
     @media (max-width: $xs-width-max) {
       // CSS для ширины до 575px (включительно) */
       width: 85vmin;
     }
+  }
+}
+
+// .form-social,
+// .info {
+//   & .agreement {
+//     color: $grey;
+//   }
+
+//   & .agreement__check + label::before {
+//     border: 1px solid $grey;
+//   }
+
+//   & .agreement__check:checked + label::before {
+//     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+//   }
+// }
+.agreement {
+  & > a {
+    display: inline-block;
+  }
+
+  cursor: pointer;
+  text-align: left;
+
+  &__wrapper {
+    margin-bottom: 15px;
+    align-self: center;
+  }
+
+  @media (max-width: $xs-width-max) {
+    // CSS для ширины до 575px (включительно) */
+    font-size: 0.8em;
+  }
+}
+
+.agreement__check + label::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border-radius: 5px;
+  margin-right: 0.5em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+}
+
+.form-ads {
+  & .form-small__group {
+    // Неоморфизм
+    box-shadow: -8px -8px 20px rgb(73, 76, 82), 8px 8px 30px #101316,
+      -1px -1px 60px rgba(33, 39, 44, 0.01);
+  }
+
+  & .agreement__check + label::before {
+    box-shadow: inset 3px 3px 6px #2d2f32, inset -3px -3px 6px #4b4f53;
+  }
+
+  & .agreement__check:checked + label::before {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
   }
 }
 
@@ -40,33 +108,29 @@ input {
     border: 1px solid #fff;
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.295),
       -20px -20px 30px rgb(255, 255, 255), 6px 6px 20px rgba(0, 0, 0, 0.705);
-  }
-  & .form-small {
-    // width: 600px;
-    margin: 0 auto;
+
+    & .agreement {
+      color: $grey;
+    }
+
+    & .agreement__check + label::before {
+      border: 1px solid $grey;
+    }
+
+    & .agreement__check:checked + label::before {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+    }
   }
 }
 
-.form-ads {
-  & .form-small__group {
-    // Неоморфизм
-    box-shadow: -8px -8px 20px rgb(73, 76, 82), 8px 8px 30px #101316,
-      -1px -1px 60px rgba(33, 39, 44, 0.01);
-  }
-  & .form-small {
-    // width: 600px;
-    margin: 0 auto;
-  }
-}
-
-.info {
-  & .form-small__group {
-    box-shadow: 0 0 7px rgba(0, 0, 0, 0.295),
-      -20px -20px 30px rgb(255, 255, 255), 6px 6px 20px rgba(0, 0, 0, 0.705);
-    width: 40vw;
-    margin: 0 auto;
-  }
-}
+// .info {
+//   & .form-small__group {
+//     box-shadow: 0 0 7px rgba(0, 0, 0, 0.295),
+//       -20px -20px 30px rgb(255, 255, 255), 6px 6px 20px rgba(0, 0, 0, 0.705);
+//     width: 40vw;
+//     margin: 0 auto;
+//   }
+// }
 
 .input,
 .textarea {
@@ -77,24 +141,27 @@ input {
   margin-bottom: 40px;
   border-radius: 8px;
   border: 0;
-  background: #eeeeee;
-
+  background: #eee;
   font-size: 14px;
   line-height: 22px;
 
   // Неоморфизм
   box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.35),
     inset -6px -6px 10px 0 rgb(255, 255, 255);
+
   @media (max-width: $lg-width-max) {
     // CSS для ширины от 992px до 1199px */
   }
+
   @media (max-width: $md-width-max) {
     // CSS для ширины от 768px до 991px */
   }
+
   @media (max-width: $sm-width-max) {
     // CSS для ширины от 576px до 767px */
     min-width: 80%;
   }
+
   @media (max-width: $xs-width-max) {
     // CSS для ширины до 575px (включительно) */
     min-width: 90%;
@@ -108,6 +175,7 @@ input {
     background-size: 5px;
     background-image: linear-gradient(180deg, #6fcf97 0%, #02fdb2 186.42%);
   }
+
   &:hover {
     outline: 0;
     background-repeat: no-repeat;
@@ -117,7 +185,7 @@ input {
   }
 }
 
-.textarea {
+.textarea-active {
   resize: none;
   padding-top: 15px;
 
@@ -126,6 +194,18 @@ input {
     height: 100px;
   }
 }
+
+// .textarea-active {
+//   resize: none;
+//   padding-top: 15px;
+
+//   :hover,
+//   :active,
+//   :focus {
+//     height: 100px;
+//   }
+// }
+
 .info {
   & .form-small__group {
     box-shadow: $shadow-out;
@@ -133,79 +213,66 @@ input {
     margin: 0 auto;
     padding: 20px 5px;
   }
+
   & .input,
   .textarea {
     min-width: 25vw;
     margin-bottom: 20px;
   }
-  & .agreement {
-    display: inline-block;
-    margin: 0 auto;
-    width: 25vw;
-    align-items: center;
-    align-self: center;
-  }
+
+  // & .agreement {
+  //   display: inline-block;
+  //   margin: 0 auto;
+  //   width: 25vw;
+  //   align-items: center;
+  //   align-self: center;
+  // }
 }
-.agreement {
-  & > a {
-    display: inline-block;
-  }
-  cursor: pointer;
-  text-align: left;
-  &__wrapper {
-    margin-bottom: 15px;
-    align-self: center;
-  }
-  @media (max-width: $xs-width-max) {
-    // CSS для ширины до 575px (включительно) */
-    font-size: 0.8em;
-  }
-}
+
+// .agreement {
+//   & > a {
+//     display: inline-block;
+//   }
+
+//   cursor: pointer;
+//   text-align: left;
+
+//   &__wrapper {
+//     margin-bottom: 15px;
+//     align-self: center;
+//   }
+
+//   @media (max-width: $xs-width-max) {
+//     // CSS для ширины до 575px (включительно) */
+//     font-size: 0.8em;
+//   }
+// }
+
 .agreement__check {
   position: absolute;
   z-index: -1;
   opacity: 0;
 }
+
 .agreement__check + label {
   display: inline-flex;
   align-items: center;
   user-select: none;
 }
-.agreement__check + label::before {
-  content: '';
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  flex-shrink: 0;
-  flex-grow: 0;
 
-  border-radius: 5px;
-  margin-right: 0.5em;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 50% 50%;
-}
-.form-ads {
-  & .agreement__check:checked + label::before {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
-  }
-  & .agreement__check + label::before {
-    box-shadow: inset 3px 3px 6px #2d2f32, inset -3px -3px 6px #4b4f53;
-  }
-}
+// .form-social {
+//   & .agreement {
+//     color: $grey;
+//   }
 
-.form-social,
-.info {
-  & .agreement__check:checked + label::before {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
-  }
-  & .agreement__check + label::before {
-    border: 1px solid $grey;
-  }
-  & .agreement {
-    color: $grey;
-  }
-}
+//   // & .agreement__check + label::before {
+//   //   border: 1px solid $grey;
+//   // }
+
+//   & .agreement__check:checked + label::before {
+//     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+//   }
+// }
 
 .link-text {
   color: $blue;
@@ -247,6 +314,7 @@ input {
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
   text-align: center;
+
   & h3 {
     font-size: 35px;
   }
@@ -258,10 +326,10 @@ input {
   font-size: 0.75rem;
   line-height: 1;
   display: none;
-
   margin-top: -1.6875rem;
   margin-bottom: 0.9375rem;
 }
+
 .form-group--error {
   border: 2px solid #f57f6c !important;
 }
@@ -275,9 +343,11 @@ input {
 .status-enter-active {
   transition: all 0.3s ease;
 }
+
 .status-leave-active {
   transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
 }
+
 .statue-enter,
 .status-leave-to {
   opacity: 0;

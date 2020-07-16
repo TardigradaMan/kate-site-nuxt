@@ -20,9 +20,9 @@ export default {}
   width: 100%;
   padding: 10px;
   min-width: 320px;
-
   background-color: #3c444c;
 }
+
 .wrapper {
   display: flex;
   justify-content: space-between;

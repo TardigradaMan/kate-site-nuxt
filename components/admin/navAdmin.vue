@@ -50,7 +50,6 @@ export default {}
 <style lang="scss" scoped>
 .nav_list {
   height: 100%;
-
   list-style: none;
   position: relative;
   margin: 0;
@@ -58,22 +57,19 @@ export default {}
   padding-left: 10px;
 
   .nav__link {
-    padding-left: 20px;
-
     font-size: 14px;
     color: #e3e7ee;
     padding: 0 20px;
     cursor: pointer;
     text-transform: uppercase;
     text-decoration: none;
-
     transition: border-color 0.3s, background-color 0.3s, color 0.3s;
-
     height: 56px;
     line-height: 40px;
     position: relative;
     white-space: nowrap;
     list-style: none;
+
     &:hover,
     :focus {
       font-size: 15px !important;

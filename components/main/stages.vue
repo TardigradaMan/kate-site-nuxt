@@ -80,17 +80,226 @@ export default {}
 //   height: 100%;
 //   background: center/ 100% url('~assets/img/arrow.png') no-repeat;
 // }
+// .stages-ads {
+//   & .arrow.dark {
+//     background: center/cover url('~assets/img/arrow-dark.png');
+//   }
+
+//   & .stage-3 {
+//     & > .arrow {
+//       &.dark {
+//         background: center/cover url('~assets/img/arrow-dark-down.png');
+//       }
+//     }
+//   }
+
+//   .stage-4,
+//   .stage-5 {
+//     & > .arrow {
+//       &.dark {
+//         background: center/cover url('~assets/img/arrow-dark-left.png');
+//       }
+//     }
+//   }
+
+//   & .arrow-bg.dark {
+//     background: linear-gradient(-45deg, #45484b -50%, #323436 100%);
+//     border: 1px solid #3c3f42;
+//     box-shadow: 12px 12px 58px rgba(0, 0, 0, 0.74),
+//       -12px -12px 32px rgba(195, 200, 205, 0.12);
+//   }
+// }
+
+// .stages-social {
+//   & .arrow.light {
+//     background: center/cover url('~assets/img/arrow-light.png');
+//   }
+
+//   .stage-3 {
+//     & > .arrow {
+//       &.light {
+//         background: center/cover url('~assets/img/arrow-light-down.png');
+//       }
+//     }
+//   }
+
+//   .stage-4,
+//   .stage-5 {
+//     & > .arrow {
+//       &.light {
+//         background: center/cover url('~assets/img/arrow-light-left.png');
+//       }
+//     }
+//   }
+
+//   & .arrow-bg.light {
+//     background: linear-gradient(90deg, #bebebe -50%, #fff 100%);
+//     border: 1px solid rgb(255, 255, 255);
+//     box-shadow: -12px -12px 20px rgb(255, 255, 255),
+//       5px 5px 30px rgba(0, 0, 0, 0.274);
+//   }
+// }
+
+.stages {
+  &__list {
+    margin: 0;
+    padding: 0;
+    // background: rgb(56, 118, 122);
+    list-style: none;
+    display: grid;
+    grid-template: 1fr 1fr/ 1fr 1fr 1fr;
+    gap: 100px;
+
+    @media (max-width: $lg-width-max) {
+      // CSS для ширины от 992px до 1199px */
+      padding: 0 20px;
+    }
+
+    @media (max-width: $md-width-max) {
+      // CSS для ширины от 768px до 991px */
+      grid-template: 1fr 1fr 1fr/ 1fr 1fr;
+    }
+
+    @media (max-width: $sm-width-max) {
+      // CSS для ширины от 576px до 767px */
+    }
+
+    @media (max-width: $xs-width-max) {
+      // CSS для ширины до 575px (включительно) */
+      grid-template: repeat(6, 1fr) / 1fr;
+    }
+  }
+
+  &__item {
+    padding: 15px;
+    position: relative;
+    box-shadow: $shadow-out;
+    border-radius: 10px;
+    z-index: 2;
+
+    .arrow-bg {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      right: -80px;
+      transform: translateY(-50%);
+      filter: blur(2px);
+      border-radius: 93px;
+      //#3c3f42
+    }
+
+    &.arrow {
+      display: block;
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      right: -77px;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+// .stages-social {
+//   & .arrow.light {
+//     background: center/cover url('~assets/img/arrow-light.png');
+//   }
+
+//   .stage-3 {
+//     & > .arrow {
+//       &.light {
+//         background: center/cover url('~assets/img/arrow-light-down.png');
+//       }
+//     }
+//   }
+
+//   .stage-4,
+//   .stage-5 {
+//     & > .arrow {
+//       &.light {
+//         background: center/cover url('~assets/img/arrow-light-left.png');
+//       }
+//     }
+//   }
+
+//   & .arrow-bg.light {
+//     background: linear-gradient(90deg, #bebebe -50%, #fff 100%);
+//     border: 1px solid rgb(255, 255, 255);
+//     box-shadow: -12px -12px 20px rgb(255, 255, 255),
+//       5px 5px 30px rgba(0, 0, 0, 0.274);
+//   }
+// }
+
+.stage-1 {
+  & > .arrow-bg {
+    top: 50%;
+  }
+
+  & > .arrow {
+    top: 50%;
+  }
+}
+
+.stage-2 {
+  & > .arrow-bg {
+    top: 50%;
+  }
+
+  & > .arrow {
+    top: 50%;
+  }
+}
+
+.stage-3 {
+  & > .arrow-bg {
+    bottom: -115px;
+    left: calc(50% - 30px);
+  }
+
+  & > .arrow {
+    bottom: -105px;
+    left: calc(50% - 25px);
+  }
+}
+
+.stage-4 {
+  & > .arrow-bg {
+    top: 50%;
+  }
+
+  & > .arrow {
+    top: 50%;
+  }
+}
+
+.stage-5 {
+  & > .arrow-bg {
+    top: 50%;
+  }
+
+  & > .arrow {
+    top: 50%;
+  }
+}
+
+.stage-6 > .arrow-bg {
+  display: none;
+}
+
 .stages-ads {
   & .arrow.dark {
     background: center/cover url('~assets/img/arrow-dark.png');
   }
-  .stage-3 {
+
+  & .stage-3 {
     & > .arrow {
       &.dark {
         background: center/cover url('~assets/img/arrow-dark-down.png');
       }
     }
   }
+
   .stage-4,
   .stage-5 {
     & > .arrow {
@@ -107,17 +316,20 @@ export default {}
       -12px -12px 32px rgba(195, 200, 205, 0.12);
   }
 }
+
 .stages-social {
   & .arrow.light {
     background: center/cover url('~assets/img/arrow-light.png');
   }
-  .stage-3 {
+
+  & .stage-3 {
     & > .arrow {
       &.light {
         background: center/cover url('~assets/img/arrow-light-down.png');
       }
     }
   }
+
   .stage-4,
   .stage-5 {
     & > .arrow {
@@ -128,143 +340,22 @@ export default {}
   }
 
   & .arrow-bg.light {
-    background: linear-gradient(90deg, #bebebe -50%, #ffffff 100%);
+    background: linear-gradient(90deg, #bebebe -50%, #fff 100%);
     border: 1px solid rgb(255, 255, 255);
     box-shadow: -12px -12px 20px rgb(255, 255, 255),
       5px 5px 30px rgba(0, 0, 0, 0.274);
   }
 }
-.stages {
-  &__list {
-    margin: 0;
-    padding: 0;
-    // background: rgb(56, 118, 122);
-    list-style: none;
 
-    display: grid;
-    grid-template: 1fr 1fr/ 1fr 1fr 1fr;
-    gap: 100px;
-    @media (max-width: $lg-width-max) {
-      // CSS для ширины от 992px до 1199px */
-      padding: 0 20px;
-    }
-    @media (max-width: $md-width-max) {
-      // CSS для ширины от 768px до 991px */
-      grid-template: 1fr 1fr 1fr/ 1fr 1fr;
-    }
-    @media (max-width: $sm-width-max) {
-      // CSS для ширины от 576px до 767px */
-    }
-    @media (max-width: $xs-width-max) {
-      // CSS для ширины до 575px (включительно) */
-      grid-template: repeat(6, 1fr) / 1fr;
-    }
-  }
-  &__item {
-    padding: 15px;
-    position: relative;
-    box-shadow: $shadow-out;
-    border-radius: 10px;
-    z-index: 2;
-    .arrow-bg {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 60px;
-      height: 60px;
-      right: -80px;
-      transform: translateY(-50%);
-
-      filter: blur(2px);
-      border-radius: 93px;
-      //#3c3f42
-    }
-    .arrow {
-      display: block;
-      position: absolute;
-      width: 50px;
-      height: 50px;
-      right: -77px;
-      transform: translateY(-50%);
-    }
-  }
-}
-
-.stage-1 {
-  & > .arrow-bg {
-    top: 50%;
-  }
-  & > .arrow {
-    top: 50%;
-  }
-}
-.stage-2 {
-  & > .arrow-bg {
-    top: 50%;
-  }
-  & > .arrow {
-    top: 50%;
-  }
-}
-.stage-3 {
-  & > .arrow-bg {
-    bottom: -115px;
-    left: calc(50% - 30px);
-  }
-  & > .arrow {
-    bottom: -105px;
-    left: calc(50% - 25px);
-  }
-}
-.stage-4 {
-  & > .arrow-bg {
-    top: 50%;
-  }
-  & > .arrow {
-    top: 50%;
-  }
-}
-.stage-5 {
-  & > .arrow-bg {
-    top: 50%;
-  }
-  & > .arrow {
-    top: 50%;
-  }
-}
-.stage-6 > .arrow-bg {
-  display: none;
-}
-
-@media (max-width: $lg-width-max) {
-  // CSS для ширины от 992px до 1199px */
-}
 @media (max-width: $md-width-max) {
   // CSS для ширины от 768px до 991px */
-  .stages-social {
-    .stage-2 {
-      & > .arrow {
-        &.light {
-          background: center/cover url('~assets/img/arrow-light-down.png');
-        }
-      }
-    }
-  }
-  .stages-ads {
-    .stage-2 {
-      & > .arrow {
-        &.light {
-          background: center/cover url('~assets/img/arrow-dark-down.png');
-        }
-      }
-    }
-  }
   .stage-2 {
     & > .arrow-bg {
       top: calc(100% + 50px);
       bottom: -115px;
       left: calc(50% - 30px);
     }
+
     & > .arrow {
       top: calc(100% + 50px);
       left: calc(50% - 25px);
@@ -276,13 +367,36 @@ export default {}
       top: 50%;
       left: -80px;
     }
+
     & > .arrow {
       top: 50%;
       left: -72px;
     }
   }
 
+  .stage-5 {
+    & > .arrow-bg {
+      top: 50%;
+    }
+
+    & > .arrow {
+      top: 50%;
+    }
+  }
+
+  .stage-6 > .arrow-bg {
+    display: none;
+  }
+
   .stages-social {
+    .stage-2 {
+      & > .arrow {
+        &.light {
+          background: center/cover url('~assets/img/arrow-light-down.png');
+        }
+      }
+    }
+
     .stage-5 {
       & > .arrow {
         &.light {
@@ -291,7 +405,16 @@ export default {}
       }
     }
   }
+
   .stages-ads {
+    .stage-2 {
+      & > .arrow {
+        &.light {
+          background: center/cover url('~assets/img/arrow-dark-down.png');
+        }
+      }
+    }
+
     .stage-5 {
       & > .arrow {
         &.dark {
@@ -300,24 +423,36 @@ export default {}
       }
     }
   }
+}
 
-  .stage-5 {
-    & > .arrow-bg {
-      top: 50%;
-    }
-    & > .arrow {
-      top: 50%;
-    }
-  }
-  .stage-6 > .arrow-bg {
-    display: none;
-  }
-}
-@media (max-width: $sm-width-max) {
-  // CSS для ширины от 576px до 767px */
-}
 @media (max-width: $xs-width-max) {
   // CSS для ширины до 575px (включительно) */
+  .stage-1 {
+    & > .arrow-bg {
+      top: calc(100% + 50px);
+      bottom: -115px;
+      left: calc(50% - 30px);
+    }
+
+    & > .arrow {
+      top: calc(100% + 50px);
+      left: calc(50% - 25px);
+    }
+  }
+
+  .stage-4,
+  .stage-5 {
+    & > .arrow-bg {
+      top: calc(100% + 50px);
+      left: calc(50% - 30px);
+    }
+
+    & > .arrow {
+      top: calc(100% + 50px);
+      left: calc(50% - 25px);
+    }
+  }
+
   .stages-social {
     .stage-1,
     .stage-4,
@@ -329,6 +464,7 @@ export default {}
       }
     }
   }
+
   .stages-ads {
     .stage-1,
     .stage-4,
@@ -338,29 +474,6 @@ export default {}
           background: center/cover url('~assets/img/arrow-dark-down.png');
         }
       }
-    }
-  }
-
-  .stage-1 {
-    & > .arrow-bg {
-      top: calc(100% + 50px);
-      bottom: -115px;
-      left: calc(50% - 30px);
-    }
-    & > .arrow {
-      top: calc(100% + 50px);
-      left: calc(50% - 25px);
-    }
-  }
-  .stage-4,
-  .stage-5 {
-    & > .arrow-bg {
-      top: calc(100% + 50px);
-      left: calc(50% - 30px);
-    }
-    & > .arrow {
-      top: calc(100% + 50px);
-      left: calc(50% - 25px);
     }
   }
 }

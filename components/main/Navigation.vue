@@ -139,7 +139,7 @@ export default {
 }
 
 .main-nav__item:last-child {
-  margin-right: 0px;
+  margin-right: 0;
 }
 
 .main-nav__link {
@@ -147,8 +147,9 @@ export default {
   line-height: 18px;
   text-transform: uppercase;
   text-decoration: none;
-  color: #ffffff;
+  color: #fff;
   padding-bottom: 10px;
+
   &:hover,
   :focus,
   :active {
@@ -169,29 +170,35 @@ export default {
 .main-nav__toggle {
   display: none;
 }
+
 @media screen and (max-width: $mobile-width) {
   .main-nav__list {
     display: none;
   }
+
   .open {
     width: 300px;
     flex-direction: column;
     display: block;
     align-items: flex-start;
     padding: 10px 0 10px 15px;
+
     .main-nav__item {
       margin-bottom: 15px;
     }
   }
+
   .main-nav__toggle {
     display: block;
     position: absolute;
     top: 10px;
     right: 10px;
   }
+
   .main-nav__toggle--open {
     display: none;
   }
+
   .main-nav__toggle--close {
     display: none;
   }

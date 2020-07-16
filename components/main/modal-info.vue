@@ -122,25 +122,29 @@ export default {
     height: 100%;
     margin-left: 70%;
     background: rgb(36, 34, 34);
-
     box-shadow: 0 0 15px #000;
     z-index: 101;
+
     @media (max-width: $lg-width-max) {
       // CSS для ширины от 992px до 1199px */
       margin-left: 60%;
     }
+
     @media (max-width: $md-width-max) {
       // CSS для ширины от 768px до 991px */
     }
+
     @media (max-width: $sm-width-max) {
       // CSS для ширины от 576px до 767px */
       margin-left: 40%;
     }
+
     @media (max-width: $xs-width-max) {
       // CSS для ширины до 575px (включительно) */
       margin-left: 20%;
     }
   }
+
   &-title {
     position: absolute;
     top: 50%;
@@ -150,17 +154,21 @@ export default {
     z-index: 103;
     transform-origin: 0 0 0;
     transform: rotate(270deg) translateX(-50%);
+
     @media (max-width: $lg-width-max) {
       // CSS для ширины от 992px до 1199px */
       left: calc(60% + 10px);
     }
+
     @media (max-width: $md-width-max) {
       // CSS для ширины от 768px до 991px */
     }
+
     @media (max-width: $sm-width-max) {
       // CSS для ширины от 576px до 767px */
       left: calc(40% + 10px);
     }
+
     @media (max-width: $xs-width-max) {
       // CSS для ширины до 575px (включительно) */
       left: calc(20% + 10px);
@@ -175,13 +183,14 @@ export default {
 
       // тень
       text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.315),
-        0px -1px 1px rgba(0, 0, 0, 0.836);
+        0 -1px 1px rgba(0, 0, 0, 0.836);
     }
   }
 
   &__title {
     margin: 0;
   }
+
   &__content {
     -webkit-box-flex: 1;
     flex: 1 1 auto;
@@ -189,6 +198,7 @@ export default {
     position: relative;
   }
 }
+
 .info__button--close {
   //
   position: absolute;
@@ -200,31 +210,35 @@ export default {
   //
 
   padding: 8px 8px;
-  border-radius: 10px 10px 0px 0px;
+  border-radius: 10px 10px 0 0;
   border: none;
   width: 150px;
   background: $red;
   color: #eee;
   text-transform: uppercase;
   font-size: 0.8em;
-
   outline: none;
   outline-offset: 0;
+
   @media (max-width: $lg-width-max) {
     // CSS для ширины от 992px до 1199px */
     left: calc(60% - 25px);
   }
+
   @media (max-width: $md-width-max) {
     // CSS для ширины от 768px до 991px */
   }
+
   @media (max-width: $sm-width-max) {
     // CSS для ширины от 576px до 767px */
     left: calc(40% - 25px);
   }
+
   @media (max-width: $xs-width-max) {
     // CSS для ширины до 575px (включительно) */
     left: calc(20% - 25px);
   }
+
   &:hover,
   :active {
     cursor: pointer;
@@ -237,29 +251,33 @@ export default {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+
   &__wrapper {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
+
   &__title {
     padding-left: 20px;
   }
+
   &__list {
     list-style: none;
     padding-left: 70px;
     margin: 0;
   }
+
   &__item {
     margin-bottom: 20px;
-
     height: 2em;
 
     & span {
       display: inline-block;
     }
   }
+
   &__link {
     display: flex;
     align-items: center;
@@ -269,6 +287,7 @@ export default {
 .item__title {
   font-size: 1.2em;
 }
+
 .item__contact {
   margin-left: 25px;
   font-size: 1.2em;
@@ -278,14 +297,17 @@ export default {
   width: 2em;
   height: 2em;
 }
+
 .info__header {
   padding: 0 30px;
   text-align: center;
 }
+
 .info__footer {
   padding: 0 30px;
   text-align: center;
 }
+
 .info__text {
   // padding: 0;
   // margin: 20px 0;

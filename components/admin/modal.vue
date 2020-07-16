@@ -72,7 +72,7 @@ export default {
 
 .modal__container {
   width: 300px;
-  margin: 0px auto;
+  margin: 0 auto;
   padding: 20px 20px;
   text-align: center;
   background-color: rgb(66, 66, 66);
@@ -92,13 +92,13 @@ export default {
   border: none;
   margin-left: 15px;
   margin-right: 15px;
-
   color: white;
 }
 
 .modal__button--confirm {
   background-color: rgb(218, 60, 60);
 }
+
 .modal__button--cancel {
   background-color: rgb(53, 219, 89);
 }

@@ -5,7 +5,6 @@
     content: '';
     position: relative;
     display: block;
-    margin: 6px auto;
     height: 1px;
     background: white;
 
@@ -22,10 +21,12 @@
       // CSS для ширины от 768px до 991px */
       // transform: scale(1, 1);
     }
+
     @media (max-width: $sm-width-max) {
       // CSS для ширины от 576px до 767px */
       // transform: scale(1.2, 1);
     }
+
     @media (max-width: $xs-width-max) {
       // CSS для ширины до 575px (включительно) */
       transform: scale(1.1, 1);
@@ -37,6 +38,7 @@
 .scroll {
   /*  animation: name duration timing-function delay iteration-count direction fill-mode; */
   animation: scroll 1s ease-in-out infinite alternate both;
+
   &::after {
     content: '';
     display: block;
@@ -48,6 +50,7 @@
     transform: rotate(135deg);
   }
 }
+
 @keyframes scroll {
   0% {
     opacity: 1;

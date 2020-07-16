@@ -23,7 +23,7 @@ export default {}
 $count: 10;
 $time: 2; //in seconds
 $size: 100;
-$color: #ffffff;
+$color: #fff;
 $colorDark: $grey;
 
 .preloader {
@@ -36,21 +36,25 @@ $colorDark: $grey;
   transform: translateX(-50%) translateY(-50%);
   animation: rotatePreloader $time + s infinite ease-in;
 }
+
 @keyframes rotatePreloader {
   0% {
     transform: translateX(-50%) translateY(-50%) rotateZ(0deg);
   }
+
   100% {
     transform: translateX(-50%) translateY(-50%) rotateZ(-360deg);
   }
 }
+
 .preloader div {
   position: absolute;
   width: 100%;
   height: 100%;
   opacity: 0;
 }
-.preloader div:before {
+
+.preloader div::before {
   content: '';
   position: absolute;
   left: 50%;
@@ -61,7 +65,8 @@ $colorDark: $grey;
   transform: translateX(-50%);
   border-radius: 50%;
 }
-.form-social .preloader div:before {
+
+.form-social .preloader div::before {
   background-color: $colorDark;
 }
 
@@ -71,6 +76,7 @@ $colorDark: $grey;
     animation: rotateCircle + $i $time + s infinite linear;
     z-index: $count - $i;
   }
+
   @keyframes rotateCircle#{$i} {
     #{percentage(((50 / $count) * ($i - 1)) / 100)} {
       opacity: 0;
@@ -85,6 +91,7 @@ $colorDark: $grey;
     #{percentage(((50 + ((50 / $count) * ($i - 0))) + 2) / 100)} {
       transform: rotateZ((0 - ((360 / $count) * ($i - 1))) + deg);
     }
+
     100% {
       transform: rotateZ((0 - ((360 / $count) * ($count - 1))) + deg);
       opacity: 1;

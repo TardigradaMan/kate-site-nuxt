@@ -6,6 +6,9 @@ module.exports = {
    */
   head: {
     title: process.env.npm_package_name || '',
+    htmlAttrs: {
+      lang: 'ru'
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -41,8 +44,11 @@ module.exports = {
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/stylelint-module'
+    // { extends: 'stylelint-config-standard' }
   ],
+
   /*
    ** Nuxt.js modules
    */

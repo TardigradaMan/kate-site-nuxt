@@ -1,5 +1,5 @@
 <template>
-  <svg style="display: none">
+  <svg style="display: none;">
     <symbol
       id="title__svg--01"
       class="svg"

@@ -363,14 +363,17 @@ export default {
   text-align: center;
   margin: 0;
   padding-top: 40px;
+
   @media (max-width: $md-width-max) {
     // CSS для ширины от 768px до 991px */
     font-size: 2em;
   }
+
   @media (max-width: $sm-width-max) {
     // CSS для ширины от 576px до 767px */
     font-size: 1.8em;
   }
+
   @media (max-width: $xs-width-max) {
     // CSS для ширины до 575px (включительно) */
     width: 250px;
@@ -378,6 +381,7 @@ export default {
     font-size: 1.5em;
   }
 }
+
 .form {
   display: grid;
   grid-template: 1fr 370px / 1fr 1fr;
@@ -390,12 +394,15 @@ export default {
   // grid-template-columns: 1fr 1fr;
   gap: 30px;
   padding: 50px 0;
+
   @media (max-width: $lg-width-max) {
     // CSS для ширины от 992px до 1199px */
   }
+
   @media (max-width: $md-width-max) {
     // CSS для ширины от 768px до 991px */
   }
+
   @media (max-width: $sm-width-max) {
     // CSS для ширины от 576px до 767px */
     grid-template: 1fr 370px / 1fr;
@@ -411,6 +418,7 @@ export default {
     //   grid-template-columns: 1fr;
     //   grid-gap: 1vw;
   }
+
   @media (max-width: $xs-width-max) {
     // CSS для ширины до 575px (включительно) */
     // grid-template-areas:
@@ -435,6 +443,7 @@ export default {
   box-shadow: $shadow-nm1;
   border-radius: 5px;
 }
+
 .form__title {
   text-align: center;
   margin: 0;
@@ -454,18 +463,18 @@ export default {
     border-radius: 10px;
     width: 20px;
     height: 20px;
-
     border: 10px solid rgb(245, 245, 245);
     transition: all 0.1s ease-in-out;
     outline: none;
     margin-right: 10px;
-
     position: relative;
     top: 4px;
+
     &:checked {
       border: 5px solid rgb(245, 245, 245);
     }
   }
+
   & label {
     cursor: pointer;
     margin-bottom: 30px;
@@ -481,6 +490,7 @@ export default {
 .check {
   grid-area: check;
 }
+
 .checkbox__wrapper {
   display: flex;
   flex-flow: column wrap;
@@ -494,19 +504,21 @@ export default {
   margin-bottom: 40px;
   color: #cbcfd4;
 }
+
 .check__input {
   appearance: none;
   position: absolute;
 }
+
 .check__box {
   position: absolute;
   width: 40px;
   height: 20px;
   border-radius: 10px;
   background: #747d88;
-
   margin-left: -3em;
   transition: 0.3s ease-out;
+
   &::before {
     content: '';
     position: absolute;
@@ -519,9 +531,11 @@ export default {
     transition: all 0.3s ease-out;
   }
 }
+
 .check__input:checked + .check__box {
   transition: 0.3s ease-out;
   background: rgb(255, 255, 255);
+
   &::before {
     background-image: linear-gradient(90deg, #f27a54 0%, #a154f2 100%);
     transition: all 0.3s ease-out;
@@ -538,9 +552,11 @@ export default {
 .additional-enter-active {
   transition: all 0.2s ease;
 }
+
 .additional-leave-active {
   transition: all 0.2s ease;
 }
+
 .additional-enter,
 .additional-leave-to {
   opacity: 0;
@@ -550,6 +566,7 @@ export default {
   grid-area: button;
   padding-bottom: 40px;
 }
+
 .form__status {
   grid-area: status;
   padding-bottom: 40px;
@@ -559,6 +576,7 @@ export default {
   padding: 0;
   position: relative;
   text-align: center;
+
   &__error {
     text-align: center;
     color: #f57f6c;
@@ -580,6 +598,7 @@ export default {
     padding: 0;
     margin-bottom: 10px;
   }
+
   p {
     margin: 0;
   }
@@ -591,10 +610,12 @@ export default {
   box-shadow: -1px -8px 20px #494c52, 8px 8px 30px #101316,
     -1px -1px 60px rgba(33, 39, 44, 0.01);
   transition: all ease-in-out 0.2s;
+
   &:hover,
   :focus {
     color: $green;
   }
+
   &:active {
     box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.35),
       inset -5px -5px 10px rgb(100, 100, 100);

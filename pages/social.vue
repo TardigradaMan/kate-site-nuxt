@@ -255,13 +255,14 @@ export default {
 
 .header-block {
   color: $grey;
+
   & .title-decor::after {
     background: $grey;
   }
 }
 
 .description {
-  background: #eeeeee;
+  background: #eee;
   padding-bottom: 50px;
   // box-shadow: $shadow-block;
 }
@@ -270,14 +271,15 @@ export default {
   background: #eee;
   padding-bottom: 50px;
   color: $grey;
+
   @media (max-width: $lg-width-max) {
     /* CSS для ширины от 992px до 1199px */
   }
-  @media (max-width: $md-width-max) {
-  }
+
   @media (max-width: $sm-width-max) {
     /* CSS для ширины от 576px до 767px */
   }
+
   @media (max-width: $xs-width-max) {
     /* CSS для ширины до 575px (включительно) */
   }
@@ -285,30 +287,30 @@ export default {
 
 .form-social {
   background: #eee;
+
   @media (max-width: $lg-width-max) {
     /* CSS для ширины от 992px до 1199px */
   }
-  @media (max-width: $md-width-max) {
-  }
+
   @media (max-width: $sm-width-max) {
     /* CSS для ширины от 576px до 767px */
   }
+
   @media (max-width: $xs-width-max) {
     /* CSS для ширины до 575px (включительно) */
   }
 }
+
 .separator {
   width: 100%;
   height: 3vh;
-
   background: #eee;
-
   box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.5),
     inset -3px -3px 5px rgb(255, 255, 255);
 }
 
 .price-block {
-  background: #eeeeee;
+  background: #eee;
   padding-bottom: 50px;
   // box-shadow: $shadow-block;
 }
@@ -316,12 +318,15 @@ export default {
 @media (max-width: $lg-width-max) {
   // CSS для ширины от 992px до 1199px */
 }
+
 @media (max-width: $md-width-max) {
   // CSS для ширины от 768px до 991px */
 }
+
 @media (max-width: $sm-width-max) {
   // CSS для ширины от 576px до 767px */
 }
+
 @media (max-width: $xs-width-max) {
   // CSS для ширины до 575px (включительно) */
 }

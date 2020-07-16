@@ -154,16 +154,16 @@ export default {
   // Убрать полосы прокрутки
   overflow-y: hidden;
 }
+
 .home {
   &__title {
     font-size: 50px;
     line-height: 56px;
     font-family: 'Russo One', sans-serif;
     text-transform: uppercase;
-
-    margin-bottom: 30px;
     max-width: 700px;
     margin: 0 auto;
+    margin-bottom: 30px;
   }
 }
 
@@ -182,13 +182,13 @@ export default {
   &__01 {
     width: 445px;
   }
+
   &__02 {
     width: 290px;
   }
+
   &__03 {
     width: 246px;
-  }
-  > span {
   }
 }
 
@@ -204,7 +204,6 @@ export default {
   background: rgba(129, 235, 97, 0.171);
   width: 0;
   height: 100%;
-
   position: absolute;
   right: 0;
 
@@ -214,16 +213,17 @@ export default {
   &__ads {
     width: 100%;
     position: absolute;
-
     box-shadow: 0 0 10px #000;
 
     // background-attachment: fixed;
   }
+
   &__ads {
     background: rgba(158, 152, 98, 0.199);
     // background-image: url('~assets/img/Home_ads-1x.png');
     // background-position: 10% 10%;
   }
+
   &__social {
     background: rgba(223, 88, 205, 0.274);
     // background-image: url('~assets/img/insta_home-1x.png');

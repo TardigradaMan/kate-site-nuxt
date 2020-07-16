@@ -30,6 +30,7 @@ export default {}
 .head {
   height: 100vh;
   text-align: center;
+
   &__title {
     padding-top: 40vh;
     margin: 0;

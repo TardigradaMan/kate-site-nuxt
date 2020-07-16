@@ -80,6 +80,7 @@ export default {
   position: absolute;
   top: 100px;
 }
+
 .skills {
   &__list {
     margin: 0;
@@ -88,18 +89,17 @@ export default {
     display: flex;
     justify-content: center;
   }
+
   &__item {
     margin: 5px;
     padding: 5px;
     flex: 0 0 200px;
-
     text-align: center;
     font-size: 1.5em;
     border: 2px solid #fff;
     opacity: 0.3;
     border-radius: 7px;
     width: 300px;
-
     touch-action: pan-y;
 
     &:hover {

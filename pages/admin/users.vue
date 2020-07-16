@@ -55,12 +55,12 @@ export default {
   background-color: $bg-widget;
   border-radius: 5px;
   box-shadow: $shadow-out;
-
   text-align: center;
   margin: 0 auto;
   margin-top: 100px;
   padding: 20px 15px 20px 15px;
 }
+
 .login__header > h2 {
   margin: 0;
   padding-bottom: 40px;
@@ -73,9 +73,9 @@ label > input {
   margin-bottom: 40px;
   border-radius: 5px;
   border: 0;
-
   font-size: 14px;
   line-height: 22px;
+
   &:focus,
   :hover {
     background-repeat: no-repeat;

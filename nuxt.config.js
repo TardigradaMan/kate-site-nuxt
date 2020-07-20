@@ -18,7 +18,8 @@ module.exports = {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script: [{}]
   },
   /*
    ** Customize the progress-bar color
@@ -37,7 +38,8 @@ module.exports = {
     '@/plugins/vuelidate',
     '@/plugins/gsap',
     { src: '@/plugins/vue-awesome-swiper', mode: 'client' },
-    '@/plugins/mask'
+    '@/plugins/mask',
+    '@/plugins/modernizr-plugin'
   ],
   /*
    ** Nuxt.js dev-modules
@@ -73,6 +75,21 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
+
+    postcss: {
+      // Add plugin names as key and arguments as value
+      // Install them before as dependencies with npm or yarn
+      plugins: {
+        // Disable a plugin by passing false as value
+      },
+      preset: {
+        // Change the postcss-preset-env settings
+        autoprefixer: {
+          grid: true
+        }
+      }
+    },
+
     transpile: ['gsap'],
     extend(config, ctx) {}
   }

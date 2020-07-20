@@ -1,3 +1,4 @@
+/* eslint-disable no-irregular-whitespace */
 <template>
   <div class="wrapper__full">
     <section class="home">
@@ -19,11 +20,21 @@
           <span style="display: block;">Ну или хотя-бы стране, курсивым</span>
         </div>
         <div ref="imgTitle" class="page-title__container">
-          <img
-            class="page-title__img"
-            src="~assets/img/bg_4.jpg"
-            alt="Человек"
-          />
+          <picture>
+            <source
+              type="image/webp"
+              srcset="
+                ~assets/img/bg_home.webp    1x,
+                ~assets/img/bg_home@2x.webp 2x
+              "
+            />
+            <img
+              src="~assets/img/bg_home.jpg"
+              srcset="~assets/img/bg_home.jpg 1x, ~assets/img/bg_home@2x.jpg 2x"
+              alt="Заказать рекламу в Яндекс и Google"
+              class="page-title__img"
+            />
+          </picture>
         </div>
       </div>
 
@@ -93,7 +104,7 @@ export default {
           const pathLength = item.getTotalLength()
 
           this.animTitle = gsap
-            .timeline({ defaults: { ease: 'none', duration: 2 } })
+            .timeline({ defaults: { ease: 'none', duration: 1.5 } })
             .set(path[i], { strokeDasharray: pathLength, autoAlpha: 1 })
             .fromTo(
               path[i],
@@ -115,24 +126,25 @@ export default {
         .to(
           this.$refs.pageTitlePosition,
           // { scale: '0.5', opacity: 0, duration: 1 },
-          { opacity: 0, duration: 1.5 },
-          1
+          { opacity: 0, duration: 1 },
+          1.9
         )
 
-        .to(this.$refs.title, { width: '50%' }, 2)
-        .to(this.$refs.pageTitlePosition, { scale: '.7', opacity: 1 })
+        .to(this.$refs.title, { width: '50%' }, 2.9)
+        .to(this.$refs.pageTitlePosition, { scale: '.7' }, 4)
+        .to(this.$refs.pageTitlePosition, { opacity: 1 }, 5)
 
       // Анимация изображения на заголовке
       this.animTitlePosition = gsap
         .timeline({
           defaults: { ease: 'none', duration: 1 }
         })
-        .fromTo(this.$refs.imgTitle, { x: '0%' }, { x: '-45% ' }, 2)
+        .fromTo(this.$refs.imgTitle, { x: '0%' }, { x: '-45% ' }, 2.9)
 
       // Анимация блока с ссылками
       this.animLinkPosition = gsap
         .timeline({ defaults: { ease: 'none', duration: 1 } })
-        .to(this.$refs.link, { width: '50%' }, 2)
+        .to(this.$refs.link, { width: '50%' }, 2.9)
 
       // Анимация блоков ссылок
       this.animBlockLink = gsap
@@ -258,8 +270,8 @@ export default {
   top: 0;
   left: 0;
   z-index: 1;
-  width: 100%;
-  // height: 100%;
+  max-width: 100%;
+  height: auto;
 }
 
 .link {
@@ -271,21 +283,10 @@ export default {
   // left: 100%;
   z-index: 2;
   // background: url('~assets/img/Home_ads-1x.png') 50% / cover no-repeat;
-  @media (max-width: $lg-width-max) {
-    // CSS для ширины от 992px до 1199px */
-  }
 
   @media (max-width: $md-width-max) {
     // CSS для ширины от 768px до 991px */
     width: 100%;
-  }
-
-  @media (max-width: $sm-width-max) {
-    // CSS для ширины от 576px до 767px */
-  }
-
-  @media (max-width: $xs-width-max) {
-    // CSS для ширины до 575px (включительно) */
   }
 
   &__social {
@@ -470,17 +471,227 @@ export default {
   z-index: 2;
   background-repeat: no-repeat;
   background-size: cover;
+  // background-position: center;
 
-  &__ads {
-    background-image: url('~assets/img/link-ads.jpg');
+  // &__ads {
+  //   background-image: url('~assets/img/link-ads.jpg');
+
+  //   @media (max-width: $md-width-max) {
+  //     // CSS для ширины от 768px до 991px */
+  //     background-image: url('~assets/img/link-ads-md.jpg');
+  //   }
+
+  //   @media (max-width: $xs-width-max) {
+  //     // CSS для ширины до 575px (включительно) */
+  //     background-image: url('~assets/img/link-ads-xs.jpg');
+  //   }
+  // }
+
+  // &__social {
+  //   background-image: url('~assets/img/link-social.jpg');
+
+  //   @media (max-width: $lg-width-max) {
+  //     // CSS для ширины от 992px до 1199px */
+  //     background-image: url('~assets/img/link-social-md.jpg');
+  //     background-position: center;
+  //   }
+
+  //   @media (max-width: $xs-width-max) {
+  //     // CSS для ширины до 575px (включительно) */
+  //     background-image: url('~assets/img/link-social-xs.jpg');
+  //     background-position: center;
+  //   }
+  // }
+
+  // &__web {
+  //   background-image: url('~assets/img/link-web.jpg');
+
+  //   @media (max-width: $md-width-max) {
+  //     // CSS для ширины от 768px до 991px */
+  //     background-image: url('~assets/img/link-web-md.jpg');
+  //   }
+
+  //   @media (max-width: $xs-width-max) {
+  //     // CSS для ширины до 575px (включительно) */
+  //     background-image: url('~assets/img/link-web-xs.jpg');
+  //     background-position: center;
+  //   }
+  // }
+}
+
+.no-webp {
+  .image-container {
+    &__ads {
+      background-image: url('~assets/img/link-ads.jpg');
+
+      @media #{unquote($retina)} {
+        background-image: url('~assets/img/link-ads@2x.jpg');
+      }
+
+      @media (max-width: $md-width-max) {
+        // CSS для ширины от 768px до 991px */
+        background-image: url('~assets/img/link-ads-md.jpg');
+
+        @media #{unquote($retina)} {
+          background-image: url('~assets/img/link-ads-md@2x.jpg');
+        }
+      }
+
+      @media (max-width: $xs-width-max) {
+        // CSS для ширины до 575px (включительно) */
+        background-image: url('~assets/img/link-ads-xs.jpg');
+
+        @media #{unquote($retina)} {
+          background-image: url('~assets/img/link-ads-xs@2x.jpg');
+        }
+      }
+    }
+    ///
+    &__social {
+      background-image: url('~assets/img/link-social.jpg');
+
+      @media #{unquote($retina)} {
+        background-image: url('~assets/img/link-social@2x.jpg');
+      }
+
+      @media (max-width: $lg-width-max) {
+        // CSS для ширины от 992px до 1199px */
+        background-image: url('~assets/img/link-social-md.jpg');
+        background-position: center;
+
+        @media #{unquote($retina)} {
+          background-image: url('~assets/img/link-social-md@2x.jpg');
+        }
+      }
+
+      @media (max-width: $xs-width-max) {
+        // CSS для ширины до 575px (включительно) */
+        background-image: url('~assets/img/link-social-xs.jpg');
+        background-position: center;
+
+        @media #{unquote($retina)} {
+          background-image: url('~assets/img/link-social-xs@2x.jpg');
+        }
+      }
+    }
+    ///
+
+    &__web {
+      background-image: url('~assets/img/link-web.jpg');
+
+      @media #{unquote($retina)} {
+        background-image: url('~assets/img/link-web@2x.jpg');
+      }
+
+      @media (max-width: $md-width-max) {
+        // CSS для ширины от 768px до 991px */
+        background-image: url('~assets/img/link-web-md.jpg');
+
+        @media #{unquote($retina)} {
+          background-image: url('~assets/img/link-web-md@2x.jpg');
+        }
+      }
+
+      @media (max-width: $xs-width-max) {
+        // CSS для ширины до 575px (включительно) */
+        background-image: url('~assets/img/link-web-xs.jpg');
+        background-position: center;
+
+        @media #{unquote($retina)} {
+          background-image: url('~assets/img/link-web-xs@2x.jpg');
+        }
+      }
+    }
   }
+}
 
-  &__social {
-    background-image: url('~assets/img/link-social.jpg');
-  }
+.webp {
+  .image-container {
+    &__ads {
+      background-image: url('~assets/img/link-ads.webp');
 
-  &__web {
-    background-image: url('~assets/img/link-web.jpg');
+      @media #{unquote($retina)} {
+        background: center/cover url('~assets/img/link-ads@2x.webp') no-repeat;
+      }
+
+      @media (max-width: $md-width-max) {
+        // CSS для ширины от 768px до 991px */
+        background-image: url('~assets/img/link-ads-md.webp');
+
+        @media #{unquote($retina)} {
+          background: center/cover url('~assets/img/link-ads-md@2x.webp')
+            no-repeat;
+        }
+      }
+
+      @media (max-width: $xs-width-max) {
+        // CSS для ширины до 575px (включительно) */
+        background-image: url('~assets/img/link-ads-xs.webp');
+
+        @media #{unquote($retina)} {
+          background: center/cover url('~assets/img/link-ads-xs@2x.webp')
+            no-repeat;
+        }
+      }
+    }
+    //
+    &__social {
+      background-image: url('~assets/img/link-social.webp');
+
+      @media #{unquote($retina)} {
+        background: center/cover url('~assets/img/link-social@2x.webp')
+          no-repeat;
+      }
+
+      @media (max-width: $lg-width-max) {
+        // CSS для ширины от 992px до 1199px */
+        background-image: url('~assets/img/link-social-md.webp');
+        background-position: center;
+
+        @media #{unquote($retina)} {
+          background: center/cover url('~assets/img/link-social-md@2x.webp')
+            no-repeat;
+        }
+      }
+
+      @media (max-width: $xs-width-max) {
+        // CSS для ширины до 575px (включительно) */
+        background-image: url('~assets/img/link-social-xs.webp');
+        background-position: center;
+
+        @media #{unquote($retina)} {
+          background: center/cover url('~assets/img/link-social-xs@2x.webp')
+            no-repeat;
+        }
+      }
+    }
+    //
+    &__web {
+      background-image: url('~assets/img/link-web.webp');
+
+      @media #{unquote($retina)} {
+        background-image: url('~assets/img/link-web@2x.webp');
+      }
+
+      @media (max-width: $md-width-max) {
+        // CSS для ширины от 768px до 991px */
+        background-image: url('~assets/img/link-web-md.webp');
+
+        @media #{unquote($retina)} {
+          background-image: url('~assets/img/link-web-md@2x.webp');
+        }
+      }
+
+      @media (max-width: $xs-width-max) {
+        // CSS для ширины до 575px (включительно) */
+        background-image: url('~assets/img/link-web-xs.webp');
+        background-position: center;
+
+        @media #{unquote($retina)} {
+          background-image: url('~assets/img/link-web-xs@2x.webp');
+        }
+      }
+    }
   }
 }
 

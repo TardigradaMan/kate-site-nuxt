@@ -187,7 +187,7 @@ export default {
 <style lang="scss" scoped>
 .header {
   background: rgb(162, 224, 236);
-  background: center/cover url('~assets/img/bg_5.jpg') no-repeat;
+  // background: center/cover url('~assets/img/bg_ads.jpg') no-repeat;
   background-attachment: fixed;
 
   &__title {
@@ -201,6 +201,63 @@ export default {
 
   &__text {
     color: rgb(68, 69, 70);
+  }
+}
+
+// Webp
+.no-webp {
+  .header {
+    background: center/cover url('~assets/img/bg_ads.jpg') no-repeat;
+
+    @media #{unquote($retina)} {
+      background: center/cover url('~assets/img/bg_ads@2x.jpg') no-repeat;
+    }
+
+    @media (max-width: $md-width-max) {
+      // CSS для ширины от 768px до 991px */
+      background: center / cover url('~assets/img/bg_ads-md.jpg') no-repeat;
+
+      @media #{unquote($retina)} {
+        background: center/cover url('~assets/img/bg_ads-md@2x.jpg') no-repeat;
+      }
+    }
+
+    @media (max-width: $xs-width-max) {
+      // CSS для ширины до 575px (включительно) */
+      background: center / cover url('~assets/img/bg_ads-xs.jpg') no-repeat;
+
+      @media #{unquote($retina)} {
+        background: center/cover url('~assets/img/bg_ads-xs@2x.jpg') no-repeat;
+      }
+    }
+  }
+}
+
+.webp {
+  .header {
+    background: center/cover url('~assets/img/bg_ads.webp') no-repeat;
+
+    @media #{unquote($retina)} {
+      background: center/cover url('~assets/img/bg_ads@2x.webp') no-repeat;
+    }
+
+    @media (max-width: $md-width-max) {
+      // CSS для ширины от 768px до 991px */
+      background: center / cover url('~assets/img/bg_ads-md.jpg') no-repeat;
+
+      @media #{unquote($retina)} {
+        background: center/cover url('~assets/img/bg_ads-md@2x.webp') no-repeat;
+      }
+    }
+
+    @media (max-width: $xs-width-max) {
+      // CSS для ширины до 575px (включительно) */
+      background: center / cover url('~assets/img/bg_ads-xs.webp') no-repeat;
+
+      @media #{unquote($retina)} {
+        background: center/cover url('~assets/img/bg_ads-xs@2x.webp') no-repeat;
+      }
+    }
   }
 }
 

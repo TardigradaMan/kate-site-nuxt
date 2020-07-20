@@ -289,13 +289,13 @@ export default {}
 
 .stages-ads {
   & .arrow.dark {
-    background: center/cover url('~assets/img/arrow-dark.png');
+    background: center/cover url('~assets/img/icon/arrow-dark.png');
   }
 
   & .stage-3 {
     & > .arrow {
       &.dark {
-        background: center/cover url('~assets/img/arrow-dark-down.png');
+        background: center/cover url('~assets/img/icon/arrow-dark-down.png');
       }
     }
   }
@@ -304,7 +304,7 @@ export default {}
   .stage-5 {
     & > .arrow {
       &.dark {
-        background: center/cover url('~assets/img/arrow-dark-left.png');
+        background: center/cover url('~assets/img/icon/arrow-dark-left.png');
       }
     }
   }
@@ -319,13 +319,13 @@ export default {}
 
 .stages-social {
   & .arrow.light {
-    background: center/cover url('~assets/img/arrow-light.png');
+    background: center/cover url('~assets/img/icon/arrow-light.png');
   }
 
   & .stage-3 {
     & > .arrow {
       &.light {
-        background: center/cover url('~assets/img/arrow-light-down.png');
+        background: center/cover url('~assets/img/icon/arrow-light-down.png');
       }
     }
   }
@@ -334,7 +334,7 @@ export default {}
   .stage-5 {
     & > .arrow {
       &.light {
-        background: center/cover url('~assets/img/arrow-light-left.png');
+        background: center/cover url('~assets/img/icon/arrow-light-left.png');
       }
     }
   }
@@ -392,7 +392,7 @@ export default {}
     .stage-2 {
       & > .arrow {
         &.light {
-          background: center/cover url('~assets/img/arrow-light-down.png');
+          background: center/cover url('~assets/img/icon/arrow-light-down.png');
         }
       }
     }
@@ -400,7 +400,7 @@ export default {}
     .stage-5 {
       & > .arrow {
         &.light {
-          background: center/cover url('~assets/img/arrow-light.png');
+          background: center/cover url('~assets/img/icon/arrow-light.png');
         }
       }
     }
@@ -410,7 +410,7 @@ export default {}
     .stage-2 {
       & > .arrow {
         &.light {
-          background: center/cover url('~assets/img/arrow-dark-down.png');
+          background: center/cover url('~assets/img/icon/arrow-dark-down.png');
         }
       }
     }
@@ -418,7 +418,7 @@ export default {}
     .stage-5 {
       & > .arrow {
         &.dark {
-          background: center/cover url('~assets/img/arrow-dark.png');
+          background: center/cover url('~assets/img/icon/arrow-dark.png');
         }
       }
     }
@@ -459,7 +459,7 @@ export default {}
     .stage-5 {
       & > .arrow {
         &.light {
-          background: center/cover url('~assets/img/arrow-light-down.png');
+          background: center/cover url('~assets/img/icon/arrow-light-down.png');
         }
       }
     }
@@ -471,7 +471,7 @@ export default {}
     .stage-5 {
       & > .arrow {
         &.dark {
-          background: center/cover url('~assets/img/arrow-dark-down.png');
+          background: center/cover url('~assets/img/icon/arrow-dark-down.png');
         }
       }
     }

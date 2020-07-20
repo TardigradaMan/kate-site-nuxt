@@ -43,3 +43,5 @@ $shadow-inner1: -6px -6px rgba(22, 22, 22, 0.5), 6px 6px 12px #24292d,
 $bg-lin1: linear-gradient(145deg, #36393b, #404347);
 $shadow-nm1: 5px 5px 20px 0 #1e1e1f, -5px -5px 20px 0 #565758fb;
 $shadow-nm2: 5px 5px 20px 0 #1e1e1f, -5px -5px 20px 0 #565758fb;
+// Retina
+$retina: 'only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi)';

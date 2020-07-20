@@ -509,7 +509,7 @@ export default {
       height: 15px;
       width: 15px;
       background-size: 15px;
-      background-image: url('~assets/img/off.png');
+      background-image: url('~assets/img/icon/off.png');
       background-repeat: no-repeat;
       margin-right: 10px;
       background-position: center center;
@@ -533,11 +533,11 @@ export default {
   }
 
   .ok::before {
-    background-image: url('~assets/img/ok.png');
+    background-image: url('~assets/img/icon/ok.png');
   }
 
   .off::before {
-    background-image: url('~assets/img/off.png');
+    background-image: url('~assets/img/icon/off.png');
   }
 }
 

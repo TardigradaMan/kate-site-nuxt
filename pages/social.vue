@@ -1,22 +1,16 @@
 <template>
   <div>
-    <section class="header">
+    <section class="header header-social">
       <div class="wrapper">
         <div class="header__wrapper">
           <h1 class="header__title title-decor">
             А что делать, когда это закончится? <br />Этого никогда не случится.
             Фейсбук как мода, он никогда не закончится
-            <!-- А что делать, когда это закончится? <br />
-            Этого никогда не случится. Фейсбук как мода, он никогда не
-            закончится. -->
           </h1>
           <h1 class="header__title title-decor header__title--mobile">
             А что делать, когда это закончится? <br />Этого никогда не
             случится.<br />
             Фейсбук как мода, он никогда не закончится
-            <!-- А что делать, когда это закончится? <br />
-            Этого никогда не случится. Фейсбук как мода, он никогда не
-            закончится. -->
           </h1>
           <p class="header__text subtitle">
             &laquo;The Social Network&raquo; Марк Цукерберг
@@ -249,8 +243,17 @@ export default {
 <style lang="scss" scoped>
 .header {
   background: $grey;
-  background: center/cover url('~assets/img/bg_6.jpg') no-repeat;
   background-attachment: fixed;
+
+  // @media (max-width: $md-width-max) {
+  //   // CSS для ширины от 768px до 991px */
+  //   background: center / cover url('~assets/img/bg_social-md.jpg') no-repeat;
+  // }
+
+  // @media (max-width: $xs-width-max) {
+  //   // CSS для ширины до 575px (включительно) */
+  //   background: center / cover url('~assets/img/bg_social-xs.jpg') no-repeat;
+  // }
 }
 
 .header-block {
@@ -313,5 +316,66 @@ export default {
   background: #eee;
   padding-bottom: 30px;
   // box-shadow: $shadow-block;
+}
+
+// Webp
+.no-webp {
+  .header {
+    background: center/cover url('~assets/img/bg_social.jpg') no-repeat;
+
+    @media #{unquote($retina)} {
+      background: center/cover url('~assets/img/bg_social@2x.jpg') no-repeat;
+    }
+
+    @media (max-width: $md-width-max) {
+      // CSS для ширины от 768px до 991px */
+      background: center / cover url('~assets/img/bg_social-md.jpg') no-repeat;
+
+      @media #{unquote($retina)} {
+        background: center/cover url('~assets/img/bg_social-md@2x.jpg')
+          no-repeat;
+      }
+    }
+
+    @media (max-width: $xs-width-max) {
+      // CSS для ширины до 575px (включительно) */
+      background: center / cover url('~assets/img/bg_social-xs.jpg') no-repeat;
+
+      @media #{unquote($retina)} {
+        background: center/cover url('~assets/img/bg_social-xs@2x.jpg')
+          no-repeat;
+      }
+    }
+  }
+}
+
+.webp {
+  .header {
+    background: center/cover url('~assets/img/bg_social.webp') no-repeat;
+
+    @media #{unquote($retina)} {
+      background: center/cover url('~assets/img/bg_social@2x.webp') no-repeat;
+    }
+
+    @media (max-width: $md-width-max) {
+      // CSS для ширины от 768px до 991px */
+      background: center / cover url('~assets/img/bg_social-md.jpg') no-repeat;
+
+      @media #{unquote($retina)} {
+        background: center/cover url('~assets/img/bg_social-md@2x.webp')
+          no-repeat;
+      }
+    }
+
+    @media (max-width: $xs-width-max) {
+      // CSS для ширины до 575px (включительно) */
+      background: center / cover url('~assets/img/bg_social-xs.webp') no-repeat;
+
+      @media #{unquote($retina)} {
+        background: center/cover url('~assets/img/bg_social-xs@2x.webp')
+          no-repeat;
+      }
+    }
+  }
 }
 </style>

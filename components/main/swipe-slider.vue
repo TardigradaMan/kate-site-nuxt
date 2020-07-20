@@ -67,7 +67,7 @@ export default {
 // }
 .swiper-container {
   width: 100%;
-  height: 170px;
+  height: 120px;
   padding: 40px 0;
 }
 

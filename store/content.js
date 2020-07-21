@@ -1,20 +1,28 @@
+export const state = () => ({
+  sliderSkills: []
+})
+export const mutations = {
+  SET_SKILLS_LIST(state, skills) {
+    state.sliderSkills = skills
+  }
+}
 export const actions = {
-  async createSkill({ commit }, formData) {
+  async createSkill(formData) {
     try {
-      console.log('Зашел в Store')
-      console.log(formData)
-
-      return await this.$axios.$post('/api/content/admin', formData)
+      await this.$axios.$post('/api/content/admin', formData)
     } catch (error) {
       console.error(error)
+      throw new Error('Внутреняя ошибка сервера, сообщите администратору')
     }
   },
 
-  async fetchSkill() {
+  async fetchSkill({ commit }) {
     try {
-      return await this.$axios.$get('/api/content/admin')
+      const skills = await this.$axios.$get('/api/content/admin')
+      await commit('SET_SKILLS_LIST', skills)
     } catch (error) {
       console.log(error)
+      // throw new Error('Внутреняя ошибка сервера, сообщите администратору')
     }
   },
 

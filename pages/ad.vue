@@ -47,7 +47,26 @@
               perferendis quisquam accusamus molestiae quo sapiente?
             </p>
           </li>
-          <li class="description__item description__item--central"></li>
+          <li class="description__item description__item--central">
+            <picture>
+              <source
+                type="image/webp"
+                srcset="
+                  ~assets/img/Стул_мой_v1.webp    1x,
+                  ~assets/img/Стул_мой_v1@2x.webp 2x
+                "
+              />
+              <img
+                src="~assets/img/Стул_мой_v1.png"
+                srcset="
+                  ~assets/img/Стул_мой_v1.png    1x,
+                  ~assets/img/Стул_мой_v1@2x.png 2x
+                "
+                alt="Заказать рекламу в Яндекс и Google"
+                class="description__item-img"
+              />
+            </picture>
+          </li>
           <li class="description__item description__item--left">
             <h3>Честная цена</h3>
             <p>
@@ -156,6 +175,8 @@ import appForm from '../components/main/Form'
 import appStages from '../components/main/Stages'
 import appPrice from '../components/main/Price'
 
+import { mapState } from 'vuex'
+
 export default {
   head: {
     title: 'Реклама в сетях Яндекс, Google и других'
@@ -172,11 +193,25 @@ export default {
     }
   },
 
-  async asyncData({ store }) {
-    const skills = await store.dispatch('content/fetchSkill')
-
-    return { skills }
+  computed: {
+    ...mapState({
+      skills: state => state.content.sliderSkills
+      // skills: 'content/sliderSkills'
+    })
   },
+
+  async asyncData({ store, error }) {
+    try {
+      await store.dispatch('content/fetchSkill')
+    } catch (err) {
+      console.log(err)
+      return error({
+        statusCode: 404,
+        message: 'Тематики не найдены или сервер не доступен'
+      })
+    }
+  },
+
   methods: {
     openForm() {
       this.$router.push('/contact')
@@ -243,7 +278,7 @@ export default {
 
     @media (max-width: $md-width-max) {
       // CSS для ширины от 768px до 991px */
-      background: center / cover url('~assets/img/bg_ads-md.jpg') no-repeat;
+      background: center / cover url('~assets/img/bg_ads-md.webp') no-repeat;
 
       @media #{unquote($retina)} {
         background: center/cover url('~assets/img/bg_ads-md@2x.webp') no-repeat;
@@ -320,7 +355,7 @@ export default {
 
     @media (max-width: $md-width-max) {
       // CSS для ширины от 768px до 991px */
-      grid-template: 1fr 1fr 1fr 1fr / 1fr 1fr;
+      grid-template: 1fr auto auto 1fr / 1fr 1fr;
     }
 
     @media (max-width: $sm-width-max) {
@@ -329,7 +364,7 @@ export default {
 
     @media (max-width: $xs-width-max) {
       // CSS для ширины до 575px (включительно) */
-      grid-template: 1fr 1fr 1fr 1fr 1fr 1fr/ 1fr;
+      grid-template: 1fr 1fr auto auto 1fr 1fr/ 1fr;
     }
   }
 
@@ -366,11 +401,12 @@ export default {
       text-align: center;
       grid-row: 1/3;
       grid-column: 2/3;
-      min-width: 415px;
-      background-image: url('~assets/img/Стул_мой_v1.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
+      align-self: center;
+      min-width: 400px;
+      // background-image: url('~assets/img/Стул_мой_v1.png');
+      // background-size: contain;
+      // background-repeat: no-repeat;
+      // background-position: center;
 
       @media (max-width: $lg-width-max) {
         // CSS для ширины от 992px до 1199px */
@@ -384,6 +420,7 @@ export default {
         // min-width: 768px;
         grid-row: 2/4;
         grid-column: 1/3;
+        // justify-self: center;
       }
 
       @media (max-width: $sm-width-max) {
@@ -394,7 +431,8 @@ export default {
         // CSS для ширины до 575px (включительно) */
         grid-row: 3/5;
         grid-column: 1/2;
-        min-width: 300px;
+        min-width: 260px;
+        justify-self: auto;
       }
     }
 
@@ -418,6 +456,23 @@ export default {
         left: 0;
         width: 65px;
         height: 65px;
+      }
+    }
+
+    &-img {
+      width: 100%;
+      height: auto;
+
+      @media (max-width: $md-width-max) {
+        // CSS для ширины от 768px до 991px */
+        // min-width: 768px;
+        width: 50vmin;
+      }
+
+      @media (max-width: $xs-width-max) {
+        // CSS для ширины от 768px до 991px */
+        // min-width: 768px;
+        min-width: 80vmin;
       }
     }
   }

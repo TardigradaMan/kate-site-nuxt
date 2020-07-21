@@ -272,6 +272,10 @@ export default {
   z-index: 1;
   max-width: 100%;
   height: auto;
+
+  @media (max-width: $md-width-max) {
+    display: none;
+  }
 }
 
 .link {

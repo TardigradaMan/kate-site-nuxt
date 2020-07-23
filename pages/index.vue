@@ -28,6 +28,21 @@
                 ~assets/img/bg_home@2x.webp 2x
               "
             />
+            <source
+              type="image/webp"
+              srcset="
+                ~assets/img/bg_home-none.webp 1x,
+                ~assets/img/bg_home-none.webp 2x
+              "
+              media="(max-width: 991px)"
+            />
+            <source
+              srcset="
+                assets/img/bg_home-none.jpg 1x,
+                assets/img/bg_home-none.jpg 2x
+              "
+              media="(max-width: 991px)"
+            />
             <img
               src="~assets/img/bg_home.jpg"
               srcset="~assets/img/bg_home.jpg 1x, ~assets/img/bg_home@2x.jpg 2x"
@@ -357,6 +372,7 @@ export default {
   &__title {
     display: inline-block;
     margin: 0;
+    font-weight: normal;
 
     & ::after {
       transition: all 0.5s ease-out;
@@ -431,6 +447,7 @@ export default {
     &-subtitle {
       display: block;
       font-style: italic;
+      font-weight: 300;
     }
   }
 

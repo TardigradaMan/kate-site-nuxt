@@ -9,11 +9,13 @@
         </li>
         <li class="main-nav__item">
           <nuxt-link class="main-nav__link" to="/social"
-            >Ведение соц групп</nuxt-link
+            >Социальная сеть</nuxt-link
           >
         </li>
         <li class="main-nav__item">
-          <nuxt-link class="main-nav__link" to="/ad">Реклама</nuxt-link>
+          <nuxt-link class="main-nav__link" to="/ad"
+            >Реклама в интернете</nuxt-link
+          >
         </li>
         <li class="main-nav__item">
           <nuxt-link class="main-nav__link" to="/webdevelopment"
@@ -24,9 +26,6 @@
           <nuxt-link class="main-nav__link" to="/contact"
             >Форма обратной связи</nuxt-link
           >
-        </li>
-        <li class="main-nav__item">
-          <nuxt-link class="main-nav__link" to="/price">Цены</nuxt-link>
         </li>
         <li class="main-nav__item">
           <nuxt-link class="main-nav__link" to="/admin">Админ</nuxt-link>
@@ -145,6 +144,7 @@ export default {
   font-size: 26px;
   line-height: 26px;
   // text-transform: uppercase;
+  font-family: 'Blogger', sans-serif;
   font-weight: 400;
   letter-spacing: 0.1em;
   color: #fff;

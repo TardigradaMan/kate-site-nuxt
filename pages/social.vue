@@ -4,16 +4,16 @@
       <div class="wrapper">
         <div class="header__wrapper">
           <h1 class="header__title title-decor">
-            А что делать, когда это закончится? <br />Этого никогда не случится.
-            Фейсбук как мода, он никогда не закончится
+            Реклама в социальных сетях
           </h1>
-          <h1 class="header__title title-decor header__title--mobile">
+          <!-- <h1 class="header__title title-decor header__title--mobile">
             А что делать, когда это закончится? <br />Этого никогда не
             случится.<br />
             Фейсбук как мода, он никогда не закончится
-          </h1>
+          </h1> -->
           <p class="header__text subtitle">
-            &laquo;The Social Network&raquo; Марк Цукерберг
+            А что делать, когда это закончится? Этого никогда не случится.<br />
+            Фейсбук как мода, он никогда не закончится
           </p>
           <span class="scroll"> </span>
         </div>

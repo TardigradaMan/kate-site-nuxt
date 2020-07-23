@@ -7,7 +7,7 @@ export const mutations = {
   }
 }
 export const actions = {
-  async createSkill(formData) {
+  async createSkill({ commit }, formData) {
     try {
       await this.$axios.$post('/api/content/admin', formData)
     } catch (error) {

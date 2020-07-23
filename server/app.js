@@ -23,7 +23,7 @@ mongoose
     useUnifiedTopology: true,
     useFindAndModify: false
   })
-  .then(() => console.log('MongoDB local connected.....'))
+  .then(() => console.log('MongoDB connected.....'))
   .catch(error => console.error(error))
 // =============================================== //
 

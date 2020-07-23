@@ -37,7 +37,11 @@ module.exports = {
   /*
    ** Customize the progress-bar color
    */
-  loading: 'components/main/pre-loader.vue',
+  // loading: 'components/main/pre-loader.vue',
+  loading: {
+    color: 'rgb(54, 131, 247)',
+    height: '2px'
+  },
   /*
    ** Global CSS
    */
@@ -61,7 +65,6 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     '@nuxtjs/stylelint-module'
-    // { extends: 'stylelint-config-standard' }
   ],
 
   /*

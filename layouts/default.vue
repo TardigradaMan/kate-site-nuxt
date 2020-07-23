@@ -22,9 +22,9 @@
         <button @click="openInfo" class="info__button contact">
           Только спросить
         </button>
-        <!-- <button @click="openInfo" class="info__button form-modal">
-          Контакты
-        </button> -->
+        <span class="info__toggle-icon">
+          <img src="~assets/img/icon/conversation.png" alt="" />
+        </span>
       </div>
     </transition>
     <transition name="info">
@@ -274,6 +274,20 @@ main {
   transform-origin: top right;
   transform: rotate(270deg) translateX(50%);
   z-index: 105;
+
+  & .info__toggle-icon {
+    right: -10px;
+    top: -5px;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    // background: center / contain url('~assets/img/icon/conversation.png')
+    //   no-repeat;
+    > img {
+      width: 100%;
+      transform: rotate(90deg);
+    }
+  }
 
   & .info__button {
     border: 0 solid #000;

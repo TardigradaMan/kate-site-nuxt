@@ -6,9 +6,6 @@
           <h1 class="header__title title-decor">
             Доступная реклама в интернете
           </h1>
-          <h1 class="header__title header__title--mobile title-decor">
-            Доступная реклама в интернете
-          </h1>
           <p class="header__text subtitle">
             Делать деньги без рекламы может только монетный двор
           </p>

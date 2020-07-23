@@ -4,7 +4,7 @@
       <div class="info-item color-1">
         <div class="info-content">
           <div class="info-bg bg-1"></div>
-          <div class="info-icon left"></div>
+          <div class="info-icon icon-1 left"></div>
           <div class="info-title">
             <span>A</span>
           </div>
@@ -22,7 +22,7 @@
       <div class="info-item color-2">
         <div class="info-content">
           <div class="info-bg bg-2"></div>
-          <div class="info-icon left"></div>
+          <div class="info-icon icon-2 left"></div>
           <div class="info-title">
             <span>B</span>
           </div>
@@ -30,17 +30,16 @@
         <div class="info-text">
           <h3>Заголовок</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Reprehenderit atque facilis magni, nisi aliquam blanditiis iure
-            vero, ad quo harum natus voluptatibus autem voluptate debitis porro
-            praesentium excepturi laborum sed!
+            Тут текст. И всё такое бла бла бла. Тут текст. И всё такое бла бла
+            бла. Тут текст. И всё такое бла бла бла.
           </p>
         </div>
       </div>
       <div class="info-item color-3">
         <div class="info-content">
           <div class="info-bg bg-3"></div>
-          <div class="info-icon right"></div>
+          <div class="info-icon icon-3 right"></div>
+
           <div class="info-title">
             <span>C</span>
           </div>
@@ -58,7 +57,7 @@
       <div class="info-item color-4">
         <div class="info-content ">
           <div class="info-bg bg-4"></div>
-          <div class="info-icon right"></div>
+          <div class="info-icon icon-4 right"></div>
           <div class="info-title">
             <span class="color-title">D</span>
           </div>
@@ -216,9 +215,31 @@ export default {}
     width: 100%;
     height: 100%;
     border-radius: 20px;
-    background: linear-gradient(145deg, #e6e6e6, #fff);
+    // background: center / 50% url('~assets/img/icon/005-approved.png') no-repeat,
+    //   linear-gradient(145deg, #e6e6e6, #fff);
+    // background: linear-gradient(145deg, #e6e6e6, #fff);
     box-shadow: 15px 15px 30px 0 rgba(0, 0, 0, 0.801), inset 2px 2px 10px #fff,
       inset -2px -2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  & .icon-1 {
+    background: center / 50% url('~assets/img/icon/005-approved.png') no-repeat,
+      linear-gradient(145deg, #e6e6e6, #fff);
+  }
+
+  & .icon-2 {
+    background: center / 50% url('~assets/img/icon/001-quality.png') no-repeat,
+      linear-gradient(145deg, #e6e6e6, #fff);
+  }
+
+  & .icon-3 {
+    background: center / 50% url('~assets/img/icon/maintenance.png') no-repeat,
+      linear-gradient(145deg, #e6e6e6, #fff);
+  }
+
+  & .icon-4 {
+    background: center / 50% url('~assets/img/icon/023-design.png') no-repeat,
+      linear-gradient(145deg, #e6e6e6, #fff);
   }
 
   &-title {

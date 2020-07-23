@@ -11,10 +11,22 @@
   box-sizing: border-box;
   background: #3c3f42;
   border: 1px solid #48494b;
-  color: #a1a1a1;
+  color: #eee;
 
   &:hover,
   :focus {
     cursor: pointer;
+  }
+}
+
+.btn-admin {
+  &:hover,
+  :focus {
+    cursor: pointer;
+    background: rgb(54, 131, 247);
+  }
+
+  &:active {
+    background: rgb(32, 79, 148);
   }
 }

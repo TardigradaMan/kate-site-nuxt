@@ -22,7 +22,7 @@
               />
             </label>
           </div>
-          <button class="button" type="submit">
+          <button class="button btn-admin" type="submit">
             Войти
           </button>
         </form>

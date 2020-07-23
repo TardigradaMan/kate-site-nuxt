@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   layout: 'admin',
 
@@ -26,24 +27,25 @@ export default {
     }
   },
   middleware: ['auth-admin'],
-
-  async asyncData({ store }) {
-    const skills = await store.dispatch('content/fetchSkill')
-
-    return { skills }
+  computed: {
+    ...mapState({
+      skills: state => state.content.sliderSkills
+    })
   },
+  async asyncData({ store }) {
+    await store.dispatch('content/fetchSkill')
+  },
+
   methods: {
     async onSubmit() {
       try {
-        console.log('Зашел в метод компонента')
-
         const formData = {
           skill: this.skill
         }
-        console.log(formData)
 
         await this.$store.dispatch('content/createSkill', formData)
         this.skill = ''
+
         this.loading = false
       } catch (e) {
         this.loading = false

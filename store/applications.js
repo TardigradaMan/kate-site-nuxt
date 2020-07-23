@@ -1,7 +1,7 @@
 export const actions = {
   async create({ commit }, formData) {
     try {
-      return await this.$axios.$post('/api/applications/admin', formData)
+      return await this.$axios.$post('/api/applications', formData)
 
       // const txt = `<b>Привет</b>  <b>${formData.name}</b>`
 

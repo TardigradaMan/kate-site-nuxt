@@ -32,4 +32,6 @@ router.get(
 //   controll.remove
 // )
 
+router.get('/', controll.getAllSkills)
+
 module.exports = router

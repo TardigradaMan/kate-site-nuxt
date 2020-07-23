@@ -104,6 +104,9 @@ import appInfo from '../components/main/infographics'
 import appStages from '../components/main/stages'
 import appPrice from '../components/main/price'
 export default {
+  head: {
+    title: 'Реклама в социальных сетях'
+  },
   components: {
     appForm,
     appInfo,

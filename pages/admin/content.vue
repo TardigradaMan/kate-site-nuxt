@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+// import { mapState } from 'vuex'
 export default {
   layout: 'admin',
 
@@ -27,13 +27,14 @@ export default {
     }
   },
   middleware: ['auth-admin'],
-  computed: {
-    ...mapState({
-      skills: state => state.content.sliderSkills
-    })
-  },
+  // computed: {
+  //   ...mapState({
+  //     skills: state => state.content.sliderSkills
+  //   })
+  // },
   async asyncData({ store }) {
-    await store.dispatch('content/fetchSkill')
+    const skills = await store.dispatch('content/fetchSkillAdmin')
+    return { skills }
   },
 
   methods: {

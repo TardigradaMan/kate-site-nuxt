@@ -109,7 +109,6 @@ export default {
     changeColorToggle() {
       if (this.$route.path === '/social') {
         this.scrolled = window.scrollY > document.documentElement.clientHeight
-        console.log('metod scroll')
       }
     },
     openInfo() {

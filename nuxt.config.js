@@ -80,9 +80,30 @@ module.exports = {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
+  // axios: {
+  //   // baseURL: process.env.BASE_URL || 'http://localhost:3000'
+  // },
+
   axios: {
-    baseURL: process.env.BASE_URL || 'http://localhost:3000'
+    baseURL: process.env.BASE_URL || 'http://localhost:3000',
+    proxy: true // Used as fallback if no runtime config is provided
   },
+  proxy: {
+    '/api/': process.env.BASE_URL
+  },
+
+  // publicRuntimeConfig: {
+  //   axios: {
+  //     browserBaseURL: process.env.BROWSER_BASE_URL
+  //   }
+  // },
+
+  // privateRuntimeConfig: {
+  //   axios: {
+  //     baseURL: process.env.BASE_URL
+  //   }
+  // },
+
   webfontloader: {
     events: false,
     google: {

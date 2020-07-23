@@ -235,6 +235,9 @@ import AppHorizontal from '../components/main/LoadingHorizontal'
 import { required, email, url } from 'vuelidate/lib/validators'
 
 export default {
+  head: {
+    title: 'Подробная заявка'
+  },
   components: {
     AppHorizontal
   },
@@ -285,17 +288,14 @@ export default {
   },
   computed: {
     add() {
-      console.log('Запустился add')
       return this.service.includes('add')
     },
 
     social() {
-      console.log('Запустился social')
       return this.service.includes('social')
     },
 
     web() {
-      console.log('Запустился web')
       return this.service.includes('web')
     }
   },

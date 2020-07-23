@@ -7,11 +7,11 @@ const router = Router()
 // Admin
 //  /api/applications/admin
 // Создание заявки
-router.post(
-  '/admin/',
-  // passport.authenticate('jwt', { session: false }),
-  controll.create
-)
+// router.post(
+//   '/admin/',
+//   // passport.authenticate('jwt', { session: false }),
+//   controll.create
+// )
 // Список всех заявок
 router.get(
   '/admin/',
@@ -32,4 +32,6 @@ router.delete(
   controll.remove
 )
 
+// Base
+router.post('/', controll.create)
 module.exports = router

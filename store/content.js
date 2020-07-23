@@ -16,9 +16,19 @@ export const actions = {
     }
   },
 
+  async fetchSkillAdmin({ commit }) {
+    try {
+      return await this.$axios.$get('/api/content/admin')
+    } catch (error) {
+      console.log(error)
+      // throw new Error('Внутреняя ошибка сервера, сообщите администратору')
+    }
+  },
+
   async fetchSkill({ commit }) {
     try {
-      const skills = await this.$axios.$get('/api/content/admin')
+      console.log('Зашел vuex')
+      const skills = await this.$axios.$get('http://localhost:3000/api/content')
       await commit('SET_SKILLS_LIST', skills)
     } catch (error) {
       console.log(error)

@@ -6,11 +6,6 @@
           <h1 class="header__title title-decor">
             Реклама в социальных сетях
           </h1>
-          <!-- <h1 class="header__title title-decor header__title--mobile">
-            А что делать, когда это закончится? <br />Этого никогда не
-            случится.<br />
-            Фейсбук как мода, он никогда не закончится
-          </h1> -->
           <p class="header__text subtitle">
             А что делать, когда это закончится? Этого никогда не случится.<br />
             Фейсбук как мода, он никогда не закончится
@@ -33,121 +28,6 @@
       </div>
     </section>
     <div class="separator"></div>
-    <!-- <section class="description">
-      <div class="wrapper">
-        <div class="header-block">
-          <h2 class="description__title title-decor title-block">
-            Как минимум вы получите
-          </h2>
-          <p class="description__subtitle subtitle">
-            И не придумал
-          </p>
-        </div>
-        <div class="description__wrapper">
-          <div class="description-text">
-            <ul class="description-text__list">
-              <li class="description-text__item">
-                <h3 class="description__head">Цена</h3>
-                <span>Icon</span>
-                <p class="description__body">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Officia, doloremque?
-                </p>
-              </li>
-              <li class="description-text__item">
-                <h3 class="description__head">Анимация</h3>
-                <span>Icon</span>
-                <p class="description__body">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Officia, doloremque?
-                </p>
-              </li>
-              <li class="description-text__item">
-                <h3 class="description__head">Введение</h3>
-                <span>Icon</span>
-                <p class="description__body">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Officia, doloremque?
-                </p>
-              </li>
-              <li class="description-text__item">
-                <h3 class="description__head">Аудитория</h3>
-                <span>Icon</span>
-                <p class="description__body">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Officia, doloremque?
-                </p>
-              </li>
-              <li class="description-text__item">
-                <h3 class="description__head">Сроки</h3>
-                <span>Icon</span>
-                <p class="description__body">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Officia, doloremque?
-                </p>
-              </li>
-              <li class="description-text__item">
-                <h3 class="description__head">Заголовок</h3>
-                <span>Icon</span>
-                <p class="description__body">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Officia, doloremque?
-                </p>
-              </li>
-            </ul>
-          </div>
-          <div class="description-img">
-            <ul class="description-img__list">
-              <li class="description-img__item phone">
-                <img src="~assets/img/phone.png" alt="phone" />
-              </li>
-              <li class="description-img__item icon-in"></li>
-              <li class="description-img__item icon-fs"></li>
-              <li class="description-img__item icon-vk"></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section> -->
-    <!-- <section class="social">
-      <div class="wrapper">
-        <div class="header-block">
-          <h2 class="social__title title-decor title-block">
-            Тут клевый заголовок. Бла бла бла
-          </h2>
-          <p class="social__subtitle subtitle">
-            А тут клевый подзаголовок. Бла бла бла
-          </p>
-        </div>
-        <div class="social__wrapper">
-          <div
-            v-for="item in social"
-            :key="item.src"
-            :style="`grid-area:${item.imgClass}`"
-            class="social__item img"
-          >
-            <img
-              :src="require(`../assets/img/${item.src}`)"
-              :alt="item.title"
-            />
-          </div>
-          <div
-            v-for="item in social"
-            :key="item.title"
-            :style="`grid-area:${item.textClass}`"
-            class="social__item social__item--description"
-          >
-            <h3>{{ item.title }}</h3>
-            <p>
-              {{ item.description }}
-            </p>
-            <button @click="openForm" class="button social__btn">
-              Уже хочу
-            </button>
-          </div>
-        </div>
-      </div>
-    </section> -->
     <section class="stages-social">
       <div class="wrapper">
         <div class="header-block">
@@ -219,10 +99,10 @@
   </div>
 </template>
 <script>
-import appForm from '../components/main/Form'
-import appInfo from '../components/main/Infographics'
-import appStages from '../components/main/Stages'
-import appPrice from '../components/main/Price'
+import appForm from '../components/main/form'
+import appInfo from '../components/main/infographics'
+import appStages from '../components/main/stages'
+import appPrice from '../components/main/price'
 export default {
   components: {
     appForm,

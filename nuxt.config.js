@@ -85,12 +85,12 @@ module.exports = {
   // },
 
   axios: {
-    baseURL: process.env.BASE_URL || 'http://localhost:3000',
-    proxy: true // Used as fallback if no runtime config is provided
+    baseURL: process.env.BASE_URL || 'http://localhost:3000'
+    // proxy: true // Used as fallback if no runtime config is provided
   },
-  proxy: {
-    '/api/': process.env.BASE_URL
-  },
+  // proxy: {
+  //   '/api/': process.env.BASE_URL
+  // },
 
   // publicRuntimeConfig: {
   //   axios: {

@@ -1,5 +1,5 @@
 const config = require('../nuxt.config.js')
-require('./bot/telega')
+require('./bot/telega-webhook')
 const app = require('./app')
 
 const consola = require('consola')

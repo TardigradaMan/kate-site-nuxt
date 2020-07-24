@@ -90,7 +90,7 @@ module.exports = {
   //   // proxy: true // Used as fallback if no runtime config is provided
   // },
   axios: {
-    baseURL: process.env.BASE_URL || 'http://localhost:3000'
+    // baseURL: process.env.BASE_URL || 'http://localhost:3000'
   },
 
   // proxy: {
@@ -98,6 +98,9 @@ module.exports = {
   //   '/api2/': 'https://api.telegram.org'
   // },
   proxy: {
+    '/api': {
+      target: process.env.BASE_URL || 'http://localhost:3000'
+    },
     '/api2': {
       target: 'https://api.telegram.org'
     }

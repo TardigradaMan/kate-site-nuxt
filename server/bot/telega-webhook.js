@@ -21,12 +21,16 @@ const options = {
 // Add URL of your app to env variable or enable Dyno Metadata
 // to get this automatically
 // See: https://devcenter.heroku.com/articles/dyno-metadata
-const url = process.env.BASE_URL || 'https://kite-nuxt.herokuapp.com:443'
+const url = process.env.BASE_URL || 'https://kite-nuxt.herokuapp.com'
 const bot = new TelegramBot(keys.TOKEN, options)
 
 // This informs the Telegram servers of the new webhook.
 // Note: we do not need to pass in the cert, as it already provided
 bot.setWebHook(`${url}/bot${keys.TOKEN}`)
+
+console.log(keys.TOKEN)
+console.log(process.env)
+console.log(process.env.PORT)
 
 helper.logStart()
 
@@ -58,12 +62,6 @@ bot.on('message', msg => {
 // Вывод главной клавиатуры по команде /start
 bot.onText(/\/start/, msg => {
   const text = `Привет, ${msg.from.first_name}.\nЧем я могу помочь?!`
-
-  // Мои тесты //
-  bot.getChatMember('1009703975').then(response => {
-    console.log(response)
-  })
-  // ************ //
 
   bot.sendMessage(helper.gerChatId(msg), text, {
     reply_markup: {

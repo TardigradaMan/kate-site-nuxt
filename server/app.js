@@ -2,7 +2,7 @@ const authRoutes = require('./routes/auth.routes')
 const applicationsRoutes = require('./routes/applications.routes')
 const contentRoutes = require('./routes/content.routes')
 // Бот начало
-// require('./bot/telega')
+require('./bot/telega')
 // const helper = require('./helper')
 // const Applications = require('./models/applications.model')
 // Бот конец

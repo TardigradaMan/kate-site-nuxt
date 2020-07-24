@@ -84,14 +84,19 @@ module.exports = {
   //   // baseURL: process.env.BASE_URL || 'http://localhost:3000'
   // },
 
-  axios: {
-    baseURL: process.env.BASE_URL || 'http://localhost:3000'
-    // proxy: true // Used as fallback if no runtime config is provided
-  },
-  // proxy: {
-  //   '/api/': process.env.BASE_URL
+  // axios: {
+  //   baseURL: process.env.BASE_URL || 'http://localhost:3000'
+  //   // proxy: true // Used as fallback if no runtime config is provided
   // },
+  axios: {
+    baseURL: process.env.BASE_URL || 'http://localhost:3000',
+    proxy: true // Can be also an object with default options
+  },
 
+  proxy: {
+    '/api/': process.env.BASE_URL,
+    '/api2/': 'https://api.telegram.org'
+  },
   // publicRuntimeConfig: {
   //   axios: {
   //     browserBaseURL: process.env.BROWSER_BASE_URL

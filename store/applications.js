@@ -15,7 +15,7 @@ export const actions = {
 
   async sendBotTelegram({ commit }, formData) {
     try {
-      const keys = require('../server/keys')
+      const TOKEN = process.env.TOKEN
       const chatId = '-1001306557723'
       let text
       if (formData.page === 'home') {
@@ -26,7 +26,7 @@ export const actions = {
       }
 
       return await this.$axios.$post(
-        `https://api.telegram.org/bot${keys.TOKEN}/sendMessage?chat_id=${chatId}&parse_mode=html&text=${text}`
+        `https://api.telegram.org/bot${TOKEN}/sendMessage?chat_id=${chatId}&parse_mode=html&text=${text}`
       )
     } catch (error) {
       console.error(error)

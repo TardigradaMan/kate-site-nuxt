@@ -1,7 +1,6 @@
 const config = require('../nuxt.config.js')
-const keys = require('./keys')
+
 const app = require('./app')
-const bot = require('./bot/telega-webhook')
 
 const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
@@ -28,10 +27,10 @@ async function start() {
 
   // Webhook BOT
   // // We are receiving updates at the route below!
-  app.post(`/bot${keys.TOKEN}`, (req, res) => {
-    bot.processUpdate(req.body)
-    res.sendStatus(200)
-  })
+  // app.post(`/bot${keys.TOKEN}`, (req, res) => {
+  //   bot.processUpdate(req.body)
+  //   res.sendStatus(200)
+  // })
   // Webhook
 
   // Give bot middleware to express

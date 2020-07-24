@@ -28,7 +28,7 @@ export const actions = {
   async fetchSkill({ commit }) {
     try {
       console.log('Зашел vuex')
-      const skills = await this.$axios.$get('http://localhost:3000/api/content')
+      const skills = await this.$axios.$get('/api/content')
       await commit('SET_SKILLS_LIST', skills)
     } catch (error) {
       console.log(error)

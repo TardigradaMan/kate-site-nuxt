@@ -14,7 +14,8 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "newdev": "nuxt",
     "newbuild": "nuxt build",
-    "newstart": "nuxt start"
+    "newstart": "nuxt start",
+    "heroku-postbuild": "npm run build"
   },
   "engines": {
     "node": "13.x"

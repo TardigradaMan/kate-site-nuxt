@@ -15,7 +15,8 @@ export const actions = {
 
   async sendBotTelegram({ commit }, formData) {
     try {
-      const TOKEN = process.env.TOKEN
+      // const TOKEN = process.env.TOKEN
+      const TOKEN = '1009703975:AAFUGJCiXhNZF3vfTfG5787o1Fx4q7jtuRc'
       const chatId = '-1001306557723'
       let text
       if (formData.page === 'home') {

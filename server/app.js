@@ -1,6 +1,7 @@
 const authRoutes = require('./routes/auth.routes')
 const applicationsRoutes = require('./routes/applications.routes')
 const contentRoutes = require('./routes/content.routes')
+// const botRoutes = require('./routes/bot.routes')
 // Бот начало
 require('./bot/telega')
 // const helper = require('./helper')
@@ -42,5 +43,6 @@ app.use(bodyParser.json())
 app.use('/api/auth', authRoutes)
 app.use('/api/applications', applicationsRoutes)
 app.use('/api/content', contentRoutes)
+// app.use('/api/bot', botRoutes)
 
 module.exports = app

@@ -74,7 +74,8 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
-    'nuxt-webfontloader'
+    'nuxt-webfontloader',
+    '@nuxtjs/proxy'
   ],
   /*
    ** Axios module configuration
@@ -89,13 +90,17 @@ module.exports = {
   //   // proxy: true // Used as fallback if no runtime config is provided
   // },
   axios: {
-    baseURL: process.env.BASE_URL || 'http://localhost:3000',
-    proxy: true // Can be also an object with default options
+    baseURL: process.env.BASE_URL || 'http://localhost:3000'
   },
 
+  // proxy: {
+  //   '/api/': process.env.BASE_URL,
+  //   '/api2/': 'https://api.telegram.org'
+  // },
   proxy: {
-    '/api/': process.env.BASE_URL,
-    '/api2/': 'https://api.telegram.org'
+    '/api2': {
+      target: 'https://api.telegram.org'
+    }
   },
   // publicRuntimeConfig: {
   //   axios: {

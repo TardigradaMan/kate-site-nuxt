@@ -1,5 +1,7 @@
 module.exports = {
   logStart() {
+    console.log(process.env)
+    console.log(process.env.PORT)
     console.log('Бот запущен')
   },
 

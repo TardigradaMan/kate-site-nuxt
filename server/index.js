@@ -1,5 +1,5 @@
 const config = require('../nuxt.config.js')
-const keys = require('../keys')
+const keys = require('./keys')
 const app = require('./app')
 const bot = require('./bot/telega-webhook')
 

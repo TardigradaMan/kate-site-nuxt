@@ -25,7 +25,7 @@ module.exports.login = async (req, res) => {
       res.json({ token })
     } else {
       // Лучше не сообщать что пароль верный(лучше просто 404, для безопасности)
-      res.status(401).json({ message: 'Данные не верны' })
+      res.status(404).json({ message: 'Данные не верны' })
     }
   } else {
     res.status(404).json({ message: 'Пользователь не найден' })

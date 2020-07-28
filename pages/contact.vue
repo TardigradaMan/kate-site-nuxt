@@ -202,7 +202,7 @@
       <div class="form__group form__status">
         <transition name="status">
           <div v-if="submitStatus === 'OK'" class="status status__ok--home">
-            <div class="ok_title">
+            <div>
               <h3>Спасибо за заявку!</h3>
               <p>Мы свяжемся с вами в течении 20 минут</p>
             </div>
@@ -569,13 +569,19 @@ export default {
 
 .form__status {
   grid-area: status;
-  padding-bottom: 40px;
+  padding: 25px 0;
+  display: block;
+  // align-self: center;
 }
 
 .status {
   padding: 0;
   position: relative;
   text-align: center;
+
+  &__pending {
+    padding: 25px 0;
+  }
 
   &__error {
     text-align: center;

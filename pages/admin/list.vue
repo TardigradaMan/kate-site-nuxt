@@ -78,8 +78,6 @@ export default {
     },
     async deleteApp(id) {
       try {
-        await console.log('Зашел в методы')
-
         console.log('Из deleteApp значение id :', id)
         this.confirmModal = false
 

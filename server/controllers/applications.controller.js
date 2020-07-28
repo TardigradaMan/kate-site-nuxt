@@ -38,7 +38,6 @@ module.exports.remove = async (req, res) => {
     await Applications.deleteOne({ _id: req.params.id })
     res.json({ message: 'Заявка удалена' })
   } catch (e) {
-    console.log('Блок ошибки контроллера')
     res.status(500).json(e)
   }
 }

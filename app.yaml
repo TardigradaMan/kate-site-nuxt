@@ -1,1 +1,26 @@
 runtime: nodejs12
+
+instance_class: F2
+
+handlers:
+  - url: /_nuxt
+    static_dir: .nuxt/dist/client
+    secure: always
+
+  - url: /(.*\.(gif|png|jpg|ico|txt))$
+    static_files: static/\1
+    upload: static/.*\.(gif|png|jpg|ico|txt)$
+    secure: always
+
+  - url: /.*
+    script: auto
+    secure: always
+
+env_variables:
+  HOST: '0.0.0.0'
+  JWT: 'kW8Cbxi_TwfWLKQac1aC1BMGqdnXOrkFIXKiZzxJ35'
+  TOKEN: '1009703975:AAFUGJCiXhNZF3vfTfG5787o1Fx4q7jtuRc'
+  MONGO_URI: 'mongodb+srv://kite_site:lKVU93tSgKSaaf3t@cluster0.hdavq.mongodb.net/kite-site?retryWrites=true&w=majority'
+  # NODE_ENV: 'production'
+  BASE_URL: 'https://vendo-284606.ey.r.appspot.com'
+  CHAT_ID: '-1001306557723'

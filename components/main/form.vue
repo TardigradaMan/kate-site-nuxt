@@ -157,6 +157,8 @@ export default {
           }
 
           // await console.log(formData.phone)
+          await console.log('TOKEN_PROD из form .env: ', process.env.TOKEN)
+          // console.log(process.env.BASE_URL)
 
           await this.$store.dispatch('applications/create', formData)
           await this.$store.dispatch('applications/sendBotTelegram', formData)
@@ -283,6 +285,7 @@ export default {
   & .button {
     background: rgb(219, 219, 219);
     border: 1px solid white;
+    color: $grey;
 
     &__left {
       // background: linear-gradient(90deg, #d6d6d6 -50%, rgb(255, 255, 255) 120%);

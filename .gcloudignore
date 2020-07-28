@@ -12,6 +12,8 @@
 # below:
 .git
 .gitignore
+server/keys/keys.dev.js
+app.yaml
 
 # Node.js dependencies:
 node_modules/

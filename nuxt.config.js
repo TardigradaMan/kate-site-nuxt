@@ -1,9 +1,12 @@
+// const keys = require('./server/keys')
+
 const ImageminPlugin = require('imagemin-webpack-plugin').default
 const imageminMozjpeg = require('imagemin-mozjpeg')
 const isDev = process.env.NODE_ENV !== 'production'
 
 module.exports = {
   // target: 'static', // default: 'server'
+  telemetry: true,
   mode: 'universal',
   // говорит Nuxt создать 2 бандла, один из которых использует ES6 Modules синтаксис поддерживаемый последними браузерами,
   // а второй Legacy транспилированный через Babel. В html будет по 2 тега на каждый js скрипт
@@ -75,33 +78,32 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
     'nuxt-webfontloader',
-    '@nuxtjs/proxy'
+    '@nuxtjs/proxy',
+    '@nuxtjs/sitemap'
   ],
-  /*
-   ** Axios module configuration
-   ** See https://axios.nuxtjs.org/options
-   */
-  // axios: {
-  //   // baseURL: process.env.BASE_URL || 'http://localhost:3000'
-  // },
 
-  // axios: {
-  //   baseURL: process.env.BASE_URL || 'http://localhost:3000'
-  //   // proxy: true // Used as fallback if no runtime config is provided
-  // },
+  sitemap: {
+    // hostname: 'https://example.com',
+    gzip: true,
+    exclude: ['/admin', '/admin/**'],
+    defaults: {
+      changefreq: 'daily',
+      priority: 1,
+      lastmod: new Date()
+    }
+  },
   axios: {
-    baseURL: process.env.BASE_URL || 'http://localhost:3000'
+    // baseURL: process.env.BASE_URL || 'http://localhost:3000'
+    proxy: true
   },
 
-  // proxy: {
-  //   '/api/': process.env.BASE_URL,
-  //   '/api2/': 'https://api.telegram.org'
-  // },
   proxy: {
-    '/api': {
-      target: process.env.BASE_URL
+    '/api/': {
+      // target: 'http://localhost:3000' // dev
+      // target: process.env.BASE_URL // production
+      target: 'https://vendo-284606.ey.r.appspot.com'
     },
-    '/api2': {
+    '/api2/': {
       target: 'https://api.telegram.org'
     }
   },

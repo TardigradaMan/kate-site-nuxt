@@ -1,9 +1,8 @@
 const authRoutes = require('./routes/auth.routes')
 const applicationsRoutes = require('./routes/applications.routes')
 const contentRoutes = require('./routes/content.routes')
-// const botRoutes = require('./routes/bot.routes')
+const botRoutes = require('./routes/bot.routes')
 // Бот начало
-require('./bot/telega')
 // const helper = require('./helper')
 // const Applications = require('./models/applications.model')
 // Бот конец
@@ -22,7 +21,8 @@ mongoose
   .connect(keys.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: false
+    useFindAndModify: false,
+    useCreateIndex: true
   })
   .then(() => console.log('MongoDB connected.....'))
   .catch(error => console.error(error))
@@ -43,6 +43,6 @@ app.use(bodyParser.json())
 app.use('/api/auth', authRoutes)
 app.use('/api/applications', applicationsRoutes)
 app.use('/api/content', contentRoutes)
-// app.use('/api/bot', botRoutes)
+app.use('/api/telegram', botRoutes)
 
 module.exports = app

@@ -5,6 +5,6 @@ const { Router } = require('express')
 const router = Router()
 
 // Создание заявки
-router.post('/', controll.create)
+router.post('/', controll.sendMsg)
 
 module.exports = router

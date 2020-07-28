@@ -28,13 +28,25 @@ textarea {
     }
 
     @media (max-width: $sm-width-max) {
+      @media (orientation: portrait) {
+        width: 80vmin;
+      }
+
+      @media (orientation: landscape) {
+        width: 80vmax;
+      }
       // CSS для ширины от 576px до 767px */
-      width: 80vmin;
     }
 
     @media (max-width: $xs-width-max) {
       // CSS для ширины до 575px (включительно) */
-      width: 85vmin;
+      @media (orientation: portrait) {
+        width: 85vmin;
+      }
+
+      @media (orientation: landscape) {
+        width: 85vmax;
+      }
     }
   }
 }

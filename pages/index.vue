@@ -96,8 +96,10 @@ import SvgSprite from '@/components/main/svg/svg-sprite'
 import { gsap } from 'gsap'
 
 export default {
-  head: {
-    title: 'Реклама в интернете'
+  head() {
+    return {
+      title: 'Реклама в интернете'
+    }
   },
   components: {
     SvgSprite

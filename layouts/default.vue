@@ -139,22 +139,22 @@ export default {
 
   // background-color: rgba($bg-color, 0.95);
 
-  &__scroll {
-    width: 100vw;
-    background-color: #00000080;
-    transition: all 0.5s ease-in-out;
-  }
+  // &__scroll {
+  //   width: 100vw;
+  //   background-color: #00000080;
+  //   transition: all 0.5s ease-in-out;
+  // }
 
-  &__icon {
-    position: fixed;
-    cursor: pointer;
-    z-index: 1000;
-    display: flex;
+  // &__icon {
+  //   position: fixed;
+  //   cursor: pointer;
+  //   z-index: 1000;
+  //   display: flex;
 
-    img {
-      height: 35px;
-    }
-  }
+  //   img {
+  //     height: 35px;
+  //   }
+  // }
 }
 
 .menu-toggle {
@@ -165,6 +165,7 @@ export default {
   height: 45px;
   z-index: 101;
   margin: 15px;
+  cursor: pointer;
 
   @media (max-width: $lg-width-max) {
     // CSS для ширины от 992px до 1199px */
@@ -183,8 +184,6 @@ export default {
     margin-top: 1px;
     margin-left: 5px;
   }
-
-  cursor: pointer;
 
   span {
     display: block;

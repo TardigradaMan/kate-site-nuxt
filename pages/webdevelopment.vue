@@ -14,6 +14,7 @@
     <section class="description">
       <div class="wrapper">
         <h3>Тут описание</h3>
+        <app-canvas></app-canvas>
       </div>
     </section>
     <section class="examples">
@@ -24,7 +25,12 @@
   </div>
 </template>
 <script>
-export default {}
+import appCanvas from '~/components/main/canvas'
+export default {
+  components: {
+    appCanvas
+  }
+}
 </script>
 <style lang="scss" scoped>
 .head {

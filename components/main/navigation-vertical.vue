@@ -3,9 +3,7 @@
     <nav class="main-nav">
       <ul ref="nav" class="main-nav__list">
         <li class="main-nav__item">
-          <nuxt-link active-class="active" class="main-nav__link" to="/"
-            >Главная</nuxt-link
-          >
+          <nuxt-link class="main-nav__link" to="/">Главная</nuxt-link>
         </li>
         <li class="main-nav__item">
           <nuxt-link class="main-nav__link" to="/social"
@@ -28,7 +26,9 @@
           >
         </li>
         <li class="main-nav__item">
-          <nuxt-link class="main-nav__link" to="/admin">Админ</nuxt-link>
+          <nuxt-link class="main-nav__link link-test2" to="/admin"
+            >Админ</nuxt-link
+          >
         </li>
       </ul>
     </nav>
@@ -84,9 +84,9 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 100;
+    // z-index: 100;
     background: rgba(25, 25, 25, 0.9);
-    transition: background 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
     text-align: center;
   }
 }
@@ -128,7 +128,7 @@ export default {
 
 @for $i from 1 through 6 {
   .main-nav__item {
-    // :nth-child(1-12)
+    // :nth-child(1-6)
     &:nth-child(#{$i}) {
       // Delay the animation. Delay increases as items loop.
       animation-delay: $i * (0.03s);
@@ -142,10 +142,8 @@ export default {
 
 .main-nav__link {
   font-size: 26px;
-  line-height: 26px;
+  line-height: 28px;
   // text-transform: uppercase;
-  font-family: 'Blogger', sans-serif;
-  font-weight: 400;
   letter-spacing: 0.1em;
   color: #fff;
   position: relative;
@@ -171,7 +169,8 @@ export default {
     transform: translate(30px, 0);
   }
 
-  &:hover {
+  &:hover,
+  :active {
     &::before {
       transform: translate(-40px, 0);
       opacity: 1;
@@ -185,6 +184,23 @@ export default {
     }
   }
 }
+
+// .no-touchevents .main-nav__link {
+//   &:hover,
+//   :active {
+//     &::before {
+//       transform: translate(-40px, 0);
+//       opacity: 1;
+//       transition: all 0.4s ease 0s;
+//     }
+
+//     &::after {
+//       transform: translate(10px, 0);
+//       opacity: 1;
+//       transition: all 0.4s ease 0s;
+//     }
+//   }
+// }
 
 .nuxt-link-exact-active {
   &::before {

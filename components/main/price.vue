@@ -363,8 +363,7 @@ export default {
     clip-path: polygon(10% 20%, 50% 100%, 0 100%, 0 50%);
   }
 
-  &:hover,
-  :focus {
+  &:hover {
     transform: scale(1.1);
     transition: all ease-in-out 0.2s;
   }
@@ -461,8 +460,8 @@ export default {
     opacity: 0.8;
     cursor: pointer;
 
-    & :hover,
-    :focus {
+    &:hover,
+    :active {
       color: #fff;
       opacity: 1;
     }

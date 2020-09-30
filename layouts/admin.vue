@@ -11,6 +11,11 @@ export default {
   components: {
     navAdmin
   },
+  head() {
+    return {
+      meta: [{ name: 'robots', content: 'noindex, nofollow' }]
+    }
+  },
   data() {
     return {
       showNavAdmin: true

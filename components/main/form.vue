@@ -156,10 +156,6 @@ export default {
             page: this.contactForm.page
           }
 
-          // await console.log(formData.phone)
-          await console.log('TOKEN_PROD из form .env: ', process.env.TOKEN)
-          // console.log(process.env.BASE_URL)
-
           await this.$store.dispatch('applications/create', formData)
           await this.$store.dispatch('applications/sendBotTelegram', formData)
 

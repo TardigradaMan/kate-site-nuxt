@@ -1,11 +1,8 @@
-// const keys = require('./server/keys')
-
 const ImageminPlugin = require('imagemin-webpack-plugin').default
 const imageminMozjpeg = require('imagemin-mozjpeg')
 const isDev = process.env.NODE_ENV !== 'production'
 
 module.exports = {
-  // target: 'static', // default: 'server'
   telemetry: true,
   mode: 'universal',
   // говорит Nuxt создать 2 бандла, один из которых использует ES6 Modules синтаксис поддерживаемый последними браузерами,
@@ -33,10 +30,10 @@ module.exports = {
   },
   rootDir: __dirname, // Явно прописываем что считать корнем проекта при использовании абсолютных путей импорта.
   serverMiddleware: [],
-  router: {
-    // Отключаем дефолтный механизм Nuxt, который улучшает восприятие UI в некоторых случаях. Этот механизм подгружает страницу как только ссылка на неё попадает в область видимости окна браузера.
-    prefetchLinks: false
-  },
+  // router: {
+  //   // Отключаем дефолтный механизм Nuxt, который улучшает восприятие UI в некоторых случаях. Этот механизм подгружает страницу как только ссылка на неё попадает в область видимости окна браузера.
+  //   prefetchLinks: false
+  // },
   /*
    ** Customize the progress-bar color
    */
@@ -57,9 +54,10 @@ module.exports = {
     '@/plugins/axios',
     '@/plugins/vuelidate',
     '@/plugins/gsap',
+    '@/plugins/papper',
     { src: '@/plugins/vue-awesome-swiper', mode: 'client' },
     '@/plugins/mask',
-    '@/plugins/modernizr-plugin'
+    { src: '@/plugins/modernizr-plugin', mode: 'client' }
   ],
   /*
    ** Nuxt.js dev-modules
@@ -119,13 +117,13 @@ module.exports = {
   //   }
   // },
 
-  webfontloader: {
-    events: false,
-    google: {
-      families: ['Montserrat:400,500,600:cyrillic&display=swap']
-    },
-    timeout: 5000
-  },
+  // webfontloader: {
+  //   events: false,
+  //   google: {
+  //     families: ['Montserrat:400,500,600:cyrillic&display=swap']
+  //   },
+  //   timeout: 5000
+  // },
   styleResources: {
     scss: ['@/assets/style/lib.scss']
   },
@@ -162,7 +160,7 @@ module.exports = {
         minify: {
           collapseBooleanAttributes: true,
           decodeEntities: true,
-          minifyCSS: true,
+          minifyCSS: false,
           minifyJS: true,
           processConditionalComments: true,
           removeEmptyAttributes: true,
@@ -183,10 +181,13 @@ module.exports = {
       minimize: !isDev
     },
     // В development inline styles, а в production в отдельные (для кэша)
+    // ...(!isDev && {
+    //   extractCSS: {
+    //     ignoreOrder: true
+    //   }
+    // }),
     ...(!isDev && {
-      extractCSS: {
-        ignoreOrder: true
-      }
+      extractCSS: true
     }),
 
     transpile: ['vue-lazy-hydration', 'intersection-observer', 'gsap'],

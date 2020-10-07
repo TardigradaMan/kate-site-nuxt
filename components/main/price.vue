@@ -14,17 +14,17 @@
           <div ref="priceCard" class="price-card card elementary ">
             <div class="card__header bg-1">
               <p class="card__description">Необходимый минимум</p>
-              <h3 class="card__title">Заголовок</h3>
-              <span class="card__price">1000 &#x20bd;</span>
+              <h3 class="card__title">Яндекс Директ или Google Реклама</h3>
+              <span class="card__price">8 000 &#x20bd;</span>
             </div>
             <button class="card__button">Выбрать</button>
             <ul class="card__list">
-              <li class="card__item ok">Lorem ipsum dolor sit.</li>
-              <li class="card__item ok">Lorem ipsum dolor sit.</li>
-              <li class="card__item off">Lorem ipsum dolor sit.</li>
-              <li class="card__item off">Lorem ipsum dolor sit.</li>
-              <li class="card__item off">Lorem ipsum dolor sit.</li>
-              <li class="card__item off">Lorem ipsum dolor sit.</li>
+              <li class="card__item ok">Поиск</li>
+              <li class="card__item ok">РСЯ/КМС</li>
+              <li class="card__item ok">Ретаргетинг/Ремаркетинг</li>
+              <li class="card__item ok">Настройка аналитики</li>
+              <li class="card__item ok">Анализ и оптимизация</li>
+              <li class="card__item off">Разработка продающего сайта</li>
             </ul>
           </div>
           <div class="price-title">
@@ -37,18 +37,18 @@
           <div :style="{ border: borderBg }" class="price-bg bg-2"></div>
           <div ref="priceCard2" class="price-card card middle">
             <div class="card__header bg-2">
-              <p class="card__description">Необходимый минимум</p>
-              <h3 class="card__title">Заголовок</h3>
-              <span class="card__price">1000 &#x20bd;</span>
+              <p class="card__description">Оптимум</p>
+              <h3 class="card__title">Яндекс Директ и Google Реклама</h3>
+              <span class="card__price">14 000 &#x20bd;</span>
             </div>
             <button class="card__button">Выбрать</button>
             <ul class="card__list">
-              <li class="card__item ok">Lorem ipsum dolor sit.</li>
-              <li class="card__item ok">Lorem ipsum dolor sit.</li>
-              <li class="card__item ok">Lorem ipsum dolor sit.</li>
-              <li class="card__item ok">Lorem ipsum dolor sit.</li>
-              <li class="card__item off">Lorem ipsum dolor sit.</li>
-              <li class="card__item off">Lorem ipsum dolor sit.</li>
+              <li class="card__item ok">Поиск</li>
+              <li class="card__item ok">РСЯ/КМС</li>
+              <li class="card__item ok">Ретаргетинг/Ремаркетинг</li>
+              <li class="card__item ok">Настройка аналитики</li>
+              <li class="card__item ok">Анализ и оптимизация</li>
+              <li class="card__item off">Разработка продающего сайта</li>
             </ul>
           </div>
           <div class="price-title">
@@ -61,18 +61,21 @@
           <div class="price-bg bg-3"></div>
           <div ref="priceCard3" class="price-card card high">
             <div class="card__header bg-3">
-              <p class="card__description">Необходимый минимум</p>
-              <h3 class="card__title">Заголовок</h3>
-              <span class="card__price">1000 &#x20bd;</span>
+              <p class="card__description">Отлично</p>
+              <h3 class="card__title">
+                Яндекс Директ и Google Реклама + Разработка продающего сайта
+                (landing page)
+              </h3>
+              <span class="card__price">28 000 &#x20bd;</span>
             </div>
             <button class="card__button">Выбрать</button>
             <ul class="card__list">
-              <li class="card__item ok">Lorem ipsum dolor sit.</li>
-              <li class="card__item ok">Lorem ipsum dolor sit.</li>
-              <li class="card__item ok">Lorem ipsum dolor sit.</li>
-              <li class="card__item ok">Lorem ipsum dolor sit.</li>
-              <li class="card__item ok">Lorem ipsum dolor sit.</li>
-              <li class="card__item ok">Lorem ipsum dolor sit.</li>
+              <li class="card__item ok">Поиск</li>
+              <li class="card__item ok">РСЯ/КМС</li>
+              <li class="card__item ok">Ретаргетинг/Ремаркетинг</li>
+              <li class="card__item ok">Настройка аналитики</li>
+              <li class="card__item ok">Анализ и оптимизация</li>
+              <li class="card__item ok">Разработка продающего сайта</li>
             </ul>
           </div>
           <div class="price-title">

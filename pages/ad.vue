@@ -18,30 +18,30 @@
       <div class="wrapper">
         <div class="header-block">
           <h2 class="description__title title-decor title-block">
-            Как минимум вы получите
+            Почему контекстная реклама эффективна?
           </h2>
           <p class="description__subtitle subtitle">
-            И не придумал
+            И вот что вас ожидает
           </p>
         </div>
 
         <ul class="description__list">
           <li class="description__item description__item--left">
-            <h3>Полная прозрачность</h3>
+            <h3>Настройка под вашу целевую аудиторию</h3>
             <p>
-              Отчеты и бла бла бла. Excepturi, perferendis? Rem, odit minima
-              deserunt deleniti totam consequuntur fugiat esse quasi corrupti
-              nihil temporibus quidem perferendis quisquam accusamus molestiae
-              quo sapiente?
+              Основное преимущество контекстной рекламы состоит в том, что
+              рекламные объявления показываются заинтересованной аудитории.
+              Такая реклама воспринимается положительно, поскольку ее видят
+              только потенциальные клиенты.
             </p>
           </li>
           <li class="description__item description__item--right">
-            <h3>Индивидуальный подход</h3>
+            <h3>Широкий охват</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Excepturi, perferendis? Rem, odit minima deserunt deleniti totam
-              consequuntur fugiat esse quasi corrupti nihil temporibus quidem
-              perferendis quisquam accusamus molestiae quo sapiente?
+              Рекламные объявления показываются в поисковых системах и в
+              тематических сетях, которые включают в себя тысячи популярных
+              сайтов. Для примера, только на площадках Рекламной сети Яндекс
+              более 65 млн. пользователей ежедневно.
             </p>
           </li>
           <li class="description__item description__item--central">
@@ -65,21 +65,20 @@
             </picture>
           </li>
           <li class="description__item description__item--left">
-            <h3>Честная цена</h3>
+            <h3>Быстрота настройки и запуска</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Excepturi, perferendis? Rem, odit minima deserunt deleniti totam
-              consequuntur fugiat esse quasi corrupti nihil temporibus quidem
-              perferendis quisquam accusamus molestiae quo sapiente?
+              Все зависит от целей рекламной кампании и объема необходимых работ
+              по подготовке, но обычно это не больше 5-7 дней и вы уже получаете
+              первых клиентов.
             </p>
           </li>
           <li class="description__item description__item--right">
-            <h3>Поддержка 24 часа</h3>
+            <h3>Оплата за результат</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Excepturi, perferendis? Rem, odit minima deserunt deleniti totam
-              consequuntur fugiat esse quasi corrupti nihil temporibus quidem
-              perferendis quisquam accusamus molestiae quo sapiente?
+              Оплата производится только, если клиент перешел на сайт, то есть
+              за клик по объявлению. Если объявление было показано
+              потенциальному клиенту, но он не перешел на сайт, то рекламодатель
+              ничего не платит.
             </p>
           </li>
         </ul>
@@ -98,40 +97,44 @@
         </div>
         <app-stages>
           <template v-slot:title1>
-            Мой заголовок
+            1. Анализ
           </template>
           <template v-slot:text1>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, in!
+            Анализируем конкурентов, погружаемся в бизнес
           </template>
           <template v-slot:title2>
-            Мой заголовок2
+            2. Стратегия
           </template>
           <template v-slot:text2>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, in!
+            Предлагаем и согласовываем оптимальную стратегию размещения
           </template>
           <template v-slot:title3>
-            Мой заголовок3
+            3. Аналитика
           </template>
           <template v-slot:text3>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, in!
+            Настройка систем аналитики для отслеживания эффективности рекламной
+            кампании
           </template>
           <template v-slot:title4>
-            Мой заголовок4
+            4. Настройка
           </template>
           <template v-slot:text4>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, in!
+            Разрабатываем структуру, собираем семантическое ядро, пишем
+            продающие тексты объявлений, подбираем креативы.
           </template>
           <template v-slot:title5>
-            Мой заголовок5
+            5. Запуск
           </template>
           <template v-slot:text5>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, in!
+            Загружаем кампании, настраиваем необходимые параметры и отправляем
+            на модерацию.
           </template>
           <template v-slot:title6>
-            Мой заголовок6
+            6. Ведение
           </template>
           <template v-slot:text6>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, in!
+            Занимаемся управлением, анализом эффективности, вносим необходимые
+            корректировки и предоставляем отчетность.
           </template>
         </app-stages>
       </div>
@@ -143,10 +146,21 @@
             Ловешечка за дельца наши
           </h2>
           <p class="description__subtitle subtitle">
-            И не придумал
+            Оставьте заявку и мы пришлем Вам полный перечень оказываемых услуг
+            по данному тарифу
           </p>
         </div>
         <app-price></app-price>
+      </div>
+    </section>
+    <section class="skills">
+      <div class="header-block">
+        <h2 class="skills__title title-decor title-block">
+          Уже есть реклама, но нет результата?
+        </h2>
+        <p class="skills__subtitle subtitle">
+          Будет кнопка и при нажатии в вопрос будет писаться пометка
+        </p>
       </div>
     </section>
     <section class="skills">
@@ -161,6 +175,7 @@
       </div>
       <app-swipe-slider :sliderData="skills"></app-swipe-slider>
     </section>
+
     <section class="form-block form-ads">
       <app-form></app-form>
     </section>

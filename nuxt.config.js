@@ -117,13 +117,13 @@ module.exports = {
   //   }
   // },
 
-  // webfontloader: {
-  //   events: false,
-  //   google: {
-  //     families: ['Montserrat:400,500,600:cyrillic&display=swap']
-  //   },
-  //   timeout: 5000
-  // },
+  webfontloader: {
+    events: false,
+    google: {
+      families: ['Montserrat:400,500,600:cyrillic&display=swap']
+    },
+    timeout: 5000
+  },
   styleResources: {
     scss: ['@/assets/style/lib.scss']
   },

@@ -150,19 +150,40 @@
             по данному тарифу
           </p>
         </div>
-        <app-price></app-price>
+        <app-price @set-tariff="setTariff">
+          <template v-slot:title-min>
+            Яндекс Директ или<br />
+            Google Реклама
+          </template>
+          <template v-slot:title-mid>
+            Яндекс Директ и <br />Google Реклама
+          </template>
+          <template v-slot:price-mid>
+            14 000
+          </template>
+          <template v-slot:title-max>
+            Яндекс Директ и Google Реклама + landing page
+          </template>
+        </app-price>
       </div>
     </section>
-    <section class="skills">
+    <section class="optimization-ads">
       <div class="header-block">
         <h2 class="skills__title title-decor title-block">
           Уже есть реклама, но нет результата?
         </h2>
         <p class="skills__subtitle subtitle">
-          Будет кнопка и при нажатии в вопрос будет писаться пометка
+          Придумать подтекст
         </p>
       </div>
+      <app-audit @update-message="updateMessageTextInForm">
+        <template v-slot:text>
+          проведём аудит вашего сайта и рекламных кампаний, найдем ошибки и
+          предложим варианты решения проблем.
+        </template>
+      </app-audit>
     </section>
+
     <section class="skills">
       <div class="header-block">
         <h2 class="skills__title title-decor title-block">
@@ -175,9 +196,12 @@
       </div>
       <app-swipe-slider :sliderData="skills"></app-swipe-slider>
     </section>
-
-    <section class="form-block form-ads">
-      <app-form></app-form>
+    <section id="form" class="form-block form-ads">
+      <app-form
+        :messageText="messageTextInForm"
+        v-model.lazy="messageTextInForm"
+        @deleteMessageInForm="deleteMessageInChildForm"
+      ></app-form>
     </section>
   </div>
 </template>
@@ -186,6 +210,7 @@ import appSwipeSlider from '../components/main/swipe-slider'
 import appForm from '../components/main/form'
 import appStages from '../components/main/stages'
 import appPrice from '../components/main/price'
+import appAudit from '../components/main/Audit'
 
 import { mapState } from 'vuex'
 
@@ -197,15 +222,20 @@ export default {
     appSwipeSlider,
     appForm,
     appStages,
-    appPrice
+    appPrice,
+    appAudit
   },
   data() {
     return {
-      border: '2px solid #fff'
+      border: '2px solid #fff',
+      messageTextInForm: ''
     }
   },
 
   computed: {
+    // textMessage() {
+    //   return this.text
+    // },
     ...mapState({
       skills: state => state.content.sliderSkills
       // skills: 'content/sliderSkills'
@@ -227,6 +257,18 @@ export default {
   methods: {
     openForm() {
       this.$router.push('/contact')
+    },
+    setTariff(tariff) {
+      this.messageTextInForm = tariff
+    },
+    deleteMessageInChildForm() {
+      setTimeout(() => {
+        this.messageTextInForm = ''
+      }, 1000)
+    },
+    updateMessageTextInForm() {
+      this.messageTextInForm =
+        'Мне нужен бесплатный аудит моей рекламной кампании'
     }
   }
 }
@@ -383,30 +425,46 @@ export default {
   &__item {
     // background: rgb(89, 169, 189);
     box-shadow: $shadow-out;
-    padding: 10px;
+    padding: 25px;
     border-radius: 10px;
+    background: rgba(53, 118, 192, 0.1);
+
+    & > h3 {
+      margin: 0;
+      margin-bottom: 20px;
+    }
+
+    & > p {
+      // padding-left: 15px;
+      padding: 0;
+      margin: 0;
+      line-height: 22px;
+    }
 
     &--left {
       text-align: right;
-      padding-right: 70px;
+      // padding-right: 70px;
       position: relative;
-      background: rgba(53, 118, 192, 0.1);
+      // background: rgba(53, 118, 192, 0.1);
 
-      & > p {
-        padding-left: 15px;
-      }
+      // & > p {
+      //   // padding-left: 15px;
+      //   padding: 0;
+      //   margin: 0;
+      //   line-height: 20px;
+      // }
 
-      &::after {
-        content: '';
-        background-image: url('~assets/img/icon_descript.png');
-        background-size: cover;
-        position: absolute;
-        transform: translateY(-50%);
-        top: 50%;
-        right: 0;
-        width: 65px;
-        height: 65px;
-      }
+      // &::after {
+      //   content: '';
+      //   background-image: url('~assets/img/icon_descript.png');
+      //   background-size: cover;
+      //   position: absolute;
+      //   transform: translateY(-50%);
+      //   top: 50%;
+      //   right: 0;
+      //   width: 65px;
+      //   height: 65px;
+      // }
     }
 
     &--central {
@@ -450,25 +508,27 @@ export default {
 
     &--right {
       text-align: left;
-      padding-left: 70px;
-      position: relative;
-      background: rgba(53, 118, 192, 0.1);
+      // padding-left: 70px;
+      // position: relative;
+      // background: rgba(53, 118, 192, 0.1);
 
-      & > p {
-        padding-right: 15px;
-      }
+      // & > p {
+      //   padding: 0;
+      //   margin: 0;
+      //   // padding-right: 15px;
+      // }
 
-      &::before {
-        content: '';
-        background-image: url('~assets/img/icon_descript.png');
-        background-size: cover;
-        position: absolute;
-        transform: translateY(-50%) scale(-1, 1);
-        top: 50%;
-        left: 0;
-        width: 65px;
-        height: 65px;
-      }
+      // &::before {
+      //   content: '';
+      //   background-image: url('~assets/img/icon_descript.png');
+      //   background-size: cover;
+      //   position: absolute;
+      //   transform: translateY(-50%) scale(-1, 1);
+      //   top: 50%;
+      //   left: 0;
+      //   width: 65px;
+      //   height: 65px;
+      // }
     }
 
     &-img {
@@ -495,13 +555,19 @@ export default {
   padding-bottom: 30px;
 }
 
+.optimization-ads {
+  padding-bottom: 40px;
+}
+
 .skills {
   // background: $grey;
-  padding: 20px 0;
+  // padding: 20px 0;
+  padding-bottom: 20px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
 .form-block {
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  // box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
 .stages-ads {

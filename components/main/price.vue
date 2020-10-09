@@ -14,10 +14,17 @@
           <div ref="priceCard" class="price-card card elementary ">
             <div class="card__header bg-1">
               <p class="card__description">Необходимый минимум</p>
-              <h3 class="card__title">Яндекс Директ или Google Реклама</h3>
+              <h3 class="card__title">
+                <slot name="title-min"></slot>
+              </h3>
               <span class="card__price">8 000 &#x20bd;</span>
             </div>
-            <button class="card__button">Выбрать</button>
+            <button
+              @click="$emit('set-tariff', listTariff.min)"
+              class="card__button"
+            >
+              Выбрать
+            </button>
             <ul class="card__list">
               <li class="card__item ok">Поиск</li>
               <li class="card__item ok">РСЯ/КМС</li>
@@ -38,10 +45,17 @@
           <div ref="priceCard2" class="price-card card middle">
             <div class="card__header bg-2">
               <p class="card__description">Оптимум</p>
-              <h3 class="card__title">Яндекс Директ и Google Реклама</h3>
-              <span class="card__price">14 000 &#x20bd;</span>
+              <h3 class="card__title"><slot name="title-mid"></slot></h3>
+              <span class="card__price"
+                ><slot name="price-mid"></slot> &#x20bd;</span
+              >
             </div>
-            <button class="card__button">Выбрать</button>
+            <button
+              @click="$emit('set-tariff', listTariff.middle)"
+              class="card__button"
+            >
+              Выбрать
+            </button>
             <ul class="card__list">
               <li class="card__item ok">Поиск</li>
               <li class="card__item ok">РСЯ/КМС</li>
@@ -63,12 +77,16 @@
             <div class="card__header bg-3">
               <p class="card__description">Отлично</p>
               <h3 class="card__title">
-                Яндекс Директ и Google Реклама + Разработка продающего сайта
-                (landing page)
+                <slot name="title-max"></slot>
               </h3>
               <span class="card__price">28 000 &#x20bd;</span>
             </div>
-            <button class="card__button">Выбрать</button>
+            <button
+              @click="$emit('set-tariff', listTariff.max)"
+              class="card__button"
+            >
+              Выбрать
+            </button>
             <ul class="card__list">
               <li class="card__item ok">Поиск</li>
               <li class="card__item ok">РСЯ/КМС</li>
@@ -120,7 +138,12 @@ export default {
   data() {
     return {
       animPriceCard: '',
-      widthWindow: 0
+      widthWindow: 0,
+      listTariff: {
+        min: 'Я хочу минимальный тариф',
+        middle: 'Я хочу обе системы',
+        max: 'Я хочу максимально эффективную рекламную кампанию'
+      }
     }
   },
   // computed: {
@@ -375,15 +398,27 @@ export default {
     clip-path: polygon(100% 0, 100% 85%, 75% 100%, 0 64%, 0 0);
     height: 200px;
     color: #fff;
-    padding-top: 20px;
+    padding-top: 15px;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
 
+    @media (max-width: $lg-width-max) {
+      // CSS для ширины от 992px до 1199px */
+      height: 180px;
+    }
+
     @media (max-width: $md-width-max) {
       // CSS для ширины от 768px до 991px */
       height: 150px;
+      padding-top: 10px;
+    }
+
+    @media (max-width: $sm-width-max) {
+      // CSS для ширины от 576px до 767px */
+      height: 170px;
+      padding-top: 15px;
     }
   }
 
@@ -399,31 +434,32 @@ export default {
 
     @media (max-width: $md-width-max) {
       // CSS для ширины от 768px до 991px */
-      font-size: 0.8em;
+      font-size: 0.9em;
     }
   }
 
   &__title {
-    margin: 0;
-    margin-top: 20px;
+    margin: 15px 0;
+    // margin-top: 20px;
     text-align: center;
     color: $bg-color;
-    font-size: 1.4em;
+    font-size: 1.25em;
     text-transform: uppercase;
 
     @media (max-width: $lg-width-max) {
       // CSS для ширины от 992px до 1199px */
-      font-size: 1.2em;
+      font-size: 1.1em;
     }
 
     @media (max-width: $md-width-max) {
       // CSS для ширины от 768px до 991px */
-      font-size: 1em;
+      font-size: 0.9em;
+      margin: 10px 0;
     }
 
     @media (max-width: $sm-width-max) {
       // CSS для ширины от 576px до 767px */
-      font-size: 1.2em;
+      font-size: 1.1em;
     }
   }
 
@@ -437,7 +473,7 @@ export default {
 
     @media (max-width: $md-width-max) {
       // CSS для ширины от 768px до 991px */
-      font-size: 2.2em;
+      font-size: 2em;
     }
 
     @media (max-width: $sm-width-max) {
@@ -451,17 +487,22 @@ export default {
     position: relative;
     z-index: 10;
     margin: 0 auto;
-    margin-top: -30px;
+    margin-top: -45px;
     padding: 7px 15px;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 16px;
     border-radius: 5px;
     border: none;
     outline: none;
     background: $bg-color;
     color: #c0c0c0;
-    opacity: 0.8;
+    opacity: 0.9;
     cursor: pointer;
+
+    @media (max-width: $md-width-max) {
+      // CSS для ширины от 768px до 991px */
+      font-size: 14px;
+    }
 
     &:hover,
     :active {
@@ -475,8 +516,8 @@ export default {
     flex-flow: column wrap;
     margin: 0;
     margin-top: 30px;
-    padding: 0;
-    font-size: 1.12em;
+    padding: 0 20px;
+    font-size: 1em;
     align-content: center;
     color: $bg-color;
     list-style: none;
@@ -484,7 +525,8 @@ export default {
     @media (max-width: $lg-width-max) {
       // CSS для ширины от 992px до 1199px */
       font-size: 0.9em;
-      margin-top: 8px;
+      margin-top: 5px;
+      padding: 0 15px;
     }
 
     @media (max-width: $md-width-max) {
@@ -495,17 +537,23 @@ export default {
 
     @media (max-width: $sm-width-max) {
       // CSS для ширины от 576px до 767px */
-      margin-top: 20px;
+      margin-top: 10px;
       font-size: 1em;
     }
 
     @media (max-width: $xs-width-max) {
       // CSS для ширины до 575px (включительно) */
+      margin-top: 10px;
     }
   }
 
   &__item {
+    position: relative;
+    padding-left: 18px;
+
     &::before {
+      position: absolute;
+      left: -2px;
       content: '';
       display: inline-block;
       height: 15px;
@@ -517,14 +565,16 @@ export default {
       background-position: center center;
       vertical-align: middle;
 
-      @media (max-width: $lg-width-max) {
-        // CSS для ширины от 992px до 1199px */
-        font-size: 2.5em;
-      }
+      // @media (max-width: $lg-width-max) {
+      //   // CSS для ширины от 992px до 1199px */
+      //   font-size: 2.5em;
+      // }
 
       @media (max-width: $md-width-max) {
         // CSS для ширины от 768px до 991px */
-        font-size: 2.2em;
+        height: 12px;
+        width: 12px;
+        background-size: 12px;
       }
 
       @media (max-width: $sm-width-max) {

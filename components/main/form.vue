@@ -27,8 +27,11 @@
         <p v-if="!$v.contactForm.phone.required" class="error">
           Обязательное поле
         </p>
+        <!-- v-model.trim.lazy="contactForm.text" -->
+        <!-- v-bind:value="messageText" -->
         <textarea
-          v-model.trim.lazy="contactForm.text"
+          :value="messageText"
+          @input="updateMessageInForm($event.target.value)"
           class="textarea textarea-active"
           type="text"
           name="phone"
@@ -49,6 +52,7 @@
         </div>
         <div class="button__wrapper">
           <input
+            @click="deleteMessageInForm"
             :disabled="submitStatus === 'PENDING' || !checked"
             class="button button__left"
             type="submit"
@@ -86,13 +90,15 @@
 import appLoading from './loading'
 import { required } from 'vuelidate/lib/validators'
 
-// import { TheMask } from 'vue-the-mask'
-
 export default {
   components: {
     appLoading
-
-    // TheMask
+  },
+  props: {
+    messageText: {
+      type: String,
+      default: ''
+    }
   },
   data() {
     return {
@@ -138,6 +144,13 @@ export default {
 
   // },
   methods: {
+    updateMessageInForm(value) {
+      console.log(value)
+      this.$emit('input', value)
+    },
+    deleteMessageInForm() {
+      this.$emit('deleteMessageInForm')
+    },
     async onSubmit() {
       this.$v.$touch()
       if (this.$v.$invalid) {
@@ -149,15 +162,20 @@ export default {
           const formData = {
             name: this.contactForm.name,
             phone: this.contactForm.phone,
-            phone1: this.contactForm.phone1,
             email: this.contactForm.email,
             method: this.contactForm.method,
-            text: this.contactForm.text,
+            // text: this.contactForm.text,
+            text: this.messageText,
             page: this.contactForm.page
           }
 
-          await this.$store.dispatch('applications/create', formData)
-          await this.$store.dispatch('applications/sendBotTelegram', formData)
+          //
+          await console.log(formData)
+
+          //
+
+          // await this.$store.dispatch('applications/create', formData)
+          // await this.$store.dispatch('applications/sendBotTelegram', formData)
 
           this.submitStatus = 'PENDING'
           this.submitStatus = 'OK'
@@ -174,9 +192,10 @@ export default {
           this.contactForm.email = ''
           this.contactForm.method = ''
           this.contactForm.text = ''
+          // this.messageText = ''
           this.contactForm.page = ''
         } catch (e) {
-          console.log(e)
+          console.error(e)
         }
       }
     }

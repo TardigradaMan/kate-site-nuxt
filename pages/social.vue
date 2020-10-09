@@ -18,7 +18,7 @@
       <div class="wrapper">
         <div class="header-block">
           <h2 class="description__title title-decor title-block">
-            Как минимум вы получите
+            Зачем необходимо продвижение в социальных сетях?
           </h2>
           <p class="description__subtitle subtitle">
             И не придумал
@@ -40,40 +40,47 @@
         </div>
         <app-stages>
           <template v-slot:title1>
-            Мой заголовок
+            1. Анализ
           </template>
           <template v-slot:text1>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, in!
+            Оценка текущей ситуации в аккаунтах (если есть). Анализ целевой
+            аудитории, конкурентов.
           </template>
           <template v-slot:title2>
-            Мой заголовок2
+            2. Стратегия
           </template>
           <template v-slot:text2>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, in!
+            Разработка стратегии продвижения, а также дизайна аккаунтов во всех
+            социальных сетях.
           </template>
           <template v-slot:title3>
-            Мой заголовок3
+            3. Подготовка контент-плана
           </template>
           <template v-slot:text3>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, in!
+            Разрабатываем детальную контентную стратегию, оговариваем
+            рубрикатор. Прописываем количество полезного, продающего и
+            вовлекающего контента.
           </template>
           <template v-slot:title4>
-            Мой заголовок4
+            4. Ведение сообществ
           </template>
           <template v-slot:text4>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, in!
+            Оформление и размещение постов. Разработка и проведение конкурсов и
+            интерактивов, акций.
           </template>
           <template v-slot:title5>
-            Мой заголовок5
+            5. Модерация сообществ
           </template>
           <template v-slot:text5>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, in!
+            Ежедневный мониторинг: удаление спама, ответы на сообщения и
+            комментарии.
           </template>
           <template v-slot:title6>
-            Мой заголовок6
+            6. Настройка и запуск таргетированной рекламы
           </template>
           <template v-slot:text6>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, in!
+            Только в тарифах «Ведение сообществ и реклама» и «Таргетированная
+            реклама»
           </template>
         </app-stages>
       </div>
@@ -89,8 +96,36 @@
             И не придумал
           </p>
         </div>
-        <app-price></app-price>
+        <app-price>
+          <template v-slot:title-min>
+            «Ведение сообществ»
+          </template>
+          <template v-slot:title-mid>
+            «Ведение сообществ и реклама»
+          </template>
+          <template v-slot:title-max>
+            «Таргетированная реклама»
+          </template>
+        </app-price>
       </div>
+    </section>
+    <div class="separator"></div>
+    <section class="optimization-social">
+      <div class="header-block">
+        <h2 class="skills__title title-decor title-block">
+          Уже подключили продвижение в соцсетях и таргетированную рекламу, но
+          нет результата?
+        </h2>
+        <p class="skills__subtitle subtitle">
+          Придумать подтекст
+        </p>
+      </div>
+      <app-audit>
+        <template v-slot:text>
+          проведём аудит Ваших аккаунтов и рекламных кампаний, найдем ошибки и
+          предложим варианты решения проблем.
+        </template>
+      </app-audit>
     </section>
     <div class="separator"></div>
     <section class="form-block form-social ">
@@ -103,6 +138,7 @@ import appForm from '../components/main/form'
 import appInfo from '../components/main/infographics'
 import appStages from '../components/main/stages'
 import appPrice from '../components/main/price'
+import appAudit from '../components/main/Audit'
 export default {
   head: {
     title: 'Реклама в социальных сетях'
@@ -111,7 +147,8 @@ export default {
     appForm,
     appInfo,
     appStages,
-    appPrice
+    appPrice,
+    appAudit
   },
   data() {
     return {}
@@ -169,6 +206,12 @@ export default {
   @media (max-width: $xs-width-max) {
     /* CSS для ширины до 575px (включительно) */
   }
+}
+
+.optimization-social {
+  background: #eee;
+  padding-bottom: 40px;
+  color: $grey;
 }
 
 .form-social {

@@ -10,12 +10,10 @@
           </div>
         </div>
         <div class="info-text">
-          <h3>Заголовок</h3>
+          <h3>Рост активной аудитории</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Reprehenderit atque facilis magni, nisi aliquam blanditiis iure
-            vero, ad quo harum natus voluptatibus autem voluptate debitis porro
-            praesentium excepturi laborum sed!
+            Привлечем только целевых подписчиков, которые точно соответствуют
+            портрету Вашей целевой аудитории.
           </p>
         </div>
       </div>
@@ -28,10 +26,11 @@
           </div>
         </div>
         <div class="info-text">
-          <h3>Заголовок</h3>
+          <h3>Точное сегментирование в рекламе.</h3>
           <p>
-            Тут текст. И всё такое бла бла бла. Тут текст. И всё такое бла бла
-            бла. Тут текст. И всё такое бла бла бла.
+            Социальные сети спроектированы так, чтобы пользователь мог оставлять
+            информацию о себе в виде анкетированных данных. За счет чего,
+            эффективность данного канала крайне высока.
           </p>
         </div>
       </div>
@@ -45,12 +44,10 @@
           </div>
         </div>
         <div class="info-text">
-          <h3>Заголовок</h3>
+          <h3>Повышение уровня доверия аудитории</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Reprehenderit atque facilis magni, nisi aliquam blanditiis iure
-            vero, ad quo harum natus voluptatibus autem voluptate debitis porro
-            praesentium excepturi laborum sed!
+            Общение с аудиторией в социальных сетях формирует лояльность,
+            помогает продавать товары/услуги.
           </p>
         </div>
       </div>
@@ -63,12 +60,11 @@
           </div>
         </div>
         <div class="info-text">
-          <h3>Заголовок</h3>
+          <h3>Повышение посещаемости сайта</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Reprehenderit atque facilis magni, nisi aliquam blanditiis iure
-            vero, ad quo harum natus voluptatibus autem voluptate debitis porro
-            praesentium excepturi laborum sed!
+            Если у вас есть сайт, вы можете органически увеличивать трафик на
+            него, бесплатно привлекая посетителей из числа пользователей
+            соцсетей.
           </p>
         </div>
       </div>

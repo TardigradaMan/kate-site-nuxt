@@ -17,21 +17,22 @@
               <h3 class="card__title">
                 <slot name="title-min"></slot>
               </h3>
-              <span class="card__price">8 000 &#x20bd;</span>
+              <span class="card__price">
+                <slot name="price-min"></slot> &#x20bd;</span
+              >
             </div>
             <button
-              @click="$emit('set-tariff', listTariff.min)"
+              @click="$emit('set-tariff', listMessagesTariff.min)"
               class="card__button"
             >
               Выбрать
             </button>
             <ul class="card__list">
-              <li class="card__item ok">Поиск</li>
-              <li class="card__item ok">РСЯ/КМС</li>
-              <li class="card__item ok">Ретаргетинг/Ремаркетинг</li>
-              <li class="card__item ok">Настройка аналитики</li>
-              <li class="card__item ok">Анализ и оптимизация</li>
-              <li class="card__item off">Разработка продающего сайта</li>
+              <ListItem
+                v-for="item in listTariff.min"
+                :key="item.title"
+                :priceItem="item"
+              />
             </ul>
           </div>
           <div class="price-title">
@@ -46,23 +47,22 @@
             <div class="card__header bg-2">
               <p class="card__description">Оптимум</p>
               <h3 class="card__title"><slot name="title-mid"></slot></h3>
-              <span class="card__price"
-                ><slot name="price-mid"></slot> &#x20bd;</span
+              <span class="card__price">
+                <slot name="price-mid"></slot>&#x20bd;</span
               >
             </div>
             <button
-              @click="$emit('set-tariff', listTariff.middle)"
+              @click="$emit('set-tariff', listMessagesTariff.middle)"
               class="card__button"
             >
               Выбрать
             </button>
             <ul class="card__list">
-              <li class="card__item ok">Поиск</li>
-              <li class="card__item ok">РСЯ/КМС</li>
-              <li class="card__item ok">Ретаргетинг/Ремаркетинг</li>
-              <li class="card__item ok">Настройка аналитики</li>
-              <li class="card__item ok">Анализ и оптимизация</li>
-              <li class="card__item off">Разработка продающего сайта</li>
+              <ListItem
+                v-for="item in listTariff.mid"
+                :key="item.title"
+                :priceItem="item"
+              />
             </ul>
           </div>
           <div class="price-title">
@@ -79,21 +79,22 @@
               <h3 class="card__title">
                 <slot name="title-max"></slot>
               </h3>
-              <span class="card__price">28 000 &#x20bd;</span>
+              <span class="card__price">
+                <slot name="price-max"></slot> &#x20bd;</span
+              >
             </div>
             <button
-              @click="$emit('set-tariff', listTariff.max)"
+              @click="$emit('set-tariff', listMessagesTariff.max)"
               class="card__button"
             >
               Выбрать
             </button>
             <ul class="card__list">
-              <li class="card__item ok">Поиск</li>
-              <li class="card__item ok">РСЯ/КМС</li>
-              <li class="card__item ok">Ретаргетинг/Ремаркетинг</li>
-              <li class="card__item ok">Настройка аналитики</li>
-              <li class="card__item ok">Анализ и оптимизация</li>
-              <li class="card__item ok">Разработка продающего сайта</li>
+              <ListItem
+                v-for="item in listTariff.max"
+                :key="item.title"
+                :priceItem="item"
+              />
             </ul>
           </div>
           <div class="price-title">
@@ -101,49 +102,37 @@
           </div>
         </div>
       </div>
-      <!-- <div class="price-item color-4">
-        <div class="price-content ">
-          <div class="price-bg bg-4"></div>
-          <div class="price-card right"></div>
-          <div class="price-title">
-            <span class="color-title">D</span>
-          </div>
-        </div>
-        <div class="price-text">
-          <h3>Заголовок</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Reprehenderit atque facilis magni, nisi aliquam blanditiis iure
-            vero, ad quo harum natus voluptatibus autem voluptate debitis porro
-            praesentium excepturi laborum sed!
-          </p>
-        </div>
-      </div> -->
     </div>
   </div>
 </template>
 
 <script>
+import ListItem from './PriceListItem'
 import { gsap } from 'gsap'
+
 export default {
+  components: {
+    ListItem
+  },
   props: {
     borderBg: {
       type: String,
       default: ''
+    },
+    listTariff: {
+      type: Object,
+      default: () => {}
+    },
+    listMessagesTariff: {
+      type: Object,
+      default: () => {}
     }
-    // mouseOverPrice: {
-    //   type
-    // }
   },
+
   data() {
     return {
       animPriceCard: '',
-      widthWindow: 0,
-      listTariff: {
-        min: 'Я хочу минимальный тариф',
-        middle: 'Я хочу обе системы',
-        max: 'Я хочу максимально эффективную рекламную кампанию'
-      }
+      widthWindow: 0
     }
   },
   // computed: {
@@ -251,7 +240,6 @@ export default {
 
     @media (max-width: $lg-width-max) {
       // CSS для ширины от 992px до 1199px
-      justify-content: space-around;
     }
 
     @media (max-width: $md-width-max) {
@@ -265,6 +253,7 @@ export default {
 
     @media (max-width: $xs-width-max) {
       // CSS для ширины до 575px (включительно) */
+      margin-left: -20px;
     }
   }
 
@@ -295,7 +284,7 @@ export default {
 
     @media (max-width: $sm-width-max) {
       // CSS для ширины от 576px до 767px */
-      width: 200px;
+      width: 210px;
       height: 350px;
     }
 
@@ -392,6 +381,11 @@ export default {
   &:hover {
     transform: scale(1.1);
     transition: all ease-in-out 0.2s;
+
+    @media (max-width: $md-width-max) {
+      // CSS для ширины от 768px до 991px */
+      transform: none;
+    }
   }
 
   &__header {
@@ -439,7 +433,7 @@ export default {
   }
 
   &__title {
-    margin: 15px 0;
+    margin: 12px 0;
     // margin-top: 20px;
     text-align: center;
     color: $bg-color;
@@ -547,50 +541,50 @@ export default {
     }
   }
 
-  &__item {
-    position: relative;
-    padding-left: 18px;
+  //   &__item {
+  //     position: relative;
+  //     padding-left: 18px;
 
-    &::before {
-      position: absolute;
-      left: -2px;
-      content: '';
-      display: inline-block;
-      height: 15px;
-      width: 15px;
-      background-size: 15px;
-      background-image: url('~assets/img/icon/off.png');
-      background-repeat: no-repeat;
-      margin-right: 10px;
-      background-position: center center;
-      vertical-align: middle;
+  //     &::before {
+  //       position: absolute;
+  //       left: -2px;
+  //       content: '';
+  //       display: inline-block;
+  //       height: 15px;
+  //       width: 15px;
+  //       background-size: 15px;
+  //       background-image: url('~assets/img/icon/off.png');
+  //       background-repeat: no-repeat;
+  //       margin-right: 10px;
+  //       background-position: center center;
+  //       vertical-align: middle;
 
-      // @media (max-width: $lg-width-max) {
-      //   // CSS для ширины от 992px до 1199px */
-      //   font-size: 2.5em;
-      // }
+  //       // @media (max-width: $lg-width-max) {
+  //       //   // CSS для ширины от 992px до 1199px */
+  //       //   font-size: 2.5em;
+  //       // }
 
-      @media (max-width: $md-width-max) {
-        // CSS для ширины от 768px до 991px */
-        height: 12px;
-        width: 12px;
-        background-size: 12px;
-      }
+  //       @media (max-width: $md-width-max) {
+  //         // CSS для ширины от 768px до 991px */
+  //         height: 12px;
+  //         width: 12px;
+  //         background-size: 12px;
+  //       }
 
-      @media (max-width: $sm-width-max) {
-        // CSS для ширины от 576px до 767px */
-        font-size: 2.2em;
-      }
-    }
-  }
+  //       @media (max-width: $sm-width-max) {
+  //         // CSS для ширины от 576px до 767px */
+  //         font-size: 2.2em;
+  //       }
+  //     }
+  //   }
 
-  .ok::before {
-    background-image: url('~assets/img/icon/ok.png');
-  }
+  //   .ok::before {
+  //     background-image: url('~assets/img/icon/ok.png');
+  //   }
 
-  .off::before {
-    background-image: url('~assets/img/icon/off.png');
-  }
+  //   .off::before {
+  //     background-image: url('~assets/img/icon/off.png');
+  //   }
 }
 
 @media (max-width: $lg-width-max) {

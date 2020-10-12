@@ -90,23 +90,41 @@
       <div class="wrapper">
         <div class="header-block">
           <h2 class="description__title title-decor title-block">
-            Ловешечка за дельца наши
+            Тарифы на продвижение в социальных сетях.
           </h2>
           <p class="description__subtitle subtitle">
-            И не придумал
+            Оставьте заявку и мы пришлем Вам полный перечень оказываемых услуг
+            по данному тарифу.
           </p>
         </div>
-        <app-price>
+        <app-price
+          @set-tariff="setTariff"
+          :listMessagesTariff="listMessagesTariff"
+          :listTariff="listTariffSocial"
+        >
           <template v-slot:title-min>
             «Ведение сообществ»
+          </template>
+          <template v-slot:price-min>
+            от 3000*
           </template>
           <template v-slot:title-mid>
             «Ведение сообществ и реклама»
           </template>
+          <template v-slot:price-mid>
+            от 7000*
+          </template>
           <template v-slot:title-max>
             «Таргетированная реклама»
           </template>
+          <template v-slot:price-max>
+            от 8000*
+          </template>
         </app-price>
+        <div class="price-block__info">
+          * - 1 месяц ведения в подарок со второго месяца ведение от 2 000 р.
+          Рекламный бюджет рассчитывается индивидуально.
+        </div>
       </div>
     </section>
     <div class="separator"></div>
@@ -128,8 +146,12 @@
       </app-audit>
     </section>
     <div class="separator"></div>
-    <section class="form-block form-social ">
-      <app-form></app-form>
+    <section id="form" class="form-block form-social ">
+      <app-form
+        :messageText="messageTextInForm"
+        v-model.lazy="messageTextInForm"
+        @deleteMessageInForm="deleteMessageInChildForm"
+      ></app-form>
     </section>
   </div>
 </template>
@@ -151,11 +173,52 @@ export default {
     appAudit
   },
   data() {
-    return {}
+    return {
+      messageTextInForm: '',
+      listMessagesTariff: {
+        min: 'Я хочу настройку таргетированной рекламы',
+        middle: 'Я хочу ведение сообществ',
+        max: 'Я хочу ведение сообществ и рекламу'
+      },
+      listTariffSocial: {
+        min: [{ cardItemClass: 'ok', title: 'Настройка и запуск рекламы' }],
+        mid: [
+          { cardItemClass: 'ok', title: 'Стратегия продвижения' },
+          { cardItemClass: 'ok', title: 'Разработка дизайна' },
+          { cardItemClass: 'ok', title: 'Контент-план' },
+          { cardItemClass: 'ok', title: 'Размещение постов' },
+          { cardItemClass: 'ok', title: 'Проведение активностей' },
+          { cardItemClass: 'ok', title: 'Модерация сообществ' },
+          { cardItemClass: 'off', title: 'Настройка и запуск рекламы' }
+        ],
+        max: [
+          { cardItemClass: 'ok', title: 'Стратегия продвижения' },
+          { cardItemClass: 'ok', title: 'Разработка дизайна' },
+          { cardItemClass: 'ok', title: 'Контент-план' },
+          { cardItemClass: 'ok', title: 'Размещение постов' },
+          { cardItemClass: 'ok', title: 'Проведение активностей' },
+          { cardItemClass: 'ok', title: 'Модерация сообществ' },
+          { cardItemClass: 'ok', title: 'Настройка и запуск рекламы' }
+        ]
+      }
+    }
   },
   methods: {
     openForm() {
       this.$router.push('/contact')
+    },
+    setTariff(tariff) {
+      this.$router.push('#form')
+      this.messageTextInForm = tariff
+    },
+    deleteMessageInChildForm() {
+      setTimeout(() => {
+        this.messageTextInForm = ''
+      }, 1000)
+    },
+    updateMessageTextInForm() {
+      this.messageTextInForm =
+        'Мне нужен бесплатный аудит моей рекламной кампании'
     }
   }
 }
@@ -242,6 +305,11 @@ export default {
   background: #eee;
   padding-bottom: 30px;
   // box-shadow: $shadow-block;
+  &__info {
+    color: $grey;
+    font-size: 20px;
+    padding: 15px;
+  }
 }
 
 // Webp

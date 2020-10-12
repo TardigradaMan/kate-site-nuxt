@@ -143,17 +143,24 @@
       <div class="wrapper">
         <div class="header-block">
           <h2 class="description__title title-decor title-block">
-            Ловешечка за дельца наши
+            Тарифы за настройку рекламных кампаний.
           </h2>
           <p class="description__subtitle subtitle">
             Оставьте заявку и мы пришлем Вам полный перечень оказываемых услуг
-            по данному тарифу
+            по данному тарифу.
           </p>
         </div>
-        <app-price @set-tariff="setTariff">
+        <app-price
+          :listMessagesTariff="listMessagesTariff"
+          :listTariff="listTariffAd"
+          @set-tariff="setTariff"
+        >
           <template v-slot:title-min>
             Яндекс Директ или<br />
             Google Реклама
+          </template>
+          <template v-slot:price-min>
+            8 000
           </template>
           <template v-slot:title-mid>
             Яндекс Директ и <br />Google Реклама
@@ -163,6 +170,9 @@
           </template>
           <template v-slot:title-max>
             Яндекс Директ и Google Реклама + landing page
+          </template>
+          <template v-slot:price-max>
+            28 000
           </template>
         </app-price>
       </div>
@@ -228,7 +238,38 @@ export default {
   data() {
     return {
       border: '2px solid #fff',
-      messageTextInForm: ''
+      messageTextInForm: '',
+      listMessagesTariff: {
+        min: 'Я хочу минимальный тариф',
+        middle: 'Я хочу обе системы',
+        max: 'Я хочу максимально эффективную рекламную кампанию'
+      },
+      listTariffAd: {
+        min: [
+          { cardItemClass: 'ok', title: 'Поиск' },
+          { cardItemClass: 'ok', title: 'РСЯ/КМС' },
+          { cardItemClass: 'ok', title: 'Ретаргетинг/Ремаркетинг' },
+          { cardItemClass: 'ok', title: 'Настройка аналитики' },
+          { cardItemClass: 'ok', title: 'Анализ и оптимизация' },
+          { cardItemClass: 'off', title: 'Разработка продающего сайта' }
+        ],
+        mid: [
+          { cardItemClass: 'ok', title: 'Поиск' },
+          { cardItemClass: 'ok', title: 'РСЯ/КМС' },
+          { cardItemClass: 'ok', title: 'Ретаргетинг/Ремаркетинг' },
+          { cardItemClass: 'ok', title: 'Настройка аналитики' },
+          { cardItemClass: 'ok', title: 'Анализ и оптимизация' },
+          { cardItemClass: 'off', title: 'Разработка продающего сайта' }
+        ],
+        max: [
+          { cardItemClass: 'ok', title: 'Поиск' },
+          { cardItemClass: 'ok', title: 'РСЯ/КМС' },
+          { cardItemClass: 'ok', title: 'Ретаргетинг/Ремаркетинг' },
+          { cardItemClass: 'ok', title: 'Настройка аналитики' },
+          { cardItemClass: 'ok', title: 'Анализ и оптимизация' },
+          { cardItemClass: 'ok', title: 'Разработка продающего сайта' }
+        ]
+      }
     }
   },
 
@@ -259,6 +300,7 @@ export default {
       this.$router.push('/contact')
     },
     setTariff(tariff) {
+      this.$router.push('#form')
       this.messageTextInForm = tariff
     },
     deleteMessageInChildForm() {

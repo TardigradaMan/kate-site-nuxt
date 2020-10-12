@@ -9,6 +9,7 @@
           <nuxt-link class="main-nav__link" to="/social"
             >Социальная сеть</nuxt-link
           >
+          <!-- <span class="main-nav__link--active">Социальная сеть</span> -->
         </li>
         <li class="main-nav__item">
           <nuxt-link class="main-nav__link" to="/ad"
@@ -140,6 +141,19 @@ export default {
   margin-right: 0;
 }
 
+// .main-nav__link--active {
+//   color: $grey;
+//   position: fixed;
+//   font-size: 100px;
+//   opacity: 0;
+//   top: 50%;
+//   left: 50%;
+//   transform: translateX(-50%);
+//   text-transform: uppercase;
+//   font-weight: 700;
+//   z-index: -1;
+// }
+
 .main-nav__link {
   font-size: 26px;
   line-height: 28px;
@@ -202,6 +216,10 @@ export default {
 //   }
 // }
 
+.main-nav__toggle {
+  display: none;
+}
+
 .nuxt-link-exact-active {
   &::before {
     transform: translate(-40px, 0);
@@ -212,9 +230,5 @@ export default {
     transform: translate(10px, 0);
     opacity: 1;
   }
-}
-
-.main-nav__toggle {
-  display: none;
 }
 </style>

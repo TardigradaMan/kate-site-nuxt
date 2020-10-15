@@ -40,10 +40,10 @@ export default {
   mounted() {
     if (this.interval > 0) {
       // eslint-disable-next-line prefer-const
-      let vm = this
-      setInterval(function() {
-        vm.nextSlide()
-      }, vm.interval)
+
+      setInterval(() => {
+        this.nextSlide()
+      }, this.interval)
     }
   },
   methods: {

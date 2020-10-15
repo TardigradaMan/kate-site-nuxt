@@ -28,7 +28,19 @@ $shadow-into: inset 2px 2px 5px rgba(0, 0, 0, 0.25),
   1px 1px 3px rgb(105, 105, 105);
 $grey: rgb(53, 53, 53);
 $dark-grey: #050607;
-$blue: #78e4db;
+$blue: #35ddd5;
+
+//Неоморфизм (NB-темная, NW-светлая)
+$shadowNB-into: inset 4px 4px 10px black,
+  inset 4px 4px 15px 3px rgba(0, 0, 0, 0.678),
+  inset -1px -1px 2px rgba(255, 255, 255, 0.5), inset -1px -1px 5px white,
+  inset -1px -1px 1px rgba(0, 0, 0, 0.274);
+$shadowNB-out: -8px -8px 20px #494c52, 1px 8px 30px #101316,
+  -1px -1px 60px rgba(33, 39, 44, 0.01);
+$shadowNW-out: inset 4px 4px 10px rgba(0, 0, 0, 0.5),
+  inset -1px -1px 2px rgba(255, 255, 255, 0.5), inset -6px -6px 10px 0 white,
+  inset -1px -1px 1px rgba(0, 0, 0, 0.274);
+$shadowNW-into: -12px -12px 20px white, 1px 5px 30px rgba(0, 0, 0, 0.274);
 
 /// // Неоморфизм
 $color1: #21272c;

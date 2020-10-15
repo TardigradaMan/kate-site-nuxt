@@ -57,7 +57,8 @@ module.exports = {
     '@/plugins/papper',
     { src: '@/plugins/vue-awesome-swiper', mode: 'client' },
     '@/plugins/mask',
-    { src: '@/plugins/modernizr-plugin', mode: 'client' }
+    { src: '@/plugins/modernizr-plugin', mode: 'client' },
+    { src: '@/plugins/google-analytics.js', mode: 'client' }
   ],
   /*
    ** Nuxt.js dev-modules
@@ -97,9 +98,9 @@ module.exports = {
 
   proxy: {
     '/api/': {
-      // target: 'http://localhost:3000' // dev
+      target: 'http://localhost:3000' // dev
       // target: process.env.BASE_URL // production
-      target: 'https://vendo-284606.ey.r.appspot.com'
+      // target: 'https://vendo-284606.ey.r.appspot.com'
     },
     '/api2/': {
       target: 'https://api.telegram.org'

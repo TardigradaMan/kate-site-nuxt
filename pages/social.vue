@@ -138,7 +138,7 @@
           Придумать подтекст
         </p>
       </div>
-      <app-audit>
+      <app-audit @update-message="updateMessageTextInForm">
         <template v-slot:text>
           проведём аудит Ваших аккаунтов и рекламных кампаний, найдем ошибки и
           предложим варианты решения проблем.
@@ -217,6 +217,7 @@ export default {
       }, 1000)
     },
     updateMessageTextInForm() {
+      this.$router.push('#form')
       this.messageTextInForm =
         'Мне нужен бесплатный аудит моей рекламной кампании'
     }

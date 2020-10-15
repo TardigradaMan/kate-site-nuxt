@@ -1,5 +1,4 @@
 // Черта под заголовками
-
 .title-decor {
   &::after {
     content: '';
@@ -14,6 +13,10 @@
     transform: scale(1.2, 1);
   }
 }
+
+// .link__social .title-decor {
+//   transform: scale(1.1, 1);
+// }
 
 .title-block {
   &.title-decor::after {

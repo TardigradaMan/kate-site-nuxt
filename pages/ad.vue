@@ -204,7 +204,8 @@
           И это далеко не всё, с чем мы работали
         </p>
       </div>
-      <app-swipe-slider :sliderData="skills"></app-swipe-slider>
+      <ErrorOnData v-if="errorOnData" />
+      <app-swipe-slider v-else :sliderData="skills"></app-swipe-slider>
     </section>
     <section id="form" class="form-block form-ads">
       <app-form
@@ -221,6 +222,7 @@ import appForm from '../components/main/form'
 import appStages from '../components/main/stages'
 import appPrice from '../components/main/price'
 import appAudit from '../components/main/Audit'
+import ErrorOnData from '../components/main/ErrorOnData'
 
 import { mapState } from 'vuex'
 
@@ -233,7 +235,8 @@ export default {
     appForm,
     appStages,
     appPrice,
-    appAudit
+    appAudit,
+    ErrorOnData
   },
   data() {
     return {
@@ -274,25 +277,26 @@ export default {
   },
 
   computed: {
-    // textMessage() {
-    //   return this.text
-    // },
     ...mapState({
-      skills: state => state.content.sliderSkills
-      // skills: 'content/sliderSkills'
+      skills: state => state.content.sliderSkills,
+      errorOnData: state => state.content.errorOnData
     })
   },
 
-  async asyncData({ store, error }) {
-    try {
-      await store.dispatch('content/fetchSkill')
-    } catch (err) {
-      console.log(err)
-      return error({
-        statusCode: 404,
-        message: 'Тематики не найдены или сервер не доступен'
-      })
-    }
+  // async asyncData({ store, error }) {
+  //   try {
+  //     await store.dispatch('content/fetchSkill')
+  //   } catch (err) {
+  //     console.log(err)
+  //     return error({
+  //       statusCode: 404,
+  //       message: 'Тематики не найдены или сервер не доступен'
+  //     })
+  //   }
+  // },
+
+  mounted() {
+    this.$store.dispatch('content/fetchSkill')
   },
 
   methods: {
@@ -309,6 +313,11 @@ export default {
       }, 1000)
     },
     updateMessageTextInForm() {
+      if (process.browser) {
+        console.log(localStorage)
+        console.log(document.cookie)
+      }
+      this.$router.push('#form')
       this.messageTextInForm =
         'Мне нужен бесплатный аудит моей рекламной кампании'
     }

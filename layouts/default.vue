@@ -30,8 +30,10 @@
     <transition name="info">
       <modal-info :closeInfo="openInfo" v-if="showInfo"></modal-info>
     </transition>
-
     <!-- <app-footer></app-footer> -->
+    <client-only placeholder="Loading...">
+      <CookieMessage />
+    </client-only>
   </div>
 </template>
 
@@ -39,15 +41,18 @@
 // import AppFooter from '@/components/main/Footer'
 import NavVertical from '@/components/main/navigation-vertical'
 import ModalInfo from '@/components/main/modal-info'
+import CookieMessage from '@/components/main/CookieMessage'
 
 export default {
   components: {
     // AppFooter,
     NavVertical,
-    ModalInfo
+    ModalInfo,
+    CookieMessage
   },
   head() {
     return {
+      title: 'Реклама и продвижение в интернете',
       link: [
         { rel: 'canonical', href: `http://localhost:3000${this.$route.path}` }
       ]

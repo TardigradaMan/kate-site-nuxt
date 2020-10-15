@@ -2,14 +2,17 @@
 <template>
   <div class="wrapper__full">
     <section class="home">
-      <svg-sprite></svg-sprite>
+      <!-- <svg-sprite style="display: none;"></svg-sprite> -->
       <div ref="title" class="page-title">
         <div ref="pageTitlePosition" class="page-title__wrapper">
           <span
+            ><HomeTitleSvg class="page-title__01 svg-title"></HomeTitleSvg>
+          </span>
+          <!-- <span
             ><svg class="page-title__01 svg-title">
               <use xlink:href="#title__svg--01" /></svg
-          ></span>
-          <span
+          ></span> -->
+          <!-- <span
             ><svg class="page-title__02 svg-title">
               <use xlink:href="#title__svg--02" /></svg
           ></span>
@@ -17,10 +20,10 @@
             ><svg class="page-title__03 svg-title">
               <use xlink:href="#title__svg--03" /></svg
           ></span>
-          <span style="display: block;">Ну или хотя-бы стране, курсивым</span>
+          <span style="display: block;">Ну или хотя-бы стране, курсивым</span> -->
         </div>
         <div ref="imgTitle" class="page-title__container">
-          <picture>
+          <!-- <picture>
             <source
               type="image/webp"
               srcset="
@@ -49,31 +52,43 @@
               alt="Заказать рекламу в Яндекс и Google"
               class="page-title__img"
             />
-          </picture>
+          </picture> -->
+          <img
+            src="~assets/img/bg_home_v2.jpg"
+            srcset="
+              ~assets/img/bg_home_v2.jpg    1x,
+              ~assets/img/bg_home_v2@2x.jpg 2x
+            "
+            alt="Заказать рекламу в Яндекс и Google"
+            class="page-title__img"
+          />
         </div>
       </div>
 
       <div ref="link" class="link">
-        <nuxt-link to="/social">
-          <div ref="linkSocial" class="link__social">
-            <div class="link__header">
-              <h1 class="link__title title-decor">
-                Реклама в социальных сетях
-              </h1>
-              <strong class="link__header-subtitle"
-                >Поможем, расскажем, сделаем</strong
-              >
-            </div>
-            <div class="image-container image-container__social"></div>
-          </div>
-        </nuxt-link>
         <nuxt-link to="/ad">
           <div ref="linkAds" class="link__ads">
             <div class="link__header">
               <h1 class="link__title title-decor">Реклама в интернете</h1>
-              <strong class="link__header-subtitle">Яндекс, Гугол, Майл</strong>
+              <strong class="link__header-subtitle"
+                >Яндекс Директ, Google Реклама</strong
+              >
             </div>
             <div class="image-container image-container__ads"></div>
+          </div>
+        </nuxt-link>
+        <nuxt-link to="/social">
+          <div ref="linkSocial" class="link__social">
+            <div class="link__header">
+              <h1 class="link__title title-decor">
+                Продвижение и реклама <br />
+                в социальных сетях
+              </h1>
+              <strong class="link__header-subtitle"
+                >ВКонтакте, Facebook, Instagram, Одноклассники</strong
+              >
+            </div>
+            <div class="image-container image-container__social"></div>
           </div>
         </nuxt-link>
         <nuxt-link to="/webdevelopment">
@@ -92,17 +107,14 @@
   </div>
 </template>
 <script>
-import SvgSprite from '@/components/main/svg/svg-sprite'
+// import SvgSprite from '@/components/main/svg/svg-sprite'
+import HomeTitleSvg from '@/components/main/svg/HomeTitleSvg'
 import { gsap } from 'gsap'
 
 export default {
-  head() {
-    return {
-      title: 'Реклама в интернете'
-    }
-  },
   components: {
-    SvgSprite
+    // SvgSprite,
+    HomeTitleSvg
   },
   data() {
     return {
@@ -143,23 +155,19 @@ export default {
         .timeline({
           defaults: { ease: 'none', duration: 1 }
         })
-        .to(
-          this.$refs.pageTitlePosition,
-          // { scale: '0.5', opacity: 0, duration: 1 },
-          { opacity: 0, duration: 1 },
-          1.9
-        )
+        // .to(this.$refs.pageTitlePosition, { opacity: 0, duration: 1 }, 1.9)
 
         .to(this.$refs.title, { width: '50%' }, 2.9)
-        .to(this.$refs.pageTitlePosition, { scale: '.7' }, 4)
+        .to(this.$refs.pageTitlePosition, { scale: '1' }, 4)
         .to(this.$refs.pageTitlePosition, { opacity: 1 }, 5)
 
       // Анимация изображения на заголовке
       this.animTitlePosition = gsap
         .timeline({
-          defaults: { ease: 'none', duration: 1 }
+          defaults: { ease: 'none', duration: 3.5 }
         })
-        .fromTo(this.$refs.imgTitle, { x: '0%' }, { x: '-45% ' }, 2.9)
+        // .fromTo(this.$refs.imgTitle, { x: '0%' }, { x: '-45% ' }, 2.9)
+        .fromTo(this.$refs.imgTitle, { x: '0%' }, { x: '-85% ' }, 2.9)
 
       // Анимация блока с ссылками
       this.animLinkPosition = gsap
@@ -169,16 +177,16 @@ export default {
       // Анимация блоков ссылок
       this.animBlockLink = gsap
         .timeline({ defaults: { duration: 1.5, ease: 'none' } })
-        .to(this.$refs.linkSocial, { height: '100vh' }, 0)
-        .to(this.$refs.linkSocial, { height: '50vh' }, 3)
-        .to(this.$refs.linkSocial, { height: '33.33vh' }, 5)
+        .to(this.$refs.linkAds, { height: '100vh' }, 0)
+        .to(this.$refs.linkAds, { height: '50vh' }, 3)
+        .to(this.$refs.linkAds, { height: '33.33vh' }, 5)
         .fromTo(
-          this.$refs.linkAds,
+          this.$refs.linkSocial,
           { height: '50vh', y: '200%' },
           { height: '50vh', y: '100%' },
           3
         )
-        .to(this.$refs.linkAds, { height: '33.33vh', y: '100%' }, 5)
+        .to(this.$refs.linkSocial, { height: '33.33vh', y: '100%' }, 5)
         .fromTo(
           this.$refs.linkWeb,
           { height: '50vh', y: '300%' },
@@ -255,14 +263,32 @@ export default {
     text-align: center;
     z-index: 5;
 
-    & span {
-      margin-left: 15px;
-    }
+    // & span {
+    //   margin-left: 15px;
+    //   margin-top: 15px;
+    // }
   }
 
   &__01 {
-    width: 445px;
+    width: 1000px;
+    // filter: drop-shadow(-5px 4px 2px rgb(130, 130, 236));
+    filter: drop-shadow(-15px 15px 5px rgba(0, 0, 0, 0.795));
+    // filter: drop-shadow(-20px 30px 7px rgb(0, 0, 0));
+
+    @media (max-width: 1440px) {
+      // CSS для ширины от 992px до 1199px */
+      width: 800px;
+    }
+
+    @media (max-width: $lg-width-max) {
+      // CSS для ширины от 992px до 1199px */
+      width: 600px;
+    }
   }
+
+  //  &__01 {
+  //   width: 445px;
+  // }
 
   &__02 {
     width: 290px;
@@ -290,8 +316,8 @@ export default {
   top: 0;
   left: 0;
   z-index: 1;
-  max-width: 100%;
-  height: auto;
+  // max-width: 150%;
+  height: 100vh;
 
   @media (max-width: $md-width-max) {
     display: none;

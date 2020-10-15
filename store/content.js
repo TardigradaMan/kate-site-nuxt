@@ -1,9 +1,13 @@
 export const state = () => ({
-  sliderSkills: []
+  sliderSkills: [],
+  errorOnData: false
 })
 export const mutations = {
   SET_SKILLS_LIST(state, skills) {
     state.sliderSkills = skills
+  },
+  SET_ERROR_DATA: state => {
+    state.errorOnData = true
   }
 }
 export const actions = {
@@ -21,7 +25,7 @@ export const actions = {
       return await this.$axios.$get('/api/content/admin')
     } catch (error) {
       console.log(error)
-      // throw new Error('Внутреняя ошибка сервера, сообщите администратору')
+      throw new Error('Внутреняя ошибка сервера, сообщите администратору')
     }
   },
 
@@ -30,8 +34,8 @@ export const actions = {
       const skills = await this.$axios.$get('/api/content')
       await commit('SET_SKILLS_LIST', skills)
     } catch (error) {
-      console.log(error)
-      // throw new Error('Внутреняя ошибка сервера, сообщите администратору')
+      await commit('SET_ERROR_DATA')
+      console.error(error.response && error.response.data)
     }
   },
 

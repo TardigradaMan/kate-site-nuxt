@@ -1,30 +1,75 @@
 @font-face {
-  font-family: 'Roboto Condensed';
+  font-family: 'Roboto-Regular';
   src: url('../fonts/Roboto/RobotoCondensed-Regular.woff2') format('woff2'),
-    url('../fonts/Roboto/RobotoCondensed-LightItalic.woff2') format('woff2'),
-    url('../fonts/Roboto/RobotoCondensed-Regular.woff') format('woff'),
-    url('../fonts/Roboto/RobotoCondensed-LightItalic.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Blogger';
-  src: url('../fonts/Blogger/BloggerSans-Medium.woff2') format('woff2'),
-    url('../fonts/Blogger/BloggerSans-Medium.woff') format('woff');
-  font-weight: normal;
+    url('../fonts/Roboto/RobotoCondensed-Regular.woff') format('woff');
+  font-weight: 400;
   font-style: normal;
 }
 
-// @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&display=swap');
+@font-face {
+  font-family: 'Roboto-Italic';
+  src: url('../fonts/Roboto/RobotoCondensed-Italic.woff2') format('woff2'),
+    url('../fonts/Roboto/RobotoCondensed-Italic.woff') format('woff');
+  // font-weight: 00;
+  // font-style: italic;
+}
+
+@font-face {
+  font-family: 'Roboto-LightItalic';
+  src: url('../fonts/Roboto/RobotoCondensed-LightItalic.woff2') format('woff2'),
+    url('../fonts/Roboto/RobotoCondensed-LightItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+}
+
+// @font-face {
+//   font-family: 'Blogger';
+//   src: url('../fonts/Blogger/BloggerSans-Medium.woff2') format('woff2'),
+//     url('../fonts/Blogger/BloggerSans-Medium.woff') format('woff');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+@font-face {
+  font-family: 'Oswald-Regular';
+  src: url('../fonts/Oswald/Oswald-Regular.woff2') format('woff2'),
+    url('../fonts/Oswald/Oswald-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Oswald-Medium';
+  src: url('../fonts/Oswald/Oswald-Medium.woff2') format('woff2'),
+    url('../fonts/Oswald/Oswald-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Oswald-SemiBold';
+  src: url('../fonts/Oswald/Oswald-SemiBold.woff2') format('woff2'),
+    url('../fonts/Oswald/Oswald-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Oswald-Bold';
+  src: url('../fonts/Oswald/Oswald-Bold.woff2') format('woff2'),
+    url('../fonts/Oswald/Oswald-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+// @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
 
 body {
   color: $color-text;
   // font-family: 'Roboto', sans-serif;
   // font-family: 'Roboto Condensed', sans-serif;
   // font-family: 'Montserrat', sans-serif;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 400;
+  font-family: 'Roboto-Regular', sans-serif;
 }
 
 h1,
@@ -32,7 +77,7 @@ h2,
 h3 {
   // font-family: Blogger, sans-serif;
   // font-family: 'Montserrat', sans-serif;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Oswald-Medium', sans-serif;
 }
 
 h2,

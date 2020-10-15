@@ -60,6 +60,7 @@
         <slot name="text6"></slot>
       </p>
       <span class="arrow-bg dark light"></span>
+      <span class="arrow dark light"></span>
     </li>
   </ul>
 </template>
@@ -147,7 +148,13 @@ export default {}
     // background: rgb(56, 118, 122);
     list-style: none;
     display: grid;
-    grid-template: 1fr 1fr/ 1fr 1fr 1fr;
+    // grid-template: 1fr 1fr/ 1fr 1fr 1fr;
+    //
+    grid-template-areas:
+      'st1 st2 st3'
+      'st6 st5 st4';
+
+    //
     gap: 100px;
 
     @media (max-width: $lg-width-max) {
@@ -157,7 +164,11 @@ export default {}
 
     @media (max-width: $md-width-max) {
       // CSS для ширины от 768px до 991px */
-      grid-template: 1fr 1fr 1fr/ 1fr 1fr;
+      // grid-template: 1fr 1fr 1fr/ 1fr 1fr;
+      grid-template-areas:
+        'st1 st2'
+        'st4 st3'
+        'st5 st6';
     }
 
     @media (max-width: $sm-width-max) {
@@ -166,7 +177,14 @@ export default {}
 
     @media (max-width: $xs-width-max) {
       // CSS для ширины до 575px (включительно) */
-      grid-template: repeat(6, 1fr) / 1fr;
+      // grid-template: repeat(6, 1fr) / 1fr;
+      grid-template-areas:
+        'st1'
+        'st2'
+        'st3'
+        'st4'
+        'st5'
+        'st6';
     }
   }
 
@@ -232,6 +250,10 @@ export default {}
 // }
 
 .stage-1 {
+  //
+  grid-area: st1;
+  //
+
   & > .arrow-bg {
     top: 50%;
   }
@@ -242,6 +264,9 @@ export default {}
 }
 
 .stage-2 {
+  //
+  grid-area: st2;
+  //
   & > .arrow-bg {
     top: 50%;
   }
@@ -252,6 +277,9 @@ export default {}
 }
 
 .stage-3 {
+  //
+  grid-area: st3;
+  //
   & > .arrow-bg {
     bottom: -115px;
     left: calc(50% - 30px);
@@ -264,16 +292,22 @@ export default {}
 }
 
 .stage-4 {
+  //
+  grid-area: st4;
+  //
   & > .arrow-bg {
-    top: 50%;
+    display: none;
   }
 
   & > .arrow {
-    top: 50%;
+    display: none;
   }
 }
 
 .stage-5 {
+  //
+  grid-area: st5;
+  //
   & > .arrow-bg {
     top: 50%;
   }
@@ -283,8 +317,18 @@ export default {}
   }
 }
 
-.stage-6 > .arrow-bg {
-  display: none;
+.stage-6 {
+  //
+  grid-area: st6;
+  //
+  & > .arrow-bg {
+    top: 50%;
+  }
+
+  & > .arrow {
+    top: 50%;
+  }
+  // display: none;
 }
 
 .stages-ads {
@@ -292,7 +336,8 @@ export default {}
     background: center/cover url('~assets/img/icon/arrow-dark.png');
   }
 
-  & .stage-3 {
+  & .stage-3,
+  .stage-4 {
     & > .arrow {
       &.dark {
         background: center/cover url('~assets/img/icon/arrow-dark-down.png');
@@ -300,8 +345,8 @@ export default {}
     }
   }
 
-  .stage-4,
-  .stage-5 {
+  .stage-5,
+  .stage-6 {
     & > .arrow {
       &.dark {
         background: center/cover url('~assets/img/icon/arrow-dark-left.png');
@@ -322,7 +367,8 @@ export default {}
     background: center/cover url('~assets/img/icon/arrow-light.png');
   }
 
-  & .stage-3 {
+  & .stage-3,
+  .stage-4 {
     & > .arrow {
       &.light {
         background: center/cover url('~assets/img/icon/arrow-light-down.png');
@@ -330,8 +376,8 @@ export default {}
     }
   }
 
-  .stage-4,
-  .stage-5 {
+  .stage-5,
+  .stage-6 {
     & > .arrow {
       &.light {
         background: center/cover url('~assets/img/icon/arrow-light-left.png');
@@ -362,7 +408,7 @@ export default {}
     }
   }
 
-  .stage-4 {
+  .stage-3 {
     & > .arrow-bg {
       top: 50%;
       left: -80px;
@@ -370,8 +416,31 @@ export default {}
 
     & > .arrow {
       top: 50%;
-      left: -72px;
+      left: -73px;
     }
+  }
+
+  .stage-4 {
+    & > .arrow-bg {
+      display: block;
+      bottom: -115px;
+      left: calc(50% - 30px);
+    }
+
+    & > .arrow {
+      display: block;
+      bottom: -105px;
+      left: calc(50% - 25px);
+    }
+    // & > .arrow-bg {
+    //   top: 50%;
+    //   left: -80px;
+    // }
+
+    // & > .arrow {
+    //   top: 50%;
+    //   left: -72px;
+    // }
   }
 
   .stage-5 {
@@ -384,8 +453,14 @@ export default {}
     }
   }
 
-  .stage-6 > .arrow-bg {
-    display: none;
+  .stage-6 {
+    & > .arrow-bg {
+      display: none;
+    }
+
+    & > .arrow {
+      display: none;
+    }
   }
 
   .stages-social {
@@ -393,6 +468,14 @@ export default {}
       & > .arrow {
         &.light {
           background: center/cover url('~assets/img/icon/arrow-light-down.png');
+        }
+      }
+    }
+
+    .stage-3 {
+      & > .arrow {
+        &.dark {
+          background: center/cover url('~assets/img/icon/arrow-light-left.png');
         }
       }
     }
@@ -411,6 +494,14 @@ export default {}
       & > .arrow {
         &.light {
           background: center/cover url('~assets/img/icon/arrow-dark-down.png');
+        }
+      }
+    }
+
+    .stage-3 {
+      & > .arrow {
+        &.dark {
+          background: center/cover url('~assets/img/icon/arrow-dark-left.png');
         }
       }
     }
@@ -441,6 +532,7 @@ export default {}
   }
 
   .stage-4,
+  .stage-3,
   .stage-5 {
     & > .arrow-bg {
       top: calc(100% + 50px);
@@ -455,6 +547,7 @@ export default {}
 
   .stages-social {
     .stage-1,
+    .stage-3,
     .stage-4,
     .stage-5 {
       & > .arrow {
@@ -467,6 +560,7 @@ export default {}
 
   .stages-ads {
     .stage-1,
+    .stage-3,
     .stage-4,
     .stage-5 {
       & > .arrow {

@@ -44,46 +44,6 @@
         </p>
       </div>
 
-      <!-- <div class="form__group contact">
-        <input
-          :class="{ 'form-group--error': $v.contactForm.name.$error }"
-          v-model.trim.lazy="$v.contactForm.name.$model"
-          class="input"
-          type="text"
-          name="name"
-          placeholder="Ваше имя"
-        />
-        <p v-if="!$v.contactForm.name.required" class="error">
-          Обязательное поле
-        </p>
-
-        <the-mask
-          :class="{ 'form-group--error': $v.contactForm.phone.$error }"
-          v-model.trim.lazy="$v.contactForm.phone.$model"
-          :mask="['#(###) ###-####']"
-          class="input"
-          type="tel"
-          name="phone"
-          placeholder="Ваш номер для связи"
-        />
-        <p v-if="!$v.contactForm.phone.required" class="error">
-          Обязательное поле
-        </p>
-        <input
-          :class="{ 'form-group--error': $v.contactForm.email.$error }"
-          v-model.trim.lazy="$v.contactForm.email.$model"
-          class="input"
-          type="email"
-          name="email"
-          placeholder="Ваш email для связи"
-        />
-        <p v-if="!$v.contactForm.email.required" class="error">
-          Обязательное поле
-        </p>
-        <p v-if="!$v.contactForm.email.email" class="error">
-          Введите корректный адрес почты (Например доступная@реклама.всем)
-        </p>
-      </div> -->
       <div class="form__group radio">
         <h3 class="form__title">Предпочитаемый способ связи <br /></h3>
         <div class="radio__wrapper">
@@ -437,8 +397,8 @@ export default {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
-  padding: 5px;
-  padding-top: 40px;
+  padding: 40px;
+  padding-bottom: 0;
   // box-shadow: $shadow-out;
   box-shadow: $shadow-nm1;
   border-radius: 5px;
@@ -515,7 +475,9 @@ export default {
   width: 40px;
   height: 20px;
   border-radius: 10px;
-  background: #747d88;
+  // background: #747d88;
+  // border: #3d3d3d solid 1px;
+  box-shadow: $shadowNB-into;
   margin-left: -3em;
   transition: 0.3s ease-out;
 
@@ -527,17 +489,18 @@ export default {
     width: 22px;
     height: 22px;
     border-radius: 11px;
-    background: #fff;
+    background: linear-gradient(145deg, #e6e6e6, #fff);
     transition: all 0.3s ease-out;
   }
 }
 
 .check__input:checked + .check__box {
   transition: 0.3s ease-out;
-  background: rgb(255, 255, 255);
+  background: #0d7937;
+  // border: #494d4b solid 1px;
 
   &::before {
-    background-image: linear-gradient(90deg, #f27a54 0%, #a154f2 100%);
+    background: linear-gradient(145deg, rgb(211, 211, 211), #fff);
     transition: all 0.3s ease-out;
     transform: translateX(20px);
   }
@@ -628,29 +591,4 @@ export default {
     transition: box-shadow ease-in-out 0.2s;
   }
 }
-
-// @media screen and(max-width: 660px) {
-//   h2 {
-//     font-size: 28px;
-//     line-height: 22px;
-//   }
-//   // .form {
-//   //   display: grid;
-//   //   grid-template-areas:
-//   //     'input'
-//   //     'radio'
-//   //     'check'
-//   //     'block';
-
-//   //   grid-template-rows: 1fr;
-//   //   grid-template-columns: 1fr;
-//   //   grid-gap: 1vw;
-//   // }
-//   .contact,
-//   .block {
-//     input {
-//       min-width: 100%;
-//     }
-//   }
-// }
 </style>

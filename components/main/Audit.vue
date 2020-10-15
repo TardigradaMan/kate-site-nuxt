@@ -147,7 +147,7 @@ export default {
 
   &__button {
     border-radius: 8px;
-    border-right: none;
+    // border-right: none;
     box-shadow: -8px -8px 20px #494c52, 1px 8px 30px #101316,
       -1px -1px 60px rgba(33, 39, 44, 0.01);
     transition: all ease-in-out 0.2s;

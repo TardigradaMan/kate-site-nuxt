@@ -6,9 +6,12 @@ RUN mkdir ${APP_ROOT}
 WORKDIR ${APP_ROOT}
 COPY . ${APP_ROOT}
 
-RUN npm install
+RUN npm installsudo
 RUN npm run build
 
-CMD ["npm", "run", "start"]
 
-ENV HOST 0.0.0.0
+EXPOSE 3000
+ENV NUXT_HOST=0.0.0.0
+ENV NUXT_PORT=3000
+
+CMD ["npm", "run", "start"]

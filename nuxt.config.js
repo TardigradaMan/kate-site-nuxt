@@ -3,7 +3,7 @@ const imageminMozjpeg = require('imagemin-mozjpeg')
 const isDev = process.env.NODE_ENV !== 'production'
 
 module.exports = {
-  telemetry: true,
+  telemetry: false,
   // mode: 'universal',
   // говорит Nuxt создать 2 бандла, один из которых использует ES6 Modules синтаксис поддерживаемый последними браузерами,
   // а второй Legacy транспилированный через Babel. В html будет по 2 тега на каждый js скрипт

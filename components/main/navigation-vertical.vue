@@ -12,7 +12,7 @@
           <!-- <span class="main-nav__link--active">Социальная сеть</span> -->
         </li>
         <li class="main-nav__item">
-          <nuxt-link class="main-nav__link" to="/ad"
+          <nuxt-link class="main-nav__link" to="/advertising"
             >Реклама в интернете</nuxt-link
           >
         </li>

@@ -21,7 +21,7 @@
             Почему контекстная реклама эффективна?
           </h2>
           <p class="description__subtitle subtitle">
-            И вот что вас ожидает
+            И вот, что Вас ожидает
           </p>
         </div>
 
@@ -92,7 +92,7 @@
             Как будет проходить работа
           </h2>
           <p class="description__subtitle subtitle">
-            И не придумал
+            Этапы
           </p>
         </div>
         <app-stages>
@@ -183,7 +183,7 @@
           Уже есть реклама, но нет результата?
         </h2>
         <p class="skills__subtitle subtitle">
-          Придумать подтекст
+          Поможем разобраться в чем причина
         </p>
       </div>
       <app-audit @update-message="updateMessageTextInForm">

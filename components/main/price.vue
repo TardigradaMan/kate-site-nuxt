@@ -1,19 +1,12 @@
 <template>
   <div @mouseover="mouseOverPrice" class="price">
-    <!-- <nav class="price-nav">
-      <ul class="price-nav__list">
-        <li class="price-nav__item">Соц группы</li>
-        <li class="price-nav__item">Реклама</li>
-        <li class="price-nav__item">Ещё что?</li>
-      </ul>
-    </nav> -->
     <div class="price-list">
       <div class="price-item color-1">
         <div class="price-content">
           <div class="price-bg bg-1"></div>
           <div ref="priceCard" class="price-card card elementary ">
             <div class="card__header bg-1">
-              <p class="card__description">Необходимый минимум</p>
+              <!-- <p class="card__description">Необходимый минимум</p> -->
               <h3 class="card__title">
                 <slot name="title-min"></slot>
               </h3>
@@ -25,7 +18,7 @@
               @click="$emit('set-tariff', listMessagesTariff.min)"
               class="card__button"
             >
-              Выбрать
+              Оставить заявку
             </button>
             <ul class="card__list">
               <ListItem
@@ -36,7 +29,7 @@
             </ul>
           </div>
           <div class="price-title">
-            <span>минимум</span>
+            <span>тариф №1</span>
           </div>
         </div>
       </div>
@@ -45,7 +38,7 @@
           <div :style="{ border: borderBg }" class="price-bg bg-2"></div>
           <div ref="priceCard2" class="price-card card middle">
             <div class="card__header bg-2">
-              <p class="card__description">Оптимум</p>
+              <!-- <p class="card__description">Оптимум</p> -->
               <h3 class="card__title"><slot name="title-mid"></slot></h3>
               <span class="card__price">
                 <slot name="price-mid"></slot>&#x20bd;</span
@@ -55,7 +48,7 @@
               @click="$emit('set-tariff', listMessagesTariff.middle)"
               class="card__button"
             >
-              Выбрать
+              Оставить заявку
             </button>
             <ul class="card__list">
               <ListItem
@@ -66,7 +59,7 @@
             </ul>
           </div>
           <div class="price-title">
-            <span>средне</span>
+            <span>тариф №2</span>
           </div>
         </div>
       </div>
@@ -75,7 +68,7 @@
           <div class="price-bg bg-3"></div>
           <div ref="priceCard3" class="price-card card high">
             <div class="card__header bg-3">
-              <p class="card__description">Отлично</p>
+              <!-- <p class="card__description">Отлично</p> -->
               <h3 class="card__title">
                 <slot name="title-max"></slot>
               </h3>
@@ -87,7 +80,7 @@
               @click="$emit('set-tariff', listMessagesTariff.max)"
               class="card__button"
             >
-              Выбрать
+              Оставить заявку
             </button>
             <ul class="card__list">
               <ListItem
@@ -98,7 +91,7 @@
             </ul>
           </div>
           <div class="price-title">
-            <span>хорошо</span>
+            <span>тариф №3</span>
           </div>
         </div>
       </div>

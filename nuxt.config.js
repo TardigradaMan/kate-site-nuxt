@@ -98,25 +98,12 @@ module.exports = {
 
   proxy: {
     '/api/': {
-      target: 'http://localhost:3000' // dev
-      // target: process.env.BASE_URL // production
-      // target: 'https://vendo-284606.ey.r.appspot.com'
+      target: 'http://localhost:3000' || process.env.BASE_URL
     },
     '/api2/': {
       target: 'https://api.telegram.org'
     }
   },
-  // publicRuntimeConfig: {
-  //   axios: {
-  //     browserBaseURL: process.env.BROWSER_BASE_URL
-  //   }
-  // },
-
-  // privateRuntimeConfig: {
-  //   axios: {
-  //     baseURL: process.env.BASE_URL
-  //   }
-  // },
 
   webfontloader: {
     events: false,

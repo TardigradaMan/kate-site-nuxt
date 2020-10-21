@@ -1,0 +1,12 @@
+node_modules
+npm-debug*
+.nuxt
+server/keys/keys.dev.js
+.env
+.idea
+.vscode
+.editorconfig
+.eslintrc.js
+app.yaml
+.prettierrc
+.stylelintrc

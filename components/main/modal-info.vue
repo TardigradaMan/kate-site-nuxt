@@ -6,7 +6,8 @@
         <div class="contacts__wrapper">
           <header class="info__header">
             <p class="info__text">
-              У вас есть вопросы? Нажмите на
+              У вас есть вопросы? Нажмите на желаемый способ связи и мы сразу
+              Вам ответим
             </p>
           </header>
           <div class="contacts">
@@ -29,7 +30,7 @@
                       <svg class="icon">
                         <use xlink:href="#icon-telegram"></use></svg
                     ></span>
-                    <span class="item__contact">8 923 167 3783</span>
+                    <span class="item__contact">8 923 651 0335</span>
                   </a>
                 </li>
                 <li class="contacts__item">
@@ -47,7 +48,7 @@
                       <svg class="icon">
                         <use xlink:href="#icon-dribbble"></use></svg
                     ></span>
-                    <span class="item__contact">pochta@pochta.ru</span>
+                    <span class="item__contact">fadinacatya@yandex.ru</span>
                   </a>
                 </li>
               </ul>
@@ -56,7 +57,7 @@
           <footer class="info__footer">
             <p class="info__text">
               У вас есть вопросы? Нажмите на желаемый способ связи и мы сразу
-              вам ответим
+              Вам ответим
             </p>
           </footer>
         </div>

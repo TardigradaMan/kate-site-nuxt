@@ -66,7 +66,7 @@
       </div>
 
       <div ref="link" class="link">
-        <nuxt-link to="/ad">
+        <nuxt-link to="/advertising">
           <div ref="linkAds" class="link__ads">
             <div class="link__header">
               <h1 class="link__title title-decor">Реклама в интернете</h1>

@@ -7,8 +7,9 @@
             Реклама в социальных сетях
           </h1>
           <p class="header__text subtitle">
-            А что делать, когда это закончится? Этого никогда не случится.<br />
-            Фейсбук как мода, он никогда не закончится
+            &mdash; А что делать, когда это закончится?<br />
+            &mdash; Этого никогда не случится. Фейсбук как мода, он никогда не
+            закончится. <br />Из фильма "Социальная сеть"
           </p>
           <span class="scroll"> </span>
         </div>
@@ -20,9 +21,9 @@
           <h2 class="description__title title-decor title-block">
             Зачем необходимо продвижение в социальных сетях?
           </h2>
-          <p class="description__subtitle subtitle">
-            И не придумал
-          </p>
+          <!-- <p class="description__subtitle subtitle">
+            И вот, что Вас ожидает
+          </p> -->
         </div>
         <app-info></app-info>
       </div>
@@ -35,7 +36,7 @@
             Как будет проходить работа
           </h2>
           <p class="description__subtitle subtitle">
-            И не придумал
+            Этапы
           </p>
         </div>
         <app-stages>
@@ -103,27 +104,27 @@
           :listTariff="listTariffSocial"
         >
           <template v-slot:title-min>
-            «Ведение сообществ»
+            Ведение сообществ
           </template>
           <template v-slot:price-min>
-            от 3000*
+            от 7 000
           </template>
           <template v-slot:title-mid>
-            «Ведение сообществ и реклама»
+            Ведение сообществ и реклама
           </template>
           <template v-slot:price-mid>
-            от 7000*
+            от 10 000
           </template>
           <template v-slot:title-max>
-            «Таргетированная реклама»
+            Таргетированная реклама
           </template>
           <template v-slot:price-max>
-            от 8000*
+            от 3000*
           </template>
         </app-price>
         <div class="price-block__info">
-          * - 1 месяц ведения в подарок со второго месяца ведение от 2 000 р.
-          Рекламный бюджет рассчитывается индивидуально.
+          * - 1 месяц ведения рекламы в подарок, со второго месяца ведение от 2
+          000 р. Рекламный бюджет рассчитывается индивидуально.
         </div>
       </div>
     </section>
@@ -131,11 +132,11 @@
     <section class="optimization-social">
       <div class="header-block">
         <h2 class="skills__title title-decor title-block">
-          Уже подключили продвижение в соцсетях и таргетированную рекламу, но
-          нет результата?
+          Уже используете продвижение в соцсетях? Подключили таргетированную
+          рекламу, но нет результата?
         </h2>
         <p class="skills__subtitle subtitle">
-          Придумать подтекст
+          Поможем разобраться в чем причина
         </p>
       </div>
       <app-audit @update-message="updateMessageTextInForm">
@@ -181,7 +182,14 @@ export default {
         max: 'Я хочу ведение сообществ и рекламу'
       },
       listTariffSocial: {
-        min: [{ cardItemClass: 'ok', title: 'Настройка и запуск рекламы' }],
+        min: [
+          { cardItemClass: 'ok', title: 'Стратегия продвижения' },
+          { cardItemClass: 'ok', title: 'Разработка дизайна' },
+          { cardItemClass: 'ok', title: 'Контент-план' },
+          { cardItemClass: 'ok', title: 'Размещение постов' },
+          { cardItemClass: 'ok', title: 'Проведение активностей' },
+          { cardItemClass: 'ok', title: 'Модерация сообществ' }
+        ],
         mid: [
           { cardItemClass: 'ok', title: 'Стратегия продвижения' },
           { cardItemClass: 'ok', title: 'Разработка дизайна' },
@@ -189,17 +197,9 @@ export default {
           { cardItemClass: 'ok', title: 'Размещение постов' },
           { cardItemClass: 'ok', title: 'Проведение активностей' },
           { cardItemClass: 'ok', title: 'Модерация сообществ' },
-          { cardItemClass: 'off', title: 'Настройка и запуск рекламы' }
-        ],
-        max: [
-          { cardItemClass: 'ok', title: 'Стратегия продвижения' },
-          { cardItemClass: 'ok', title: 'Разработка дизайна' },
-          { cardItemClass: 'ok', title: 'Контент-план' },
-          { cardItemClass: 'ok', title: 'Размещение постов' },
-          { cardItemClass: 'ok', title: 'Проведение активностей' },
-          { cardItemClass: 'ok', title: 'Модерация сообществ' },
           { cardItemClass: 'ok', title: 'Настройка и запуск рекламы' }
-        ]
+        ],
+        max: [{ cardItemClass: 'ok', title: 'Настройка и запуск рекламы' }]
       }
     }
   },

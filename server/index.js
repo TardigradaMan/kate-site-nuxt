@@ -25,16 +25,6 @@ async function start() {
   // Give nuxt middleware to express
   app.use(nuxt.render)
 
-  // Webhook BOT
-  // // We are receiving updates at the route below!
-  // app.post(`/bot${keys.TOKEN}`, (req, res) => {
-  //   bot.processUpdate(req.body)
-  //   res.sendStatus(200)
-  // })
-  // Webhook
-
-  // Give bot middleware to express
-
   // Listen the server
   app.listen(port, host, () => {
     consola.ready({
@@ -42,9 +32,5 @@ async function start() {
       badge: true
     })
   })
-
-  // Ботт
-
-  // Конец бота
 }
 start()

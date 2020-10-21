@@ -2,12 +2,9 @@ const authRoutes = require('./routes/auth.routes')
 const applicationsRoutes = require('./routes/applications.routes')
 const contentRoutes = require('./routes/content.routes')
 const botRoutes = require('./routes/bot.routes')
-// Бот начало
-// const helper = require('./helper')
-// const Applications = require('./models/applications.model')
-// Бот конец
+
 const keys = require('./keys')
-// Для защиты routs и проверки токена:
+
 const passportStrategy = require('./middleware/passport-strategy')
 const passport = require('passport')
 
@@ -26,9 +23,6 @@ mongoose
   })
   .then(() => console.log('MongoDB connected.....'))
   .catch(error => console.error(error))
-// =============================================== //
-
-// Бот конец
 
 // Passport подключаем сразу после mongoose
 app.use(passport.initialize())

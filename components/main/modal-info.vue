@@ -25,7 +25,10 @@
                   </a>
                 </li>
                 <li class="contacts__item">
-                  <a class="contacts__link" href="https://t.me/fadin_ivan">
+                  <a
+                    class="contacts__link"
+                    href="https://t.me/ekaterina_fadina"
+                  >
                     <span class="item__title">
                       <svg class="icon">
                         <use xlink:href="#icon-telegram"></use></svg
@@ -43,7 +46,7 @@
                   </a>
                 </li>
                 <li class="contacts__item">
-                  <a class="contacts__link" href="mailto:pochta@pochta.ru">
+                  <a class="contacts__link" href="mailto:fadinacatya@yandex.ru">
                     <span class="item__title">
                       <svg class="icon">
                         <use xlink:href="#icon-dribbble"></use></svg

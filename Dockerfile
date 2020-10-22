@@ -6,7 +6,7 @@ RUN mkdir ${APP_ROOT}
 WORKDIR ${APP_ROOT}
 COPY . ${APP_ROOT}
 
-RUN npm installsudo
+RUN npm install
 RUN npm run build
 
 

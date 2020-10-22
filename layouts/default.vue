@@ -31,7 +31,7 @@
       <modal-info :closeInfo="openInfo" v-if="showInfo"></modal-info>
     </transition>
     <!-- <app-footer></app-footer> -->
-    <client-only placeholder="Loading...">
+    <client-only>
       <CookieMessage />
     </client-only>
   </div>

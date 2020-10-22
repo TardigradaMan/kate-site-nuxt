@@ -53,7 +53,9 @@ export default {
     /*  if (!this.getGDPR() === true) {
       this.isOpen = true;
     } */
-    if (this.getGDPR() === 'false' || null) {
+
+    if (this.getGDPR() === 'false' || this.getGDPR() === null) {
+      console.log(`created into and ${this.isOpen}`)
       this.isOpen = true
     }
   },

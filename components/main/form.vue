@@ -27,8 +27,6 @@
         <p v-if="!$v.contactForm.phone.required" class="error">
           Обязательное поле
         </p>
-        <!-- v-model.trim.lazy="contactForm.text" -->
-        <!-- v-bind:value="messageText" -->
         <textarea
           :value="messageText"
           @input="updateMessageInForm($event.target.value)"
@@ -135,21 +133,14 @@ export default {
     }
   },
 
-  // mounted() {
-  //   this.$nextTick(() => {
-  //     this.$nuxt.$loading.start()
-
-  //     setTimeout(() => this.$nuxt.$loading.finish(), 500)
-  //   })
-
-  // },
   methods: {
     updateMessageInForm(value) {
-      console.log(value)
       this.$emit('input', value)
     },
     deleteMessageInForm() {
-      this.$emit('deleteMessageInForm')
+      if (!this.$v.$invalid) {
+        this.$emit('deleteMessageInForm')
+      }
     },
     async onSubmit() {
       this.$v.$touch()
@@ -164,18 +155,17 @@ export default {
             phone: this.contactForm.phone,
             email: this.contactForm.email,
             method: this.contactForm.method,
-            // text: this.contactForm.text,
             text: this.messageText,
             page: this.contactForm.page
           }
 
           //
-          await console.log(formData)
+          // await console.log(formData)
 
           //
 
-          // await this.$store.dispatch('applications/create', formData)
-          // await this.$store.dispatch('applications/sendBotTelegram', formData)
+          await this.$store.dispatch('applications/create', formData)
+          await this.$store.dispatch('applications/sendBotTelegram', formData)
 
           this.submitStatus = 'PENDING'
           this.submitStatus = 'OK'

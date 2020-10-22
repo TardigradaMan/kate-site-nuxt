@@ -49,15 +49,15 @@
               <source
                 type="image/webp"
                 srcset="
-                  ~assets/img/Стул_мой_v1.webp    1x,
-                  ~assets/img/Стул_мой_v1@2x.webp 2x
+                  ~assets/img/adv-desc.webp    1x,
+                  ~assets/img/adv-desc@2x.webp 2x
                 "
               />
               <img
-                src="~assets/img/Стул_мой_v1.png"
+                src="~assets/img/adv-desc.png"
                 srcset="
-                  ~assets/img/Стул_мой_v1.png    1x,
-                  ~assets/img/Стул_мой_v1@2x.png 2x
+                  ~assets/img/adv-desc.png    1x,
+                  ~assets/img/adv-desc@2x.png 2x
                 "
                 alt="Заказать рекламу в Яндекс и Google"
                 class="description__item-img"
@@ -283,18 +283,6 @@ export default {
     })
   },
 
-  // async asyncData({ store, error }) {
-  //   try {
-  //     await store.dispatch('content/fetchSkill')
-  //   } catch (err) {
-  //     console.log(err)
-  //     return error({
-  //       statusCode: 404,
-  //       message: 'Тематики не найдены или сервер не доступен'
-  //     })
-  //   }
-  // },
-
   mounted() {
     this.$store.dispatch('content/fetchSkill')
   },
@@ -496,26 +484,6 @@ export default {
       text-align: right;
       // padding-right: 70px;
       position: relative;
-      // background: rgba(53, 118, 192, 0.1);
-
-      // & > p {
-      //   // padding-left: 15px;
-      //   padding: 0;
-      //   margin: 0;
-      //   line-height: 20px;
-      // }
-
-      // &::after {
-      //   content: '';
-      //   background-image: url('~assets/img/icon_descript.png');
-      //   background-size: cover;
-      //   position: absolute;
-      //   transform: translateY(-50%);
-      //   top: 50%;
-      //   right: 0;
-      //   width: 65px;
-      //   height: 65px;
-      // }
     }
 
     &--central {
@@ -524,24 +492,13 @@ export default {
       grid-column: 2/3;
       align-self: center;
       min-width: 400px;
-      // background-image: url('~assets/img/Стул_мой_v1.png');
-      // background-size: contain;
-      // background-repeat: no-repeat;
-      // background-position: center;
-
-      @media (max-width: $lg-width-max) {
-        // CSS для ширины от 992px до 1199px */
-        // grid-row: 2/3;
-        // grid-column: 1/3;
-        // min-width: 400px;
-      }
+      background: transparent;
 
       @media (max-width: $md-width-max) {
         // CSS для ширины от 768px до 991px */
         // min-width: 768px;
         grid-row: 2/4;
         grid-column: 1/3;
-        // justify-self: center;
       }
 
       @media (max-width: $sm-width-max) {
@@ -559,27 +516,6 @@ export default {
 
     &--right {
       text-align: left;
-      // padding-left: 70px;
-      // position: relative;
-      // background: rgba(53, 118, 192, 0.1);
-
-      // & > p {
-      //   padding: 0;
-      //   margin: 0;
-      //   // padding-right: 15px;
-      // }
-
-      // &::before {
-      //   content: '';
-      //   background-image: url('~assets/img/icon_descript.png');
-      //   background-size: cover;
-      //   position: absolute;
-      //   transform: translateY(-50%) scale(-1, 1);
-      //   top: 50%;
-      //   left: 0;
-      //   width: 65px;
-      //   height: 65px;
-      // }
     }
 
     &-img {
@@ -588,13 +524,13 @@ export default {
 
       @media (max-width: $md-width-max) {
         // CSS для ширины от 768px до 991px */
-        // min-width: 768px;
+
         width: 50vmin;
       }
 
       @media (max-width: $xs-width-max) {
         // CSS для ширины от 768px до 991px */
-        // min-width: 768px;
+
         min-width: 80vmin;
       }
     }
@@ -611,35 +547,13 @@ export default {
 }
 
 .skills {
-  // background: $grey;
-  // padding: 20px 0;
   padding-bottom: 20px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-}
-
-.form-block {
-  // box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
 .stages-ads {
   // background: rgb(162, 255, 109);
   padding-bottom: 50px;
   color: #eee;
-}
-
-@media (max-width: $lg-width-max) {
-  // CSS для ширины от 992px до 1199px */
-}
-
-@media (max-width: $md-width-max) {
-  // CSS для ширины от 768px до 991px */
-}
-
-@media (max-width: $sm-width-max) {
-  // CSS для ширины от 576px до 767px */
-}
-
-@media (max-width: $xs-width-max) {
-  // CSS для ширины до 575px (включительно) */
 }
 </style>

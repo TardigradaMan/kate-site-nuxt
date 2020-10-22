@@ -219,22 +219,22 @@ export default {}
   }
 
   & .icon-1 {
-    background: center / 50% url('~assets/img/icon/005-approved.png') no-repeat,
+    background: center / 50% url('~assets/img/icon/icon-a.png') no-repeat,
       linear-gradient(145deg, #e6e6e6, #fff);
   }
 
   & .icon-2 {
-    background: center / 50% url('~assets/img/icon/001-quality.png') no-repeat,
+    background: center / 50% url('~assets/img/icon/icon-b.png') no-repeat,
       linear-gradient(145deg, #e6e6e6, #fff);
   }
 
   & .icon-3 {
-    background: center / 50% url('~assets/img/icon/maintenance.png') no-repeat,
+    background: center / 50% url('~assets/img/icon/icon-c.png') no-repeat,
       linear-gradient(145deg, #e6e6e6, #fff);
   }
 
   & .icon-4 {
-    background: center / 50% url('~assets/img/icon/023-design.png') no-repeat,
+    background: center / 50% url('~assets/img/icon/icon-d.png') no-repeat,
       linear-gradient(145deg, #e6e6e6, #fff);
   }
 
@@ -288,21 +288,5 @@ export default {}
   & + .info-title {
     left: -35px;
   }
-}
-
-@media (max-width: $lg-width-max) {
-  // CSS для ширины от 992px до 1199px */
-}
-
-@media (max-width: $md-width-max) {
-  // CSS для ширины от 768px до 991px */
-}
-
-@media (max-width: $sm-width-max) {
-  // CSS для ширины от 576px до 767px */
-}
-
-@media (max-width: $xs-width-max) {
-  // CSS для ширины до 575px (включительно) */
 }
 </style>

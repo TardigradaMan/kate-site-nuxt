@@ -278,6 +278,10 @@ export default {
   color: $grey;
 }
 
+.skills__title {
+  padding: 5px;
+}
+
 .form-social {
   background: #eee;
 

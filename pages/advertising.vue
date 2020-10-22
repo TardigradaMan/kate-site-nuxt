@@ -431,8 +431,6 @@ export default {
 
   &__list {
     display: grid;
-
-    /* grid-template-rows / grid-template-columns values */
     grid-template: 1fr 1fr/ 1fr 1fr 1fr;
     gap: 20px;
     list-style: none;
@@ -441,6 +439,7 @@ export default {
     margin-top: 40px;
     position: relative;
     z-index: 3;
+    // max-width: 60%;
 
     @media (max-width: $lg-width-max) {
       // CSS для ширины от 992px до 1199px */
@@ -509,7 +508,7 @@ export default {
         // CSS для ширины до 575px (включительно) */
         grid-row: 3/5;
         grid-column: 1/2;
-        min-width: 260px;
+        min-width: 240px;
         justify-self: auto;
       }
     }

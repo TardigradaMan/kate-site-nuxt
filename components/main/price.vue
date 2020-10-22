@@ -347,10 +347,17 @@ export default {
       font-size: 30px;
       text-transform: uppercase;
       font-family: 'Rubik Mono One', sans-serif;
-      // color: inherit;
-
-      // тень
       text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.5), 0 1px 1px #444;
+
+      @media (max-width: $lg-width-max) {
+        // CSS для ширины от 992px до 1199px */
+        font-size: 26px;
+      }
+
+      @media (max-width: $md-width-max) {
+        // CSS для ширины от 768px до 991px */
+        font-size: 22px;
+      }
     }
   }
 }
@@ -432,6 +439,7 @@ export default {
     color: $bg-color;
     font-size: 1.25em;
     text-transform: uppercase;
+    padding: 0 10px;
 
     @media (max-width: $lg-width-max) {
       // CSS для ширины от 992px до 1199px */

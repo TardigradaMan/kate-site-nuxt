@@ -28,7 +28,7 @@ async function start() {
   // Listen the server
   app.listen(port, host, () => {
     consola.ready({
-      message: `Server listening on http://${host}:${port} and baseUrl: ${process.env.BASE_URL}`,
+      message: `Server listening on http://${host}:${port} and URL: ${process.env.BASE_URL}`,
       badge: true
     })
   })

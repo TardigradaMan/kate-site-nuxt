@@ -6,31 +6,26 @@
           Разработка веб приложений и сайтов для любых нужд
         </h1>
         <p class="head__subtitle">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint,
-          pariatur!
+          <!-- Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint,
+          pariatur! -->
         </p>
       </div>
     </section>
-    <section class="description">
+    <!-- <section class="description">
       <div class="wrapper">
         <h3>Тут описание</h3>
-        <app-canvas></app-canvas>
+       
       </div>
     </section>
     <section class="examples">
       <div class="wrapper">
         <h3>Тут пару примеров макетов</h3>
       </div>
-    </section>
+    </section> -->
   </div>
 </template>
 <script>
-import appCanvas from '~/components/main/canvas'
-export default {
-  components: {
-    appCanvas
-  }
-}
+export default {}
 </script>
 <style lang="scss" scoped>
 .head {

@@ -47,37 +47,23 @@ textarea {
       }
 
       @media (orientation: landscape) {
-        width: 85vmax;
+        width: 80vmax;
+        padding: 20px;
       }
     }
   }
 }
 
-// .form-social,
-// .info {
-//   & .agreement {
-//     color: $grey;
-//   }
-
-//   & .agreement__check + label::before {
-//     border: 1px solid $grey;
-//   }
-
-//   & .agreement__check:checked + label::before {
-//     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
-//   }
-// }
 .agreement {
-  & > a {
-    display: inline-block;
-  }
+  // & > a {
+  //   display: inline-block;
+  // }
 
   cursor: pointer;
-  text-align: left;
 
   &__wrapper {
     margin-bottom: 15px;
-    align-self: center;
+    align-items: center;
   }
 
   @media (max-width: $xs-width-max) {
@@ -151,7 +137,7 @@ textarea {
 .textarea {
   // min-width: 75%;
   box-sizing: border-box;
-  min-width: 100%;
+  width: 100%;
   height: 50px;
   padding-left: 8px;
   padding-right: 8px;
@@ -223,48 +209,6 @@ textarea {
 //   }
 // }
 
-.info {
-  & .form-small__group {
-    box-shadow: $shadow-out;
-    width: 30vw;
-    margin: 0 auto;
-    padding: 20px 5px;
-  }
-
-  & .input,
-  .textarea {
-    min-width: 25vw;
-    margin-bottom: 20px;
-  }
-
-  // & .agreement {
-  //   display: inline-block;
-  //   margin: 0 auto;
-  //   width: 25vw;
-  //   align-items: center;
-  //   align-self: center;
-  // }
-}
-
-// .agreement {
-//   & > a {
-//     display: inline-block;
-//   }
-
-//   cursor: pointer;
-//   text-align: left;
-
-//   &__wrapper {
-//     margin-bottom: 15px;
-//     align-self: center;
-//   }
-
-//   @media (max-width: $xs-width-max) {
-//     // CSS для ширины до 575px (включительно) */
-//     font-size: 0.8em;
-//   }
-// }
-
 .agreement__check {
   position: absolute;
   z-index: -1;
@@ -272,56 +216,16 @@ textarea {
 }
 
 .agreement__check + label {
-  display: inline-flex;
-  align-items: center;
+  // display: inline-flex;
+  // align-items: center;
   user-select: none;
 }
-
-// .form-social {
-//   & .agreement {
-//     color: $grey;
-//   }
-
-//   // & .agreement__check + label::before {
-//   //   border: 1px solid $grey;
-//   // }
-
-//   & .agreement__check:checked + label::before {
-//     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
-//   }
-// }
 
 .link-text {
   color: $blue;
   font-weight: bold;
   margin-left: 5px;
 }
-
-// .status {
-//   margin: 0;
-//   padding: 0;
-//   position: absolute;
-//   left: 0px;
-//   top: 0px;
-//   bottom: 0px;
-//   right: 0px;
-//   width: 100%;
-//   height: 100%;
-//   background-color: $bg-color;
-//   opacity: 0;
-//   transition: all ease 1s;
-//   & {
-//     opacity: 1;
-//     transition: all ease 1s;
-//   }
-//   &-error {
-//     display: block;
-//     color: #f57f6c;
-//     padding: 0;
-//     padding-top: 15px;
-//     margin: 0 auto;
-//   }
-// }
 
 .ok_title {
   padding: 0;

@@ -25,11 +25,54 @@ module.exports = {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      {
+        rel: 'apple-touch-icon',
+        sizes: '180x180',
+        href: '/apple-touch-icon.png'
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '32x32',
+        href: '/icon-32x32.png'
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '16x16',
+        href: '/icon-16x16.png'
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '192x192',
+        href: '/icon-192.png'
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '192x192',
+        href: '/icon-192.png'
+      },
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        sizes: '16x16',
+        href: '/icon-16x16.icon'
+      },
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        sizes: '32x32',
+        href: '/icon-32x32.icon'
+      }
+    ],
+
     script: [{}]
   },
   rootDir: __dirname, // Явно прописываем что считать корнем проекта при использовании абсолютных путей импорта.
-  serverMiddleware: [],
+
   // router: {
   //   // Отключаем дефолтный механизм Nuxt, который улучшает восприятие UI в некоторых случаях. Этот механизм подгружает страницу как только ссылка на неё попадает в область видимости окна браузера.
   //   prefetchLinks: false
@@ -112,6 +155,7 @@ module.exports = {
     },
     timeout: 5000
   },
+
   styleResources: {
     scss: ['@/assets/style/lib.scss']
   },

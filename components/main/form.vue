@@ -258,6 +258,7 @@ export default {
     box-shadow: -1px -8px 20px #494c52, 8px 8px 30px #101316,
       -1px -1px 60px rgba(33, 39, 44, 0.01);
     transition: all ease-in-out 0.2s;
+    font-family: 'Roboto-Regular', sans-serif;
 
     &:hover,
     :focus {

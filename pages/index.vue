@@ -23,45 +23,24 @@
           <span style="display: block;">Ну или хотя-бы стране, курсивым</span> -->
         </div>
         <div ref="imgTitle" class="page-title__container">
-          <!-- <picture>
+          <picture>
             <source
               type="image/webp"
               srcset="
-                ~assets/img/bg_home.webp    1x,
-                ~assets/img/bg_home@2x.webp 2x
+                ~assets/img/bg_home_v2.webp    1x,
+                ~assets/img/bg_home_v2@2x.webp 2x
               "
-            />
-            <source
-              type="image/webp"
-              srcset="
-                ~assets/img/bg_home-none.webp 1x,
-                ~assets/img/bg_home-none.webp 2x
-              "
-              media="(max-width: 991px)"
-            />
-            <source
-              srcset="
-                assets/img/bg_home-none.jpg 1x,
-                assets/img/bg_home-none.jpg 2x
-              "
-              media="(max-width: 991px)"
             />
             <img
-              src="~assets/img/bg_home.jpg"
-              srcset="~assets/img/bg_home.jpg 1x, ~assets/img/bg_home@2x.jpg 2x"
+              src="~assets/img/bg_home_v2.jpg"
+              srcset="
+                ~assets/img/bg_home_v2.jpg    1x,
+                ~assets/img/bg_home_v2@2x.jpg 2x
+              "
               alt="Заказать рекламу в Яндекс и Google"
               class="page-title__img"
             />
-          </picture> -->
-          <img
-            src="~assets/img/bg_home_v2.jpg"
-            srcset="
-              ~assets/img/bg_home_v2.jpg    1x,
-              ~assets/img/bg_home_v2@2x.jpg 2x
-            "
-            alt="Заказать рекламу в Яндекс и Google"
-            class="page-title__img"
-          />
+          </picture>
         </div>
       </div>
 
@@ -94,8 +73,10 @@
         <nuxt-link to="/webdevelopment">
           <div ref="linkWeb" class="link__web">
             <div class="link__header">
-              <h1 class="link__title title-decor">Web разработка</h1>
-              <strong class="link__header-subtitle">Vue, JS и все дела</strong>
+              <h1 class="link__title title-decor">Разработка Landing Page</h1>
+              <strong class="link__header-subtitle"
+                >Дизайн, верстка, загрузка на хостинг</strong
+              >
             </div>
             <div class="image-container image-container__web"></div>
           </div>

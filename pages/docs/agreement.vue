@@ -26,7 +26,7 @@
               Настоящая политика Оператора в отношении обработки персональных
               данных (далее – Политика) применяется ко всей информации, которую
               Оператор может получить о посетителях веб-сайта
-              https://libertyadgroup.ru
+              https://promotion-team.ru
             </li>
           </ol>
         </li>
@@ -47,7 +47,7 @@
             <li class="agree__subitem">
               Веб-сайт – совокупность графических и информационных материалов, а
               также программ для ЭВМ и баз данных, обеспечивающих их доступность
-              в сети интернет по сетевому адресу https://libertyadgroup.ru;
+              в сети интернет по сетевому адресу https://promotion-team.ru;
             </li>
             <li class="agree__subitem">
               Информационная система персональных данных — совокупность
@@ -81,11 +81,11 @@
             <li class="agree__subitem">
               Персональные данные – любая информация, относящаяся прямо или
               косвенно к определенному или определяемому Пользователю веб-сайта
-              https://libertyadgroup.ru;
+              https://promotion-team.ru;
             </li>
             <li class="agree__subitem">
               Пользователь – любой посетитель веб-сайта
-              https://libertyadgroup.ru;
+              https://promotion-team.ru;
             </li>
             <li class="agree__subitem">
               Предоставление персональных данных – действия, направленные на
@@ -177,7 +177,7 @@
               Оператор обрабатывает персональные данные Пользователя только в
               случае их заполнения и/или отправки Пользователем самостоятельно
               через специальные формы, расположенные на сайте
-              https://libertyadgroup.ru. Заполняя соответствующие формы и/или
+              https://promotion-team.ru. Заполняя соответствующие формы и/или
               отправляя свои персональные данные Оператору, Пользователь
               выражает свое согласие с данной Политикой.
             </li>
@@ -263,7 +263,7 @@
             </li>
             <li class="agree__subitem">
               Актуальная версия Политики в свободном доступе расположена в сети
-              Интернет по адресу https://libertyadgroup.ru/docs/agreement
+              Интернет по адресу https://promotion-team.ru/docs/agreement
             </li>
           </ol>
         </li>
@@ -280,12 +280,56 @@ export default {}
 .agree {
   padding: 50px;
 
+  @media (max-width: $md-width-max) {
+    // CSS для ширины от 768px до 991px */
+    padding: 15px;
+  }
+
+  @media (max-width: $xs-width-max) {
+    // CSS для ширины до 575px (включительно) */
+    padding: 5px;
+  }
+
   &__title {
     text-align: center;
   }
 
+  &__list {
+    @media (max-width: $md-width-max) {
+      // CSS для ширины от 768px до 991px */
+      padding: 10px;
+    }
+
+    // @media (max-width: $xs-width-max) {
+    //   // CSS для ширины до 575px (включительно) */
+    //   padding: 5px;
+    // }
+  }
+
+  &__sublist {
+    @media (max-width: $md-width-max) {
+      // CSS для ширины от 768px до 991px */
+      padding: 25px;
+    }
+
+    @media (max-width: $xs-width-max) {
+      // CSS для ширины до 575px (включительно) */
+      padding: 15px;
+    }
+  }
+
   &__subitem {
     line-height: 22px;
+
+    @media (max-width: $md-width-max) {
+      // CSS для ширины от 768px до 991px */
+      padding: 5px;
+    }
+
+    @media (max-width: $xs-width-max) {
+      // CSS для ширины до 575px (включительно) */
+      padding: 5px;
+    }
   }
 }
 </style>

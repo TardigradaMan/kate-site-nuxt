@@ -18,17 +18,12 @@
         </li>
         <li class="main-nav__item">
           <nuxt-link class="main-nav__link" to="/webdevelopment"
-            >Разработка сайтов</nuxt-link
+            >Разработка landing page</nuxt-link
           >
         </li>
         <li class="main-nav__item">
           <nuxt-link class="main-nav__link" to="/contact"
             >Форма обратной связи</nuxt-link
-          >
-        </li>
-        <li class="main-nav__item">
-          <nuxt-link class="main-nav__link link-test2" to="/admin"
-            >Админ</nuxt-link
           >
         </li>
       </ul>
@@ -37,22 +32,9 @@
 </template>
 <script>
 export default {
-  // props: {
-  //   showMenu: {
-  //     type: Boolean,
-  //     required: true
-  //   }
-  // },
   data() {
     return {}
   },
-  // watch: {
-  //   $route() {
-  //     // const nav = this.$refs.nav.classList
-  //     // nav.remove('open')
-  //     console.log('Переход')
-  //   }
-  // },
 
   methods: {
     openNav() {},
@@ -64,17 +46,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .main-nav {
-  // position: fixed;
-  // top: 0;
-  // left: 0;
-  // height: 100vh;
-
-  // background: rgba(25, 25, 25, 0.9);
-  // z-index: 100;
-  // top: 0;
-  // left: 0;
-  // text-align: center;
-  // width: 100%;
   position: relative;
   width: 100%;
   height: 100%;

@@ -125,7 +125,7 @@ module.exports = {
   ],
 
   sitemap: {
-    // hostname: 'https://example.com',
+    hostname: 'https://promotion-team.ru',
     gzip: true,
     exclude: ['/admin', '/admin/**'],
     defaults: {
@@ -135,7 +135,6 @@ module.exports = {
     }
   },
   axios: {
-    // baseURL: process.env.BASE_URL || 'http://localhost:3000'
     proxy: true
   },
 
@@ -157,6 +156,7 @@ module.exports = {
   },
 
   styleResources: {
+    /*  Подключив файл со стилями он будет добавлен к каждому компоненту */
     scss: ['@/assets/style/lib.scss']
   },
   render: {

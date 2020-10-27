@@ -66,7 +66,7 @@
           <div v-if="submitStatus === 'OK'" class="status ok">
             <div class="ok_title">
               <h3>Спасибо за заявку!</h3>
-              <p>Мы свяжемся с вами в течении 20 минут</p>
+              <p>Мы свяжемся с вами в течении 1 часа</p>
             </div>
           </div>
         </transition>

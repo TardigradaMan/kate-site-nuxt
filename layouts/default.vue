@@ -367,37 +367,4 @@ main {
   height: 100vh;
   z-index: 1000;
 }
-
-// Анимация появления блока кнопок вызова инфо
-
-// .toggle-enter-active {
-//   // продолжительность появления
-//   transition: all 0.3s ease;
-// }
-// .toggle-leave-active {
-//   // продолжительность исчезновения
-//   transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
-// }
-// .toggle-enter,
-// .toggle-leave-to {
-//   transform: translateX(100vw);
-// }
-// .toggle-enter-to {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100vh;
-
-//   z-index: 1000;
-//   // transform: translateX(0vw);
-// }
-// .toggle-leave-to {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100vh;
-//   z-index: 1000;
-// }
 </style>

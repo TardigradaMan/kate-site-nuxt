@@ -26,6 +26,11 @@
             >Форма обратной связи</nuxt-link
           >
         </li>
+        <li class="main-nav__item">
+          <nuxt-link class="main-nav__link" to="/docs/agreement"
+            >Политика конфиденциальности</nuxt-link
+          >
+        </li>
       </ul>
     </nav>
   </div>

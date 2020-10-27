@@ -50,31 +50,37 @@ export default {
     }
   },
   created() {
-    /*  if (!this.getGDPR() === true) {
-      this.isOpen = true;
-    } */
-
-    if (this.getGDPR() === 'false' || this.getGDPR() === null) {
-      console.log(`created into and ${this.isOpen}`)
+    if (this.getGDPR() === false) {
       this.isOpen = true
     }
   },
   methods: {
     getGDPR() {
       if (process.browser) {
-        return localStorage.getItem('GDPR:accepted', true)
+        const statusAccepted = JSON.parse(localStorage.getItem('GDPR:accepted'))
+
+        if (localStorage.getItem('GDPR:accepted')) {
+          return statusAccepted.status
+        }
+        const gtmDeny = JSON.stringify({ status: false })
+        localStorage.setItem('GDPR:accepted', gtmDeny)
+
+        return statusAccepted.status
       }
     },
     accept() {
       if (process.browser) {
         this.isOpen = false
-        localStorage.setItem('GDPR:accepted', true)
+        const gtmAccept = JSON.stringify({ status: true })
+        localStorage.setItem('GDPR:accepted', gtmAccept)
+        this.$gtm.init('GTM-K2C8TPW')
       }
     },
     deny() {
       if (process.browser) {
         this.isOpen = false
-        localStorage.setItem('GDPR:accepted', false)
+        const gtmDeny = JSON.stringify({ status: false })
+        localStorage.setItem('GDPR:accepted', gtmDeny)
       }
     }
   }
@@ -94,6 +100,12 @@ export default {
   border-radius: 5px;
   box-shadow: $shadow-block;
   font-size: 14px;
+
+  @media (max-width: $xs-width-max) {
+    // CSS для ширины до 575px (включительно) */
+    width: 280px;
+    right: 10px;
+  }
 
   &__link {
     color: $blue;

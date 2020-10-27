@@ -18,11 +18,22 @@ module.exports = {
     },
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        name: 'viewport',
+        content:
+          'width=device-width, initial-scale=1, minimum-scale=1.0,maximum-scale=1.0'
+      },
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
+        content:
+          'Реклама и продвижение в интернете. Настройка контекстной и таргетированной рекламы, SMM-продвижение. Разработка сайтов.'
+      },
+      {
+        hid: 'keywords',
+        name: 'keywords',
+        content:
+          'заказать сайт, таргетированная реклама, контекстная реклама, landing page, лендинг пейдж, смм продвижение, заказать контекстную рекламу, настроить контекстную рекламу'
       }
     ],
     link: [
@@ -59,13 +70,13 @@ module.exports = {
         rel: 'icon',
         type: 'image/x-icon',
         sizes: '16x16',
-        href: '/icon-16x16.icon'
+        href: '/icon-16x16.ico'
       },
       {
         rel: 'icon',
         type: 'image/x-icon',
         sizes: '32x32',
-        href: '/icon-32x32.icon'
+        href: '/icon-32x32.ico'
       }
     ],
 
@@ -97,11 +108,12 @@ module.exports = {
     '@/plugins/axios',
     '@/plugins/vuelidate',
     '@/plugins/gsap',
-    '@/plugins/papper',
     { src: '@/plugins/vue-awesome-swiper', mode: 'client' },
     '@/plugins/mask',
     { src: '@/plugins/modernizr-plugin', mode: 'client' },
-    { src: '@/plugins/google-analytics.js', mode: 'client' }
+    { src: '@/plugins/gtm', mode: 'client' }
+    // '@/plugins/gtm'
+    // { src: '@/plugins/google-analytics.js', mode: 'client' }
   ],
   /*
    ** Nuxt.js dev-modules
@@ -119,10 +131,35 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
-    'nuxt-webfontloader',
+    // 'nuxt-webfontloader',
     '@nuxtjs/proxy',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    '@nuxtjs/gtm'
   ],
+
+  gtm: {
+    enabled: undefined /* see below */,
+    // enabled: true,
+    debug: false,
+    autoInit: false,
+
+    id: 'GTM-K2C8TPW',
+    layer: 'dataLayer',
+    variables: {},
+
+    pageTracking: false,
+    pageViewEventName: 'nuxtRoute',
+
+    respectDoNotTrack: true,
+
+    scriptId: 'gtm-script',
+    scriptDefer: false,
+    scriptURL: 'https://www.googletagmanager.com/gtm.js',
+
+    noscript: true,
+    noscriptId: 'gtm-noscript',
+    noscriptURL: 'https://www.googletagmanager.com/ns.html'
+  },
 
   sitemap: {
     hostname: 'https://promotion-team.ru',
@@ -138,6 +175,8 @@ module.exports = {
     proxy: true
   },
 
+  // hallo
+
   proxy: {
     '/api/': {
       target: 'http://localhost:3000' || process.env.BASE_URL
@@ -147,13 +186,15 @@ module.exports = {
     }
   },
 
-  webfontloader: {
-    events: false,
-    google: {
-      families: ['Montserrat:400,500,600:cyrillic&display=swap']
-    },
-    timeout: 5000
-  },
+  // webfontloader: {
+  //   events: false,
+  //   google: {
+  //     // families: ['Montserrat:400,500,600:cyrillic&display=swap']
+  //     families: ['Raleway:600&display=swap"']
+  //     // families: ['Roboto+Condensed&display=swap']
+  //   },
+  //   timeout: 5000
+  // },
 
   styleResources: {
     /*  Подключив файл со стилями он будет добавлен к каждому компоненту */
@@ -222,7 +263,7 @@ module.exports = {
       extractCSS: true
     }),
 
-    transpile: ['vue-lazy-hydration', 'intersection-observer', 'gsap'],
+    transpile: ['intersection-observer', 'gsap'],
 
     postcss: {
       plugins: {

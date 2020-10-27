@@ -66,7 +66,7 @@
         </div>
       </div>
       <button @click="closeInfo" class="info__button--close">
-        Закрыть это
+        Закрыть
       </button>
       <div class="info-title">
         <span>Контакты</span>
@@ -188,6 +188,11 @@ export default {
       // тень
       text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.315),
         0 -1px 1px rgba(0, 0, 0, 0.836);
+
+      @media (max-width: $xs-width-max) {
+        // CSS для ширины до 575px (включительно) */
+        font-size: 40px;
+      }
     }
   }
 
@@ -207,26 +212,26 @@ export default {
   //
   position: absolute;
   top: 50%;
-  left: calc(70% - 25px);
+  left: calc(70% - 27px);
   transform-origin: top left;
   transform: rotate(270deg) translateX(-50%);
   z-index: 100;
   //
 
-  padding: 8px 8px;
+  padding: 8px 10px;
   border-radius: 10px 10px 0 0;
   border: none;
   width: 150px;
   background: $red;
   color: #eee;
   text-transform: uppercase;
-  font-size: 0.8em;
+  font-size: 0.9em;
   outline: none;
   outline-offset: 0;
 
   @media (max-width: $lg-width-max) {
     // CSS для ширины от 992px до 1199px */
-    left: calc(60% - 25px);
+    left: calc(60% - 27px);
   }
 
   @media (max-width: $md-width-max) {
@@ -235,18 +240,18 @@ export default {
 
   @media (max-width: $sm-width-max) {
     // CSS для ширины от 576px до 767px */
-    left: calc(40% - 25px);
+    left: calc(40% - 27px);
   }
 
   @media (max-width: $xs-width-max) {
     // CSS для ширины до 575px (включительно) */
-    left: calc(20% - 25px);
+    left: calc(20% - 27px);
   }
 
   &:hover,
   :active {
     cursor: pointer;
-    opacity: 0.7;
+    color: rgb(128, 128, 128);
   }
 }
 
@@ -271,6 +276,11 @@ export default {
     list-style: none;
     padding-left: 70px;
     margin: 0;
+
+    @media (max-width: $xs-width-max) {
+      // CSS для ширины до 575px (включительно) */
+      padding-left: 42px;
+    }
   }
 
   &__item {
@@ -295,6 +305,12 @@ export default {
 .item__contact {
   margin-left: 25px;
   font-size: 1.2em;
+
+  @media (max-width: $xs-width-max) {
+    // CSS для ширины до 575px (включительно) */
+    margin-left: 10px;
+    font-size: 1em;
+  }
 }
 
 .icon {

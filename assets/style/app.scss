@@ -8,7 +8,7 @@
   font-family: 'Roboto-Regular';
   src: url('../fonts/Roboto/RobotoCondensed-Regular.woff2') format('woff2'),
     url('../fonts/Roboto/RobotoCondensed-Regular.woff') format('woff');
-  font-display: auto;
+  font-display: swap;
   font-weight: 400;
   font-style: normal;
 }
@@ -17,7 +17,7 @@
   font-family: 'Roboto-Bold';
   src: url('../fonts/Roboto/RobotoCondensed-Bold.woff2') format('woff2'),
     url('../fonts/Roboto/RobotoCondensed-Bold.woff') format('woff');
-  font-display: auto;
+  font-display: swap;
   font-weight: 700;
   font-style: normal;
 }
@@ -26,7 +26,7 @@
   font-family: 'Roboto-Italic';
   src: url('../fonts/Roboto/RobotoCondensed-Italic.woff2') format('woff2'),
     url('../fonts/Roboto/RobotoCondensed-Italic.woff') format('woff');
-  font-display: auto;
+  font-display: swap;
   // font-weight: 00;
   // font-style: italic;
 }
@@ -36,7 +36,7 @@
   src: url('../fonts/Roboto/RobotoCondensed-LightItalic.woff2') format('woff2'),
     url('../fonts/Roboto/RobotoCondensed-LightItalic.woff') format('woff');
   font-weight: 300;
-  font-display: auto;
+  font-display: swap;
   font-style: italic;
 }
 
@@ -53,7 +53,7 @@
   font-family: 'Oswald-Medium';
   src: url('../fonts/Oswald/Oswald-Medium.woff2') format('woff2'),
     url('../fonts/Oswald/Oswald-Medium.woff') format('woff');
-  font-display: auto;
+  font-display: swap;
   font-weight: 500;
   font-style: normal;
 }

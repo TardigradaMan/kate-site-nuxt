@@ -10,17 +10,15 @@
             <nuxt-link class="cookie__link" to="/docs/agreement"
               >Политика конфиденциальности.</nuxt-link
             >
-            Нажмите кнопку «Принять», чтобы улучшить работу пользователей в
-            нашем приложении.
           </slot>
         </div>
         <div class="cookie__button">
           <button @click="accept" class="button cookie__button--aceept">
             {{ buttonTextAccept }}
           </button>
-          <button @click="deny" class="button cookie__button--deny">
+          <!-- <button @click="deny" class="button cookie__button--deny">
             {{ buttonTextDeny }}
-          </button>
+          </button> -->
         </div>
       </div>
     </div>
@@ -32,7 +30,7 @@ export default {
   props: {
     buttonTextAccept: {
       type: String,
-      default: 'Принять'
+      default: 'Ясно'
     },
     buttonTextDeny: {
       type: String,
@@ -50,6 +48,7 @@ export default {
     }
   },
   created() {
+    this.getGDPR()
     if (this.getGDPR() === false) {
       this.isOpen = true
     }
@@ -57,22 +56,24 @@ export default {
   methods: {
     getGDPR() {
       if (process.browser) {
-        const statusAccepted = JSON.parse(localStorage.getItem('GDPR:accepted'))
+        const statusAccepted = JSON.parse(
+          localStorage.getItem('Cookie:accepted')
+        )
 
-        if (localStorage.getItem('GDPR:accepted')) {
+        if (localStorage.getItem('Cookie:accepted')) {
           return statusAccepted.status
         }
         const gtmDeny = JSON.stringify({ status: false })
-        localStorage.setItem('GDPR:accepted', gtmDeny)
+        localStorage.setItem('Cookie:accepted', gtmDeny)
 
-        return statusAccepted.status
+        return statusAccepted
       }
     },
     accept() {
       if (process.browser) {
         this.isOpen = false
         const gtmAccept = JSON.stringify({ status: true })
-        localStorage.setItem('GDPR:accepted', gtmAccept)
+        localStorage.setItem('Cookie:accepted', gtmAccept)
         this.$gtm.init('GTM-K2C8TPW')
       }
     },
@@ -80,7 +81,7 @@ export default {
       if (process.browser) {
         this.isOpen = false
         const gtmDeny = JSON.stringify({ status: false })
-        localStorage.setItem('GDPR:accepted', gtmDeny)
+        localStorage.setItem('Cookie:accepted', gtmDeny)
       }
     }
   }
@@ -119,6 +120,7 @@ export default {
 
   &__button {
     padding-top: 10px;
+    text-align: right;
 
     &--aceept,
     &--deny {

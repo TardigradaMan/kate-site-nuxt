@@ -110,8 +110,8 @@ module.exports = {
     '@/plugins/gsap',
     { src: '@/plugins/vue-awesome-swiper', mode: 'client' },
     '@/plugins/mask',
-    { src: '@/plugins/modernizr-plugin', mode: 'client' },
-    { src: '@/plugins/gtm', mode: 'client' }
+    { src: '@/plugins/modernizr-plugin', mode: 'client' }
+    // { src: '@/plugins/gtm', mode: 'client' }
     // '@/plugins/gtm'
     // { src: '@/plugins/google-analytics.js', mode: 'client' }
   ],
@@ -135,19 +135,29 @@ module.exports = {
     '@nuxtjs/proxy',
     '@nuxtjs/sitemap',
     '@nuxtjs/gtm'
+    // '@nuxtjs/yandex-metrika'
   ],
+
+  // yandexMetrika: {
+  //   id: '68720881',
+  //   webvisor: true
+  //   // triggerEvent: true
+  //   // clickmap:true,
+  //   // useCDN:false,
+  //   // trackLinks:true,
+  //   // accurateTrackBounce:true,
+  // },
 
   gtm: {
     enabled: undefined /* see below */,
-    // enabled: true,
     debug: false,
-    autoInit: false,
+    autoInit: true,
 
     id: 'GTM-K2C8TPW',
     layer: 'dataLayer',
     variables: {},
 
-    pageTracking: false,
+    pageTracking: true,
     pageViewEventName: 'nuxtRoute',
 
     respectDoNotTrack: true,

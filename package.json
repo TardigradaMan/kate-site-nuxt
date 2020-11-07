@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.2",
+    "@nuxtjs/gtm": "^2.3.2",
     "@nuxtjs/proxy": "^2.0.1",
     "@nuxtjs/sitemap": "^2.4.0",
     "@nuxtjs/style-resources": "^1.0.0",

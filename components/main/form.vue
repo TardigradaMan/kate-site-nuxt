@@ -142,6 +142,9 @@ export default {
         this.$emit('deleteMessageInForm')
       }
     },
+    sendYAGoal() {
+      window.ym(68720881, 'reachGoal', 'sent_form')
+    },
     async onSubmit() {
       this.$v.$touch()
       if (this.$v.$invalid) {
@@ -159,16 +162,15 @@ export default {
             page: this.contactForm.page
           }
 
-          //
-          // await console.log(formData)
+          await console.log(formData.name)
 
-          //
-
-          await this.$store.dispatch('applications/create', formData)
-          await this.$store.dispatch('applications/sendBotTelegram', formData)
+          // await this.$store.dispatch('applications/create', formData)
+          // await this.$store.dispatch('applications/sendBotTelegram', formData)
 
           this.submitStatus = 'PENDING'
           this.submitStatus = 'OK'
+
+          //
           setTimeout(
             function() {
               this.submitStatus = null
@@ -176,7 +178,12 @@ export default {
             4000
           )
           this.$v.$reset()
-
+          // YA metrika
+          this.sendYAGoal()
+          //
+          // GTM
+          this.$gtm.push({ event: 'submit_form' })
+          //
           this.contactForm.name = ''
           this.contactForm.phone = ''
           this.contactForm.email = ''

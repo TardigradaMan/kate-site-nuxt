@@ -54,7 +54,10 @@ export default {
     return {
       title: 'Реклама и продвижение в интернете',
       link: [
-        { rel: 'canonical', href: `http://localhost:3000${this.$route.path}` }
+        {
+          rel: 'canonical',
+          href: `https://promotion-team.ru${this.$route.path}`
+        }
       ]
     }
   },

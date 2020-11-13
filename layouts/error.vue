@@ -8,7 +8,12 @@
 
 <script>
 export default {
-  layout: 'error'
+  layout: 'error',
+  head() {
+    return {
+      title: 'Ошибочка'
+    }
+  }
 }
 </script>
 
@@ -32,6 +37,7 @@ export default {
   color: $grey;
   padding-top: 20px;
   font-size: 1em;
+  font-weight: bold;
 }
 
 .webp .page-error {

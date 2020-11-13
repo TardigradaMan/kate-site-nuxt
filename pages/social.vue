@@ -107,19 +107,19 @@
             Ведение сообществ
           </template>
           <template v-slot:price-min>
-            от 7 000
+            от 7 000 &#x20bd;
           </template>
           <template v-slot:title-mid>
             Ведение сообществ и реклама
           </template>
           <template v-slot:price-mid>
-            от 10 000
+            от 10 000 &#x20bd;
           </template>
           <template v-slot:title-max>
             Таргетированная реклама
           </template>
           <template v-slot:price-max>
-            от 3000*
+            от 3000* &#x20bd;
           </template>
         </app-price>
         <div class="price-block__info">

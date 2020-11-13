@@ -10,9 +10,7 @@
               <h3 class="card__title">
                 <slot name="title-min"></slot>
               </h3>
-              <span class="card__price">
-                <slot name="price-min"></slot> &#x20bd;</span
-              >
+              <span class="card__price"> <slot name="price-min"></slot></span>
             </div>
             <button
               @click="$emit('set-tariff', listMessagesTariff.min)"
@@ -40,9 +38,7 @@
             <div class="card__header bg-2">
               <!-- <p class="card__description">Оптимум</p> -->
               <h3 class="card__title"><slot name="title-mid"></slot></h3>
-              <span class="card__price">
-                <slot name="price-mid"></slot>&#x20bd;</span
-              >
+              <span class="card__price"> <slot name="price-mid"></slot></span>
             </div>
             <button
               @click="$emit('set-tariff', listMessagesTariff.middle)"
@@ -72,9 +68,7 @@
               <h3 class="card__title">
                 <slot name="title-max"></slot>
               </h3>
-              <span class="card__price">
-                <slot name="price-max"></slot> &#x20bd;</span
-              >
+              <span class="card__price"> <slot name="price-max"></slot></span>
             </div>
             <button
               @click="$emit('set-tariff', listMessagesTariff.max)"

@@ -160,19 +160,19 @@
             Google Реклама
           </template>
           <template v-slot:price-min>
-            8 000
+            <!-- 8 000 -->
           </template>
           <template v-slot:title-mid>
             Яндекс Директ и <br />Google Реклама
           </template>
           <template v-slot:price-mid>
-            14 000
+            <!-- 14 000 -->
           </template>
           <template v-slot:title-max>
             Яндекс Директ и Google Реклама + landing page
           </template>
           <template v-slot:price-max>
-            28 000
+            <!-- 28 000 -->
           </template>
         </app-price>
       </div>
